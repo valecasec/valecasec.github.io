@@ -771,7 +771,7 @@ httpbin<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <h4 id="2-3、awk"><a href="#2-3、awk" class="headerlink" title="2.3、awk"></a>2.3、awk</h4><p>​        awk命令比较复杂，这里只说与本文有关内容。</p>
 <p>​        这里使用例子：<code>awk -F " " '{print $NF}'</code>，将前面的输出作为输入进行处理，使用” “（空格）作为分割符，打印最后一列，其中 <code>$NF</code> 代表最后一列，<code>$1</code> 代表第一列，依次往后推</p>
 <h4 id="2-4、sed"><a href="#2-4、sed" class="headerlink" title="2.4、sed"></a>2.4、sed</h4><p>​        sed命令比较复杂，这里只说与本文有关内容。</p>
-<p>​        这里使用例子 <code>sed  $'s/\"//g'</code> ，这里<code>s/</code>代表搜索，<code>\</code> 表示转义，也就是说将 <code>"</code> （双引号）进行转移，然后<code>/</code>表示格式，<code>/g</code>表示全局搜索，而两个<code>/</code>中间没有内容表示空，所以整个语句的意思就是说把双引号去除。 </p>
+<p>​        这里使用例子 <code>sed  $'s/\"//g'</code> ，这里<code>s/</code>代表搜索，<code>\</code> 表示转义，也就是说将 <code>"</code> （双引号）进行转义，然后<code>/</code>表示格式，<code>/g</code>表示全局搜索，而两个<code>/</code>中间没有内容表示空，所以整个语句的意思就是说把双引号去除。 </p>
 <h4 id="2-5、cut"><a href="#2-5、cut" class="headerlink" title="2.5、cut"></a>2.5、cut</h4><p>​        cut 命令从文件的每一行剪切字节、字符和字段并将这些字节、字符和字段写至标准输出。</p>
 <p>​        这里使用例子：<code>cut -b 3-12"</code> ，<code>-b</code>  表示以字节为单位进行分割。输出第3个到第12个中间的内容</p>
 <h3 id="3、Python常用库"><a href="#3、Python常用库" class="headerlink" title="3、Python常用库"></a>3、Python常用库</h3><h4 id="3-1、subprocess"><a href="#3-1、subprocess" class="headerlink" title="3.1、subprocess"></a>3.1、subprocess</h4><p>​        subprocess模块中的 <code>getoutput</code> 这个函数可以接受Linux命令执行后返回的结果。</p>
