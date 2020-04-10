@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-04-09T00:59:32.623Z</updated>
+  <updated>2020-04-10T12:55:46.646Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python_UUID</title>
+    <link href="https://valecasec.github.io/2020/04/10/python-uuid/"/>
+    <id>https://valecasec.github.io/2020/04/10/python-uuid/</id>
+    <published>2020-04-10T11:11:53.000Z</published>
+    <updated>2020-04-10T12:55:46.646Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Python-UUID-通用唯一识别码&quot;&gt;&lt;a href=&quot;#Python-UUID-通用唯一识别码&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="https://valecasec.github.io/categories/Python/"/>
+    
+    
+      <category term="Python" scheme="https://valecasec.github.io/tags/Python/"/>
+    
+      <category term="UUID" scheme="https://valecasec.github.io/tags/UUID/"/>
+    
+  </entry>
   
   <entry>
     <title>Python3实现Docker基本管理</title>
