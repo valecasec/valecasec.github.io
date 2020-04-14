@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Emergency_Response-WannaMine4.0, Python">
+    <meta name="keywords" content="Windows下数通环境搭建, Python">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Emergency_Response-WannaMine4.0 | valecalida&#39;s house</title>
+    <title>Windows下数通环境搭建 | valecalida&#39;s house</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -307,12 +307,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/04/14/GzkhB4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/04/14/Jp8pjg.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Emergency_Response-WannaMine4.0</h1>
+                    <h1 class="description center-align post-title">Windows下数通环境搭建</h1>
                 </div>
             </div>
         </div>
@@ -437,12 +437,24 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Emergency-Response/">
-                                <span class="chip bg-color">Emergency_Response</span>
+                            <a href="/tags/H3C/">
+                                <span class="chip bg-color">H3C</span>
                             </a>
                         
-                            <a href="/tags/WannaMine4-0/">
-                                <span class="chip bg-color">WannaMine4.0</span>
+                            <a href="/tags/eNSP/">
+                                <span class="chip bg-color">eNSP</span>
+                            </a>
+                        
+                            <a href="/tags/Secure-CRT/">
+                                <span class="chip bg-color">Secure CRT</span>
+                            </a>
+                        
+                            <a href="/tags/Wireshark/">
+                                <span class="chip bg-color">Wireshark</span>
+                            </a>
+                        
+                            <a href="/tags/VirtualBox/">
+                                <span class="chip bg-color">VirtualBox</span>
                             </a>
                         
                     </div>
@@ -453,8 +465,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Emergency-Response/" class="post-category">
-                                Emergency_Response
+                            <a href="/categories/Switching%E3%80%81Routing/" class="post-category">
+                                Switching、Routing
                             </a>
                         
                     </div>
@@ -483,72 +495,194 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Emergency-Response-WannaMine4-0"><a href="#Emergency-Response-WannaMine4-0" class="headerlink" title="Emergency_Response-WannaMine4.0"></a>Emergency_Response-WannaMine4.0</h1><h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>​        最近在学应急响应，于是找到了 <code>WannaMine4.0</code> 的虚拟机环境，利用工具 <code>ProcessHacker</code> , <code>PCHunter</code> 对虚拟机环境进行分析，本次应急响应主要获取的内容如下：</p>
+                <h1 id="Windows下数通环境搭建"><a href="#Windows下数通环境搭建" class="headerlink" title="Windows下数通环境搭建"></a>Windows下数通环境搭建</h1><h2 id="一、博客简介及预备软件"><a href="#一、博客简介及预备软件" class="headerlink" title="一、博客简介及预备软件"></a>一、博客简介及预备软件</h2><p>​        计算机网络技术的小伙伴们会用到H3C、eNSP、Cisco Packet Tracer、VirtualBox、Wireshark、WinPcap等数通类软件，但是也有很多小伙伴因为各个版本的问题导致环境搭不好，所以在这写一篇博客记录一下全环境的搭建。本文环境全部基于虚拟机搭建（因为我内存大？CPU强？），因为我真机已经都装了，不想重新搞，啊哈哈哈哈，总而言之，这是篇水文。</p>
+<p>​        预备软件及版本如下：</p>
 <ul>
-<li>矿池域名</li>
-<li>恶意文件存放目录</li>
-<li>恶意启动项或服务或计划任务名字</li>
+<li>eNSP（1.3.00.100 V100R003C00SPC100）</li>
+<li>HCL（HCL2.1.0）</li>
+<li>Wireshark（3.0.3）</li>
+<li>VirtualBox（5.1.28）</li>
+<li>WinPcap（4.1.3）</li>
+<li>Secure CRT（8.5）</li>
 </ul>
-<p>Tips：由于环境比较老、不够完善，而且站点已经关闭了，所以文章内容、图片质量可能会有所…</p>
-<h2 id="二、项目过程"><a href="#二、项目过程" class="headerlink" title="二、项目过程"></a>二、项目过程</h2><h3 id="1、虚拟机网络设置"><a href="#1、虚拟机网络设置" class="headerlink" title="1、虚拟机网络设置"></a>1、虚拟机网络设置</h3><p>​        将网络设置为仅主机</p>
-<h3 id="2、病毒现象"><a href="#2、病毒现象" class="headerlink" title="2、病毒现象"></a>2、病毒现象</h3><h4 id="2-1、服务器CPU占用率高"><a href="#2-1、服务器CPU占用率高" class="headerlink" title="2.1、服务器CPU占用率高"></a>2.1、服务器CPU占用率高</h4><img src="https://s1.ax1x.com/2020/04/14/Gzl9cd.png">
+<h2 id="二、环境搭建"><a href="#二、环境搭建" class="headerlink" title="二、环境搭建"></a>二、环境搭建</h2><p>​        本次环境搭建顺序如下：Wireshark—&gt;WinPcap—&gt;VirtualBox—&gt;eNSP—&gt;HCL，下面开始环境搭建。</p>
+<h3 id="1、安装Wireshark"><a href="#1、安装Wireshark" class="headerlink" title="1、安装Wireshark"></a>1、安装Wireshark</h3><img src="https://s1.ax1x.com/2020/04/14/JS7W0U.png">
 
-<center>任务管理器-性能</center>
+<img src="https://s1.ax1x.com/2020/04/14/JS7c60.png">
 
-<p>​        这里可以看到CPU使用率是50%，在后面的分析中可以看到相应的代码</p>
-<h4 id="2-2、服务器主动访问恶意域名"><a href="#2-2、服务器主动访问恶意域名" class="headerlink" title="2.2、服务器主动访问恶意域名"></a>2.2、服务器主动访问恶意域名</h4><p>​        在环境中可以使用 <code>Process Hacker</code> 的 <code>Network</code> 部分检测， 因为环境的问题，这里直接写：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">totonm.com、cake.pilutce.com:443<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="2-3、扫描内外基于445端口的SMB服务"><a href="#2-3、扫描内外基于445端口的SMB服务" class="headerlink" title="2.3、扫描内外基于445端口的SMB服务"></a>2.3、扫描内外基于445端口的SMB服务</h4><h3 id="3、使用PCHunter检测数字签名找到异常进程"><a href="#3、使用PCHunter检测数字签名找到异常进程" class="headerlink" title="3、使用PCHunter检测数字签名找到异常进程"></a>3、使用PCHunter检测数字签名找到异常进程</h3><p>​        直接右击点击校验所有数字签名</p>
-<img src="https://s1.ax1x.com/2020/04/14/GzlHPS.png">
+<img src="https://s1.ax1x.com/2020/04/14/JS7gXV.png">
 
-<p>​        等到检测完成后可以看到标红的五个中，有三个是VMware本身的进程，一个是PCHunter的进程，那么最后这个 <code>dllhostex.exe *32</code> 就是有问题的了。</p>
-<img src="https://s1.ax1x.com/2020/04/14/Gz33fU.png">
+<img src="https://s1.ax1x.com/2020/04/14/JS76lq.png">
 
-<h3 id="4、使用ProcessHacker找到站点等具体信息"><a href="#4、使用ProcessHacker找到站点等具体信息" class="headerlink" title="4、使用ProcessHacker找到站点等具体信息"></a>4、使用ProcessHacker找到站点等具体信息</h3><p>​        在进程中找到<code>dllhostex.exe</code> ，然后点击查看属性</p>
-<img src="https://s1.ax1x.com/2020/04/14/Gz31YT.png">
+<p>​        安装的位置可以自定义</p>
+<img src="https://s1.ax1x.com/2020/04/14/JS7ypn.png">
 
-<p>​        找到属性中的 <code>Memory</code>， 可以发现有 <code>RWX</code> 权限的条目，点击Strings，查看具体信息。这个Minimum是用来设置显示字符串长度的，一般不用改，点击Ok就能查看了</p>
-<img src="https://s1.ax1x.com/2020/04/14/Gz3lkV.png">
+<p>​        这里建议安装Npcap 0.995</p>
+<img src="https://s1.ax1x.com/2020/04/14/JS7RmT.png">
 
-<p>​        下拉可以看到一些信息，比如连接的站点，还有限制CPU占用率的代码</p>
-<img src="https://s1.ax1x.com/2020/04/14/GzUIVH.png">
+<p>​        这里建议安装USPPcap1.3.00，如果实在是不想装可以不装，装了方便抓取USB的包。</p>
+<img src="https://s1.ax1x.com/2020/04/14/JS7f7F.png">
 
-<p>通过微步在线验证一下(图是以前的….)</p>
-<img src="https://s1.ax1x.com/2020/04/14/Gz4uRK.png">
+<img src="https://s1.ax1x.com/2020/04/14/JS7Ih9.png">
 
-<p>继续往下找，又得到了一个站点</p>
-<img src="https://s1.ax1x.com/2020/04/14/GzdRBD.png">
+<img src="https://s1.ax1x.com/2020/04/14/JS75tJ.png">
 
-<p>​        站点到这获取的就差不多了，接下来获取其他的信息</p>
-<h3 id="5、获取启动项"><a href="#5、获取启动项" class="headerlink" title="5、获取启动项"></a>5、获取启动项</h3><p>​        返回来继续使用PCHunter，查看启动信息，找到启动项，校验数字签名</p>
-<img src="https://s1.ax1x.com/2020/04/14/GzwTIJ.png">
+<img src="https://s1.ax1x.com/2020/04/14/JS7O0O.png">
 
-<p>​        可以发现，得到了一条自启动信息，<code>Microsoft Windows({44BBA840-CC51-11CF-AAFA-00AA00B6015C})</code></p>
-<img src="https://s1.ax1x.com/2020/04/14/Gzwoa4.png">
+<img src="https://s1.ax1x.com/2020/04/14/JS74k4.png">
 
-<h3 id="6、获取服务信息"><a href="#6、获取服务信息" class="headerlink" title="6、获取服务信息"></a>6、获取服务信息</h3><p>​        与上面一样的操作，进行校验，得到了名为 <code>Application RPC Client</code> 的服务项</p>
-<img src="https://s1.ax1x.com/2020/04/14/GzwIZF.png">
+<img src="https://s1.ax1x.com/2020/04/14/JS7TpR.png">
 
-<h3 id="7、找到相应的文件"><a href="#7、找到相应的文件" class="headerlink" title="7、找到相应的文件"></a>7、找到相应的文件</h3><h4 id="7-1、命名规则"><a href="#7-1、命名规则" class="headerlink" title="7.1、命名规则"></a>7.1、命名规则</h4><p>​        恶意服务名为以下三个列表中各选一个，然后进行字符串拼接(如: ApplicationNetBIOSClient，其由字符串1 Application + 字符串2 NetBIOS + 字符串3 Client 拼接生成)。</p>
-<ul>
-<li>Windows、Microsoft、Network、Remote、Function、Secure、Application</li>
-<li>Update、Time、NetBIOS、RPC、Protocol、SSDP、UPnP</li>
-<li>Service、Host、Client、Event、Manager、Helper、System</li>
-</ul>
-<h4 id="7-2、通过进程、服务定位到文件"><a href="#7-2、通过进程、服务定位到文件" class="headerlink" title="7.2、通过进程、服务定位到文件"></a>7.2、通过进程、服务定位到文件</h4><pre class="line-numbers language-bash"><code class="language-bash">C:\Windows\SysWOW64\ApplicationRPCClient.dll
-C:\Windows\SysWOW64\dllhostex.exe
-<span class="token comment" spellcheck="true"># 如果环境正常的话还可能有</span>
-C:Windows\System32ApplicationNetBlOSlient.dll
-<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="7-3、WannaMine4-0-是通过永恒之蓝进行传播的，可以在-C-Windows-NetworkDistribution-文件夹下找到对应文件"><a href="#7-3、WannaMine4-0-是通过永恒之蓝进行传播的，可以在-C-Windows-NetworkDistribution-文件夹下找到对应文件" class="headerlink" title="7.3、WannaMine4.0 是通过永恒之蓝进行传播的，可以在 C:\Windows\NetworkDistribution 文件夹下找到对应文件"></a>7.3、WannaMine4.0 是通过永恒之蓝进行传播的，可以在 <code>C:\Windows\NetworkDistribution</code> 文件夹下找到对应文件</h4><h2 id="三、查杀及修补"><a href="#三、查杀及修补" class="headerlink" title="三、查杀及修补"></a>三、查杀及修补</h2><h3 id="1、查杀"><a href="#1、查杀" class="headerlink" title="1、查杀"></a>1、查杀</h3><p>​        通过上面的分析过程已经找出相应的服务、进程，分别对其进行停止、删除等操作，如果有重要业务，还可以先通过暂停相应的进程保证业务的正常运转，在空闲时进行相应操作。</p>
-<h3 id="2、修补方式"><a href="#2、修补方式" class="headerlink" title="2、修补方式"></a>2、修补方式</h3><ol>
-<li>利用系统防火墙高级设置阻止向445端口进行连接（该操作会影响使用445端口的服务）。 </li>
-<li>尽量关闭不必要的文件共享； </li>
-<li>采用高强度的密码，避免使用弱口令密码，并定期更换密码； </li>
-<li>打开系统自动更新，并检测更新进行安装。 </li>
-<li>系统打上<code>MS17-010</code>对应的Microsoft Windows SMB 服务器安全更新 (4013389)补丁程序</li>
-</ol>
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h2><p>​        这只是个人学习过程中的一点记录，由于环境等各种原因，可能内容有些杂乱。。。</p>
+<img src="https://s1.ax1x.com/2020/04/14/JS7H6x.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JS7bX6.png">
+
+<p>​        安装完成后立刻重启。</p>
+<h3 id="2、安装WinPcap"><a href="#2、安装WinPcap" class="headerlink" title="2、安装WinPcap"></a>2、安装WinPcap</h3><img src="https://s1.ax1x.com/2020/04/14/JS7711.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JS7LnK.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JS7X7D.png">
+
+<p>​        这个全都按照图示的来就好了，基本上都是默认。</p>
+<h3 id="3、安装VirtualBox"><a href="#3、安装VirtualBox" class="headerlink" title="3、安装VirtualBox"></a>3、安装VirtualBox</h3><img src="https://s1.ax1x.com/2020/04/14/JS7zhd.png">
+
+<p>​        老规矩，安装位置可以自定义。</p>
+<img src="https://s1.ax1x.com/2020/04/14/JS7vAe.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JS7xtH.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSHehj.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSHp9A.png">
+
+<p>​        下面弹出来的全都安装，不安装的话，你也知道什么结果…</p>
+<img src="https://s1.ax1x.com/2020/04/14/JSHCct.png">
+
+<p>​        安装完成后无需启动检测。</p>
+<img src="https://s1.ax1x.com/2020/04/14/JSXeld.png">
+
+<p>​        这里记得安装完成后不要打开VirtulBox，继续往下走。</p>
+<h3 id="4、安装eNSP"><a href="#4、安装eNSP" class="headerlink" title="4、安装eNSP"></a>4、安装eNSP</h3><img src="https://s1.ax1x.com/2020/04/14/JSH91I.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSHPjP.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSHFnf.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSHkB8.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSHAHS.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSHZNQ.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSHVAg.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSXDtU.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSXBkT.png">
+
+<h3 id="5、安装HCL"><a href="#5、安装HCL" class="headerlink" title="5、安装HCL"></a>5、安装HCL</h3><img src="https://s1.ax1x.com/2020/04/14/JSXyp4.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSXw7V.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSXd00.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSXrhF.png">
+
+<p>​        老规矩，安装完之后不打开。</p>
+<h3 id="6、打开eNSP注册设备"><a href="#6、打开eNSP注册设备" class="headerlink" title="6、打开eNSP注册设备"></a>6、打开eNSP注册设备</h3><p>打开二NSP后会出现下面第一张图类似的几个提示，全部勾选上，然后继续</p>
+<img src="https://s1.ax1x.com/2020/04/14/JSX61J.png">
+
+<p>​        最重要的事情就是打开二NSP之后先注册设备，如果注册设备没出什么问题，基本就没啥问题了。</p>
+<img src="https://s1.ax1x.com/2020/04/14/JSXW0x.png">
+
+<p>​        这里全部勾选上。</p>
+<img src="https://s1.ax1x.com/2020/04/14/JSXgXR.png">
+
+<h3 id="7、调整H3C-Cloud-Lab兼容性"><a href="#7、调整H3C-Cloud-Lab兼容性" class="headerlink" title="7、调整H3C Cloud Lab兼容性"></a>7、调整H3C Cloud Lab兼容性</h3><p>​        因为H3C Cloud Lab在Windows10上会报一个不兼容的错，这里懒得点开那个错误，直接修改兼容性。</p>
+<img src="https://s1.ax1x.com/2020/04/14/JSXRn1.png">
+
+<p>​        将兼容性改为 <code>Windows7</code> 。</p>
+<img src="https://s1.ax1x.com/2020/04/14/JSXcc9.png">
+
+<h3 id="8、安装Secure-CRT"><a href="#8、安装Secure-CRT" class="headerlink" title="8、安装Secure CRT"></a>8、安装Secure CRT</h3><p>​    ！！！有能力的小伙伴请支持正版！！！</p>
+<img src="https://s1.ax1x.com/2020/04/14/JppI4P.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jpp5Nt.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JppfHA.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jpp4AI.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JppWBd.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jpp738.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JppT9f.png">
+
+<p>​        接下来需要将 <code>keygen.exe</code> 拷贝到Secure CRT的安装路径中去</p>
+<img src="https://s1.ax1x.com/2020/04/14/JppHgS.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jppbjg.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jp993T.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jp9CgU.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jp9PvF.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jp9CgU.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JppLuQ.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JppOBj.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JppXHs.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JppxNq.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jppz40.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jp9pCV.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jp9Fu4.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jp9kDJ.png">
+
+<p>​        到此为止，Secure CRT的安装完毕</p>
+<h2 id="三、环境测试"><a href="#三、环境测试" class="headerlink" title="三、环境测试"></a>三、环境测试</h2><h3 id="1、测试eNSP"><a href="#1、测试eNSP" class="headerlink" title="1、测试eNSP"></a>1、测试eNSP</h3><img src="https://s1.ax1x.com/2020/04/14/JSXT9e.png">
+
+
+
+<h3 id="2、测试H3C-Cloud-Lab"><a href="#2、测试H3C-Cloud-Lab" class="headerlink" title="2、测试H3C Cloud Lab"></a>2、测试H3C Cloud Lab</h3><img src="https://s1.ax1x.com/2020/04/14/JSXf76.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JSXIhD.png">
+
+<p>如果在这没有点允许的话，还可以在 <code>控制面板\所有控制面板项\Windows Defender 防火墙\允许的应用</code> 下再打开。</p>
+<img src="https://s1.ax1x.com/2020/04/14/JSX5tO.png">
+
+<h2 id="四、Secure-CRT连接模拟器"><a href="#四、Secure-CRT连接模拟器" class="headerlink" title="四、Secure CRT连接模拟器"></a>四、Secure CRT连接模拟器</h2><h3 id="1、Secure-CRT连接到H3C-Cloud-Lab"><a href="#1、Secure-CRT连接到H3C-Cloud-Lab" class="headerlink" title="1、Secure CRT连接到H3C Cloud Lab"></a>1、Secure CRT连接到H3C Cloud Lab</h3><h4 id="1-1、打开H3C-Cloud-Lab，新建一个路由器"><a href="#1-1、打开H3C-Cloud-Lab，新建一个路由器" class="headerlink" title="1.1、打开H3C Cloud Lab，新建一个路由器"></a>1.1、打开H3C Cloud Lab，新建一个路由器</h4><img src="https://s1.ax1x.com/2020/04/14/Jpi6IA.png">
+
+<h4 id="1-2、打开VirtualBox找到对应的设备，点击设置查看名称"><a href="#1-2、打开VirtualBox找到对应的设备，点击设置查看名称" class="headerlink" title="1.2、打开VirtualBox找到对应的设备，点击设置查看名称"></a>1.2、打开VirtualBox找到对应的设备，点击设置查看名称</h4><img src="https://s1.ax1x.com/2020/04/14/JpisVH.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/JpFPiR.png">
+
+<h4 id="1-3、拷贝好设备名称，打开Secure-CRT新建快速连接，Port-改为：Named-Pipe，-下面的-Name-of-pipe-写成-pipe-设备名称"><a href="#1-3、拷贝好设备名称，打开Secure-CRT新建快速连接，Port-改为：Named-Pipe，-下面的-Name-of-pipe-写成-pipe-设备名称" class="headerlink" title="1.3、拷贝好设备名称，打开Secure CRT新建快速连接，Port 改为：Named Pipe， 下面的 Name of pipe 写成 \\.\pipe\设备名称"></a>1.3、拷贝好设备名称，打开Secure CRT新建快速连接，<code>Port</code> 改为：<code>Named Pipe</code>， 下面的 <code>Name of pipe</code> 写成 <code>\\.\pipe\设备名称</code></h4><img src="https://s1.ax1x.com/2020/04/14/Jpiyad.png">
+
+<h4 id="1-4、新建完成后可以看到无法连接，这是因为设备没开机"><a href="#1-4、新建完成后可以看到无法连接，这是因为设备没开机" class="headerlink" title="1.4、新建完成后可以看到无法连接，这是因为设备没开机"></a>1.4、新建完成后可以看到无法连接，这是因为设备没开机</h4><img src="https://s1.ax1x.com/2020/04/14/JpiDqe.png">
+
+<h4 id="1-5、给设备开机，再次查看连接，发现连接成功"><a href="#1-5、给设备开机，再次查看连接，发现连接成功" class="headerlink" title="1.5、给设备开机，再次查看连接，发现连接成功"></a>1.5、给设备开机，再次查看连接，发现连接成功</h4><img src="https://s1.ax1x.com/2020/04/14/JpigPI.png">
+
+<img src="https://s1.ax1x.com/2020/04/14/Jpi2Gt.png">
+
+<h3 id="2、Secure-CRT连接到eNSP"><a href="#2、Secure-CRT连接到eNSP" class="headerlink" title="2、Secure CRT连接到eNSP"></a>2、Secure CRT连接到eNSP</h3><h4 id="2-1、新建一台AR1220，先不开机，右击打开设置"><a href="#2-1、新建一台AR1220，先不开机，右击打开设置" class="headerlink" title="2.1、新建一台AR1220，先不开机，右击打开设置"></a>2.1、新建一台AR1220，先不开机，右击打开设置</h4><img src="https://s1.ax1x.com/2020/04/14/JpQg0I.png">
+
+<h4 id="2-2、设备开机，使用Secure-CRT连接，协议使用-Telnet-，主机名为-127-0-0-1-，端口为刚才设置的2001"><a href="#2-2、设备开机，使用Secure-CRT连接，协议使用-Telnet-，主机名为-127-0-0-1-，端口为刚才设置的2001" class="headerlink" title="2.2、设备开机，使用Secure CRT连接，协议使用 Telnet ，主机名为 127.0.0.1 ，端口为刚才设置的2001"></a>2.2、设备开机，使用Secure CRT连接，协议使用 <code>Telnet</code> ，主机名为 <code>127.0.0.1</code> ，端口为刚才设置的<code>2001</code></h4><img src="https://s1.ax1x.com/2020/04/14/JpQcnA.png">
+
+<h4 id="2-3、测试连接，发现连接成功"><a href="#2-3、测试连接，发现连接成功" class="headerlink" title="2.3、测试连接，发现连接成功"></a>2.3、测试连接，发现连接成功</h4><img src="https://s1.ax1x.com/2020/04/14/JpQs6H.png">
+
+<h3 id="Tips："><a href="#Tips：" class="headerlink" title="Tips："></a>Tips：</h3><p>​        各位小伙伴如果有什么问题的话，可以在下方评论留言。</p>
+<p>​        如果本文章侵犯了您的权限，请联系本人，我会立刻处理。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -592,7 +726,7 @@ C:Windows\System32ApplicationNetBlOSlient.dll
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://valecasec.github.io/2020/04/14/emergency-response-wannamine4-0/">https://valecasec.github.io/2020/04/14/emergency-response-wannamine4-0/</a>
+                    <a href="https://valecasec.github.io/2020/04/14/windows-xia-shu-tong-huan-jing-da-jian/">https://valecasec.github.io/2020/04/14/windows-xia-shu-tong-huan-jing-da-jian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -630,12 +764,24 @@ C:Windows\System32ApplicationNetBlOSlient.dll
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Emergency-Response/">
-                                    <span class="chip bg-color">Emergency_Response</span>
+                                <a href="/tags/H3C/">
+                                    <span class="chip bg-color">H3C</span>
                                 </a>
                             
-                                <a href="/tags/WannaMine4-0/">
-                                    <span class="chip bg-color">WannaMine4.0</span>
+                                <a href="/tags/eNSP/">
+                                    <span class="chip bg-color">eNSP</span>
+                                </a>
+                            
+                                <a href="/tags/Secure-CRT/">
+                                    <span class="chip bg-color">Secure CRT</span>
+                                </a>
+                            
+                                <a href="/tags/Wireshark/">
+                                    <span class="chip bg-color">Wireshark</span>
+                                </a>
+                            
+                                <a href="/tags/VirtualBox/">
+                                    <span class="chip bg-color">VirtualBox</span>
                                 </a>
                             
                         </div>
@@ -941,9 +1087,10 @@ C:Windows\System32ApplicationNetBlOSlient.dll
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/04/14/windows-xia-shu-tong-huan-jing-da-jian/">
                     <div class="card-image">
@@ -960,9 +1107,9 @@ C:Windows\System32ApplicationNetBlOSlient.dll
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -975,6 +1122,7 @@ C:Windows\System32ApplicationNetBlOSlient.dll
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1009,24 +1157,23 @@ C:Windows\System32ApplicationNetBlOSlient.dll
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/11/windows-deng-lu-lei-xing-ji-an-quan-ri-zhi-qian-xi/">
+                <a href="/2020/04/14/emergency-response-wannamine4-0/">
                     <div class="card-image">
                         
+                        <img src="https://s1.ax1x.com/2020/04/14/GzkhB4.jpg" class="responsive-img" alt="Emergency_Response-WannaMine4.0">
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Windows登录类型及安全日志浅析">
-                        
-                        <span class="card-title">Windows登录类型及安全日志浅析</span>
+                        <span class="card-title">Emergency_Response-WannaMine4.0</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文主要对Windows登录中的方式做了简单描述，环境主要用Windows Server 2008 R2...
+                            对WannaMine4.0的一点简单应急及个人学习记录，大佬们不喜勿喷...
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
                             </span>
                         <span class="publish-author">
                             
@@ -1047,8 +1194,8 @@ C:Windows\System32ApplicationNetBlOSlient.dll
                         <span class="chip bg-color">Emergency_Response</span>
                     </a>
                     
-                    <a href="/tags/Windows%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97/">
-                        <span class="chip bg-color">Windows安全日志</span>
+                    <a href="/tags/WannaMine4-0/">
+                        <span class="chip bg-color">WannaMine4.0</span>
                     </a>
                     
                 </div>

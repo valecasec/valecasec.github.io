@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-04-14T07:29:03.646Z</updated>
+  <updated>2020-04-14T13:52:27.367Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Windows下数通环境搭建</title>
+    <link href="https://valecasec.github.io/2020/04/14/windows-xia-shu-tong-huan-jing-da-jian/"/>
+    <id>https://valecasec.github.io/2020/04/14/windows-xia-shu-tong-huan-jing-da-jian/</id>
+    <published>2020-04-14T10:05:16.000Z</published>
+    <updated>2020-04-14T13:52:27.367Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Windows下数通环境搭建&quot;&gt;&lt;a href=&quot;#Windows下数通环境搭建&quot; class=&quot;headerlink&quot; title=&quot;Windows下数通环境搭建&quot;&gt;&lt;/a&gt;Windows下数通环境搭建&lt;/h1&gt;&lt;h2 id=&quot;一、博客简介及预备软件&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Switching、Routing" scheme="https://valecasec.github.io/categories/Switching%E3%80%81Routing/"/>
+    
+    
+      <category term="H3C" scheme="https://valecasec.github.io/tags/H3C/"/>
+    
+      <category term="eNSP" scheme="https://valecasec.github.io/tags/eNSP/"/>
+    
+      <category term="Secure CRT" scheme="https://valecasec.github.io/tags/Secure-CRT/"/>
+    
+      <category term="Wireshark" scheme="https://valecasec.github.io/tags/Wireshark/"/>
+    
+      <category term="VirtualBox" scheme="https://valecasec.github.io/tags/VirtualBox/"/>
+    
+  </entry>
   
   <entry>
     <title>Emergency_Response-WannaMine4.0</title>
@@ -50,7 +85,7 @@
     <link href="https://valecasec.github.io/2020/04/11/windows-deng-lu-lei-xing-ji-an-quan-ri-zhi-qian-xi/"/>
     <id>https://valecasec.github.io/2020/04/11/windows-deng-lu-lei-xing-ji-an-quan-ri-zhi-qian-xi/</id>
     <published>2020-04-11T08:20:34.000Z</published>
-    <updated>2020-04-11T12:25:32.036Z</updated>
+    <updated>2020-04-14T07:41:46.841Z</updated>
     
     <summary type="html">
     
@@ -65,12 +100,12 @@
     </summary>
     
     
-      <category term="Emergency-Response" scheme="https://valecasec.github.io/categories/Emergency-Response/"/>
+      <category term="Emergency_Response" scheme="https://valecasec.github.io/categories/Emergency-Response/"/>
     
+    
+      <category term="Emergency_Response" scheme="https://valecasec.github.io/tags/Emergency-Response/"/>
     
       <category term="Windows安全日志" scheme="https://valecasec.github.io/tags/Windows%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97/"/>
-    
-      <category term="Emergency-Response" scheme="https://valecasec.github.io/tags/Emergency-Response/"/>
     
   </entry>
   
