@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Windows登录类型及安全日志浅析, Python">
+    <meta name="keywords" content="Emergency_Response-WannaMine4.0, Python">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Windows登录类型及安全日志浅析 | valecalida&#39;s house</title>
+    <title>Emergency_Response-WannaMine4.0 | valecalida&#39;s house</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -307,12 +307,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/04/14/GzkhB4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Windows登录类型及安全日志浅析</h1>
+                    <h1 class="description center-align post-title">Emergency_Response-WannaMine4.0</h1>
                 </div>
             </div>
         </div>
@@ -437,12 +437,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Windows%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97/">
-                                <span class="chip bg-color">Windows安全日志</span>
+                            <a href="/tags/Emergency-Response/">
+                                <span class="chip bg-color">Emergency_Response</span>
                             </a>
                         
-                            <a href="/tags/Emergency-Response/">
-                                <span class="chip bg-color">Emergency-Response</span>
+                            <a href="/tags/WannaMine4-0/">
+                                <span class="chip bg-color">WannaMine4.0</span>
                             </a>
                         
                     </div>
@@ -454,7 +454,7 @@
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
                             <a href="/categories/Emergency-Response/" class="post-category">
-                                Emergency-Response
+                                Emergency_Response
                             </a>
                         
                     </div>
@@ -466,7 +466,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-11
+                    2020-04-14
                 </div>
                 
 
@@ -483,80 +483,73 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Windows登录类型及安全日志浅析"><a href="#Windows登录类型及安全日志浅析" class="headerlink" title="Windows登录类型及安全日志浅析"></a>Windows登录类型及安全日志浅析</h1><h2 id="一、简介"><a href="#一、简介" class="headerlink" title="一、简介"></a>一、简介</h2><p>​        系统安全日志就是每次开关机、运行程序、系统报错时，这些信息都会被记录下来，保存在日志文件中。具备这个能力的安全日志是应急响应中的一个重要信息收集的部分。</p>
-<h2 id="二、Windows登录类型"><a href="#二、Windows登录类型" class="headerlink" title="二、Windows登录类型"></a>二、Windows登录类型</h2><p>​        Windows为了能够让用户从日志中获得更多有价值的信息，它细分了很多种登录类型，以便让用户区分登录者到底是从本地登录，还是从网络登录，以及其它更多的登录方式。了解了这些登录方式后，用户就可以从事件日志中发现可疑的黑客行为，并能够判断其攻击方式。下面的是Windows登录日志表类型、方式的表格，在本文中将只谈论1、3、5、10这四种类型（以后还有可能会回来补）。</p>
-<center>Windows登录日志类型表</center>
+                <h1 id="Emergency-Response-WannaMine4-0"><a href="#Emergency-Response-WannaMine4-0" class="headerlink" title="Emergency_Response-WannaMine4.0"></a>Emergency_Response-WannaMine4.0</h1><h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>​        最近在学应急响应，于是找到了 <code>WannaMine4.0</code> 的虚拟机环境，利用工具 <code>ProcessHacker</code> , <code>PCHunter</code> 对虚拟机环境进行分析，本次应急响应主要获取的内容如下：</p>
+<ul>
+<li>矿池域名</li>
+<li>恶意文件存放目录</li>
+<li>恶意启动项或服务或计划任务名字</li>
+</ul>
+<p>Tips：由于环境比较老、不够完善，而且站点已经关闭了，所以文章内容、图片质量可能会有所…</p>
+<h2 id="二、项目过程"><a href="#二、项目过程" class="headerlink" title="二、项目过程"></a>二、项目过程</h2><h3 id="1、虚拟机网络设置"><a href="#1、虚拟机网络设置" class="headerlink" title="1、虚拟机网络设置"></a>1、虚拟机网络设置</h3><p>​        将网络设置为仅主机</p>
+<h3 id="2、病毒现象"><a href="#2、病毒现象" class="headerlink" title="2、病毒现象"></a>2、病毒现象</h3><h4 id="2-1、服务器CPU占用率高"><a href="#2-1、服务器CPU占用率高" class="headerlink" title="2.1、服务器CPU占用率高"></a>2.1、服务器CPU占用率高</h4><img src="https://s1.ax1x.com/2020/04/14/Gzl9cd.png">
 
-<table>
-<thead>
-<tr>
-<th align="center">登录类型</th>
-<th align="center">登录方式</th>
-<th align="center">描述信息</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">2</td>
-<td align="center"><strong>交互式登录（Interactive）</strong></td>
-<td align="center">用户登录到此计算机。</td>
-</tr>
-<tr>
-<td align="center">3</td>
-<td align="center"><strong>网络（Network）</strong></td>
-<td align="center">用户或计算机从网络登录到该计算机。</td>
-</tr>
-<tr>
-<td align="center">4</td>
-<td align="center"><strong>批处理（Batch）</strong></td>
-<td align="center">批处理登录类型由批处理服务器使用，在批处理服务器中，进程可以代表用户执行而无需其直接干预。</td>
-</tr>
-<tr>
-<td align="center">5</td>
-<td align="center"><strong>服务（Service）</strong></td>
-<td align="center">服务由服务控制管理器启动。</td>
-</tr>
-<tr>
-<td align="center">7</td>
-<td align="center"><strong>解锁（Unlock）</strong></td>
-<td align="center">该工作站已解锁。</td>
-</tr>
-<tr>
-<td align="center">8</td>
-<td align="center"><strong>网络明文（NetworkCleartext）</strong></td>
-<td align="center">用户从网络登录到此计算机。用户密码以未加密的形式传递到身份验证包。内置身份验证将所有哈希凭据打包，然后再通过网络发送它们。凭据不会以纯文本（也称为明文）遍历网络。</td>
-</tr>
-<tr>
-<td align="center">9</td>
-<td align="center"><strong>新凭证（NewCredentials）</strong></td>
-<td align="center">呼叫者克隆了其当前令牌，并为出站连接指定了新的凭据。新的登录会话具有相同的本地身份，但对其他网络连接使用不同的凭据。</td>
-</tr>
-<tr>
-<td align="center">10</td>
-<td align="center"><strong>远程交互（RemoteInteractive）</strong></td>
-<td align="center">用户使用终端服务或远程桌面远程登录到此计算机。</td>
-</tr>
-<tr>
-<td align="center">11</td>
-<td align="center"><strong>缓存交互（CachedInteractive）</strong></td>
-<td align="center">用户使用本地存储在计算机上的网络凭据登录到此计算机。未联系域控制器来验证凭据。</td>
-</tr>
-</tbody></table>
-<h3 id="1、交互式登录（Interactive）"><a href="#1、交互式登录（Interactive）" class="headerlink" title="1、交互式登录（Interactive）"></a>1、交互式登录（Interactive）</h3><p>​        这里我用一台Windows Server 2008 R2来做演示，这是一次开机过程中所产生的日志信息。</p>
-<div align="center"><img src="https://s1.ax1x.com/2020/04/11/GbexOA.png"></div>
+<center>任务管理器-性能</center>
 
-<p>​        其中有因为协议开机的，还有正常登录开机的，这里查看用户登录的那条，可以明显的看到本次登录的用户是 <code>Administrator</code> ，登录类型是交互式登录，调用的进程是 <code>winlogon.exe</code> 。（其他的先不做探讨）</p>
-<div align="center"><img src="https://s1.ax1x.com/2020/04/11/Gbn5Ux.png"></div>
+<p>​        这里可以看到CPU使用率是50%，在后面的分析中可以看到相应的代码</p>
+<h4 id="2-2、服务器主动访问恶意域名"><a href="#2-2、服务器主动访问恶意域名" class="headerlink" title="2.2、服务器主动访问恶意域名"></a>2.2、服务器主动访问恶意域名</h4><p>​        在环境中可以使用 <code>Process Hacker</code> 的 <code>Network</code> 部分检测， 因为环境的问题，这里直接写：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">totonm.com、cake.pilutce.com:443<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="2-3、扫描内外基于445端口的SMB服务"><a href="#2-3、扫描内外基于445端口的SMB服务" class="headerlink" title="2.3、扫描内外基于445端口的SMB服务"></a>2.3、扫描内外基于445端口的SMB服务</h4><h3 id="3、使用PCHunter检测数字签名找到异常进程"><a href="#3、使用PCHunter检测数字签名找到异常进程" class="headerlink" title="3、使用PCHunter检测数字签名找到异常进程"></a>3、使用PCHunter检测数字签名找到异常进程</h3><p>​        直接右击点击校验所有数字签名</p>
+<img src="https://s1.ax1x.com/2020/04/14/GzlHPS.png">
 
-<h3 id="3、网络（Network）"><a href="#3、网络（Network）" class="headerlink" title="3、网络（Network）"></a>3、网络（Network）</h3><p>​        这里从其本机远程到了虚拟机中，在连接过程中先创建了 <code>LogonType=3</code> 的的日志，在登录过程中调用了 <code>NtLmSsp(NT LM安全性支持提供者服务)</code> ，当验证通过是后又创建了一个<code>LogonType=10</code> 的记录，在下面的文章内容中有提到，</p>
-<div align="center"><img src="https://s1.ax1x.com/2020/04/11/GbY5C9.png"></div>
+<p>​        等到检测完成后可以看到标红的五个中，有三个是VMware本身的进程，一个是PCHunter的进程，那么最后这个 <code>dllhostex.exe *32</code> 就是有问题的了。</p>
+<img src="https://s1.ax1x.com/2020/04/14/Gz33fU.png">
 
-<h3 id="5、服务（Service）"><a href="#5、服务（Service）" class="headerlink" title="5、服务（Service）"></a>5、服务（Service）</h3><p>​        这次是 <code>services.exe</code> 进行的操作，可以看到， <code>LogonType</code> 是5。</p>
-<div align="center"><img src="https://s1.ax1x.com/2020/04/11/GbuCRS.png"></div>
+<h3 id="4、使用ProcessHacker找到站点等具体信息"><a href="#4、使用ProcessHacker找到站点等具体信息" class="headerlink" title="4、使用ProcessHacker找到站点等具体信息"></a>4、使用ProcessHacker找到站点等具体信息</h3><p>​        在进程中找到<code>dllhostex.exe</code> ，然后点击查看属性</p>
+<img src="https://s1.ax1x.com/2020/04/14/Gz31YT.png">
 
-<h3 id="10、远程交互（RemoteInteractive）"><a href="#10、远程交互（RemoteInteractive）" class="headerlink" title="10、远程交互（RemoteInteractive）"></a>10、远程交互（RemoteInteractive）</h3><p>​        这里我用 <code>mstsc</code> 远程连接了一下此虚拟机，可以看到新的日志产生了，本次登录使用的用户还是 <code>Administrator</code> ,但是 <code>LogonType</code> 已经不同了，是远程登录的类型，而且可以清晰的看到远程登录进入的IP地址，由于这里是连接的虚拟机，登录的 <code>IPAddress</code> 则是网关。</p>
- <div align="center"><img src="https://s1.ax1x.com/2020/04/11/GbQpPx.png"></div>
+<p>​        找到属性中的 <code>Memory</code>， 可以发现有 <code>RWX</code> 权限的条目，点击Strings，查看具体信息。这个Minimum是用来设置显示字符串长度的，一般不用改，点击Ok就能查看了</p>
+<img src="https://s1.ax1x.com/2020/04/14/Gz3lkV.png">
 
-<h3 id="Tips：查看简化的信息可以使用-LastActivityView-这个工具，文件创建等操作也能看见。"><a href="#Tips：查看简化的信息可以使用-LastActivityView-这个工具，文件创建等操作也能看见。" class="headerlink" title="Tips：查看简化的信息可以使用 LastActivityView 这个工具，文件创建等操作也能看见。"></a>Tips：查看简化的信息可以使用 <code>LastActivityView</code> 这个工具，文件创建等操作也能看见。</h3><script>
+<p>​        下拉可以看到一些信息，比如连接的站点，还有限制CPU占用率的代码</p>
+<img src="https://s1.ax1x.com/2020/04/14/GzUIVH.png">
+
+<p>通过微步在线验证一下(图是以前的….)</p>
+<img src="https://s1.ax1x.com/2020/04/14/Gz4uRK.png">
+
+<p>继续往下找，又得到了一个站点</p>
+<img src="https://s1.ax1x.com/2020/04/14/GzdRBD.png">
+
+<p>​        站点到这获取的就差不多了，接下来获取其他的信息</p>
+<h3 id="5、获取启动项"><a href="#5、获取启动项" class="headerlink" title="5、获取启动项"></a>5、获取启动项</h3><p>​        返回来继续使用PCHunter，查看启动信息，找到启动项，校验数字签名</p>
+<img src="https://s1.ax1x.com/2020/04/14/GzwTIJ.png">
+
+<p>​        可以发现，得到了一条自启动信息，<code>Microsoft Windows({44BBA840-CC51-11CF-AAFA-00AA00B6015C})</code></p>
+<img src="https://s1.ax1x.com/2020/04/14/Gzwoa4.png">
+
+<h3 id="6、获取服务信息"><a href="#6、获取服务信息" class="headerlink" title="6、获取服务信息"></a>6、获取服务信息</h3><p>​        与上面一样的操作，进行校验，得到了名为 <code>Application RPC Client</code> 的服务项</p>
+<img src="https://s1.ax1x.com/2020/04/14/GzwIZF.png">
+
+<h3 id="7、找到相应的文件"><a href="#7、找到相应的文件" class="headerlink" title="7、找到相应的文件"></a>7、找到相应的文件</h3><h4 id="7-1、命名规则"><a href="#7-1、命名规则" class="headerlink" title="7.1、命名规则"></a>7.1、命名规则</h4><p>​        恶意服务名为以下三个列表中各选一个，然后进行字符串拼接(如: ApplicationNetBIOSClient，其由字符串1 Application + 字符串2 NetBIOS + 字符串3 Client 拼接生成)。</p>
+<ul>
+<li>Windows、Microsoft、Network、Remote、Function、Secure、Application</li>
+<li>Update、Time、NetBIOS、RPC、Protocol、SSDP、UPnP</li>
+<li>Service、Host、Client、Event、Manager、Helper、System</li>
+</ul>
+<h4 id="7-2、通过进程、服务定位到文件"><a href="#7-2、通过进程、服务定位到文件" class="headerlink" title="7.2、通过进程、服务定位到文件"></a>7.2、通过进程、服务定位到文件</h4><pre class="line-numbers language-bash"><code class="language-bash">C:\Windows\SysWOW64\ApplicationRPCClient.dll
+C:\Windows\SysWOW64\dllhostex.exe
+<span class="token comment" spellcheck="true"># 如果环境正常的话还可能有</span>
+C:Windows\System32ApplicationNetBlOSlient.dll
+<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="7-3、WannaMine4-0-是通过永恒之蓝进行传播的，可以在-C-Windows-NetworkDistribution-文件夹下找到对应文件"><a href="#7-3、WannaMine4-0-是通过永恒之蓝进行传播的，可以在-C-Windows-NetworkDistribution-文件夹下找到对应文件" class="headerlink" title="7.3、WannaMine4.0 是通过永恒之蓝进行传播的，可以在 C:\Windows\NetworkDistribution 文件夹下找到对应文件"></a>7.3、WannaMine4.0 是通过永恒之蓝进行传播的，可以在 <code>C:\Windows\NetworkDistribution</code> 文件夹下找到对应文件</h4><h2 id="三、查杀及修补"><a href="#三、查杀及修补" class="headerlink" title="三、查杀及修补"></a>三、查杀及修补</h2><h3 id="1、查杀"><a href="#1、查杀" class="headerlink" title="1、查杀"></a>1、查杀</h3><p>​        通过上面的分析过程已经找出相应的服务、进程，分别对其进行停止、删除等操作，如果有重要业务，还可以先通过暂停相应的进程保证业务的正常运转，在空闲时进行相应操作。</p>
+<h3 id="2、修补方式"><a href="#2、修补方式" class="headerlink" title="2、修补方式"></a>2、修补方式</h3><ol>
+<li>利用系统防火墙高级设置阻止向445端口进行连接（该操作会影响使用445端口的服务）。 </li>
+<li>尽量关闭不必要的文件共享； </li>
+<li>采用高强度的密码，避免使用弱口令密码，并定期更换密码； </li>
+<li>打开系统自动更新，并检测更新进行安装。 </li>
+<li>系统打上<code>MS17-010</code>对应的Microsoft Windows SMB 服务器安全更新 (4013389)补丁程序</li>
+</ol>
+<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h2><p>​        这只是个人学习过程中的一点记录，由于环境等各种原因，可能内容有些杂乱。。。</p>
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -599,7 +592,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://valecasec.github.io/2020/04/11/windows-deng-lu-lei-xing-ji-an-quan-ri-zhi-qian-xi/">https://valecasec.github.io/2020/04/11/windows-deng-lu-lei-xing-ji-an-quan-ri-zhi-qian-xi/</a>
+                    <a href="https://valecasec.github.io/2020/04/14/emergency-response-wannamine4-0/">https://valecasec.github.io/2020/04/14/emergency-response-wannamine4-0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -637,12 +630,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Windows%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97/">
-                                    <span class="chip bg-color">Windows安全日志</span>
+                                <a href="/tags/Emergency-Response/">
+                                    <span class="chip bg-color">Emergency_Response</span>
                                 </a>
                             
-                                <a href="/tags/Emergency-Response/">
-                                    <span class="chip bg-color">Emergency-Response</span>
+                                <a href="/tags/WannaMine4-0/">
+                                    <span class="chip bg-color">WannaMine4.0</span>
                                 </a>
                             
                         </div>
@@ -948,9 +941,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2020/04/14/emergency-response-wannamine4-0/">
                     <div class="card-image">
@@ -967,9 +961,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -982,6 +976,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1004,30 +999,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/10/python-uuid/">
+                <a href="/2020/04/11/windows-deng-lu-lei-xing-ji-an-quan-ri-zhi-qian-xi/">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2020/04/10/GTzCOH.jpg" class="responsive-img" alt="Python_UUID">
                         
-                        <span class="card-title">Python_UUID</span>
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Windows登录类型及安全日志浅析">
+                        
+                        <span class="card-title">Windows登录类型及安全日志浅析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Python下UUID的生成及几种不同的算法，每种算法都有不同的计算方式...
+                            本文主要对Windows登录中的方式做了简单描述，环境主要用Windows Server 2008 R2...
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-11
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Python/" class="post-category">
-                                    Python
+                            <a href="/categories/Emergency-Response/" class="post-category">
+                                    Emergency-Response
                                 </a>
                             
                             
@@ -1037,12 +1033,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/Windows%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97/">
+                        <span class="chip bg-color">Windows安全日志</span>
                     </a>
                     
-                    <a href="/tags/UUID/">
-                        <span class="chip bg-color">UUID</span>
+                    <a href="/tags/Emergency-Response/">
+                        <span class="chip bg-color">Emergency-Response</span>
                     </a>
                     
                 </div>
