@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-04-14T13:52:27.367Z</updated>
+  <updated>2020-04-14T13:56:25.867Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://valecasec.github.io/2020/04/14/windows-xia-shu-tong-huan-jing-da-jian/"/>
     <id>https://valecasec.github.io/2020/04/14/windows-xia-shu-tong-huan-jing-da-jian/</id>
     <published>2020-04-14T10:05:16.000Z</published>
-    <updated>2020-04-14T13:52:27.367Z</updated>
+    <updated>2020-04-14T13:56:25.867Z</updated>
     
     <summary type="html">
     
@@ -42,8 +42,6 @@
       <category term="H3C" scheme="https://valecasec.github.io/tags/H3C/"/>
     
       <category term="eNSP" scheme="https://valecasec.github.io/tags/eNSP/"/>
-    
-      <category term="Secure CRT" scheme="https://valecasec.github.io/tags/Secure-CRT/"/>
     
       <category term="Wireshark" scheme="https://valecasec.github.io/tags/Wireshark/"/>
     
