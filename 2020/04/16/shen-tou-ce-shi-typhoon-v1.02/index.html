@@ -666,8 +666,11 @@ Disallow: /mongoadmin/<span aria-hidden="true" class="line-numbers-rows"><span><
 <span class="token operator">==</span><span class="token operator">></span> DIRECTORY: http://10.87.51.15:8080/META-INF/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <img src="https://s1.ax1x.com/2020/04/16/JAKAyT.png">
 
-<h4 id="2-5、MySQL弱口令"><a href="#2-5、MySQL弱口令" class="headerlink" title="2.5、MySQL弱口令"></a>2.5、MySQL弱口令</h4><p>在测试<code>PHPMyAdmin</code>的时候，利用用户名：<code>root</code>，密码<code>toor</code>登录进去了，这部分就没有测试了</p>
+<h4 id="2-5、MySQL弱口令"><a href="#2-5、MySQL弱口令" class="headerlink" title="2.5、MySQL弱口令"></a>2.5、MySQL弱口令</h4><p>在测试<code>PHPMyAdmin</code>的时候，利用用户名：<code>root</code>，密码<code>toor</code>登录进去了。</p>
 <img src="https://s1.ax1x.com/2020/04/16/JEF00I.png">
+
+<p>可以看到里面所以的信息都能看到，这里只看一个小彩蛋，不做其他测试了，大佬们可以自己发掘…</p>
+<img src="https://s1.ax1x.com/2020/04/17/JE52uj.png">
 
 <h2 id="二、漏洞利用"><a href="#二、漏洞利用" class="headerlink" title="二、漏洞利用"></a>二、漏洞利用</h2><h3 id="1、通过爆破SSH口令提权拿flag"><a href="#1、通过爆破SSH口令提权拿flag" class="headerlink" title="1、通过爆破SSH口令提权拿flag"></a>1、通过爆破SSH口令提权拿flag</h3><p>使用<code>hydra</code>对<code>ssh</code>口令进行爆破</p>
 <pre class="line-numbers language-bash"><code class="language-bash">root@kali:~<span class="token comment" spellcheck="true"># hydra -l admin -P 1.txt -t4 ssh://10.87.51.15</span>
