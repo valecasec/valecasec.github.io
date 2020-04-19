@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Windows下数通环境搭建, Python">
+    <meta name="keywords" content="Scapy—ARP扫描, Python">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Windows下数通环境搭建 | valecalida&#39;s house</title>
+    <title>Scapy—ARP扫描 | valecalida&#39;s house</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -307,12 +307,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/04/14/Jp8pjg.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/04/17/JZLqN4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Windows下数通环境搭建</h1>
+                    <h1 class="description center-align post-title">Scapy—ARP扫描</h1>
                 </div>
             </div>
         </div>
@@ -437,20 +437,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/H3C/">
-                                <span class="chip bg-color">H3C</span>
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
                             </a>
                         
-                            <a href="/tags/eNSP/">
-                                <span class="chip bg-color">eNSP</span>
+                            <a href="/tags/Scapy/">
+                                <span class="chip bg-color">Scapy</span>
                             </a>
                         
-                            <a href="/tags/Wireshark/">
-                                <span class="chip bg-color">Wireshark</span>
-                            </a>
-                        
-                            <a href="/tags/VirtualBox/">
-                                <span class="chip bg-color">VirtualBox</span>
+                            <a href="/tags/ARP/">
+                                <span class="chip bg-color">ARP</span>
                             </a>
                         
                     </div>
@@ -461,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Switching%E3%80%81Routing/" class="post-category">
-                                Switching、Routing
+                            <a href="/categories/Scapy/" class="post-category">
+                                Scapy
                             </a>
                         
                     </div>
@@ -474,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-14
+                    2020-04-18
                 </div>
                 
 
@@ -491,197 +487,70 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Windows下数通环境搭建"><a href="#Windows下数通环境搭建" class="headerlink" title="Windows下数通环境搭建"></a>Windows下数通环境搭建</h1><h2 id="一、博客简介及预备软件"><a href="#一、博客简介及预备软件" class="headerlink" title="一、博客简介及预备软件"></a>一、博客简介及预备软件</h2><p>​        计算机网络技术的小伙伴们会用到H3C、eNSP、Cisco Packet Tracer、VirtualBox、Wireshark、WinPcap等数通类软件，但是也有很多小伙伴因为各个版本的问题导致环境搭不好，所以在这写一篇博客记录一下全环境的搭建。本文环境全部基于虚拟机搭建（因为我内存大？CPU强？），因为我真机已经都装了，不想重新搞，啊哈哈哈哈，总而言之，这是篇水文。</p>
-<p>​        预备软件及版本如下：</p>
-<ul>
-<li>eNSP（1.3.00.100 V100R003C00SPC100）</li>
-<li>HCL（HCL2.1.0）</li>
-<li>Wireshark（3.0.3）</li>
-<li>VirtualBox（5.1.28）</li>
-<li>WinPcap（4.1.3）</li>
-<li>Secure CRT（8.5）</li>
-</ul>
-<h2 id="二、环境搭建"><a href="#二、环境搭建" class="headerlink" title="二、环境搭建"></a>二、环境搭建</h2><p>​        本次环境搭建顺序如下：Wireshark—&gt;WinPcap—&gt;VirtualBox—&gt;eNSP—&gt;HCL，下面开始环境搭建。</p>
-<h3 id="1、安装Wireshark"><a href="#1、安装Wireshark" class="headerlink" title="1、安装Wireshark"></a>1、安装Wireshark</h3><img src="https://s1.ax1x.com/2020/04/14/JS7W0U.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7c60.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7gXV.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS76lq.png">
-
-<p>​        安装的位置可以自定义</p>
-<img src="https://s1.ax1x.com/2020/04/14/JS7ypn.png">
-
-<p>​        这里建议安装Npcap 0.995</p>
-<img src="https://s1.ax1x.com/2020/04/14/JS7RmT.png">
-
-<p>​        这里建议安装USPPcap1.3.00，如果实在是不想装可以不装，装了方便抓取USB的包。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JS7f7F.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7Ih9.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS75tJ.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7O0O.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS74k4.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7TpR.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7H6x.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7bX6.png">
-
-<p>​        安装完成后立刻重启。</p>
-<h3 id="2、安装WinPcap"><a href="#2、安装WinPcap" class="headerlink" title="2、安装WinPcap"></a>2、安装WinPcap</h3><img src="https://s1.ax1x.com/2020/04/14/JS7711.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7LnK.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7X7D.png">
-
-<p>​        这个全都按照图示的来就好了，基本上都是默认。</p>
-<h3 id="3、安装VirtualBox"><a href="#3、安装VirtualBox" class="headerlink" title="3、安装VirtualBox"></a>3、安装VirtualBox</h3><img src="https://s1.ax1x.com/2020/04/14/JS7zhd.png">
-
-<p>​        老规矩，安装位置可以自定义。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JS7vAe.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7xtH.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHehj.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHp9A.png">
-
-<p>​        下面弹出来的全都安装，不安装的话，你也知道什么结果…</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSHCct.png">
-
-<p>​        安装完成后无需启动检测。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSXeld.png">
-
-<p>​        这里记得安装完成后不要打开VirtulBox，继续往下走。</p>
-<h3 id="4、安装eNSP"><a href="#4、安装eNSP" class="headerlink" title="4、安装eNSP"></a>4、安装eNSP</h3><img src="https://s1.ax1x.com/2020/04/14/JSH91I.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHPjP.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHFnf.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHkB8.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHAHS.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHZNQ.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHVAg.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSXDtU.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSXBkT.png">
-
-<h3 id="5、安装HCL"><a href="#5、安装HCL" class="headerlink" title="5、安装HCL"></a>5、安装HCL</h3><img src="https://s1.ax1x.com/2020/04/14/JSXyp4.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSXw7V.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSXd00.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSXrhF.png">
-
-<p>​        老规矩，安装完之后不打开。</p>
-<h3 id="6、打开eNSP注册设备"><a href="#6、打开eNSP注册设备" class="headerlink" title="6、打开eNSP注册设备"></a>6、打开eNSP注册设备</h3><p>打开二NSP后会出现下面第一张图类似的几个提示，全部勾选上，然后继续</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSX61J.png">
-
-<p>​        最重要的事情就是打开二NSP之后先注册设备，如果注册设备没出什么问题，基本就没啥问题了。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSXW0x.png">
-
-<p>​        这里全部勾选上。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSXgXR.png">
-
-<h3 id="7、调整H3C-Cloud-Lab兼容性"><a href="#7、调整H3C-Cloud-Lab兼容性" class="headerlink" title="7、调整H3C Cloud Lab兼容性"></a>7、调整H3C Cloud Lab兼容性</h3><p>​        因为H3C Cloud Lab在Windows10上会报一个不兼容的错，这里懒得点开那个错误，直接修改兼容性。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSXRn1.png">
-
-<p>​        将兼容性改为 <code>Windows7</code> 。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSXcc9.png">
-
-<h3 id="8、安装Secure-CRT"><a href="#8、安装Secure-CRT" class="headerlink" title="8、安装Secure CRT"></a>8、安装Secure CRT</h3><p>​    ！！！有能力的小伙伴请支持正版！！！</p>
-<img src="https://s1.ax1x.com/2020/04/14/JppI4P.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jpp5Nt.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppfHA.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jpp4AI.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppWBd.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jpp738.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppT9f.png">
-
-<p>​        接下来需要将 <code>keygen.exe</code> 拷贝到Secure CRT的安装路径中去</p>
-<img src="https://s1.ax1x.com/2020/04/14/JppHgS.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jppbjg.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp993T.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp9CgU.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp9PvF.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp9CgU.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppLuQ.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppOBj.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppXHs.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppxNq.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jppz40.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp9pCV.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp9Fu4.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp9kDJ.png">
-
-<p>​        到此为止，Secure CRT的安装完毕</p>
-<h2 id="三、环境测试"><a href="#三、环境测试" class="headerlink" title="三、环境测试"></a>三、环境测试</h2><h3 id="1、测试eNSP"><a href="#1、测试eNSP" class="headerlink" title="1、测试eNSP"></a>1、测试eNSP</h3><img src="https://s1.ax1x.com/2020/04/14/JSXT9e.png">
-
-
-
-<h3 id="2、测试H3C-Cloud-Lab"><a href="#2、测试H3C-Cloud-Lab" class="headerlink" title="2、测试H3C Cloud Lab"></a>2、测试H3C Cloud Lab</h3><img src="https://s1.ax1x.com/2020/04/14/JSXf76.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSXIhD.png">
-
-<p>如果在这没有点允许的话，还可以在 <code>控制面板\所有控制面板项\Windows Defender 防火墙\允许的应用</code> 下再打开。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSX5tO.png">
-
-<h2 id="四、Secure-CRT连接模拟器"><a href="#四、Secure-CRT连接模拟器" class="headerlink" title="四、Secure CRT连接模拟器"></a>四、Secure CRT连接模拟器</h2><h3 id="1、Secure-CRT连接到H3C-Cloud-Lab"><a href="#1、Secure-CRT连接到H3C-Cloud-Lab" class="headerlink" title="1、Secure CRT连接到H3C Cloud Lab"></a>1、Secure CRT连接到H3C Cloud Lab</h3><h4 id="1-1、打开H3C-Cloud-Lab，新建一个路由器"><a href="#1-1、打开H3C-Cloud-Lab，新建一个路由器" class="headerlink" title="1.1、打开H3C Cloud Lab，新建一个路由器"></a>1.1、打开H3C Cloud Lab，新建一个路由器</h4><img src="https://s1.ax1x.com/2020/04/14/Jpi6IA.png">
-
-<h4 id="1-2、打开VirtualBox找到对应的设备，点击设置查看名称"><a href="#1-2、打开VirtualBox找到对应的设备，点击设置查看名称" class="headerlink" title="1.2、打开VirtualBox找到对应的设备，点击设置查看名称"></a>1.2、打开VirtualBox找到对应的设备，点击设置查看名称</h4><img src="https://s1.ax1x.com/2020/04/14/JpisVH.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JpFPiR.png">
-
-<h4 id="1-3、拷贝好设备名称，打开Secure-CRT新建快速连接，Port-改为：Named-Pipe，-下面的-Name-of-pipe-写成-pipe-设备名称"><a href="#1-3、拷贝好设备名称，打开Secure-CRT新建快速连接，Port-改为：Named-Pipe，-下面的-Name-of-pipe-写成-pipe-设备名称" class="headerlink" title="1.3、拷贝好设备名称，打开Secure CRT新建快速连接，Port 改为：Named Pipe， 下面的 Name of pipe 写成 \\.\pipe\设备名称"></a>1.3、拷贝好设备名称，打开Secure CRT新建快速连接，<code>Port</code> 改为：<code>Named Pipe</code>， 下面的 <code>Name of pipe</code> 写成 <code>\\.\pipe\设备名称</code></h4><img src="https://s1.ax1x.com/2020/04/14/Jpiyad.png">
-
-<h4 id="1-4、新建完成后可以看到无法连接，这是因为设备没开机"><a href="#1-4、新建完成后可以看到无法连接，这是因为设备没开机" class="headerlink" title="1.4、新建完成后可以看到无法连接，这是因为设备没开机"></a>1.4、新建完成后可以看到无法连接，这是因为设备没开机</h4><img src="https://s1.ax1x.com/2020/04/14/JpiDqe.png">
-
-<h4 id="1-5、给设备开机，再次查看连接，发现连接成功"><a href="#1-5、给设备开机，再次查看连接，发现连接成功" class="headerlink" title="1.5、给设备开机，再次查看连接，发现连接成功"></a>1.5、给设备开机，再次查看连接，发现连接成功</h4><img src="https://s1.ax1x.com/2020/04/14/JpigPI.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jpi2Gt.png">
-
-<h3 id="2、Secure-CRT连接到eNSP"><a href="#2、Secure-CRT连接到eNSP" class="headerlink" title="2、Secure CRT连接到eNSP"></a>2、Secure CRT连接到eNSP</h3><h4 id="2-1、新建一台AR1220，先不开机，右击打开设置"><a href="#2-1、新建一台AR1220，先不开机，右击打开设置" class="headerlink" title="2.1、新建一台AR1220，先不开机，右击打开设置"></a>2.1、新建一台AR1220，先不开机，右击打开设置</h4><img src="https://s1.ax1x.com/2020/04/14/JpQg0I.png">
-
-<h4 id="2-2、设备开机，使用Secure-CRT连接，协议使用-Telnet-，主机名为-127-0-0-1-，端口为刚才设置的2001"><a href="#2-2、设备开机，使用Secure-CRT连接，协议使用-Telnet-，主机名为-127-0-0-1-，端口为刚才设置的2001" class="headerlink" title="2.2、设备开机，使用Secure CRT连接，协议使用 Telnet ，主机名为 127.0.0.1 ，端口为刚才设置的2001"></a>2.2、设备开机，使用Secure CRT连接，协议使用 <code>Telnet</code> ，主机名为 <code>127.0.0.1</code> ，端口为刚才设置的<code>2001</code></h4><img src="https://s1.ax1x.com/2020/04/14/JpQcnA.png">
-
-<h4 id="2-3、测试连接，发现连接成功"><a href="#2-3、测试连接，发现连接成功" class="headerlink" title="2.3、测试连接，发现连接成功"></a>2.3、测试连接，发现连接成功</h4><img src="https://s1.ax1x.com/2020/04/14/JpQs6H.png">
-
-<h3 id="Tips："><a href="#Tips：" class="headerlink" title="Tips："></a>Tips：</h3><p>​        各位小伙伴如果有什么问题的话，可以在下方评论留言。</p>
-<p>​        如果本文章侵犯了您的权限，请联系本人，我会立刻处理。</p>
-<p>本文用到的软件下载地址：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">链接：https://pan.baidu.com/s/1jETZHFg-at9VtceVw-dVvw 
-提取码：wqb0 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                <h1 id="Scapy—ARP扫描"><a href="#Scapy—ARP扫描" class="headerlink" title="Scapy—ARP扫描"></a>Scapy—ARP扫描</h1><h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>在上一篇文章中，本菜鸡大概写了一下关于 <code>Ping扫描</code> ，这篇来介绍一下关于 <code>ARP扫描</code> 。</p>
+<p><code>ARP</code> 作为一个介于二层与三层直接的协议，起到承上启下的作用，在数据包构建上也是一样， <code>ARP</code> 在 <code>Ether</code> 上面，在 <code>IP</code> 下面，不过，这里不用考虑 <code>IP</code> 。</p>
+<p>先来构建一个基本的 <code>ARP</code> 数据包，可以看到，源 <code>IP</code> 地址与源 <code>MAC</code> 它在构建的时候会自动填写，而 <code>ARP</code> 的工作方式又是发送广播帧，当目的地址不确定是，就可以像配置默认路由一样，全部置为：<code>0</code> 。于是，我们后面的代码中，只需要发送广播帧，将地址设置为全 <code>0</code> 即可达到扫描整个网段的目的。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> ARP<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token operator">&lt;</span>ARP  <span class="token operator">|</span><span class="token operator">></span>
+<span class="token operator">>></span><span class="token operator">></span> _<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">###[ ARP ]### </span>
+  hwtype<span class="token operator">=</span> <span class="token number">0x1</span>
+  ptype<span class="token operator">=</span> IPv4
+  hwlen<span class="token operator">=</span> None
+  plen<span class="token operator">=</span> None
+  op<span class="token operator">=</span> who<span class="token operator">-</span>has
+  hwsrc<span class="token operator">=</span> <span class="token number">00</span><span class="token punctuation">:</span><span class="token number">0c</span><span class="token punctuation">:</span><span class="token number">29</span><span class="token punctuation">:</span><span class="token number">7f</span><span class="token punctuation">:</span><span class="token number">7c</span><span class="token punctuation">:</span>ee
+  psrc<span class="token operator">=</span> <span class="token number">10.87</span><span class="token punctuation">.</span><span class="token number">51.3</span>
+  hwdst<span class="token operator">=</span> <span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span><span class="token punctuation">:</span><span class="token number">00</span>
+  pdst<span class="token operator">=</span> <span class="token number">0.0</span><span class="token punctuation">.</span><span class="token number">0.0</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、项目代码"><a href="#二、项目代码" class="headerlink" title="二、项目代码"></a>二、项目代码</h2><p>在编写代码的时候需要注意，由于 <code>ARP</code> 是二层协议，所以在导入模块的时候需要单独导入，另外负责收发包的 <code>srp</code> 模块也同样需要修改。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
+<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*- </span>
+<span class="token comment" spellcheck="true"># --author：valecalida--</span>
+<span class="token comment" spellcheck="true"># Edit time: 2020/4/17 20:34</span>
+<span class="token keyword">from</span> scapy<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>inet <span class="token keyword">import</span> Ether
+<span class="token keyword">from</span> scapy<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>l2 <span class="token keyword">import</span> ARP
+<span class="token keyword">from</span> scapy<span class="token punctuation">.</span>sendrecv <span class="token keyword">import</span> srp
+<span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread
+<span class="token keyword">from</span> ipaddress <span class="token keyword">import</span> ip_network
+<span class="token keyword">from</span> time <span class="token keyword">import</span> time
+<span class="token keyword">import</span> sys
+
+
+<span class="token keyword">def</span> <span class="token function">scan_single</span><span class="token punctuation">(</span>host<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    packet <span class="token operator">=</span> Ether<span class="token punctuation">(</span>dst<span class="token operator">=</span><span class="token string">'FF:FF:FF:FF:FF:FF'</span><span class="token punctuation">)</span><span class="token operator">/</span>ARP<span class="token punctuation">(</span>op<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> pdst<span class="token operator">=</span>host<span class="token punctuation">,</span> hwdst<span class="token operator">=</span><span class="token string">'00:00:00:00:00:00'</span><span class="token punctuation">)</span>
+    response<span class="token punctuation">,</span> _ <span class="token operator">=</span> srp<span class="token punctuation">(</span>packet<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> verbose<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> response<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"IP: %s\t\tMac:%s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>host<span class="token punctuation">,</span> response<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>getlayer<span class="token punctuation">(</span>ARP<span class="token punctuation">)</span><span class="token punctuation">.</span>fields<span class="token punctuation">[</span><span class="token string">'hwsrc'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">scan_arp</span><span class="token punctuation">(</span>network<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ip_list <span class="token operator">=</span> ip_network<span class="token punctuation">(</span>network<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> ip <span class="token keyword">in</span> ip_list<span class="token punctuation">:</span>
+        t <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>scan_single<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">[</span>str<span class="token punctuation">(</span>ip<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        t<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    t1 <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> len<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+        host <span class="token operator">=</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
+        scan_arp<span class="token punctuation">(</span>host<span class="token punctuation">)</span>
+        t2 <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[+] 本次扫描共花费 %s 秒"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>t2 <span class="token operator">-</span> t1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Usage:\n\tpython3 Arp_Scan.py 192.168.1.0/24"</span><span class="token punctuation">)</span>
+        sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>来看看代码运行如何，花费仅仅有<code>1.5</code>s，扫描了<code>256</code>（这里没去头去尾）台主机。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost Desktop<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># python3 Arp_Scan.py 10.87.51.0/24</span>
+IP: 10.87.51.1             Mac:00:50:56:c0:00:08
+IP: 10.87.51.2             Mac:00:50:56:ea:29:0e
+IP: 10.87.51.19            Mac:00:0c:29:90:28:a0
+IP: 10.87.51.254           Mac:00:50:56:ee:e3:c7
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> 本次扫描共花费 1.3971431255340576 秒<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Addiction："><a href="#Addiction：" class="headerlink" title="Addiction："></a>Addiction：</h3><p>大家可以看一下乾颐堂教主的课，搭配<code>Scapy 2.4.3</code>的官方文档，那就很棒了。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -725,7 +594,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://valecasec.github.io/2020/04/14/windows-xia-shu-tong-huan-jing-da-jian/">https://valecasec.github.io/2020/04/14/windows-xia-shu-tong-huan-jing-da-jian/</a>
+                    <a href="https://valecasec.github.io/2020/04/18/scapy-arp-sao-miao/">https://valecasec.github.io/2020/04/18/scapy-arp-sao-miao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -763,20 +632,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/H3C/">
-                                    <span class="chip bg-color">H3C</span>
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
                                 </a>
                             
-                                <a href="/tags/eNSP/">
-                                    <span class="chip bg-color">eNSP</span>
+                                <a href="/tags/Scapy/">
+                                    <span class="chip bg-color">Scapy</span>
                                 </a>
                             
-                                <a href="/tags/Wireshark/">
-                                    <span class="chip bg-color">Wireshark</span>
-                                </a>
-                            
-                                <a href="/tags/VirtualBox/">
-                                    <span class="chip bg-color">VirtualBox</span>
+                                <a href="/tags/ARP/">
+                                    <span class="chip bg-color">ARP</span>
                                 </a>
                             
                         </div>
@@ -1086,23 +951,24 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/16/shen-tou-ce-shi-typhoon-v1.02/">
+                <a href="/2020/04/19/shen-tou-ce-shi-dc1/">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2020/04/17/JEmw26.jpg" class="responsive-img" alt="渗透测试—Typhoon_V1.02">
                         
-                        <span class="card-title">渗透测试—Typhoon_V1.02</span>
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="渗透测试—DC_1">
+                        
+                        <span class="card-title">渗透测试—DC_1</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Typhoon_V1.02靶场的几个漏洞检测、利用及提权，一篇水水的渗透测试文章...
+                            对VulnHub的一个简单靶场的渗透测试，自己需要学的还有很多，努力进步中...
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-16
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-19
                         </span>
                         <span class="publish-author">
                             
@@ -1127,8 +993,8 @@
                         <span class="chip bg-color">Metasploit</span>
                     </a>
                     
-                    <a href="/tags/Typhoon/">
-                        <span class="chip bg-color">Typhoon</span>
+                    <a href="/tags/SUID%E6%8F%90%E6%9D%83/">
+                        <span class="chip bg-color">SUID提权</span>
                     </a>
                     
                 </div>
@@ -1142,30 +1008,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/14/ying-ji-xiang-ying-wannamine4.0/">
+                <a href="/2020/04/17/scapy-ping-sao-miao/">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2020/04/14/GzkhB4.jpg" class="responsive-img" alt="应急响应—WannaMine4.0">
+                        <img src="https://s1.ax1x.com/2020/04/17/JZLL4J.jpg" class="responsive-img" alt="Scapy—Ping扫描">
                         
-                        <span class="card-title">应急响应—WannaMine4.0</span>
+                        <span class="card-title">Scapy—Ping扫描</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对WannaMine4.0的一点简单应急及个人学习记录，大佬们不喜勿喷...
+                            主机发现之Ping扫描，C类网段花费不到10秒，供各位小白借鉴...
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-17
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Emergency-Response/" class="post-category">
-                                    Emergency_Response
+                            <a href="/categories/Scapy/" class="post-category">
+                                    Scapy
                                 </a>
                             
                             
@@ -1175,12 +1041,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Emergency-Response/">
-                        <span class="chip bg-color">Emergency_Response</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
-                    <a href="/tags/WannaMine4-0/">
-                        <span class="chip bg-color">WannaMine4.0</span>
+                    <a href="/tags/Scapy/">
+                        <span class="chip bg-color">Scapy</span>
+                    </a>
+                    
+                    <a href="/tags/Ping/">
+                        <span class="chip bg-color">Ping</span>
                     </a>
                     
                 </div>

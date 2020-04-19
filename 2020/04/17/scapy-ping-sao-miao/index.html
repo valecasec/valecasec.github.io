@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Windows下数通环境搭建, Python">
+    <meta name="keywords" content="Scapy—Ping扫描, Python">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Windows下数通环境搭建 | valecalida&#39;s house</title>
+    <title>Scapy—Ping扫描 | valecalida&#39;s house</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -307,12 +307,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/04/14/Jp8pjg.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/04/17/JZLL4J.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Windows下数通环境搭建</h1>
+                    <h1 class="description center-align post-title">Scapy—Ping扫描</h1>
                 </div>
             </div>
         </div>
@@ -437,20 +437,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/H3C/">
-                                <span class="chip bg-color">H3C</span>
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
                             </a>
                         
-                            <a href="/tags/eNSP/">
-                                <span class="chip bg-color">eNSP</span>
+                            <a href="/tags/Scapy/">
+                                <span class="chip bg-color">Scapy</span>
                             </a>
                         
-                            <a href="/tags/Wireshark/">
-                                <span class="chip bg-color">Wireshark</span>
-                            </a>
-                        
-                            <a href="/tags/VirtualBox/">
-                                <span class="chip bg-color">VirtualBox</span>
+                            <a href="/tags/Ping/">
+                                <span class="chip bg-color">Ping</span>
                             </a>
                         
                     </div>
@@ -461,8 +457,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Switching%E3%80%81Routing/" class="post-category">
-                                Switching、Routing
+                            <a href="/categories/Scapy/" class="post-category">
+                                Scapy
                             </a>
                         
                     </div>
@@ -474,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-14
+                    2020-04-17
                 </div>
                 
 
@@ -491,197 +487,109 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Windows下数通环境搭建"><a href="#Windows下数通环境搭建" class="headerlink" title="Windows下数通环境搭建"></a>Windows下数通环境搭建</h1><h2 id="一、博客简介及预备软件"><a href="#一、博客简介及预备软件" class="headerlink" title="一、博客简介及预备软件"></a>一、博客简介及预备软件</h2><p>​        计算机网络技术的小伙伴们会用到H3C、eNSP、Cisco Packet Tracer、VirtualBox、Wireshark、WinPcap等数通类软件，但是也有很多小伙伴因为各个版本的问题导致环境搭不好，所以在这写一篇博客记录一下全环境的搭建。本文环境全部基于虚拟机搭建（因为我内存大？CPU强？），因为我真机已经都装了，不想重新搞，啊哈哈哈哈，总而言之，这是篇水文。</p>
-<p>​        预备软件及版本如下：</p>
-<ul>
-<li>eNSP（1.3.00.100 V100R003C00SPC100）</li>
-<li>HCL（HCL2.1.0）</li>
-<li>Wireshark（3.0.3）</li>
-<li>VirtualBox（5.1.28）</li>
-<li>WinPcap（4.1.3）</li>
-<li>Secure CRT（8.5）</li>
-</ul>
-<h2 id="二、环境搭建"><a href="#二、环境搭建" class="headerlink" title="二、环境搭建"></a>二、环境搭建</h2><p>​        本次环境搭建顺序如下：Wireshark—&gt;WinPcap—&gt;VirtualBox—&gt;eNSP—&gt;HCL，下面开始环境搭建。</p>
-<h3 id="1、安装Wireshark"><a href="#1、安装Wireshark" class="headerlink" title="1、安装Wireshark"></a>1、安装Wireshark</h3><img src="https://s1.ax1x.com/2020/04/14/JS7W0U.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7c60.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7gXV.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS76lq.png">
-
-<p>​        安装的位置可以自定义</p>
-<img src="https://s1.ax1x.com/2020/04/14/JS7ypn.png">
-
-<p>​        这里建议安装Npcap 0.995</p>
-<img src="https://s1.ax1x.com/2020/04/14/JS7RmT.png">
-
-<p>​        这里建议安装USPPcap1.3.00，如果实在是不想装可以不装，装了方便抓取USB的包。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JS7f7F.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7Ih9.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS75tJ.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7O0O.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS74k4.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7TpR.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7H6x.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7bX6.png">
-
-<p>​        安装完成后立刻重启。</p>
-<h3 id="2、安装WinPcap"><a href="#2、安装WinPcap" class="headerlink" title="2、安装WinPcap"></a>2、安装WinPcap</h3><img src="https://s1.ax1x.com/2020/04/14/JS7711.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7LnK.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7X7D.png">
-
-<p>​        这个全都按照图示的来就好了，基本上都是默认。</p>
-<h3 id="3、安装VirtualBox"><a href="#3、安装VirtualBox" class="headerlink" title="3、安装VirtualBox"></a>3、安装VirtualBox</h3><img src="https://s1.ax1x.com/2020/04/14/JS7zhd.png">
-
-<p>​        老规矩，安装位置可以自定义。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JS7vAe.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JS7xtH.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHehj.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHp9A.png">
-
-<p>​        下面弹出来的全都安装，不安装的话，你也知道什么结果…</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSHCct.png">
-
-<p>​        安装完成后无需启动检测。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSXeld.png">
-
-<p>​        这里记得安装完成后不要打开VirtulBox，继续往下走。</p>
-<h3 id="4、安装eNSP"><a href="#4、安装eNSP" class="headerlink" title="4、安装eNSP"></a>4、安装eNSP</h3><img src="https://s1.ax1x.com/2020/04/14/JSH91I.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHPjP.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHFnf.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHkB8.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHAHS.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHZNQ.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSHVAg.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSXDtU.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSXBkT.png">
-
-<h3 id="5、安装HCL"><a href="#5、安装HCL" class="headerlink" title="5、安装HCL"></a>5、安装HCL</h3><img src="https://s1.ax1x.com/2020/04/14/JSXyp4.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSXw7V.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSXd00.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSXrhF.png">
-
-<p>​        老规矩，安装完之后不打开。</p>
-<h3 id="6、打开eNSP注册设备"><a href="#6、打开eNSP注册设备" class="headerlink" title="6、打开eNSP注册设备"></a>6、打开eNSP注册设备</h3><p>打开二NSP后会出现下面第一张图类似的几个提示，全部勾选上，然后继续</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSX61J.png">
-
-<p>​        最重要的事情就是打开二NSP之后先注册设备，如果注册设备没出什么问题，基本就没啥问题了。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSXW0x.png">
-
-<p>​        这里全部勾选上。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSXgXR.png">
-
-<h3 id="7、调整H3C-Cloud-Lab兼容性"><a href="#7、调整H3C-Cloud-Lab兼容性" class="headerlink" title="7、调整H3C Cloud Lab兼容性"></a>7、调整H3C Cloud Lab兼容性</h3><p>​        因为H3C Cloud Lab在Windows10上会报一个不兼容的错，这里懒得点开那个错误，直接修改兼容性。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSXRn1.png">
-
-<p>​        将兼容性改为 <code>Windows7</code> 。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSXcc9.png">
-
-<h3 id="8、安装Secure-CRT"><a href="#8、安装Secure-CRT" class="headerlink" title="8、安装Secure CRT"></a>8、安装Secure CRT</h3><p>​    ！！！有能力的小伙伴请支持正版！！！</p>
-<img src="https://s1.ax1x.com/2020/04/14/JppI4P.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jpp5Nt.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppfHA.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jpp4AI.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppWBd.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jpp738.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppT9f.png">
-
-<p>​        接下来需要将 <code>keygen.exe</code> 拷贝到Secure CRT的安装路径中去</p>
-<img src="https://s1.ax1x.com/2020/04/14/JppHgS.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jppbjg.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp993T.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp9CgU.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp9PvF.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp9CgU.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppLuQ.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppOBj.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppXHs.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JppxNq.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jppz40.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp9pCV.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp9Fu4.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jp9kDJ.png">
-
-<p>​        到此为止，Secure CRT的安装完毕</p>
-<h2 id="三、环境测试"><a href="#三、环境测试" class="headerlink" title="三、环境测试"></a>三、环境测试</h2><h3 id="1、测试eNSP"><a href="#1、测试eNSP" class="headerlink" title="1、测试eNSP"></a>1、测试eNSP</h3><img src="https://s1.ax1x.com/2020/04/14/JSXT9e.png">
-
-
-
-<h3 id="2、测试H3C-Cloud-Lab"><a href="#2、测试H3C-Cloud-Lab" class="headerlink" title="2、测试H3C Cloud Lab"></a>2、测试H3C Cloud Lab</h3><img src="https://s1.ax1x.com/2020/04/14/JSXf76.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JSXIhD.png">
-
-<p>如果在这没有点允许的话，还可以在 <code>控制面板\所有控制面板项\Windows Defender 防火墙\允许的应用</code> 下再打开。</p>
-<img src="https://s1.ax1x.com/2020/04/14/JSX5tO.png">
-
-<h2 id="四、Secure-CRT连接模拟器"><a href="#四、Secure-CRT连接模拟器" class="headerlink" title="四、Secure CRT连接模拟器"></a>四、Secure CRT连接模拟器</h2><h3 id="1、Secure-CRT连接到H3C-Cloud-Lab"><a href="#1、Secure-CRT连接到H3C-Cloud-Lab" class="headerlink" title="1、Secure CRT连接到H3C Cloud Lab"></a>1、Secure CRT连接到H3C Cloud Lab</h3><h4 id="1-1、打开H3C-Cloud-Lab，新建一个路由器"><a href="#1-1、打开H3C-Cloud-Lab，新建一个路由器" class="headerlink" title="1.1、打开H3C Cloud Lab，新建一个路由器"></a>1.1、打开H3C Cloud Lab，新建一个路由器</h4><img src="https://s1.ax1x.com/2020/04/14/Jpi6IA.png">
-
-<h4 id="1-2、打开VirtualBox找到对应的设备，点击设置查看名称"><a href="#1-2、打开VirtualBox找到对应的设备，点击设置查看名称" class="headerlink" title="1.2、打开VirtualBox找到对应的设备，点击设置查看名称"></a>1.2、打开VirtualBox找到对应的设备，点击设置查看名称</h4><img src="https://s1.ax1x.com/2020/04/14/JpisVH.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/JpFPiR.png">
-
-<h4 id="1-3、拷贝好设备名称，打开Secure-CRT新建快速连接，Port-改为：Named-Pipe，-下面的-Name-of-pipe-写成-pipe-设备名称"><a href="#1-3、拷贝好设备名称，打开Secure-CRT新建快速连接，Port-改为：Named-Pipe，-下面的-Name-of-pipe-写成-pipe-设备名称" class="headerlink" title="1.3、拷贝好设备名称，打开Secure CRT新建快速连接，Port 改为：Named Pipe， 下面的 Name of pipe 写成 \\.\pipe\设备名称"></a>1.3、拷贝好设备名称，打开Secure CRT新建快速连接，<code>Port</code> 改为：<code>Named Pipe</code>， 下面的 <code>Name of pipe</code> 写成 <code>\\.\pipe\设备名称</code></h4><img src="https://s1.ax1x.com/2020/04/14/Jpiyad.png">
-
-<h4 id="1-4、新建完成后可以看到无法连接，这是因为设备没开机"><a href="#1-4、新建完成后可以看到无法连接，这是因为设备没开机" class="headerlink" title="1.4、新建完成后可以看到无法连接，这是因为设备没开机"></a>1.4、新建完成后可以看到无法连接，这是因为设备没开机</h4><img src="https://s1.ax1x.com/2020/04/14/JpiDqe.png">
-
-<h4 id="1-5、给设备开机，再次查看连接，发现连接成功"><a href="#1-5、给设备开机，再次查看连接，发现连接成功" class="headerlink" title="1.5、给设备开机，再次查看连接，发现连接成功"></a>1.5、给设备开机，再次查看连接，发现连接成功</h4><img src="https://s1.ax1x.com/2020/04/14/JpigPI.png">
-
-<img src="https://s1.ax1x.com/2020/04/14/Jpi2Gt.png">
-
-<h3 id="2、Secure-CRT连接到eNSP"><a href="#2、Secure-CRT连接到eNSP" class="headerlink" title="2、Secure CRT连接到eNSP"></a>2、Secure CRT连接到eNSP</h3><h4 id="2-1、新建一台AR1220，先不开机，右击打开设置"><a href="#2-1、新建一台AR1220，先不开机，右击打开设置" class="headerlink" title="2.1、新建一台AR1220，先不开机，右击打开设置"></a>2.1、新建一台AR1220，先不开机，右击打开设置</h4><img src="https://s1.ax1x.com/2020/04/14/JpQg0I.png">
-
-<h4 id="2-2、设备开机，使用Secure-CRT连接，协议使用-Telnet-，主机名为-127-0-0-1-，端口为刚才设置的2001"><a href="#2-2、设备开机，使用Secure-CRT连接，协议使用-Telnet-，主机名为-127-0-0-1-，端口为刚才设置的2001" class="headerlink" title="2.2、设备开机，使用Secure CRT连接，协议使用 Telnet ，主机名为 127.0.0.1 ，端口为刚才设置的2001"></a>2.2、设备开机，使用Secure CRT连接，协议使用 <code>Telnet</code> ，主机名为 <code>127.0.0.1</code> ，端口为刚才设置的<code>2001</code></h4><img src="https://s1.ax1x.com/2020/04/14/JpQcnA.png">
-
-<h4 id="2-3、测试连接，发现连接成功"><a href="#2-3、测试连接，发现连接成功" class="headerlink" title="2.3、测试连接，发现连接成功"></a>2.3、测试连接，发现连接成功</h4><img src="https://s1.ax1x.com/2020/04/14/JpQs6H.png">
-
-<h3 id="Tips："><a href="#Tips：" class="headerlink" title="Tips："></a>Tips：</h3><p>​        各位小伙伴如果有什么问题的话，可以在下方评论留言。</p>
-<p>​        如果本文章侵犯了您的权限，请联系本人，我会立刻处理。</p>
-<p>本文用到的软件下载地址：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">链接：https://pan.baidu.com/s/1jETZHFg-at9VtceVw-dVvw 
-提取码：wqb0 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                <h1 id="Scapy—Ping扫描"><a href="#Scapy—Ping扫描" class="headerlink" title="Scapy—Ping扫描"></a>Scapy—Ping扫描</h1><h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>最近在学 <code>Scapy</code> ，决定先从最基本的开始做起，于是有了这篇水文，先来看看文档对它的定义：</p>
+<p><code>Scapy</code>是一个可以让用户发送、侦听和解析并伪装网络报文的<code>Python</code>程序。这些功能可以用于制作侦测、扫描和攻击网络的工具。换言之，<code>Scapy</code> 是一个强大的操纵报文的交互程序。它可以伪造或者解析多种协议的报文，还具有发送、捕获、匹配请求和响应这些报文以及更多的功能。<code>Scapy</code> 可以轻松地做到像扫描(<code>scanning</code>)、路由跟踪(<code>tracerouting</code>)、探测(<code>probing</code>)、单元测试(<code>unit tests</code>)、攻击(<code>attacks</code>)和发现网络(<code>network discorvery</code>)这样的传统任务。它可以代替<code>hping</code>，<code>arpspoof</code>，<code>arp-sk</code>，<code>arping</code>，<code>p0f</code> 甚至是部分的<code>Namp</code>，<code>tcpdump</code>和<code>tshark</code> 的功能。</p>
+<p>我总结一句，它说的真的都能实现…</p>
+<h3 id="1、安装Scapy"><a href="#1、安装Scapy" class="headerlink" title="1、安装Scapy"></a>1、安装<code>Scapy</code></h3><pre class="line-numbers language-bash"><code class="language-bash">pip3 <span class="token function">install</span> scapy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2、数据包的基本构成"><a href="#2、数据包的基本构成" class="headerlink" title="2、数据包的基本构成"></a>2、数据包的基本构成</h3><p>数据包是从底层到高层构造的，<code>ICMP</code> 协议是应用层协议，这里要知道的是当 <code>Type</code> 为 <code>0</code> 时为 <code>echo-reply</code> ；当 <code>Type</code> 为 <code>8</code>时为 <code>echo-request</code> </p>
+<p>先来看基本的 <code>ping</code> 命令：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  ~ <span class="token function">ping</span> -c 1 baidu.com
+PING baidu.com <span class="token punctuation">(</span>39.156.69.79<span class="token punctuation">)</span> 56<span class="token punctuation">(</span>84<span class="token punctuation">)</span> bytes of data.
+64 bytes from 39.156.69.79 <span class="token punctuation">(</span>39.156.69.79<span class="token punctuation">)</span>: icmp_seq<span class="token operator">=</span>1 ttl<span class="token operator">=</span>49 time<span class="token operator">=</span>38.4 ms<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>可以看到，上面的一条 <code>ping</code> 有显示的有序列号，生存周期，花费时间，生成周期一般都是 <code>64</code> 或 <code>128</code> ，序列号则是需要填的部分。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> p <span class="token operator">=</span> IP<span class="token punctuation">(</span>dst<span class="token operator">=</span><span class="token string">'10.87.51.1'</span><span class="token punctuation">)</span><span class="token operator">/</span>ICMP<span class="token punctuation">(</span><span class="token punctuation">)</span>    
+<span class="token comment" spellcheck="true">#这还可以换成 Ether()/IP(dst='10.87.51.1')/ICMP(),但是前面要加上以太网帧</span>
+<span class="token operator">>></span><span class="token operator">></span> p<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">###[ IP ]###</span>
+  version<span class="token operator">=</span> <span class="token number">4</span>    <span class="token comment" spellcheck="true">#IP版本</span>
+  ihl<span class="token operator">=</span> None
+  tos<span class="token operator">=</span> <span class="token number">0x0</span>
+  len<span class="token operator">=</span> None        <span class="token comment" spellcheck="true">#长度</span>
+  id<span class="token operator">=</span> <span class="token number">1</span>            <span class="token comment" spellcheck="true">#id是需要填的部分</span>
+  flags<span class="token operator">=</span>
+  frag<span class="token operator">=</span> <span class="token number">0</span>
+  ttl<span class="token operator">=</span> <span class="token number">64</span>        <span class="token comment" spellcheck="true">#生存周期</span>
+  proto<span class="token operator">=</span> icmp    <span class="token comment" spellcheck="true">#协议</span>
+  chksum<span class="token operator">=</span> None
+  src<span class="token operator">=</span> <span class="token number">10.87</span><span class="token punctuation">.</span><span class="token number">51.1</span>    <span class="token comment" spellcheck="true">#源地址</span>
+  dst<span class="token operator">=</span> <span class="token number">10.87</span><span class="token punctuation">.</span><span class="token number">51.1</span>    <span class="token comment" spellcheck="true">#目的地址</span>
+  \options\
+<span class="token comment" spellcheck="true">###[ ICMP ]###</span>
+     type<span class="token operator">=</span> echo<span class="token operator">-</span>request        <span class="token comment" spellcheck="true">#类型为请求包，reply的话会变成echo-reply</span>
+     code<span class="token operator">=</span> <span class="token number">0</span>
+     chksum<span class="token operator">=</span> None
+     id<span class="token operator">=</span> <span class="token number">0x0</span>        <span class="token comment" spellcheck="true">#需要填的部分加一</span>
+     seq<span class="token operator">=</span> <span class="token number">0x0</span>        <span class="token comment" spellcheck="true">#需要填的部分加二</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、项目代码"><a href="#二、项目代码" class="headerlink" title="二、项目代码"></a>二、项目代码</h2><h3 id="1、扫描单个IP"><a href="#1、扫描单个IP" class="headerlink" title="1、扫描单个IP"></a>1、扫描单个IP</h3><p>先入门嘛，这先搞一个最基本的，扫描单个<code>IP</code> 。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
+<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*- </span>
+<span class="token comment" spellcheck="true"># --author：valecalida--</span>
+<span class="token comment" spellcheck="true"># Edit time: 2020/4/17 19:29</span>
+<span class="token keyword">from</span> scapy<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>inet <span class="token keyword">import</span> IP<span class="token punctuation">,</span> ICMP<span class="token punctuation">,</span> sr1
+<span class="token keyword">from</span> random <span class="token keyword">import</span> randint
+ip <span class="token operator">=</span> <span class="token string">'10.87.51.1'</span>
+ip_id <span class="token operator">=</span> randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">)</span>
+icmp_id <span class="token operator">=</span> randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">)</span>
+icmp_seq <span class="token operator">=</span> randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">)</span>
+packet <span class="token operator">=</span> IP<span class="token punctuation">(</span>dst<span class="token operator">=</span>ip<span class="token punctuation">,</span> ttl<span class="token operator">=</span><span class="token number">64</span><span class="token punctuation">,</span> id<span class="token operator">=</span>ip_id<span class="token punctuation">)</span><span class="token operator">/</span>ICMP<span class="token punctuation">(</span>id<span class="token operator">=</span>icmp_id<span class="token punctuation">,</span> seq<span class="token operator">=</span>icmp_seq<span class="token punctuation">)</span>
+response <span class="token operator">=</span> sr1<span class="token punctuation">(</span>packet<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> verbose<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token keyword">if</span> response<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[+] %s is alive"</span> <span class="token operator">%</span> str<span class="token punctuation">(</span>ip<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[-] %s is not alive"</span> <span class="token operator">%</span> str<span class="token punctuation">(</span>ip<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>控制台输出如下：</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>+<span class="token punctuation">]</span> 10.87.51.1 is alive<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="2、扫描整个网段"><a href="#2、扫描整个网段" class="headerlink" title="2、扫描整个网段"></a>2、扫描整个网段</h3><p>扫描网段就需要用到一个新的库：<code>ipaddress</code> ，它有功能可以根据掩码直接生成好 <code>IP地址</code>。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> ipaddress <span class="token keyword">import</span> ip_network
+host <span class="token operator">=</span> <span class="token string">'225.225.225.0/30'</span>
+ip_list <span class="token operator">=</span> ip_network<span class="token punctuation">(</span>host<span class="token punctuation">)</span>
+<span class="token keyword">for</span> ip <span class="token keyword">in</span> ip_list<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>str<span class="token punctuation">(</span>ip<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里给它地址空间小一点，看看控制台，已经自动生成好了对应的 <code>IP地址</code> 。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">225.225.225.0
+225.225.225.1
+225.225.225.2
+225.225.225.3<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>大家也看出来问题了，就是它生成的地址中并没有去除不可用的地址，不过不影响程序进行，继续上代码，把扫描单个地址写出一个函数，在批量扫描的时候使用多进程，调用扫描单个的函数。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
+<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*- </span>
+<span class="token comment" spellcheck="true"># --author：valecalida--</span>
+<span class="token comment" spellcheck="true"># Edit time: 2020/4/17 16:30</span>
+<span class="token keyword">from</span> scapy<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>inet <span class="token keyword">import</span> IP<span class="token punctuation">,</span> ICMP<span class="token punctuation">,</span> sr1
+<span class="token keyword">from</span> random <span class="token keyword">import</span> randint
+<span class="token keyword">from</span> ipaddress <span class="token keyword">import</span> ip_network
+<span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread
+<span class="token keyword">import</span> time
+
+
+<span class="token keyword">def</span> <span class="token function">ping_single</span><span class="token punctuation">(</span>ip<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ip_id <span class="token operator">=</span> randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">)</span>
+    icmp_id <span class="token operator">=</span> randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">)</span>
+    icmp_seq <span class="token operator">=</span> randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">65535</span><span class="token punctuation">)</span>
+    packet <span class="token operator">=</span> IP<span class="token punctuation">(</span>dst<span class="token operator">=</span>ip<span class="token punctuation">,</span> ttl<span class="token operator">=</span><span class="token number">64</span><span class="token punctuation">,</span> id<span class="token operator">=</span>ip_id<span class="token punctuation">)</span><span class="token operator">/</span>ICMP<span class="token punctuation">(</span>id<span class="token operator">=</span>icmp_id<span class="token punctuation">,</span> seq<span class="token operator">=</span>icmp_seq<span class="token punctuation">)</span>
+    response <span class="token operator">=</span> sr1<span class="token punctuation">(</span>packet<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> verbose<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span>    <span class="token comment" spellcheck="true">#verbose不显示详情，也可替换为False</span>
+    <span class="token keyword">if</span> response<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[+] %s is alive"</span> <span class="token operator">%</span> str<span class="token punctuation">(</span>ip<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">ping_scan</span><span class="token punctuation">(</span>network<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ip_list <span class="token operator">=</span> ip_network<span class="token punctuation">(</span>network<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> ip <span class="token keyword">in</span> ip_list<span class="token punctuation">:</span>
+        t <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>ping_single<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">[</span>str<span class="token punctuation">(</span>ip<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        t<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+
+    host <span class="token operator">=</span> <span class="token string">'10.87.51.0/24'</span>
+    t1 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    ping_scan<span class="token punctuation">(</span>host<span class="token punctuation">)</span>
+    t2 <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[+] 本次扫描共花费 %s 秒"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>t2 <span class="token operator">-</span> t1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>看看控制台输出情况，扫描 <code>256</code> 台主机，共花费了约 <code>10s</code>，其实还算可以（自卖自夸）。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>+<span class="token punctuation">]</span> 10.87.51.1 is alive
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> 本次扫描共花费 9.795329570770264 秒<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -725,7 +633,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://valecasec.github.io/2020/04/14/windows-xia-shu-tong-huan-jing-da-jian/">https://valecasec.github.io/2020/04/14/windows-xia-shu-tong-huan-jing-da-jian/</a>
+                    <a href="https://valecasec.github.io/2020/04/17/scapy-ping-sao-miao/">https://valecasec.github.io/2020/04/17/scapy-ping-sao-miao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -763,20 +671,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/H3C/">
-                                    <span class="chip bg-color">H3C</span>
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
                                 </a>
                             
-                                <a href="/tags/eNSP/">
-                                    <span class="chip bg-color">eNSP</span>
+                                <a href="/tags/Scapy/">
+                                    <span class="chip bg-color">Scapy</span>
                                 </a>
                             
-                                <a href="/tags/Wireshark/">
-                                    <span class="chip bg-color">Wireshark</span>
-                                </a>
-                            
-                                <a href="/tags/VirtualBox/">
-                                    <span class="chip bg-color">VirtualBox</span>
+                                <a href="/tags/Ping/">
+                                    <span class="chip bg-color">Ping</span>
                                 </a>
                             
                         </div>
@@ -1086,6 +990,62 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
+                <a href="/2020/04/18/scapy-arp-sao-miao/">
+                    <div class="card-image">
+                        
+                        <img src="https://s1.ax1x.com/2020/04/17/JZLqN4.jpg" class="responsive-img" alt="Scapy—ARP扫描">
+                        
+                        <span class="card-title">Scapy—ARP扫描</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            主机发现之ARP扫描，通过ARP扫描可以更快的获取存活的主机，又是一篇水文...
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-18
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Scapy/" class="post-category">
+                                    Scapy
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/Scapy/">
+                        <span class="chip bg-color">Scapy</span>
+                    </a>
+                    
+                    <a href="/tags/ARP/">
+                        <span class="chip bg-color">ARP</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
                 <a href="/2020/04/16/shen-tou-ce-shi-typhoon-v1.02/">
                     <div class="card-image">
                         
@@ -1101,9 +1061,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1129,58 +1089,6 @@
                     
                     <a href="/tags/Typhoon/">
                         <span class="chip bg-color">Typhoon</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/14/ying-ji-xiang-ying-wannamine4.0/">
-                    <div class="card-image">
-                        
-                        <img src="https://s1.ax1x.com/2020/04/14/GzkhB4.jpg" class="responsive-img" alt="应急响应—WannaMine4.0">
-                        
-                        <span class="card-title">应急响应—WannaMine4.0</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            对WannaMine4.0的一点简单应急及个人学习记录，大佬们不喜勿喷...
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Emergency-Response/" class="post-category">
-                                    Emergency_Response
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Emergency-Response/">
-                        <span class="chip bg-color">Emergency_Response</span>
-                    </a>
-                    
-                    <a href="/tags/WannaMine4-0/">
-                        <span class="chip bg-color">WannaMine4.0</span>
                     </a>
                     
                 </div>
