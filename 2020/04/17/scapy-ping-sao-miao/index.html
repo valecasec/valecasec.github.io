@@ -504,7 +504,7 @@
             <div id="articleContent">
                 <h1 id="Scapy—Ping扫描"><a href="#Scapy—Ping扫描" class="headerlink" title="Scapy—Ping扫描"></a>Scapy—Ping扫描</h1><h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>最近在学 <code>Scapy</code> ，决定先从最基本的开始做起，于是有了这篇水文，先来看看文档对它的定义：</p>
 <p><code>Scapy</code>是一个可以让用户发送、侦听和解析并伪装网络报文的<code>Python</code>程序。这些功能可以用于制作侦测、扫描和攻击网络的工具。换言之，<code>Scapy</code> 是一个强大的操纵报文的交互程序。它可以伪造或者解析多种协议的报文，还具有发送、捕获、匹配请求和响应这些报文以及更多的功能。<code>Scapy</code> 可以轻松地做到像扫描(<code>scanning</code>)、路由跟踪(<code>tracerouting</code>)、探测(<code>probing</code>)、单元测试(<code>unit tests</code>)、攻击(<code>attacks</code>)和发现网络(<code>network discorvery</code>)这样的传统任务。它可以代替<code>hping</code>，<code>arpspoof</code>，<code>arp-sk</code>，<code>arping</code>，<code>p0f</code> 甚至是部分的<code>Namp</code>，<code>tcpdump</code>和<code>tshark</code> 的功能。</p>
-<p>我总结一句，它说的真的都能实现…</p>
+<p>我总结一句，它说的真的都能实现（手动狗头）…</p>
 <h3 id="1、安装Scapy"><a href="#1、安装Scapy" class="headerlink" title="1、安装Scapy"></a>1、安装<code>Scapy</code></h3><pre class="line-numbers language-bash"><code class="language-bash">pip3 <span class="token function">install</span> scapy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <h3 id="2、数据包的基本构成"><a href="#2、数据包的基本构成" class="headerlink" title="2、数据包的基本构成"></a>2、数据包的基本构成</h3><p>数据包是从底层到高层构造的，<code>ICMP</code> 协议是应用层协议，这里要知道的是当 <code>Type</code> 为 <code>0</code> 时为 <code>echo-reply</code> ；当 <code>Type</code> 为 <code>8</code>时为 <code>echo-request</code> </p>
 <p>先来看基本的 <code>ping</code> 命令：</p>
@@ -1252,7 +1252,7 @@ ip_list <span class="token operator">=</span> ip_network<span class="token punct
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">20.6k</span>&nbsp;字
+                class="white-color">21.3k</span>&nbsp;字
             
             
             
