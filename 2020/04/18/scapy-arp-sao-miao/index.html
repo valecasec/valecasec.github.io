@@ -479,14 +479,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    8 分
                 </div>
                 
 
@@ -566,6 +566,7 @@ x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' <span class="token operator">|</spa
 <span class="token operator">>></span><span class="token operator">></span> ans<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>getlayer<span class="token punctuation">(</span>ARP<span class="token punctuation">)</span><span class="token punctuation">.</span>fields<span class="token punctuation">[</span><span class="token string">'hwsrc'</span><span class="token punctuation">]</span>
 <span class="token string">'00:50:56:c0:00:08'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="3、代码编写"><a href="#3、代码编写" class="headerlink" title="3、代码编写"></a>3、代码编写</h3><p>在编写代码的时候需要注意，由于 <code>ARP</code> 是二层协议，所以在导入模块的时候需要单独导入，另外负责收发包的 <code>srp</code> 模块也同样需要修改。</p>
+<h4 id="3-1、版本一：不指定接口"><a href="#3-1、版本一：不指定接口" class="headerlink" title="3.1、版本一：不指定接口"></a>3.1、版本一：不指定接口</h4><p>此版本在 <code>Windows</code> 系统中无法直接运行，但可在 <code>Linux</code> 系统下直接运行</p>
 <pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
 <span class="token comment" spellcheck="true"># -*- coding: utf-8 -*- </span>
 <span class="token comment" spellcheck="true"># --author：valecalida--</span>
@@ -604,13 +605,71 @@ x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00' <span class="token operator">|</spa
         <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Usage:\n\tpython3 Arp_Scan.py 192.168.1.0/24"</span><span class="token punctuation">)</span>
         sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>来看看代码运行如何，花费仅仅有<code>1.5</code>s，扫描了<code>256</code>（这里没去头去尾）台主机。</p>
+<p>来看看代码运行如何，花费仅仅有<code>1.4s</code>，扫描了<code>256</code>（这里没去头去尾）台主机。</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost Desktop<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># python3 Arp_Scan.py 10.87.51.0/24</span>
 IP: 10.87.51.1             Mac:00:50:56:c0:00:08
 IP: 10.87.51.2             Mac:00:50:56:ea:29:0e
 IP: 10.87.51.19            Mac:00:0c:29:90:28:a0
 IP: 10.87.51.254           Mac:00:50:56:ee:e3:c7
 <span class="token punctuation">[</span>+<span class="token punctuation">]</span> 本次扫描共花费 1.3971431255340576 秒<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-2、版本二：指定接口"><a href="#3-2、版本二：指定接口" class="headerlink" title="3.2、版本二：指定接口"></a>3.2、版本二：指定接口</h4><p>可以在 <code>Scapy</code> 下查看当前系统下可用的接口</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> ifaces
+INDEX  IFACE                                                IP               MAC
+<span class="token number">18</span>     VMware Virtual Ethernet Adapter <span class="token keyword">for</span> VMnet8  None             ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff
+<span class="token number">22</span>     Npcap Loopback Adapter                      None             ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff
+<span class="token number">5</span>      Microsoft Wi<span class="token operator">-</span>Fi Direct Virtual Adapter      None             ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff
+<span class="token number">12</span>     Realtek PCIe GBE Family Controller          None             ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff
+<span class="token number">3</span>      VMware Virtual Ethernet Adapter <span class="token keyword">for</span> VMnet1  None             ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff
+<span class="token number">11</span>     VirtualBox Host<span class="token operator">-</span>Only Ethernet Adapter       None             ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff
+<span class="token operator">-</span><span class="token number">1</span>     <span class="token punctuation">[</span>Unknown<span class="token punctuation">]</span> NdisWan Adapter                   None             ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff
+<span class="token operator">-</span><span class="token number">3</span>     <span class="token punctuation">[</span>Unknown<span class="token punctuation">]</span> NdisWan Adapter                   None             ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff
+<span class="token operator">-</span><span class="token number">2</span>     <span class="token punctuation">[</span>Unknown<span class="token punctuation">]</span> NdisWan Adapter                   None             ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span class="token punctuation">:</span>ff<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>上面这个被我手动改了改，不过大概的意思就是这样的，先看自己系统上的网络接口，然后再决定使用哪个。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
+<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*- </span>
+<span class="token comment" spellcheck="true"># --author：valecalida--</span>
+<span class="token comment" spellcheck="true"># Edit time: 2020/4/17 20:34</span>
+<span class="token comment" spellcheck="true"># Intel(R) Dual Band Wireless-AC 3165</span>
+<span class="token comment" spellcheck="true"># f4:83:cd:cd:33:f8</span>
+<span class="token keyword">from</span> scapy<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>inet <span class="token keyword">import</span> Ether
+<span class="token keyword">from</span> scapy<span class="token punctuation">.</span>layers<span class="token punctuation">.</span>l2 <span class="token keyword">import</span> ARP
+<span class="token keyword">from</span> scapy<span class="token punctuation">.</span>sendrecv <span class="token keyword">import</span> srp
+<span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread
+<span class="token keyword">from</span> ipaddress <span class="token keyword">import</span> ip_network
+<span class="token keyword">from</span> time <span class="token keyword">import</span> time
+<span class="token keyword">import</span> sys
+
+
+<span class="token keyword">def</span> <span class="token function">scan_single</span><span class="token punctuation">(</span>iface<span class="token punctuation">,</span> host<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    packet <span class="token operator">=</span> Ether<span class="token punctuation">(</span>dst<span class="token operator">=</span><span class="token string">'FF:FF:FF:FF:FF:FF'</span><span class="token punctuation">)</span><span class="token operator">/</span>ARP<span class="token punctuation">(</span>op<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> pdst<span class="token operator">=</span>host<span class="token punctuation">,</span> hwdst<span class="token operator">=</span><span class="token string">'00:00:00:00:00:00'</span><span class="token punctuation">)</span>
+    response<span class="token punctuation">,</span> _ <span class="token operator">=</span> srp<span class="token punctuation">(</span>packet<span class="token punctuation">,</span> iface<span class="token operator">=</span>iface<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">,</span> verbose<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> response<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"IP: %s\t\tMAC:%s"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>str<span class="token punctuation">.</span>ljust<span class="token punctuation">(</span>host<span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">,</span> response<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">.</span>getlayer<span class="token punctuation">(</span>ARP<span class="token punctuation">)</span><span class="token punctuation">.</span>fields<span class="token punctuation">[</span><span class="token string">'hwsrc'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">scan_arp</span><span class="token punctuation">(</span>iface<span class="token punctuation">,</span> network<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    ip_list <span class="token operator">=</span> ip_network<span class="token punctuation">(</span>network<span class="token punctuation">)</span>
+    <span class="token keyword">for</span> ip <span class="token keyword">in</span> ip_list<span class="token punctuation">:</span>
+        t <span class="token operator">=</span> Thread<span class="token punctuation">(</span>target<span class="token operator">=</span>scan_single<span class="token punctuation">,</span> args<span class="token operator">=</span><span class="token punctuation">[</span>iface<span class="token punctuation">,</span> str<span class="token punctuation">(</span>ip<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        t<span class="token punctuation">.</span>start<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">usage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Usage:\n\tpython3 Arp_Scan.py -i &lt;interfaces> network"</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\tpython3 Arp_Scan.py -i eth0 192.168.1.0/24"</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    t1 <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">if</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token string">'-i'</span> <span class="token operator">and</span> len<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">4</span><span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[..] 开始进行ARP扫描"</span><span class="token punctuation">)</span>
+        scan_arp<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span> sys<span class="token punctuation">.</span>argv<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        t2 <span class="token operator">=</span> time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[+] 本次扫描共花费 %s 秒"</span> <span class="token operator">%</span> <span class="token punctuation">(</span>t2 <span class="token operator">-</span> t1<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">else</span><span class="token punctuation">:</span>
+        usage<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>不过这样写起来话感觉就比较麻烦，每次要指定接口，还要指定 <code>IP网段</code> ，就比较花时间…</p>
 <h3 id="Addiction："><a href="#Addiction：" class="headerlink" title="Addiction："></a>Addiction：</h3><p>大家可以看一下乾颐堂教主的课，搭配<code>Scapy 2.4.3</code>的官方文档，那就很棒了。</p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -1260,7 +1319,7 @@ IP: 10.87.51.254           Mac:00:50:56:ee:e3:c7
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.3k</span>&nbsp;字
+                class="white-color">21.8k</span>&nbsp;字
             
             
             
