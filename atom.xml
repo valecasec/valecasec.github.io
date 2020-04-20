@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-04-20T06:13:32.665Z</updated>
+  <updated>2020-04-20T11:01:14.853Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Scapy-ARP欺骗</title>
+    <title>Scapy—ARP欺骗</title>
     <link href="https://valecasec.github.io/2020/04/20/scapy-arp-qi-pian/"/>
     <id>https://valecasec.github.io/2020/04/20/scapy-arp-qi-pian/</id>
     <published>2020-04-20T06:12:45.000Z</published>
-    <updated>2020-04-20T06:13:32.665Z</updated>
+    <updated>2020-04-20T11:01:14.853Z</updated>
     
     <summary type="html">
     
@@ -29,17 +29,19 @@
       
         
         
-          &lt;script&gt;
-        document.querySelectorAll(&#39;.github-emoji&#39;)
-          .forEach(el =&gt; {
-            if (!el.dataset.src) { return; }
-       
+          &lt;h1 id=&quot;Scapy—ARP欺骗&quot;&gt;&lt;a href=&quot;#Scapy—ARP欺骗&quot; class=&quot;headerlink&quot; title=&quot;Scapy—ARP欺骗&quot;&gt;&lt;/a&gt;Scapy—ARP欺骗&lt;/h1&gt;&lt;h2 id=&quot;一、ARP欺骗原理&quot;&gt;&lt;a
         
       
     
     </summary>
     
     
+      <category term="Scapy" scheme="https://valecasec.github.io/categories/Scapy/"/>
+    
+    
+      <category term="Scapy" scheme="https://valecasec.github.io/tags/Scapy/"/>
+    
+      <category term="ARP欺骗" scheme="https://valecasec.github.io/tags/ARP%E6%AC%BA%E9%AA%97/"/>
     
   </entry>
   
@@ -79,7 +81,7 @@
     <link href="https://valecasec.github.io/2020/04/18/scapy-arp-sao-miao/"/>
     <id>https://valecasec.github.io/2020/04/18/scapy-arp-sao-miao/</id>
     <published>2020-04-18T01:00:18.000Z</published>
-    <updated>2020-04-20T07:25:39.572Z</updated>
+    <updated>2020-04-20T07:26:57.124Z</updated>
     
     <summary type="html">
     
