@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-04-20T11:01:14.853Z</updated>
+  <updated>2020-04-21T03:02:17.226Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>渗透测试—DC_2</title>
+    <link href="https://valecasec.github.io/2020/04/21/shen-tou-ce-shi-dc2/"/>
+    <id>https://valecasec.github.io/2020/04/21/shen-tou-ce-shi-dc2/</id>
+    <published>2020-04-21T02:14:38.000Z</published>
+    <updated>2020-04-21T03:02:17.226Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;渗透测试—DC-2&quot;&gt;&lt;a href=&quot;#渗透测试—DC-2&quot; class=&quot;headerlink&quot; title=&quot;渗透测试—DC_2&quot;&gt;&lt;/a&gt;渗透测试—DC_2&lt;/h1&gt;&lt;h2 id=&quot;一、主机发现&quot;&gt;&lt;a href=&quot;#一、主机发现&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Penetration_Test" scheme="https://valecasec.github.io/categories/Penetration-Test/"/>
+    
+    
+      <category term="Penetration_Test" scheme="https://valecasec.github.io/tags/Penetration-Test/"/>
+    
+      <category term="Metasploit" scheme="https://valecasec.github.io/tags/Metasploit/"/>
+    
+      <category term="WordPress" scheme="https://valecasec.github.io/tags/WordPress/"/>
+    
+      <category term="WPScan" scheme="https://valecasec.github.io/tags/WPScan/"/>
+    
+  </entry>
   
   <entry>
     <title>Scapy—ARP欺骗</title>

