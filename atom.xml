@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-04-22T03:44:38.391Z</updated>
+  <updated>2020-04-22T07:47:07.077Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>渗透测试—DC4</title>
+    <link href="https://valecasec.github.io/2020/04/22/shen-tou-ce-shi-dc4/"/>
+    <id>https://valecasec.github.io/2020/04/22/shen-tou-ce-shi-dc4/</id>
+    <published>2020-04-22T06:19:53.000Z</published>
+    <updated>2020-04-22T07:47:07.077Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;渗透测试—DC4&quot;&gt;&lt;a href=&quot;#渗透测试—DC4&quot; class=&quot;headerlink&quot; title=&quot;渗透测试—DC4&quot;&gt;&lt;/a&gt;渗透测试—DC4&lt;/h1&gt;&lt;h2 id=&quot;一、主机发现&quot;&gt;&lt;a href=&quot;#一、主机发现&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>渗透测试—DC3</title>
@@ -314,9 +337,9 @@
       <category term="Emergency_Response" scheme="https://valecasec.github.io/categories/Emergency-Response/"/>
     
     
-      <category term="Windows安全日志" scheme="https://valecasec.github.io/tags/Windows%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97/"/>
-    
       <category term="Emergency_Response" scheme="https://valecasec.github.io/tags/Emergency-Response/"/>
+    
+      <category term="Windows安全日志" scheme="https://valecasec.github.io/tags/Windows%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97/"/>
     
   </entry>
   
