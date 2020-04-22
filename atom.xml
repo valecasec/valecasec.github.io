@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-04-22T07:47:07.077Z</updated>
+  <updated>2020-04-22T09:32:38.705Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://valecasec.github.io/2020/04/22/shen-tou-ce-shi-dc4/"/>
     <id>https://valecasec.github.io/2020/04/22/shen-tou-ce-shi-dc4/</id>
     <published>2020-04-22T06:19:53.000Z</published>
-    <updated>2020-04-22T07:47:07.077Z</updated>
+    <updated>2020-04-22T09:32:38.705Z</updated>
     
     <summary type="html">
     
@@ -36,6 +36,12 @@
     </summary>
     
     
+      <category term="Penetration_Test" scheme="https://valecasec.github.io/categories/Penetration-Test/"/>
+    
+    
+      <category term="Penetration_Test" scheme="https://valecasec.github.io/tags/Penetration-Test/"/>
+    
+      <category term="Command execution" scheme="https://valecasec.github.io/tags/Command-execution/"/>
     
   </entry>
   
@@ -122,9 +128,9 @@
       <category term="Scapy" scheme="https://valecasec.github.io/categories/Scapy/"/>
     
     
-      <category term="Scapy" scheme="https://valecasec.github.io/tags/Scapy/"/>
-    
       <category term="ARP欺骗" scheme="https://valecasec.github.io/tags/ARP%E6%AC%BA%E9%AA%97/"/>
+    
+      <category term="Scapy" scheme="https://valecasec.github.io/tags/Scapy/"/>
     
   </entry>
   
@@ -337,9 +343,9 @@
       <category term="Emergency_Response" scheme="https://valecasec.github.io/categories/Emergency-Response/"/>
     
     
-      <category term="Emergency_Response" scheme="https://valecasec.github.io/tags/Emergency-Response/"/>
-    
       <category term="Windows安全日志" scheme="https://valecasec.github.io/tags/Windows%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97/"/>
+    
+      <category term="Emergency_Response" scheme="https://valecasec.github.io/tags/Emergency-Response/"/>
     
   </entry>
   
