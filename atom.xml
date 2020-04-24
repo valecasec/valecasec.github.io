@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-04-22T09:32:38.705Z</updated>
+  <updated>2020-04-24T03:46:14.885Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Scapy—SYN扫描</title>
+    <link href="https://valecasec.github.io/2020/04/23/scapy-syn-sao-miao/"/>
+    <id>https://valecasec.github.io/2020/04/23/scapy-syn-sao-miao/</id>
+    <published>2020-04-23T06:29:00.000Z</published>
+    <updated>2020-04-24T03:46:14.885Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Scapy—SYN扫描&quot;&gt;&lt;a href=&quot;#Scapy—SYN扫描&quot; class=&quot;headerlink&quot; title=&quot;Scapy—SYN扫描&quot;&gt;&lt;/a&gt;Scapy—SYN扫描&lt;/h1&gt;&lt;h2 id=&quot;一、知识准备&quot;&gt;&lt;a href=&quot;#一、知识准备&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Scapy" scheme="https://valecasec.github.io/categories/Scapy/"/>
+    
+    
+      <category term="Scapy" scheme="https://valecasec.github.io/tags/Scapy/"/>
+    
+      <category term="SYN扫描" scheme="https://valecasec.github.io/tags/SYN%E6%89%AB%E6%8F%8F/"/>
+    
+  </entry>
+  
+  <entry>
     <title>渗透测试—DC4</title>
     <link href="https://valecasec.github.io/2020/04/22/shen-tou-ce-shi-dc4/"/>
     <id>https://valecasec.github.io/2020/04/22/shen-tou-ce-shi-dc4/</id>
     <published>2020-04-22T06:19:53.000Z</published>
-    <updated>2020-04-22T09:32:38.705Z</updated>
+    <updated>2020-04-22T13:29:11.421Z</updated>
     
     <summary type="html">
     
@@ -128,9 +157,9 @@
       <category term="Scapy" scheme="https://valecasec.github.io/categories/Scapy/"/>
     
     
-      <category term="ARP欺骗" scheme="https://valecasec.github.io/tags/ARP%E6%AC%BA%E9%AA%97/"/>
-    
       <category term="Scapy" scheme="https://valecasec.github.io/tags/Scapy/"/>
+    
+      <category term="ARP欺骗" scheme="https://valecasec.github.io/tags/ARP%E6%AC%BA%E9%AA%97/"/>
     
   </entry>
   
@@ -350,11 +379,11 @@
   </entry>
   
   <entry>
-    <title>Python_UUID</title>
+    <title>Python—UUID</title>
     <link href="https://valecasec.github.io/2020/04/10/python-uuid/"/>
     <id>https://valecasec.github.io/2020/04/10/python-uuid/</id>
     <published>2020-04-10T11:11:53.000Z</published>
-    <updated>2020-04-11T10:30:50.445Z</updated>
+    <updated>2020-04-23T06:29:36.974Z</updated>
     
     <summary type="html">
     
@@ -362,7 +391,7 @@
       
         
         
-          &lt;h1 id=&quot;Python-UUID-通用唯一识别码&quot;&gt;&lt;a href=&quot;#Python-UUID-通用唯一识别码&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;Python—UUID-通用唯一识别码&quot;&gt;&lt;a href=&quot;#Python—UUID-通用唯一识别码&quot; class=&quot;headerlink&quot;
         
       
     
