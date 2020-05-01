@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-04-25T12:39:56.266Z</updated>
+  <updated>2020-05-01T04:25:26.950Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>渗透测试—DC_6</title>
+    <link href="https://valecasec.github.io/2020/04/30/shen-tou-ce-shi-dc6/"/>
+    <id>https://valecasec.github.io/2020/04/30/shen-tou-ce-shi-dc6/</id>
+    <published>2020-04-30T12:15:37.000Z</published>
+    <updated>2020-05-01T04:25:26.950Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;渗透测试—DC-6&quot;&gt;&lt;a href=&quot;#渗透测试—DC-6&quot; class=&quot;headerlink&quot; title=&quot;渗透测试—DC_6&quot;&gt;&lt;/a&gt;渗透测试—DC_6&lt;/h1&gt;&lt;h2 id=&quot;一、主机发现及端口扫描&quot;&gt;&lt;a href=&quot;#一、主机发现及端口扫描&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Penetration_Test" scheme="https://valecasec.github.io/categories/Penetration-Test/"/>
+    
+    
+      <category term="Penetration_Test" scheme="https://valecasec.github.io/tags/Penetration-Test/"/>
+    
+      <category term="WordPress" scheme="https://valecasec.github.io/tags/WordPress/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Vulnerable—Win2k3</title>
     <link href="https://valecasec.github.io/2020/04/25/vulnerable-win2k3/"/>
     <id>https://valecasec.github.io/2020/04/25/vulnerable-win2k3/</id>
     <published>2020-04-25T05:44:03.000Z</published>
-    <updated>2020-04-25T12:39:56.266Z</updated>
+    <updated>2020-04-25T12:41:00.916Z</updated>
     
     <summary type="html">
     
