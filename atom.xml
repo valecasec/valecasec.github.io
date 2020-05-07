@@ -79,7 +79,7 @@
     <link href="https://valecasec.github.io/2020/05/01/shen-tou-ce-shi-dc7/"/>
     <id>https://valecasec.github.io/2020/05/01/shen-tou-ce-shi-dc7/</id>
     <published>2020-05-01T13:02:59.000Z</published>
-    <updated>2020-05-06T10:25:02.098Z</updated>
+    <updated>2020-05-07T05:30:55.466Z</updated>
     
     <summary type="html">
     
@@ -94,6 +94,12 @@
     </summary>
     
     
+      <category term="Penetration_Test" scheme="https://valecasec.github.io/categories/Penetration-Test/"/>
+    
+    
+      <category term="Penetration_Test" scheme="https://valecasec.github.io/tags/Penetration-Test/"/>
+    
+      <category term="VulnHub" scheme="https://valecasec.github.io/tags/VulnHub/"/>
     
   </entry>
   
@@ -456,6 +462,35 @@
   </entry>
   
   <entry>
+    <title>Crawl—VulnHub</title>
+    <link href="https://valecasec.github.io/2020/04/15/crawl-vulnhub/"/>
+    <id>https://valecasec.github.io/2020/04/15/crawl-vulnhub/</id>
+    <published>2020-04-15T05:32:58.000Z</published>
+    <updated>2020-05-07T05:47:42.102Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Crawl—VulnHub&quot;&gt;&lt;a href=&quot;#Crawl—VulnHub&quot; class=&quot;headerlink&quot; title=&quot;Crawl—VulnHub&quot;&gt;&lt;/a&gt;Crawl—VulnHub&lt;/h1&gt;&lt;h2 id=&quot;一、项目背景&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Spider" scheme="https://valecasec.github.io/categories/Spider/"/>
+    
+    
+      <category term="Spider" scheme="https://valecasec.github.io/tags/Spider/"/>
+    
+      <category term="Python" scheme="https://valecasec.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>应急响应—WannaMine4.0</title>
     <link href="https://valecasec.github.io/2020/04/14/ying-ji-xiang-ying-wannamine4.0/"/>
     <id>https://valecasec.github.io/2020/04/14/ying-ji-xiang-ying-wannamine4.0/</id>
@@ -572,35 +607,6 @@
       <category term="Python" scheme="https://valecasec.github.io/tags/Python/"/>
     
       <category term="UUID" scheme="https://valecasec.github.io/tags/UUID/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CTFHUB_Web_Partial_WriteUp</title>
-    <link href="https://valecasec.github.io/2020/04/09/ctfhub-web-partial-writeup/"/>
-    <id>https://valecasec.github.io/2020/04/09/ctfhub-web-partial-writeup/</id>
-    <published>2020-04-09T10:58:27.000Z</published>
-    <updated>2020-04-20T03:21:19.155Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Web–WriteUp&quot;&gt;&lt;a href=&quot;#Web–WriteUp&quot; class=&quot;headerlink&quot; title=&quot;Web–WriteUp&quot;&gt;&lt;/a&gt;Web–WriteUp&lt;/h1&gt;&lt;h2 id=&quot;前置技能&quot;&gt;&lt;a href=&quot;#前置技能&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Python、CTF、WriteUp" scheme="https://valecasec.github.io/categories/Python%E3%80%81CTF%E3%80%81WriteUp/"/>
-    
-    
-      <category term="Python" scheme="https://valecasec.github.io/tags/Python/"/>
-    
-      <category term="CTF" scheme="https://valecasec.github.io/tags/CTF/"/>
     
   </entry>
   

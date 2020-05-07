@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python—UUID, Python">
+    <meta name="keywords" content="Crawl—VulnHub, Python">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Python—UUID | valecalida&#39;s house</title>
+    <title>Crawl—VulnHub | valecalida&#39;s house</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -307,12 +307,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/04/10/GTzCOH.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Python—UUID</h1>
+                    <h1 class="description center-align post-title">Crawl—VulnHub</h1>
                 </div>
             </div>
         </div>
@@ -437,12 +437,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
+                            <a href="/tags/Spider/">
+                                <span class="chip bg-color">Spider</span>
                             </a>
                         
-                            <a href="/tags/UUID/">
-                                <span class="chip bg-color">UUID</span>
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
                             </a>
                         
                     </div>
@@ -453,8 +453,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Python/" class="post-category">
-                                Python
+                            <a href="/categories/Spider/" class="post-category">
+                                Spider
                             </a>
                         
                     </div>
@@ -466,7 +466,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-10
+                    2020-04-15
                 </div>
                 
 
@@ -475,7 +475,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    848
                 </div>
                 
 
@@ -498,66 +498,137 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Python—UUID-通用唯一识别码"><a href="#Python—UUID-通用唯一识别码" class="headerlink" title="Python—UUID(通用唯一识别码)"></a>Python—UUID(通用唯一识别码)</h1><h2 id="一、UUID简介"><a href="#一、UUID简介" class="headerlink" title="一、UUID简介"></a>一、UUID简介</h2><p>​        UUID（<a href="https://link.jianshu.com?t=http%3A%2F%2Fen.wikipedia.org%2Fwiki%2FUniversally_unique_identifier" target="_blank" rel="noopener">Universally Unique IDentifier</a>）是128位的全局唯一标识符，通常由32字节的字符串表示。按照官方手册的说法可以”在空间和时间上保证唯一性”。 它通过MAC地址、时间戳、命名空间、随机数、伪随机数来保证生成ID的唯一性。</p>
-<h2 id="二、UUID的五种算法"><a href="#二、UUID的五种算法" class="headerlink" title="二、UUID的五种算法"></a>二、UUID的五种算法</h2><h3 id="1、UUID-1-IEEE-802-MAC-Address"><a href="#1、UUID-1-IEEE-802-MAC-Address" class="headerlink" title="1、UUID 1 - IEEE 802 MAC Address"></a>1、UUID 1 - IEEE 802 MAC Address</h3><p>​        UUID的第一个版本的值是基于主机的 MAC 地址、当前时间戳、随机数来计算的。<code>uuid</code> 模块使用 <code>getnode()</code> 来获取当前系统的 MAC 地址值。如果一个系统的网卡多于一块，那么就有多个 MAC 地址，因此返回的值可能是其中的任意一个。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> uuid
-<span class="token operator">>></span><span class="token operator">></span> uuid<span class="token punctuation">.</span>getnode<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token number">52239257997</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>​        要为主机生成一个由它的 MAC 地址标明的 UUID ，那么就使用 <code>uuid1()</code> 函数。节点标识参数不是必须的，如果留空就意味着采用 <code>getnode()</code> 返回的值，但是因为UUID中包含时间戳，所以每次运行都会生成一个不同的值。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">import</span> uuid
-<span class="token operator">>></span><span class="token operator">></span> uuid<span class="token punctuation">.</span>uuid1<span class="token punctuation">(</span><span class="token punctuation">)</span>
-UUID<span class="token punctuation">(</span><span class="token string">'ec5d1cf8-7b20-11ea-b8b2-c85b76bbedeb'</span><span class="token punctuation">)</span>
-<span class="token operator">>></span><span class="token operator">></span> uuid<span class="token punctuation">.</span>uuid1<span class="token punctuation">(</span><span class="token punctuation">)</span>
-UUID<span class="token punctuation">(</span><span class="token string">'1a9964be-7b21-11ea-b8b2-c85b76bbedeb'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>​        但是在新的输出中，仅仅只有时间组成部分（在字符串开头位置）有改变,后面是一样的，所以该方式是有风险的，在局域网中可以使用IP来代替MAC，也可以指定 <code>node</code> 值来创建新值。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">for</span> node <span class="token keyword">in</span> <span class="token punctuation">[</span><span class="token number">0x1ec200d9e0</span><span class="token punctuation">,</span> <span class="token number">0x1e5274040e</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>uuid1<span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">,</span> hex<span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">,</span> type<span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-f6f9a2ba<span class="token number">-7b22</span><span class="token operator">-</span><span class="token number">11ea</span><span class="token operator">-</span><span class="token number">83f4</span><span class="token operator">-</span><span class="token number">001ec200d9e0</span> <span class="token number">0x1ec200d9e0</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'int'</span><span class="token operator">></span>
-f6f9af42<span class="token number">-7b22</span><span class="token operator">-</span><span class="token number">11ea</span><span class="token operator">-</span>acc2<span class="token number">-001e5274040e</span> <span class="token number">0x1e5274040e</span> <span class="token operator">&lt;</span><span class="token keyword">class</span> <span class="token string">'int'</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="2、UUID-2-基于分布式计算环境DCE"><a href="#2、UUID-2-基于分布式计算环境DCE" class="headerlink" title="2、UUID 2 - 基于分布式计算环境DCE"></a>2、UUID 2 - 基于分布式计算环境DCE</h3><p>​        算法和uuid1相同，不同的是把时间戳的前4位换位POSIX的UID，实际中很少用到该方法，因此Python中没有这个函数，故忽略。</p>
-<h3 id="3、UUID-3-基于名字和MD5散列值"><a href="#3、UUID-3-基于名字和MD5散列值" class="headerlink" title="3、UUID 3 - 基于名字和MD5散列值"></a>3、UUID 3 - 基于名字和MD5散列值</h3><p>​        通过计算名字和命名空间的MD5散列值得到，保证了同一命名空间中不同名字的唯一性，和不同命名空间的唯一性，但同一命名空间的名字生成相同的uuid。将名称空间的特定种子值与名称组合在一起。这有几个众所周知的命名空间，由预定义的 UUID 值标识，用于处理 DNS，URLs， ISO OIDs， 以及 X.500 可分辨名称。可以通过生成和存储 UUID 值来定义新的基于应用的命名空间.</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> uuid
-<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'  MD5   :'</span><span class="token punctuation">,</span> uuid<span class="token punctuation">.</span>uuid3<span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>NAMESPACE_DNS<span class="token punctuation">,</span> <span class="token string">'valecasec.github.io'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  MD5   <span class="token punctuation">:</span> <span class="token number">1037d0d1</span><span class="token operator">-</span><span class="token number">41f2</span><span class="token operator">-</span><span class="token number">3e43</span><span class="token operator">-</span><span class="token number">9e32</span><span class="token operator">-</span><span class="token number">77649b28efe7</span>
-
-<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'  MD5   :'</span><span class="token punctuation">,</span> uuid<span class="token punctuation">.</span>uuid3<span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>NAMESPACE_URL<span class="token punctuation">,</span> <span class="token string">'valecasec.github.io'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  MD5   <span class="token punctuation">:</span> <span class="token number">87118883</span><span class="token operator">-</span><span class="token number">8681</span><span class="token operator">-</span><span class="token number">3357</span><span class="token operator">-</span><span class="token number">8de8</span><span class="token operator">-</span>a9d81c9ca89b
-
-<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'  MD5   :'</span><span class="token punctuation">,</span> uuid<span class="token punctuation">.</span>uuid3<span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>NAMESPACE_OID<span class="token punctuation">,</span> <span class="token string">'valecasec.github.io'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  MD5   <span class="token punctuation">:</span> <span class="token number">2beb716c</span><span class="token operator">-</span><span class="token number">3841</span><span class="token operator">-</span><span class="token number">329e</span><span class="token operator">-</span>b29d<span class="token number">-30ae925488bb</span>
-
-<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'  MD5   :'</span><span class="token punctuation">,</span> uuid<span class="token punctuation">.</span>uuid3<span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>NAMESPACE_X500<span class="token punctuation">,</span> <span class="token string">'valecasec.github.io'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  MD5   <span class="token punctuation">:</span> <span class="token number">8182d37a</span><span class="token operator">-</span>e93b<span class="token number">-36c8</span><span class="token operator">-</span>a378<span class="token operator">-</span>aa233ef06459<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="4、UUID-4-基于随机值"><a href="#4、UUID-4-基于随机值" class="headerlink" title="4、UUID 4 - 基于随机值"></a>4、UUID 4 - 基于随机值</h3><p>​        当基于名称和命名的 UUID 值不够，并且为了更好的避免哈希碰撞时，引入伪随机数，但是由于有一定的重复概率，这个概率又可以被计算出来，所以该种方法也不够安全。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> uuid
-<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>     <span class="token keyword">print</span><span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>uuid4<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span>
-<span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
-<span class="token number">4a2e2a2a</span><span class="token operator">-</span><span class="token number">318b</span><span class="token operator">-</span><span class="token number">4bb4</span><span class="token operator">-</span>be79<span class="token operator">-</span>c749c3239704 <span class="token number">0</span>
-<span class="token number">342f19a9</span><span class="token operator">-</span><span class="token number">79e7</span><span class="token operator">-</span><span class="token number">4974</span><span class="token operator">-</span><span class="token number">90f4</span><span class="token operator">-</span>e168b54fea20 <span class="token number">1</span>
-eddd6eba<span class="token number">-64b6</span><span class="token operator">-</span><span class="token number">4cd1</span><span class="token operator">-</span>ae12<span class="token number">-30d682252614</span> <span class="token number">2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>​        随机源取决于 uuid 被导入时可用的 C 库。如果  libuuid 或者 （uuid.dll）能够被加载，将使用库中包含生成随机值的函数。否则使用  os.urandom()  或者使用 random  模块。</p>
-<h3 id="5、UUID-5-基于名字和SHA1散列值"><a href="#5、UUID-5-基于名字和SHA1散列值" class="headerlink" title="5、UUID 5 - 基于名字和SHA1散列值"></a>5、UUID 5 - 基于名字和SHA1散列值</h3><p>​        算法和uuid3()相同，不同的是使用Secure Hash Algorithm 1 算法。</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> uuid
-<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'  SHA1   :'</span><span class="token punctuation">,</span> uuid<span class="token punctuation">.</span>uuid5<span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>NAMESPACE_DNS<span class="token punctuation">,</span> <span class="token string">'valecasec.github.io'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  SHA1   <span class="token punctuation">:</span> <span class="token number">770551b4</span><span class="token operator">-</span><span class="token number">31a3</span><span class="token operator">-</span><span class="token number">5867</span><span class="token operator">-</span><span class="token number">85a7</span><span class="token operator">-</span>a95a5343a58c
-
-<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'  SHA1   :'</span><span class="token punctuation">,</span> uuid<span class="token punctuation">.</span>uuid5<span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>NAMESPACE_URL<span class="token punctuation">,</span> <span class="token string">'valecasec.github.io'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  SHA1   <span class="token punctuation">:</span> <span class="token number">4cd268ba</span><span class="token operator">-</span>fac0<span class="token number">-5cdf</span><span class="token operator">-</span>a63f<span class="token number">-3732efe8eb77</span>
-
-<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'  SHA1   :'</span><span class="token punctuation">,</span> uuid<span class="token punctuation">.</span>uuid5<span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>NAMESPACE_OID<span class="token punctuation">,</span> <span class="token string">'valecasec.github.io'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  SHA1   <span class="token punctuation">:</span> d753ca93<span class="token operator">-</span>d925<span class="token number">-5465</span><span class="token operator">-</span><span class="token number">9b2b</span><span class="token operator">-</span><span class="token number">1679f60d46df</span>
-
-<span class="token operator">>></span><span class="token operator">></span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'  SHA1   :'</span><span class="token punctuation">,</span> uuid<span class="token punctuation">.</span>uuid5<span class="token punctuation">(</span>uuid<span class="token punctuation">.</span>NAMESPACE_X500<span class="token punctuation">,</span> <span class="token string">'valecasec.github.io'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-  SHA1   <span class="token punctuation">:</span> b22bedee<span class="token number">-2d2e</span><span class="token operator">-</span><span class="token number">5142</span><span class="token operator">-</span><span class="token number">9b65</span><span class="token operator">-</span><span class="token number">4d91a487bad1</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="三、使用推荐"><a href="#三、使用推荐" class="headerlink" title="三、使用推荐"></a>三、使用推荐</h2><ul>
-<li>如果在global的分布式计算环境下，最好用uuid1</li>
-<li>由于uuid4存在概率性重复，可以分场合使用</li>
-<li>如果有名字的唯一性要求，最好使用uuid3或uuid5</li>
+                <h1 id="Crawl—VulnHub"><a href="#Crawl—VulnHub" class="headerlink" title="Crawl—VulnHub"></a>Crawl—VulnHub</h1><h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>最近想针对 <code>VulnHub</code> 上的部分靶机做一下渗透测试，又不想每次都打开一次网址，于是有了这个项目，但是总的来说，代码写的比较粗糙，没太做优化，在这也就是先记录一下</p>
+<h2 id="二、项目结构"><a href="#二、项目结构" class="headerlink" title="二、项目结构"></a>二、项目结构</h2><ul>
+<li>爬取站点：<code>www.vulnhub.com</code></li>
+<li>创建文件夹：<code>VulnHub</code></li>
+<li>每个靶机对应保存一个 <code>txt</code></li>
 </ul>
-<p>虽然Python可以很方便的生成UUID，但是在这里还是要推荐一个网址，可以在线生成UUID:</p>
-<pre class="line-numbers language-bash"><code class="language-bash">http://www.uuid.online<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="三、项目代码"><a href="#三、项目代码" class="headerlink" title="三、项目代码"></a>三、项目代码</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
+<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*- </span>
+<span class="token comment" spellcheck="true"># --author：valecalida--</span>
+<span class="token keyword">from</span> requests <span class="token keyword">import</span> RequestException
+<span class="token keyword">from</span> urllib3 <span class="token keyword">import</span> disable_warnings
+<span class="token keyword">from</span> urllib3 <span class="token keyword">import</span> exceptions
+<span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
+<span class="token keyword">from</span> random <span class="token keyword">import</span> choice
+<span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread
+<span class="token keyword">from</span> subprocess <span class="token keyword">import</span> getoutput
+<span class="token keyword">from</span> os<span class="token punctuation">.</span>path <span class="token keyword">import</span> exists
+<span class="token keyword">import</span> requests
+<span class="token keyword">import</span> os
+<span class="token keyword">import</span> re
+
+disable_warnings<span class="token punctuation">(</span>exceptions<span class="token punctuation">.</span>InsecureRequestWarning<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">get_user_agent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    user_agent <span class="token operator">=</span> <span class="token punctuation">[</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1090.0 Safari/536.6"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/19.77.34.5 Safari/537.1"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.9 Safari/536.5"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1"</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.0) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.36 Safari/536.5"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1063.0 Safari/536.3"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1063.0 Safari/536.3"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1062.0 Safari/536.3"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1062.0 Safari/536.3"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.0 Safari/536.3"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24"</span><span class="token punctuation">,</span>
+        <span class="token string">"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24"</span>
+    <span class="token punctuation">]</span>
+    <span class="token keyword">return</span> choice<span class="token punctuation">(</span>user_agent<span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">get_soup</span><span class="token punctuation">(</span>link<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""返回soup实体"""</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>link<span class="token punctuation">,</span> headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"User-Agent"</span><span class="token punctuation">:</span> get_user_agent<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+        soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token string">'lxml'</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> soup
+    <span class="token keyword">except</span> RequestException<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[-] 链接的过程中好像出现了一点问题，请手动核对一下..."</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">vulnhub_title</span><span class="token punctuation">(</span>soup<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""返回跳转链接跟标题"""</span>
+    content <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"&lt;h1>&lt;a.*?\"(.*?)\">(.*?)&lt;/a>&lt;/h1>"</span><span class="token punctuation">,</span> str<span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">"h1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    descs <span class="token operator">=</span> process_descs<span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"div"</span><span class="token punctuation">,</span> attrs<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"class"</span><span class="token punctuation">:</span> <span class="token string">"right"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    links<span class="token punctuation">,</span> title <span class="token operator">=</span> separate_link_title<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> links<span class="token punctuation">,</span> title<span class="token punctuation">,</span> descs
+
+
+<span class="token keyword">def</span> <span class="token function">process_descs</span><span class="token punctuation">(</span>contents<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    descs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>contents<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        content <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">"&lt;.*?>"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> str<span class="token punctuation">(</span>contents<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        descs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> descs
+
+
+<span class="token keyword">def</span> <span class="token function">separate_link_title</span><span class="token punctuation">(</span>contents<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""将传入的参数分割开，分别保存到links跟titles两个列表"""</span>
+    links<span class="token punctuation">,</span> title <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token keyword">for</span> content <span class="token keyword">in</span> contents<span class="token punctuation">:</span>
+        links<span class="token punctuation">.</span>append<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+        title<span class="token punctuation">.</span>append<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> links<span class="token punctuation">,</span> title
+
+
+<span class="token keyword">def</span> <span class="token function">download_links</span><span class="token punctuation">(</span>soup<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token triple-quoted-string string">"""获取跳转链接的下载地址"""</span>
+    html <span class="token operator">=</span> str<span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">"ul"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
+    download_site <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">".*?&lt;b>(.*?)&lt;/b>: &lt;a href=\"(.*?)\">.*?&lt;/a>"</span><span class="token punctuation">,</span> str<span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> download_site
+
+
+<span class="token keyword">def</span> <span class="token function">show_download_links</span><span class="token punctuation">(</span>links<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">for</span> site <span class="token keyword">in</span> links<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\t\t"</span><span class="token punctuation">,</span> site<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">":"</span><span class="token punctuation">,</span> site<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">detect_folder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">if</span> <span class="token operator">not</span> exists<span class="token punctuation">(</span><span class="token string">"Vulnhub"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span><span class="token string">'Vulnhub'</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">save_infos</span><span class="token punctuation">(</span>title<span class="token punctuation">,</span> desc<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    name <span class="token operator">=</span> <span class="token string">"Vulnhub"</span> <span class="token operator">+</span> <span class="token string">"\\"</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>title<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">".txt"</span>
+
+    f <span class="token operator">=</span> open<span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span><span class="token punctuation">:</span>
+        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>desc<span class="token punctuation">)</span>
+        f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">except</span> UnicodeEncodeError<span class="token punctuation">:</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"写入文件的时候编码好像出现了一点问题"</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">def</span> <span class="token function">handle_title</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    title <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">' |\s|\n|\r'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> title<span class="token punctuation">)</span>
+    title <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">,</span> <span class="token string">"_"</span><span class="token punctuation">,</span> title<span class="token punctuation">)</span>
+    <span class="token keyword">return</span> title
+
+
+<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    detect_folder<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    host <span class="token operator">=</span> <span class="token string">"https://www.vulnhub.com"</span>
+    <span class="token keyword">for</span> page <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        page_link <span class="token operator">=</span> host <span class="token operator">+</span> <span class="token string">"/?page="</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>page<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[..] 正在处理%s页面上的信息"</span> <span class="token operator">%</span> page_link<span class="token punctuation">)</span>
+        links<span class="token punctuation">,</span> titles<span class="token punctuation">,</span> descs <span class="token operator">=</span> vulnhub_title<span class="token punctuation">(</span>get_soup<span class="token punctuation">(</span>page_link<span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token keyword">for</span> index <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>links<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            title <span class="token operator">=</span> handle_title<span class="token punctuation">(</span>titles<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\tTitle: &lt;&lt;%s>>"</span> <span class="token operator">%</span> title<span class="token punctuation">)</span>
+            show_download_links<span class="token punctuation">(</span>download_links<span class="token punctuation">(</span>get_soup<span class="token punctuation">(</span>host <span class="token operator">+</span> links<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            save_infos<span class="token punctuation">(</span>title<span class="token punctuation">,</span> descs<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -583,7 +654,7 @@ eddd6eba<span class="token number">-64b6</span><span class="token operator">-</s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://valecasec.github.io/2020/04/10/python-uuid/">https://valecasec.github.io/2020/04/10/python-uuid/</a>
+                    <a href="https://valecasec.github.io/2020/04/15/crawl-vulnhub/">https://valecasec.github.io/2020/04/15/crawl-vulnhub/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -621,12 +692,12 @@ eddd6eba<span class="token number">-64b6</span><span class="token operator">-</s
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
+                                <a href="/tags/Spider/">
+                                    <span class="chip bg-color">Spider</span>
                                 </a>
                             
-                                <a href="/tags/UUID/">
-                                    <span class="chip bg-color">UUID</span>
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
                                 </a>
                             
                         </div>
@@ -936,25 +1007,80 @@ eddd6eba<span class="token number">-64b6</span><span class="token operator">-</s
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/11/windows-deng-lu-lei-xing-ji-an-quan-ri-zhi-qian-xi/">
+                <a href="/2020/04/16/shen-tou-ce-shi-typhoon-v1.02/">
                     <div class="card-image">
                         
+                        <img src="https://s1.ax1x.com/2020/04/17/JEmw26.jpg" class="responsive-img" alt="渗透测试—Typhoon_V1.02">
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Windows登录类型及安全日志浅析">
-                        
-                        <span class="card-title">Windows登录类型及安全日志浅析</span>
+                        <span class="card-title">渗透测试—Typhoon_V1.02</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文主要对Windows登录中的方式做了简单描述，环境主要用Windows Server 2008 R2...
+                            Typhoon_V1.02靶场的几个漏洞检测、利用及提权，一篇水水的渗透测试文章...
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-11
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-16
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Penetration-Test/" class="post-category">
+                                    Penetration_Test
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Penetration-Test/">
+                        <span class="chip bg-color">Penetration_Test</span>
+                    </a>
+                    
+                    <a href="/tags/Metasploit/">
+                        <span class="chip bg-color">Metasploit</span>
+                    </a>
+                    
+                    <a href="/tags/Typhoon/">
+                        <span class="chip bg-color">Typhoon</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/04/14/ying-ji-xiang-ying-wannamine4.0/">
+                    <div class="card-image">
+                        
+                        <img src="https://s1.ax1x.com/2020/04/14/GzkhB4.jpg" class="responsive-img" alt="应急响应—WannaMine4.0">
+                        
+                        <span class="card-title">应急响应—WannaMine4.0</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            对WannaMine4.0的一点简单应急及个人学习记录，大佬们不喜勿喷...
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -970,64 +1096,12 @@ eddd6eba<span class="token number">-64b6</span><span class="token operator">-</s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Windows%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97/">
-                        <span class="chip bg-color">Windows安全日志</span>
-                    </a>
-                    
                     <a href="/tags/Emergency-Response/">
                         <span class="chip bg-color">Emergency_Response</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/09/ctfhub-web-partial-writeup/">
-                    <div class="card-image">
-                        
-                        <img src="https://www.ctfhub.com/img/ctfhub_logo.0265db54.svg" class="responsive-img" alt="CTFHUB_Web_Partial_WriteUp">
-                        
-                        <span class="card-title">CTFHUB_Web_Partial_WriteUp</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            CTFHUB Web部分题解，解题脚本全部为Python3编写，只是一个学习的记录。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-09
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Python%E3%80%81CTF%E3%80%81WriteUp/" class="post-category">
-                                    Python、CTF、WriteUp
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/CTF/">
-                        <span class="chip bg-color">CTF</span>
+                    <a href="/tags/WannaMine4-0/">
+                        <span class="chip bg-color">WannaMine4.0</span>
                     </a>
                     
                 </div>
