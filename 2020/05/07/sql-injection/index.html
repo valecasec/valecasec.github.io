@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Crawl—VulnHub, Python">
+    <meta name="keywords" content="SQL_Injection, Python">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Crawl—VulnHub | valecalida&#39;s house</title>
+    <title>SQL_Injection | valecalida&#39;s house</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -307,12 +307,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Crawl—VulnHub</h1>
+                    <h1 class="description center-align post-title">SQL_Injection</h1>
                 </div>
             </div>
         </div>
@@ -437,12 +437,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Spider/">
-                                <span class="chip bg-color">Spider</span>
+                            <a href="/tags/Web-Security/">
+                                <span class="chip bg-color">Web Security</span>
                             </a>
                         
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
+                            <a href="/tags/SQl-Injection/">
+                                <span class="chip bg-color">SQl Injection</span>
                             </a>
                         
                     </div>
@@ -453,8 +453,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Spider/" class="post-category">
-                                Spider
+                            <a href="/categories/Web-Security/" class="post-category">
+                                Web Security
                             </a>
                         
                     </div>
@@ -466,7 +466,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-15
+                    2020-05-07
                 </div>
                 
 
@@ -475,7 +475,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    848
+                    1.1k
                 </div>
                 
 
@@ -498,138 +498,105 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Crawl—VulnHub"><a href="#Crawl—VulnHub" class="headerlink" title="Crawl—VulnHub"></a>Crawl—VulnHub</h1><h2 id="一、项目背景"><a href="#一、项目背景" class="headerlink" title="一、项目背景"></a>一、项目背景</h2><p>最近想针对 <code>VulnHub</code> 上的部分靶机做一下渗透测试，又不想每次都打开一次网址，于是有了这个项目，但是总的来说，代码写的比较粗糙，没太做优化，在这也就是先记录一下</p>
-<h2 id="二、项目结构"><a href="#二、项目结构" class="headerlink" title="二、项目结构"></a>二、项目结构</h2><ul>
-<li>爬取站点：<code>www.vulnhub.com</code></li>
-<li>创建文件夹：<code>VulnHub</code></li>
-<li>每个靶机对应保存一个 <code>txt</code></li>
-</ul>
-<h2 id="三、项目代码"><a href="#三、项目代码" class="headerlink" title="三、项目代码"></a>三、项目代码</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true">#!/usr/bin/python3</span>
-<span class="token comment" spellcheck="true"># -*- coding: utf-8 -*- </span>
-<span class="token comment" spellcheck="true"># --author：valecalida--</span>
-<span class="token keyword">from</span> requests <span class="token keyword">import</span> RequestException
-<span class="token keyword">from</span> urllib3 <span class="token keyword">import</span> disable_warnings
-<span class="token keyword">from</span> urllib3 <span class="token keyword">import</span> exceptions
-<span class="token keyword">from</span> bs4 <span class="token keyword">import</span> BeautifulSoup
-<span class="token keyword">from</span> random <span class="token keyword">import</span> choice
-<span class="token keyword">from</span> threading <span class="token keyword">import</span> Thread
-<span class="token keyword">from</span> subprocess <span class="token keyword">import</span> getoutput
-<span class="token keyword">from</span> os<span class="token punctuation">.</span>path <span class="token keyword">import</span> exists
-<span class="token keyword">import</span> requests
-<span class="token keyword">import</span> os
-<span class="token keyword">import</span> re
+                <h1 id="SQL-Injection"><a href="#SQL-Injection" class="headerlink" title="SQL_Injection"></a>SQL_Injection</h1><h2 id="一、SQL-Injection简介"><a href="#一、SQL-Injection简介" class="headerlink" title="一、SQL_Injection简介"></a>一、SQL_Injection简介</h2><h3 id="1、SQL注入简介"><a href="#1、SQL注入简介" class="headerlink" title="1、SQL注入简介"></a>1、SQL注入简介</h3><p><code>SQL注入</code> 即是指 <code>Web应用程序</code> 对用户输入数据的合法性没有判断或过滤不严，攻击者可以在web应用程序中事先定义好的查询语句的结尾上添加额外的 <code>SQL语句</code> ，在管理员不知情的情况下实现非法操作，以此来实现欺骗数据库服务器执行非授权的任意查询，从而进一步得到相应的数据信息。</p>
+<p>[<a href="https://baike.baidu.com/item/sql注入/150289?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/sql%E6%B3%A8%E5%85%A5/150289?fr=aladdin</a>]:</p>
+<h3 id="2、SQL定义"><a href="#2、SQL定义" class="headerlink" title="2、SQL定义"></a>2、SQL定义</h3><p><code>SQL</code> 是操作数据库数据的结构化查询语言，网页的应用数据和后台数据库中的数据进行交互时会采用SQL。而SQL注入是将 <code>Web</code> 页面的原 <code>URL</code> 、 <code>表单域</code> 或 <code>数据包</code> 输入的参数，修改拼接成 <code>SQL</code> 语句，传递给 <code>Web服务器</code> ，进而传给数据库服务器以执行数据库命令。如 <code>Web应用程序</code> 的开发人员对用户所输入的 <code>数据</code> 或 <code>cookie</code> 等内容不进行 <code>过滤</code> 或 <code>验证</code> (即存在注入点)就直接传输给数据库，就可能导致拼接的 <code>SQL</code> 被执行，获取对数据库的信息以及提权，发生 <code>SQL注入</code> 攻击。</p>
+<h3 id="3、原理"><a href="#3、原理" class="headerlink" title="3、原理"></a>3、原理</h3><p><code>SQL注入</code> 攻击是通过操作输入来修改 <code>SQL语句</code> ，用以达到执行代码对 <code>WEB服务器</code> 进行攻击的方法。简单的说就是在 <code>post/get</code> <code>web表单</code> 、输入域名或页面请求的查询字符串中插入 <code>SQL命令</code> ，最终使<code>Web服务器</code> 执行恶意命令的过程。可以通过一个例子简单说明<code>SQL注入</code>攻击。假设某网站页面显示时URL为 <code>http://www.example.com?test=123</code> ，此时URL实际向服务器传递了值为 <code>123</code> 的变量 <code>test</code> ，这表明当前页面是对数据库进行动态查询的结果。由此，我们可以在URL中插入恶意的 <code>SQL语句</code> 并进行执行。另外，在网站开发过程中，开发人员使用动态字符串构造 <code>SQL语句</code> ，用来创建所需的应用，这种情况下 <code>SQL语句</code> 在程序的执行过程中被动态的构造使用，可以根据不同的条件产生不同的 <code>SQL语句</code> ，比如需要根据不同的要求来查询数据库中的字段。这样的开发过程其实为<code>SQL注入</code>攻击留下了很多的可乘之机。</p>
+<h2 id="二、MySQL储备知识"><a href="#二、MySQL储备知识" class="headerlink" title="二、MySQL储备知识"></a>二、MySQL储备知识</h2><h3 id="1、information-schema"><a href="#1、information-schema" class="headerlink" title="1、information_schema"></a>1、<code>information_schema</code></h3><p>首先需要知道在 <code>MySQL 5.0</code> 版本之后， <code>MySQL</code> 默认在数据库中存放了一个名为：<code>information_schema</code> 的数据库，在这个数据库中有大概 <code>60</code> 个表，其中我们需要记住的分别是 <code>SCHEMATA</code> 、<code>TABLES</code> ， <code>COLUMNS</code> ，这三者的名称、具体作用和需要记录的名称如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">作用</th>
+<th>记录名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>SCHEMETA</code></td>
+<td align="center">存储当前用户创建的所有数据库的库名</td>
+<td><code>SCHEMA_NAME</code></td>
+</tr>
+<tr>
+<td align="center"><code>TABLES</code></td>
+<td align="center">存储当前用户创建的所有数据库的库名和表名</td>
+<td><code>TABLE_SCHEMA</code><br><code>TABLE_NAME</code></td>
+</tr>
+<tr>
+<td align="center"><code>COLUMNS</code></td>
+<td align="center">存储当前用户创建的所有数据库的库名、表名、字段名</td>
+<td><code>TABLE_SCHEMA</code><br/><code>TABLE_NAME</code><br/><code>COLUMN_NAME</code></td>
+</tr>
+</tbody></table>
+<p> 这里举几个简单的例子：</p>
+<h4 id="1-1、查看当前-MySQL-中存在的数据库名"><a href="#1-1、查看当前-MySQL-中存在的数据库名" class="headerlink" title="1.1、查看当前 MySQL 中存在的数据库名"></a>1.1、查看当前 <code>MySQL</code> 中存在的数据库名</h4><p>这里 <code>schema_name</code> 表示数据库名，<code>information_schema.SCHEMATA</code> 表示数据库中的 <code>SCHEMATA</code> 这个表</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> select schema_name from information_schema.SCHEMATA;
++--------------------+
+| schema_name        |
++--------------------+
+| information_schema |
+| free_proxy         |
+| mysql              |
+| performance_schema |
+| proxies            |
+| python3            |
+| shop               |
+| sys                |
+| valecalida         |
+| vulnhub            |
++--------------------+
+10 rows in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="1-2、查看某个数据库中的所有表信息"><a href="#1-2、查看某个数据库中的所有表信息" class="headerlink" title="1.2、查看某个数据库中的所有表信息"></a>1.2、查看某个数据库中的所有表信息</h4><p><code>table_name</code> 表示表名，<code>table_schema</code> 表示数据库名</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> select table_name from information_schema.TABLES where table_schema='python3';
++------------+
+| table_name |
++------------+
+| courses    |
+| userinfo   |
++------------+
+2 rows in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="1-3、查看指定数据库和表中的字段信息"><a href="#1-3、查看指定数据库和表中的字段信息" class="headerlink" title="1.3、查看指定数据库和表中的字段信息"></a>1.3、查看指定数据库和表中的字段信息</h4><p><code>column_name</code> 表示字段名，<code>table_schema</code> 依旧表示表名，可以看到，下面的内容是把数据库中所有表的字段全部打印出来了    </p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> select column_name from information_schema.columns where table_schema='python3';
++-------------+
+| column_name |
++-------------+
+| id          |
+| student     |
+| class       |
+| score       |
+| id          |
+| name        |
+| pass        |
+| address     |
+| sex         |
+| age         |
++-------------+
+10 rows in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>分别查看，发现可以对应上</p>
+<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> desc courses;
++---------+------------------+------+-----+---------+----------------+
+| Field   | Type             | Null | Key | Default | Extra          |
++---------+------------------+------+-----+---------+----------------+
+| id      | int(11) unsigned | NO   | PRI | NULL    | auto_increment |
+| student | varchar(255)     | YES  | MUL | NULL    |                |
+| class   | varchar(255)     | YES  |     | NULL    |                |
+| score   | int(255)         | YES  |     | NULL    |                |
++---------+------------------+------+-----+---------+----------------+
+4 rows in set (0.00 sec)
 
-disable_warnings<span class="token punctuation">(</span>exceptions<span class="token punctuation">.</span>InsecureRequestWarning<span class="token punctuation">)</span>
-
-
-<span class="token keyword">def</span> <span class="token function">get_user_agent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    user_agent <span class="token operator">=</span> <span class="token punctuation">[</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1090.0 Safari/536.6"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/19.77.34.5 Safari/537.1"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.9 Safari/536.5"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.1 (KHTML, like Gecko) Chrome/22.0.1207.1 Safari/537.1"</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.0) AppleWebKit/536.5 (KHTML, like Gecko) Chrome/19.0.1084.36 Safari/536.5"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.1 Safari/536.3"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1063.0 Safari/536.3"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 5.1) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1063.0 Safari/536.3"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1062.0 Safari/536.3"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1062.0 Safari/536.3"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.2) AppleWebKit/536.3 (KHTML, like Gecko) Chrome/19.0.1061.0 Safari/536.3"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24"</span><span class="token punctuation">,</span>
-        <span class="token string">"Mozilla/5.0 (Windows NT 6.2; WOW64) AppleWebKit/535.24 (KHTML, like Gecko) Chrome/19.0.1055.1 Safari/535.24"</span>
-    <span class="token punctuation">]</span>
-    <span class="token keyword">return</span> choice<span class="token punctuation">(</span>user_agent<span class="token punctuation">)</span>
-
-
-<span class="token keyword">def</span> <span class="token function">get_soup</span><span class="token punctuation">(</span>link<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""返回soup实体"""</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        res <span class="token operator">=</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">(</span>link<span class="token punctuation">,</span> headers<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"User-Agent"</span><span class="token punctuation">:</span> get_user_agent<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-        soup <span class="token operator">=</span> BeautifulSoup<span class="token punctuation">(</span>res<span class="token punctuation">.</span>text<span class="token punctuation">,</span> <span class="token string">'lxml'</span><span class="token punctuation">)</span>
-        <span class="token keyword">return</span> soup
-    <span class="token keyword">except</span> RequestException<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[-] 链接的过程中好像出现了一点问题，请手动核对一下..."</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">def</span> <span class="token function">vulnhub_title</span><span class="token punctuation">(</span>soup<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""返回跳转链接跟标题"""</span>
-    content <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">"&lt;h1>&lt;a.*?\"(.*?)\">(.*?)&lt;/a>&lt;/h1>"</span><span class="token punctuation">,</span> str<span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">"h1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    descs <span class="token operator">=</span> process_descs<span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span>name<span class="token operator">=</span><span class="token string">"div"</span><span class="token punctuation">,</span> attrs<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">"class"</span><span class="token punctuation">:</span> <span class="token string">"right"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-    links<span class="token punctuation">,</span> title <span class="token operator">=</span> separate_link_title<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> links<span class="token punctuation">,</span> title<span class="token punctuation">,</span> descs
-
-
-<span class="token keyword">def</span> <span class="token function">process_descs</span><span class="token punctuation">(</span>contents<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    descs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>contents<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        content <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">"&lt;.*?>"</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> str<span class="token punctuation">(</span>contents<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-        descs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>content<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> descs
-
-
-<span class="token keyword">def</span> <span class="token function">separate_link_title</span><span class="token punctuation">(</span>contents<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""将传入的参数分割开，分别保存到links跟titles两个列表"""</span>
-    links<span class="token punctuation">,</span> title <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-    <span class="token keyword">for</span> content <span class="token keyword">in</span> contents<span class="token punctuation">:</span>
-        links<span class="token punctuation">.</span>append<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-        title<span class="token punctuation">.</span>append<span class="token punctuation">(</span>content<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> links<span class="token punctuation">,</span> title
-
-
-<span class="token keyword">def</span> <span class="token function">download_links</span><span class="token punctuation">(</span>soup<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""获取跳转链接的下载地址"""</span>
-    html <span class="token operator">=</span> str<span class="token punctuation">(</span>soup<span class="token punctuation">.</span>find_all<span class="token punctuation">(</span><span class="token string">"ul"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">.</span>encode<span class="token punctuation">(</span><span class="token string">'utf-8'</span><span class="token punctuation">)</span>
-    download_site <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span><span class="token string">".*?&lt;b>(.*?)&lt;/b>: &lt;a href=\"(.*?)\">.*?&lt;/a>"</span><span class="token punctuation">,</span> str<span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> download_site
-
-
-<span class="token keyword">def</span> <span class="token function">show_download_links</span><span class="token punctuation">(</span>links<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> site <span class="token keyword">in</span> links<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\t\t"</span><span class="token punctuation">,</span> site<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token string">":"</span><span class="token punctuation">,</span> site<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">def</span> <span class="token function">detect_folder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> <span class="token operator">not</span> exists<span class="token punctuation">(</span><span class="token string">"Vulnhub"</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span><span class="token string">'Vulnhub'</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">def</span> <span class="token function">save_infos</span><span class="token punctuation">(</span>title<span class="token punctuation">,</span> desc<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    name <span class="token operator">=</span> <span class="token string">"Vulnhub"</span> <span class="token operator">+</span> <span class="token string">"\\"</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>title<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">".txt"</span>
-
-    f <span class="token operator">=</span> open<span class="token punctuation">(</span>name<span class="token punctuation">,</span> <span class="token string">"w"</span><span class="token punctuation">)</span>
-    <span class="token keyword">try</span><span class="token punctuation">:</span>
-        f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>desc<span class="token punctuation">)</span>
-        f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    <span class="token keyword">except</span> UnicodeEncodeError<span class="token punctuation">:</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"写入文件的时候编码好像出现了一点问题"</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">def</span> <span class="token function">handle_title</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    title <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">' |\s|\n|\r'</span><span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">,</span> title<span class="token punctuation">)</span>
-    title <span class="token operator">=</span> re<span class="token punctuation">.</span>sub<span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">,</span> <span class="token string">"_"</span><span class="token punctuation">,</span> title<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> title
-
-
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    detect_folder<span class="token punctuation">(</span><span class="token punctuation">)</span>
-    host <span class="token operator">=</span> <span class="token string">"https://www.vulnhub.com"</span>
-    <span class="token keyword">for</span> page <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">45</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        page_link <span class="token operator">=</span> host <span class="token operator">+</span> <span class="token string">"/?page="</span> <span class="token operator">+</span> str<span class="token punctuation">(</span>page<span class="token punctuation">)</span>
-        <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"[..] 正在处理%s页面上的信息"</span> <span class="token operator">%</span> page_link<span class="token punctuation">)</span>
-        links<span class="token punctuation">,</span> titles<span class="token punctuation">,</span> descs <span class="token operator">=</span> vulnhub_title<span class="token punctuation">(</span>get_soup<span class="token punctuation">(</span>page_link<span class="token punctuation">)</span><span class="token punctuation">)</span>
-        <span class="token keyword">for</span> index <span class="token keyword">in</span> range<span class="token punctuation">(</span>len<span class="token punctuation">(</span>links<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            title <span class="token operator">=</span> handle_title<span class="token punctuation">(</span>titles<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"\tTitle: &lt;&lt;%s>>"</span> <span class="token operator">%</span> title<span class="token punctuation">)</span>
-            show_download_links<span class="token punctuation">(</span>download_links<span class="token punctuation">(</span>get_soup<span class="token punctuation">(</span>host <span class="token operator">+</span> links<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-            save_infos<span class="token punctuation">(</span>title<span class="token punctuation">,</span> descs<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    main<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+mysql> desc userinfo;
++---------+-------------+------+-----+---------+----------------+
+| Field   | Type        | Null | Key | Default | Extra          |
++---------+-------------+------+-----+---------+----------------+
+| id      | int(11)     | NO   | PRI | NULL    | auto_increment |
+| name    | varchar(30) | YES  |     | NULL    |                |
+| pass    | varchar(32) | YES  |     | NULL    |                |
+| address | varchar(50) | YES  |     | NULL    |                |
+| sex     | tinyint(2)  | YES  |     | NULL    |                |
+| age     | tinyint(3)  | YES  |     | NULL    |                |
++---------+-------------+------+-----+---------+----------------+
+6 rows in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果只需要查询一个表的话，只需将 <code>table_schema</code> 修改为 <code>table_name</code> 即可</p>
+<h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h2 id="三、常见的SQL注入类型浅析"><a href="#三、常见的SQL注入类型浅析" class="headerlink" title="三、常见的SQL注入类型浅析"></a>三、常见的SQL注入类型浅析</h2>
             </div>
             <hr/>
 
@@ -654,7 +621,7 @@ disable_warnings<span class="token punctuation">(</span>exceptions<span class="t
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://valecasec.github.io/2020/04/15/crawl-vulnhub/">https://valecasec.github.io/2020/04/15/crawl-vulnhub/</a>
+                    <a href="https://valecasec.github.io/2020/05/07/sql-injection/">https://valecasec.github.io/2020/05/07/sql-injection/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -692,12 +659,12 @@ disable_warnings<span class="token punctuation">(</span>exceptions<span class="t
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Spider/">
-                                    <span class="chip bg-color">Spider</span>
+                                <a href="/tags/Web-Security/">
+                                    <span class="chip bg-color">Web Security</span>
                                 </a>
                             
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
+                                <a href="/tags/SQl-Injection/">
+                                    <span class="chip bg-color">SQl Injection</span>
                                 </a>
                             
                         </div>
@@ -1003,28 +970,84 @@ disable_warnings<span class="token punctuation">(</span>exceptions<span class="t
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/16/shen-tou-ce-shi-typhoon-v1.02/">
+                <a href="/2020/05/07/sql-injection/">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2020/04/17/JEmw26.jpg" class="responsive-img" alt="渗透测试—Typhoon_V1.02">
                         
-                        <span class="card-title">渗透测试—Typhoon_V1.02</span>
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="SQL_Injection">
+                        
+                        <span class="card-title">SQL_Injection</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Typhoon_V1.02靶场的几个漏洞检测、利用及提权，一篇水水的渗透测试文章...
+                            关于SQL注入的个人学习记录，可能有自己理解错的地方，仅作学习记录
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-16
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Web-Security/" class="post-category">
+                                    Web Security
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Web-Security/">
+                        <span class="chip bg-color">Web Security</span>
+                    </a>
+                    
+                    <a href="/tags/SQl-Injection/">
+                        <span class="chip bg-color">SQl Injection</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/07/shen-tou-ce-shi-dc9/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="渗透测试—DC_9">
+                        
+                        <span class="card-title">渗透测试—DC_9</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            对VulnHub的一个简单靶场的渗透测试，自己需要学的还有很多，努力进步中...
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1044,64 +1067,8 @@ disable_warnings<span class="token punctuation">(</span>exceptions<span class="t
                         <span class="chip bg-color">Penetration_Test</span>
                     </a>
                     
-                    <a href="/tags/Metasploit/">
-                        <span class="chip bg-color">Metasploit</span>
-                    </a>
-                    
-                    <a href="/tags/Typhoon/">
-                        <span class="chip bg-color">Typhoon</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/14/ying-ji-xiang-ying-wannamine4.0/">
-                    <div class="card-image">
-                        
-                        <img src="https://s1.ax1x.com/2020/04/14/GzkhB4.jpg" class="responsive-img" alt="应急响应—WannaMine4.0">
-                        
-                        <span class="card-title">应急响应—WannaMine4.0</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            对WannaMine4.0的一点简单应急及个人学习记录，大佬们不喜勿喷...
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-14
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Emergency-Response/" class="post-category">
-                                    Emergency_Response
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Emergency-Response/">
-                        <span class="chip bg-color">Emergency_Response</span>
-                    </a>
-                    
-                    <a href="/tags/WannaMine4-0/">
-                        <span class="chip bg-color">WannaMine4.0</span>
+                    <a href="/tags/VulnHub/">
+                        <span class="chip bg-color">VulnHub</span>
                     </a>
                     
                 </div>

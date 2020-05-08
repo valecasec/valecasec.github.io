@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-05-07T04:34:24.615Z</updated>
+  <updated>2020-05-07T07:45:18.449Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SQL_Injection</title>
+    <link href="https://valecasec.github.io/2020/05/07/sql-injection/"/>
+    <id>https://valecasec.github.io/2020/05/07/sql-injection/</id>
+    <published>2020-05-07T06:09:41.000Z</published>
+    <updated>2020-05-07T07:45:18.449Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;SQL-Injection&quot;&gt;&lt;a href=&quot;#SQL-Injection&quot; class=&quot;headerlink&quot; title=&quot;SQL_Injection&quot;&gt;&lt;/a&gt;SQL_Injection&lt;/h1&gt;&lt;h2
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Web Security" scheme="https://valecasec.github.io/categories/Web-Security/"/>
+    
+    
+      <category term="Web Security" scheme="https://valecasec.github.io/tags/Web-Security/"/>
+    
+      <category term="SQl Injection" scheme="https://valecasec.github.io/tags/SQl-Injection/"/>
+    
+  </entry>
   
   <entry>
     <title>渗透测试—DC_9</title>
@@ -79,7 +108,7 @@
     <link href="https://valecasec.github.io/2020/04/28/shen-tou-ce-shi-dc7/"/>
     <id>https://valecasec.github.io/2020/04/28/shen-tou-ce-shi-dc7/</id>
     <published>2020-04-28T13:02:59.000Z</published>
-    <updated>2020-05-07T05:53:30.747Z</updated>
+    <updated>2020-05-08T02:20:28.179Z</updated>
     
     <summary type="html">
     
@@ -87,7 +116,8 @@
       
         
         
-          &lt;h1 id=&quot;渗透测试—DC-7&quot;&gt;&lt;a href=&quot;#渗透测试—DC-7&quot; class=&quot;headerlink&quot; title=&quot;渗透测试—DC_7&quot;&gt;&lt;/a&gt;渗透测试—DC_7&lt;/h1&gt;&lt;h2 id=&quot;一、主机发现及端口扫描&quot;&gt;&lt;a href=&quot;#一、主机发现及端口扫描&quot;
+          &lt;h1 id=&quot;渗透测试—DC-7&quot;&gt;&lt;a href=&quot;#渗透测试—DC-7&quot; class=&quot;headerlink&quot; title=&quot;渗透测试—DC_7&quot;&gt;&lt;/a&gt;渗透测试—DC_7&lt;/h1&gt;&lt;p&gt;关于本次靶机的介绍&lt;/p&gt;
+&lt;pre class=&quot;line-numbers
         
       
     
@@ -575,38 +605,9 @@
       <category term="Emergency_Response" scheme="https://valecasec.github.io/categories/Emergency-Response/"/>
     
     
-      <category term="Windows安全日志" scheme="https://valecasec.github.io/tags/Windows%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97/"/>
-    
       <category term="Emergency_Response" scheme="https://valecasec.github.io/tags/Emergency-Response/"/>
     
-  </entry>
-  
-  <entry>
-    <title>Python—UUID</title>
-    <link href="https://valecasec.github.io/2020/04/10/python-uuid/"/>
-    <id>https://valecasec.github.io/2020/04/10/python-uuid/</id>
-    <published>2020-04-10T11:11:53.000Z</published>
-    <updated>2020-04-23T06:29:36.974Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Python—UUID-通用唯一识别码&quot;&gt;&lt;a href=&quot;#Python—UUID-通用唯一识别码&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Python" scheme="https://valecasec.github.io/categories/Python/"/>
-    
-    
-      <category term="Python" scheme="https://valecasec.github.io/tags/Python/"/>
-    
-      <category term="UUID" scheme="https://valecasec.github.io/tags/UUID/"/>
+      <category term="Windows安全日志" scheme="https://valecasec.github.io/tags/Windows%E5%AE%89%E5%85%A8%E6%97%A5%E5%BF%97/"/>
     
   </entry>
   
