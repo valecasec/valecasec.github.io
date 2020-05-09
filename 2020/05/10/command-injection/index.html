@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="SQL_Injection, Python">
+    <meta name="keywords" content="Command_Injection, Python">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>SQL_Injection | valecalida&#39;s house</title>
+    <title>Command_Injection | valecalida&#39;s house</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -307,12 +307,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">SQL_Injection</h1>
+                    <h1 class="description center-align post-title">Command_Injection</h1>
                 </div>
             </div>
         </div>
@@ -441,8 +441,8 @@
                                 <span class="chip bg-color">Web Security</span>
                             </a>
                         
-                            <a href="/tags/SQl-Injection/">
-                                <span class="chip bg-color">SQl Injection</span>
+                            <a href="/tags/Command-Injection/">
+                                <span class="chip bg-color">Command_Injection</span>
                             </a>
                         
                     </div>
@@ -466,7 +466,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-07
+                    2020-05-10
                 </div>
                 
 
@@ -475,14 +475,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    5
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    1 分
                 </div>
                 
 
@@ -498,105 +498,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="SQL-Injection"><a href="#SQL-Injection" class="headerlink" title="SQL_Injection"></a>SQL_Injection</h1><h2 id="一、SQL-Injection简介"><a href="#一、SQL-Injection简介" class="headerlink" title="一、SQL_Injection简介"></a>一、SQL_Injection简介</h2><h3 id="1、SQL注入简介"><a href="#1、SQL注入简介" class="headerlink" title="1、SQL注入简介"></a>1、SQL注入简介</h3><p><code>SQL注入</code> 即是指 <code>Web应用程序</code> 对用户输入数据的合法性没有判断或过滤不严，攻击者可以在web应用程序中事先定义好的查询语句的结尾上添加额外的 <code>SQL语句</code> ，在管理员不知情的情况下实现非法操作，以此来实现欺骗数据库服务器执行非授权的任意查询，从而进一步得到相应的数据信息。</p>
-<p>[<a href="https://baike.baidu.com/item/sql注入/150289?fr=aladdin" target="_blank" rel="noopener">https://baike.baidu.com/item/sql%E6%B3%A8%E5%85%A5/150289?fr=aladdin</a>]:</p>
-<h3 id="2、SQL定义"><a href="#2、SQL定义" class="headerlink" title="2、SQL定义"></a>2、SQL定义</h3><p><code>SQL</code> 是操作数据库数据的结构化查询语言，网页的应用数据和后台数据库中的数据进行交互时会采用SQL。而SQL注入是将 <code>Web</code> 页面的原 <code>URL</code> 、 <code>表单域</code> 或 <code>数据包</code> 输入的参数，修改拼接成 <code>SQL</code> 语句，传递给 <code>Web服务器</code> ，进而传给数据库服务器以执行数据库命令。如 <code>Web应用程序</code> 的开发人员对用户所输入的 <code>数据</code> 或 <code>cookie</code> 等内容不进行 <code>过滤</code> 或 <code>验证</code> (即存在注入点)就直接传输给数据库，就可能导致拼接的 <code>SQL</code> 被执行，获取对数据库的信息以及提权，发生 <code>SQL注入</code> 攻击。</p>
-<h3 id="3、原理"><a href="#3、原理" class="headerlink" title="3、原理"></a>3、原理</h3><p><code>SQL注入</code> 攻击是通过操作输入来修改 <code>SQL语句</code> ，用以达到执行代码对 <code>WEB服务器</code> 进行攻击的方法。简单的说就是在 <code>post/get</code> <code>web表单</code> 、输入域名或页面请求的查询字符串中插入 <code>SQL命令</code> ，最终使<code>Web服务器</code> 执行恶意命令的过程。可以通过一个例子简单说明<code>SQL注入</code>攻击。假设某网站页面显示时URL为 <code>http://www.example.com?test=123</code> ，此时URL实际向服务器传递了值为 <code>123</code> 的变量 <code>test</code> ，这表明当前页面是对数据库进行动态查询的结果。由此，我们可以在URL中插入恶意的 <code>SQL语句</code> 并进行执行。另外，在网站开发过程中，开发人员使用动态字符串构造 <code>SQL语句</code> ，用来创建所需的应用，这种情况下 <code>SQL语句</code> 在程序的执行过程中被动态的构造使用，可以根据不同的条件产生不同的 <code>SQL语句</code> ，比如需要根据不同的要求来查询数据库中的字段。这样的开发过程其实为<code>SQL注入</code>攻击留下了很多的可乘之机。</p>
-<h2 id="二、MySQL储备知识"><a href="#二、MySQL储备知识" class="headerlink" title="二、MySQL储备知识"></a>二、MySQL储备知识</h2><h3 id="1、information-schema"><a href="#1、information-schema" class="headerlink" title="1、information_schema"></a>1、<code>information_schema</code></h3><p>首先需要知道在 <code>MySQL 5.0</code> 版本之后， <code>MySQL</code> 默认在数据库中存放了一个名为：<code>information_schema</code> 的数据库，在这个数据库中有大概 <code>60</code> 个表，其中我们需要记住的分别是 <code>SCHEMATA</code> 、<code>TABLES</code> ， <code>COLUMNS</code> ，这三者的名称、具体作用和需要记录的名称如下：</p>
-<table>
-<thead>
-<tr>
-<th align="center">名称</th>
-<th align="center">作用</th>
-<th>记录名称</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center"><code>SCHEMETA</code></td>
-<td align="center">存储当前用户创建的所有数据库的库名</td>
-<td><code>SCHEMA_NAME</code></td>
-</tr>
-<tr>
-<td align="center"><code>TABLES</code></td>
-<td align="center">存储当前用户创建的所有数据库的库名和表名</td>
-<td><code>TABLE_SCHEMA</code><br><code>TABLE_NAME</code></td>
-</tr>
-<tr>
-<td align="center"><code>COLUMNS</code></td>
-<td align="center">存储当前用户创建的所有数据库的库名、表名、字段名</td>
-<td><code>TABLE_SCHEMA</code><br/><code>TABLE_NAME</code><br/><code>COLUMN_NAME</code></td>
-</tr>
-</tbody></table>
-<p> 这里举几个简单的例子：</p>
-<h4 id="1-1、查看当前-MySQL-中存在的数据库名"><a href="#1-1、查看当前-MySQL-中存在的数据库名" class="headerlink" title="1.1、查看当前 MySQL 中存在的数据库名"></a>1.1、查看当前 <code>MySQL</code> 中存在的数据库名</h4><p>这里 <code>schema_name</code> 表示数据库名，<code>information_schema.SCHEMATA</code> 表示数据库中的 <code>SCHEMATA</code> 这个表</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> select schema_name from information_schema.SCHEMATA;
-+--------------------+
-| schema_name        |
-+--------------------+
-| information_schema |
-| free_proxy         |
-| mysql              |
-| performance_schema |
-| proxies            |
-| python3            |
-| shop               |
-| sys                |
-| valecalida         |
-| vulnhub            |
-+--------------------+
-10 rows in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="1-2、查看某个数据库中的所有表信息"><a href="#1-2、查看某个数据库中的所有表信息" class="headerlink" title="1.2、查看某个数据库中的所有表信息"></a>1.2、查看某个数据库中的所有表信息</h4><p><code>table_name</code> 表示表名，<code>table_schema</code> 表示数据库名</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> select table_name from information_schema.TABLES where table_schema='python3';
-+------------+
-| table_name |
-+------------+
-| courses    |
-| userinfo   |
-+------------+
-2 rows in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="1-3、查看指定数据库和表中的字段信息"><a href="#1-3、查看指定数据库和表中的字段信息" class="headerlink" title="1.3、查看指定数据库和表中的字段信息"></a>1.3、查看指定数据库和表中的字段信息</h4><p><code>column_name</code> 表示字段名，<code>table_schema</code> 依旧表示表名，可以看到，下面的内容是把数据库中所有表的字段全部打印出来了    </p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> select column_name from information_schema.columns where table_schema='python3';
-+-------------+
-| column_name |
-+-------------+
-| id          |
-| student     |
-| class       |
-| score       |
-| id          |
-| name        |
-| pass        |
-| address     |
-| sex         |
-| age         |
-+-------------+
-10 rows in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>分别查看，发现可以对应上</p>
-<pre class="line-numbers language-mysql"><code class="language-mysql">mysql> desc courses;
-+---------+------------------+------+-----+---------+----------------+
-| Field   | Type             | Null | Key | Default | Extra          |
-+---------+------------------+------+-----+---------+----------------+
-| id      | int(11) unsigned | NO   | PRI | NULL    | auto_increment |
-| student | varchar(255)     | YES  | MUL | NULL    |                |
-| class   | varchar(255)     | YES  |     | NULL    |                |
-| score   | int(255)         | YES  |     | NULL    |                |
-+---------+------------------+------+-----+---------+----------------+
-4 rows in set (0.00 sec)
-
-mysql> desc userinfo;
-+---------+-------------+------+-----+---------+----------------+
-| Field   | Type        | Null | Key | Default | Extra          |
-+---------+-------------+------+-----+---------+----------------+
-| id      | int(11)     | NO   | PRI | NULL    | auto_increment |
-| name    | varchar(30) | YES  |     | NULL    |                |
-| pass    | varchar(32) | YES  |     | NULL    |                |
-| address | varchar(50) | YES  |     | NULL    |                |
-| sex     | tinyint(2)  | YES  |     | NULL    |                |
-| age     | tinyint(3)  | YES  |     | NULL    |                |
-+---------+-------------+------+-----+---------+----------------+
-6 rows in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如果只需要查询一个表的话，只需将 <code>table_schema</code> 修改为 <code>table_name</code> 即可</p>
-<h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h2 id="三、常见的SQL注入类型浅析"><a href="#三、常见的SQL注入类型浅析" class="headerlink" title="三、常见的SQL注入类型浅析"></a>三、常见的SQL注入类型浅析</h2>
+                <h1 id="Command-Injection"><a href="#Command-Injection" class="headerlink" title="Command_Injection"></a>Command_Injection</h1><h2 id="一、Command-Injection-简介"><a href="#一、Command-Injection-简介" class="headerlink" title="一、Command_Injection 简介"></a>一、<code>Command_Injection</code> 简介</h2>
             </div>
             <hr/>
 
@@ -621,7 +523,7 @@ mysql> desc userinfo;
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://valecasec.github.io/2020/05/07/sql-injection/">https://valecasec.github.io/2020/05/07/sql-injection/</a>
+                    <a href="https://valecasec.github.io/2020/05/10/command-injection/">https://valecasec.github.io/2020/05/10/command-injection/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -663,8 +565,8 @@ mysql> desc userinfo;
                                     <span class="chip bg-color">Web Security</span>
                                 </a>
                             
-                                <a href="/tags/SQl-Injection/">
-                                    <span class="chip bg-color">SQl Injection</span>
+                                <a href="/tags/Command-Injection/">
+                                    <span class="chip bg-color">Command_Injection</span>
                                 </a>
                             
                         </div>
@@ -975,24 +877,24 @@ mysql> desc userinfo;
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2020/05/07/sql-injection/">
+                <a href="/2020/05/10/command-injection/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="SQL_Injection">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Command_Injection">
                         
-                        <span class="card-title">SQL_Injection</span>
+                        <span class="card-title">Command_Injection</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            关于SQL注入的个人学习记录，可能有自己理解错的地方，仅作学习记录
+                            关于命令注入攻击的一点个人学习记录，可能有自己理解错的地方，仅作学习记录...
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
                             </span>
                         <span class="publish-author">
                             
@@ -1014,8 +916,8 @@ mysql> desc userinfo;
                         <span class="chip bg-color">Web Security</span>
                     </a>
                     
-                    <a href="/tags/SQl-Injection/">
-                        <span class="chip bg-color">SQl Injection</span>
+                    <a href="/tags/Command-Injection/">
+                        <span class="chip bg-color">Command_Injection</span>
                     </a>
                     
                 </div>
@@ -1029,31 +931,31 @@ mysql> desc userinfo;
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/07/shen-tou-ce-shi-dc9/">
+                <a href="/2020/05/09/command-injectionon-symbol/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="渗透测试—DC_9">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Command_Injection_Symbol">
                         
-                        <span class="card-title">渗透测试—DC_9</span>
+                        <span class="card-title">Command_Injection_Symbol</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            对VulnHub的一个简单靶场的渗透测试，自己需要学的还有很多，努力进步中...
+                            命令注入中常见的管道符及查看文件指令的使用的一点学习记录，仅作参考...
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-09
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Penetration-Test/" class="post-category">
-                                    Penetration_Test
+                            <a href="/categories/Web-Security/" class="post-category">
+                                    Web Security
                                 </a>
                             
                             
@@ -1063,12 +965,12 @@ mysql> desc userinfo;
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Penetration-Test/">
-                        <span class="chip bg-color">Penetration_Test</span>
+                    <a href="/tags/Web-Security/">
+                        <span class="chip bg-color">Web Security</span>
                     </a>
                     
-                    <a href="/tags/VulnHub/">
-                        <span class="chip bg-color">VulnHub</span>
+                    <a href="/tags/Command-Injection/">
+                        <span class="chip bg-color">Command_Injection</span>
                     </a>
                     
                 </div>
@@ -1217,7 +1119,7 @@ mysql> desc userinfo;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">43.3k</span>&nbsp;字
+                class="white-color">45.6k</span>&nbsp;字
             
             
             
