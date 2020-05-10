@@ -475,14 +475,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    11 分
                 </div>
                 
 
@@ -498,7 +498,271 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Command-Injection"><a href="#Command-Injection" class="headerlink" title="Command_Injection"></a>Command_Injection</h1><h2 id="一、Command-Injection-简介"><a href="#一、Command-Injection-简介" class="headerlink" title="一、Command_Injection 简介"></a>一、<code>Command_Injection</code> 简介</h2>
+                <h1 id="Command-Injection"><a href="#Command-Injection" class="headerlink" title="Command_Injection"></a>Command_Injection</h1><h2 id="一、Command-Injection-简介"><a href="#一、Command-Injection-简介" class="headerlink" title="一、Command_Injection 简介"></a>一、<code>Command_Injection</code> 简介</h2><p>命令注入是一种攻击，其目标是通过易受攻击的应用程序在主机操作系统上执行任意命令。当应用程序将用户提供的不安全数据（表单e，cookie，HTTP标头等）传递到系统外壳时，可能会发生命令注入攻击。在这种攻击中，攻击者提供的操作系统命令通常是在易受攻击的应用程序的特权下执行的。由于没有足够的输入验证，因此可能发生命令注入攻击。</p>
+<p>此攻击与代码注入不同，代码注入使攻击者可以添加自己的代码，然后由应用程序执行。在“命令注入”中，攻击者扩展了应用程序的默认功能，该功能执行系统命令，而无需注入代码。</p>
+<p>我个人觉得命令注入跟命令执行其实是有很多地方是一样的，但是作为一个菜鸡，我也不敢说这种话，所以只能在自己的博客里叨叨几句。</p>
+<h2 id="二、Command-Injection-符号集"><a href="#二、Command-Injection-符号集" class="headerlink" title="二、Command_Injection 符号集"></a>二、<code>Command_Injection</code> 符号集</h2><h3 id="1、在-Windows-下的使用"><a href="#1、在-Windows-下的使用" class="headerlink" title="1、在 Windows 下的使用"></a>1、在 <code>Windows</code> 下的使用</h3><h4 id="1-1、管道符"><a href="#1-1、管道符" class="headerlink" title="1.1、管道符"></a>1.1、管道符</h4><h5 id="1-1-1、"><a href="#1-1-1、" class="headerlink" title="1.1.1、|"></a>1.1.1、<code>|</code></h5><p><strong>作用</strong>：直接执行管道符后面的语句</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-powershell"><code class="language-powershell">C:\>ping 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 <span class="token punctuation">|</span> <span class="token function">dir</span>
+ 驱动器 C 中的卷没有标签。
+ 卷的序列号是 567B<span class="token operator">-</span>6DCF
+
+ C:\ 的目录
+
+2020<span class="token operator">/</span>03<span class="token operator">/</span>28  15:05    &lt;<span class="token function">DIR</span>>          Intel
+2020<span class="token operator">/</span>04<span class="token operator">/</span>25  16:06    &lt;<span class="token function">DIR</span>>          PerfLogs
+2020<span class="token operator">/</span>05<span class="token operator">/</span>07  19:29    &lt;<span class="token function">DIR</span>>          Program Files
+2020<span class="token operator">/</span>05<span class="token operator">/</span>07  19:29    &lt;<span class="token function">DIR</span>>          Program Files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span>
+2020<span class="token operator">/</span>03<span class="token operator">/</span>29  16:17    &lt;<span class="token function">DIR</span>>          Users
+2020<span class="token operator">/</span>04<span class="token operator">/</span>25  16:06    &lt;<span class="token function">DIR</span>>          Windows
+               0 个文件              0 字节
+               7 个目录 209<span class="token punctuation">,</span>117<span class="token punctuation">,</span>048<span class="token punctuation">,</span>832 可用字节<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="1-1-2、"><a href="#1-1-2、" class="headerlink" title="1.1.2、||"></a>1.1.2、<code>||</code></h5><p><strong>作用</strong>：如果前面的语句为假则执行后面的语句</p>
+<p><strong>举例：</strong></p>
+<h6 id="1-2-1、当前面语句为假时"><a href="#1-2-1、当前面语句为假时" class="headerlink" title="1.2.1、当前面语句为假时"></a>1.2.1、当前面语句为假时</h6><pre class="line-numbers language-powershell"><code class="language-powershell">C:\>ping <span class="token operator">-</span>n 1 1 <span class="token punctuation">|</span><span class="token punctuation">|</span> <span class="token function">dir</span>
+
+正在 Ping 0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 具有 32 字节的数据:
+PING：传输失败。常见故障。
+
+0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 的 Ping 统计信息:
+    数据包: 已发送 = 1，已接收 = 0，丢失 = 1 <span class="token punctuation">(</span>100<span class="token operator">%</span> 丢失<span class="token punctuation">)</span>，
+ 驱动器 C 中的卷没有标签。
+ 卷的序列号是 567B<span class="token operator">-</span>6DCF
+
+ C:\ 的目录
+
+2020<span class="token operator">/</span>04<span class="token operator">/</span>22  09:27    &lt;<span class="token function">DIR</span>>          <span class="token variable">$WINDOWS</span><span class="token punctuation">.</span>~BT
+2020<span class="token operator">/</span>03<span class="token operator">/</span>28  15:05    &lt;<span class="token function">DIR</span>>          Intel
+2020<span class="token operator">/</span>04<span class="token operator">/</span>25  16:06    &lt;<span class="token function">DIR</span>>          PerfLogs
+2020<span class="token operator">/</span>05<span class="token operator">/</span>07  19:29    &lt;<span class="token function">DIR</span>>          Program Files
+2020<span class="token operator">/</span>05<span class="token operator">/</span>07  19:29    &lt;<span class="token function">DIR</span>>          Program Files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span>
+2020<span class="token operator">/</span>03<span class="token operator">/</span>29  16:17    &lt;<span class="token function">DIR</span>>          Users
+2020<span class="token operator">/</span>04<span class="token operator">/</span>25  16:06    &lt;<span class="token function">DIR</span>>          Windows
+               0 个文件              0 字节
+               7 个目录 209<span class="token punctuation">,</span>110<span class="token punctuation">,</span>179<span class="token punctuation">,</span>840 可用字节<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h6 id="1-2-2、当前面语句为真时"><a href="#1-2-2、当前面语句为真时" class="headerlink" title="1.2.2、当前面语句为真时"></a>1.2.2、当前面语句为真时</h6><pre class="line-numbers language-powershell"><code class="language-powershell">C:\>ping 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 <span class="token punctuation">|</span><span class="token punctuation">|</span> <span class="token function">dir</span>
+
+正在 Ping 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 具有 32 字节的数据:
+来自 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 的回复: 字节=32 时间&lt;1ms TTL=128
+来自 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 的回复: 字节=32 时间&lt;1ms TTL=128
+来自 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 的回复: 字节=32 时间&lt;1ms TTL=128
+来自 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 的回复: 字节=32 时间&lt;1ms TTL=128
+
+127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 的 Ping 统计信息:
+    数据包: 已发送 = 4，已接收 = 4，丢失 = 0 <span class="token punctuation">(</span>0<span class="token operator">%</span> 丢失<span class="token punctuation">)</span>，
+往返行程的估计时间<span class="token punctuation">(</span>以毫秒为单位<span class="token punctuation">)</span>:
+    最短 = 0ms，最长 = 0ms，平均 = 0ms<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>所以，为了执行，通常直接让前面的语句为假</p>
+<h5 id="1-1-3、-amp"><a href="#1-1-3、-amp" class="headerlink" title="1.1.3、&amp;"></a>1.1.3、<code>&amp;</code></h5><p><strong>作用</strong>：如果前面的语句为假则执行后面的语句，如果为真就都执行</p>
+<p><strong>举例：</strong></p>
+<h6 id="1-3-1、当前面语句为假时"><a href="#1-3-1、当前面语句为假时" class="headerlink" title="1.3.1、当前面语句为假时"></a>1.3.1、当前面语句为假时</h6><pre class="line-numbers language-powershell"><code class="language-powershell">C:\>ping 1 &amp; <span class="token function">dir</span>
+
+正在 Ping 0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 具有 32 字节的数据:
+PING：传输失败。常见故障。
+PING：传输失败。常见故障。
+PING：传输失败。常见故障。
+PING：传输失败。常见故障。
+
+0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 的 Ping 统计信息:
+    数据包: 已发送 = 4，已接收 = 0，丢失 = 4 <span class="token punctuation">(</span>100<span class="token operator">%</span> 丢失<span class="token punctuation">)</span>，
+ 驱动器 C 中的卷没有标签。
+ 卷的序列号是 567B<span class="token operator">-</span>6DCF
+
+ C:\ 的目录
+
+2020<span class="token operator">/</span>04<span class="token operator">/</span>22  09:27    &lt;<span class="token function">DIR</span>>          <span class="token variable">$WINDOWS</span><span class="token punctuation">.</span>~BT
+2020<span class="token operator">/</span>03<span class="token operator">/</span>28  15:05    &lt;<span class="token function">DIR</span>>          Intel
+2020<span class="token operator">/</span>04<span class="token operator">/</span>25  16:06    &lt;<span class="token function">DIR</span>>          PerfLogs
+2020<span class="token operator">/</span>05<span class="token operator">/</span>07  19:29    &lt;<span class="token function">DIR</span>>          Program Files
+2020<span class="token operator">/</span>05<span class="token operator">/</span>07  19:29    &lt;<span class="token function">DIR</span>>          Program Files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span>
+2020<span class="token operator">/</span>03<span class="token operator">/</span>29  16:17    &lt;<span class="token function">DIR</span>>          Users
+2020<span class="token operator">/</span>04<span class="token operator">/</span>25  16:06    &lt;<span class="token function">DIR</span>>          Windows
+               0 个文件              0 字节
+               7 个目录 209<span class="token punctuation">,</span>111<span class="token punctuation">,</span>924<span class="token punctuation">,</span>736 可用字节<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h6 id="1-3-2、当前面的语句为真时"><a href="#1-3-2、当前面的语句为真时" class="headerlink" title="1.3.2、当前面的语句为真时"></a>1.3.2、当前面的语句为真时</h6><pre class="line-numbers language-powershell"><code class="language-powershell">C:\>ping <span class="token operator">-</span>n 1 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 &amp; <span class="token function">dir</span>
+
+正在 Ping 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 具有 32 字节的数据:
+来自 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 的回复: 字节=32 时间&lt;1ms TTL=128
+
+127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 的 Ping 统计信息:
+    数据包: 已发送 = 1，已接收 = 1，丢失 = 0 <span class="token punctuation">(</span>0<span class="token operator">%</span> 丢失<span class="token punctuation">)</span>，
+往返行程的估计时间<span class="token punctuation">(</span>以毫秒为单位<span class="token punctuation">)</span>:
+    最短 = 0ms，最长 = 0ms，平均 = 0ms
+ 驱动器 C 中的卷没有标签。
+ 卷的序列号是 567B<span class="token operator">-</span>6DCF
+
+ C:\ 的目录
+
+2020<span class="token operator">/</span>04<span class="token operator">/</span>22  09:27    &lt;<span class="token function">DIR</span>>          <span class="token variable">$WINDOWS</span><span class="token punctuation">.</span>~BT
+2020<span class="token operator">/</span>03<span class="token operator">/</span>28  15:05    &lt;<span class="token function">DIR</span>>          Intel
+2020<span class="token operator">/</span>04<span class="token operator">/</span>25  16:06    &lt;<span class="token function">DIR</span>>          PerfLogs
+2020<span class="token operator">/</span>05<span class="token operator">/</span>07  19:29    &lt;<span class="token function">DIR</span>>          Program Files
+2020<span class="token operator">/</span>05<span class="token operator">/</span>07  19:29    &lt;<span class="token function">DIR</span>>          Program Files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span>
+2020<span class="token operator">/</span>03<span class="token operator">/</span>29  16:17    &lt;<span class="token function">DIR</span>>          Users
+2020<span class="token operator">/</span>04<span class="token operator">/</span>25  16:06    &lt;<span class="token function">DIR</span>>          Windows
+               0 个文件              0 字节
+               7 个目录 209<span class="token punctuation">,</span>111<span class="token punctuation">,</span>330<span class="token punctuation">,</span>816 可用字节<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="1-4、-amp-amp"><a href="#1-4、-amp-amp" class="headerlink" title="1.4、&amp;&amp;"></a>1.4、<code>&amp;&amp;</code></h5><p><strong>作用</strong>：如果前面的语句为假则直接出错，后面的语句不会执行，所以必须保证前面的语句为真</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-powershell"><code class="language-powershell">C:\>ping <span class="token operator">-</span>n 1 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 &amp;&amp; <span class="token function">dir</span>
+
+正在 Ping 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 具有 32 字节的数据:
+来自 127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 的回复: 字节=32 时间&lt;1ms TTL=128
+
+127<span class="token punctuation">.</span>0<span class="token punctuation">.</span>0<span class="token punctuation">.</span>1 的 Ping 统计信息:
+    数据包: 已发送 = 1，已接收 = 1，丢失 = 0 <span class="token punctuation">(</span>0<span class="token operator">%</span> 丢失<span class="token punctuation">)</span>，
+往返行程的估计时间<span class="token punctuation">(</span>以毫秒为单位<span class="token punctuation">)</span>:
+    最短 = 0ms，最长 = 0ms，平均 = 0ms
+ 驱动器 C 中的卷没有标签。
+ 卷的序列号是 567B<span class="token operator">-</span>6DCF
+
+ C:\ 的目录
+
+2020<span class="token operator">/</span>04<span class="token operator">/</span>22  09:27    &lt;<span class="token function">DIR</span>>          <span class="token variable">$WINDOWS</span><span class="token punctuation">.</span>~BT
+2020<span class="token operator">/</span>03<span class="token operator">/</span>28  15:05    &lt;<span class="token function">DIR</span>>          Intel
+2020<span class="token operator">/</span>04<span class="token operator">/</span>25  16:06    &lt;<span class="token function">DIR</span>>          PerfLogs
+2020<span class="token operator">/</span>05<span class="token operator">/</span>07  19:29    &lt;<span class="token function">DIR</span>>          Program Files
+2020<span class="token operator">/</span>05<span class="token operator">/</span>07  19:29    &lt;<span class="token function">DIR</span>>          Program Files <span class="token punctuation">(</span>x86<span class="token punctuation">)</span>
+2020<span class="token operator">/</span>03<span class="token operator">/</span>29  16:17    &lt;<span class="token function">DIR</span>>          Users
+2020<span class="token operator">/</span>04<span class="token operator">/</span>25  16:06    &lt;<span class="token function">DIR</span>>          Windows
+               0 个文件              0 字节
+               7 个目录 209<span class="token punctuation">,</span>107<span class="token punctuation">,</span>546<span class="token punctuation">,</span>112 可用字节<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="1-2、查看文件相关指令"><a href="#1-2、查看文件相关指令" class="headerlink" title="1.2、查看文件相关指令"></a>1.2、查看文件相关指令</h4><h5 id="1-2-1、type"><a href="#1-2-1、type" class="headerlink" title="1.2.1、type"></a>1.2.1、type</h5><p><strong>介绍：</strong><code>DOS</code> 命令行下查看文件内容的工具</p>
+<p><strong>举例：</strong> </p>
+<pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\valecalida\Desktop><span class="token function">type</span> flag<span class="token punctuation">.</span>txt
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="1-2-2、more"><a href="#1-2-2、more" class="headerlink" title="1.2.2、more"></a>1.2.2、more</h5><p><strong>介绍：</strong><code>DOS</code> 命令行下查看文件内容的工具，可以多屏显示</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\valecalida\Desktop>more flag<span class="token punctuation">.</span>txt
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="1-2-3、find"><a href="#1-2-3、find" class="headerlink" title="1.2.3、find"></a>1.2.3、find</h5><p><strong>介绍：</strong><code>DOS</code> 命令行下在文件中查找指定内容的工具</p>
+<p><strong>举例：</strong> </p>
+<pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\valecalida\Desktop>findstr <span class="token punctuation">.</span><span class="token operator">*</span> flag<span class="token punctuation">.</span>txt
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="1-2-4、findstr"><a href="#1-2-4、findstr" class="headerlink" title="1.2.4、findstr"></a>1.2.4、findstr</h5><p><strong>介绍：</strong><code>DOS</code> 命令行下查找文件或内容的工具</p>
+<p><strong>举例：</strong> </p>
+<pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\valecalida\Desktop>find <span class="token operator">/</span>V <span class="token string">""</span> flag<span class="token punctuation">.</span>txt
+
+<span class="token operator">--</span>-<span class="token operator">--</span>-<span class="token operator">--</span>-<span class="token operator">-</span> FLAG<span class="token punctuation">.</span>TXT
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="2、在-Linux-下的使用"><a href="#2、在-Linux-下的使用" class="headerlink" title="2、在 Linux 下的使用"></a>2、在 <code>Linux</code> 下的使用</h3><p>这部分的演示直接用 <code>WSL</code> 。</p>
+<h4 id="2-1、管道符"><a href="#2-1、管道符" class="headerlink" title="2.1、管道符"></a>2.1、管道符</h4><h5 id="2-1-1、"><a href="#2-1-1、" class="headerlink" title="2.1.1、;"></a>2.1.1、<code>;</code></h5><p><strong>作用</strong>：执行完前面的语句再执行后面的。</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop <span class="token function">ping</span> -c 1 127.0.0.1<span class="token punctuation">;</span><span class="token function">whoami</span>
+PING 127.0.0.1 <span class="token punctuation">(</span>127.0.0.1<span class="token punctuation">)</span> 56<span class="token punctuation">(</span>84<span class="token punctuation">)</span> bytes of data.
+64 bytes from 127.0.0.1: icmp_seq<span class="token operator">=</span>1 ttl<span class="token operator">=</span>128 time<span class="token operator">=</span>0.209 ms
+
+--- 127.0.0.1 <span class="token function">ping</span> statistics ---
+1 packets transmitted, 1 received, 0% packet loss, <span class="token function">time</span> 0ms
+rtt min/avg/max/mdev <span class="token operator">=</span> 0.209/0.209/0.209/0.000 ms
+
+root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>Tips：</strong>这里需要注意的是，如果前面的命令是错的，后面的也会执行</p>
+<h5 id="2-1-2、"><a href="#2-1-2、" class="headerlink" title="2.1.2、|"></a>2.1.2、<code>|</code></h5><p><strong>作用</strong>：显示后面语句的执行结果。</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop <span class="token function">ping</span> -c 1 127.0.0.1 <span class="token operator">|</span> <span class="token function">whoami</span>
+root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>Tips：</strong> 由于这个特性，所以前面无论是否正确都能获得后面命令的输出</p>
+<h5 id="2-1-3、"><a href="#2-1-3、" class="headerlink" title="2.1.3、||"></a>2.1.3、<code>||</code></h5><p><strong>作用：当前面的语句执行出错时执行后面的语句</strong></p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop <span class="token function">ping</span> 127.0.0. <span class="token operator">||</span> <span class="token function">whoami</span>
+ping: 127.0.0.: Name or <span class="token function">service</span> not known
+root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>Tips：</strong> 这里可以直接将前面命令置为错误的</p>
+<h5 id="2-1-4、-amp"><a href="#2-1-4、-amp" class="headerlink" title="2.1.4、&amp;"></a>2.1.4、<code>&amp;</code></h5><p><strong>作用</strong>：如果前面的语句为假就直接执行后面的语句</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  valecalida <span class="token function">ping</span> -c 1 127.0.0. <span class="token operator">&amp;</span> <span class="token function">whoami</span>
+<span class="token punctuation">[</span>1<span class="token punctuation">]</span> 40
+root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>Tips：</strong> 前面的语句同样可是为真</p>
+<h5 id="2-1-5、-amp-amp"><a href="#2-1-5、-amp-amp" class="headerlink" title="2.1.5、&amp;&amp;"></a>2.1.5、<code>&amp;&amp;</code></h5><p><strong>作用</strong>：如果前面的语句为假直接出错，后面的也不执行，所以前面的必须为真</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  valecalida <span class="token function">ping</span> -c 1 127.0.0. <span class="token operator">&amp;&amp;</span> <span class="token function">whoami</span>
+ping: 127.0.0.: Name or <span class="token function">service</span> not known
+➜  valecalida <span class="token function">ping</span> -c 1 127.0.0.1 <span class="token operator">&amp;&amp;</span> <span class="token function">whoami</span>
+PING 127.0.0.1 <span class="token punctuation">(</span>127.0.0.1<span class="token punctuation">)</span> 56<span class="token punctuation">(</span>84<span class="token punctuation">)</span> bytes of data.
+64 bytes from 127.0.0.1: icmp_seq<span class="token operator">=</span>1 ttl<span class="token operator">=</span>128 time<span class="token operator">=</span>0.202 ms
+
+--- 127.0.0.1 <span class="token function">ping</span> statistics ---
+1 packets transmitted, 1 received, 0% packet loss, <span class="token function">time</span> 0ms
+rtt min/avg/max/mdev <span class="token operator">=</span> 0.202/0.202/0.202/0.000 ms
+root<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="2-2、查看文件相关指令"><a href="#2-2、查看文件相关指令" class="headerlink" title="2.2、查看文件相关指令"></a>2.2、查看文件相关指令</h4><h5 id="2-2-1、cat"><a href="#2-2-1、cat" class="headerlink" title="2.2.1、cat"></a>2.2.1、cat</h5><p><strong>介绍：</strong><code>SHELL</code> 命令行下查看文件内容的工具</p>
+<p><strong>举例：</strong> </p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop <span class="token function">cat</span> flag.txt
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="2-2-2、more"><a href="#2-2-2、more" class="headerlink" title="2.2.2、more"></a>2.2.2、more</h5><p><strong>介绍：</strong><code>SHELL</code> 命令行下多屏显示文件内容的工具</p>
+<p><strong>举例：</strong> </p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop <span class="token function">more</span> flag.txt
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="2-2-3、less"><a href="#2-2-3、less" class="headerlink" title="2.2.3、less"></a>2.2.3、less</h5><p><strong>介绍：</strong><code>SHELL</code> 命令行下查看文件内容的工具</p>
+<p><strong>举例：</strong> </p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop <span class="token function">less</span> flag.txt
+flag
+flag_is_here
+flag.txt <span class="token punctuation">(</span>END<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="2-2-4、head"><a href="#2-2-4、head" class="headerlink" title="2.2.4、head"></a>2.2.4、head</h5><p><strong>介绍：</strong><code>SHELL</code> 命令行下查看文件内容的工具</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop <span class="token function">head</span> -n 2 flag.txt
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="2-2-5、tail"><a href="#2-2-5、tail" class="headerlink" title="2.2.5、tail"></a>2.2.5、tail</h5><p><strong>介绍：</strong><code>SHELL</code> 命令行下查看文件内容的工具</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop <span class="token function">tail</span> -n 2 flag.txt
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="2-2-6、tac"><a href="#2-2-6、tac" class="headerlink" title="2.2.6、tac"></a>2.2.6、tac</h5><p><strong>介绍：</strong><code>SHELL</code> 命令行下逆序查看文件内容的工具</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop tac flag.txt
+flag_is_here
+flag<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="2-2-7、grep"><a href="#2-2-7、grep" class="headerlink" title="2.2.7、grep"></a>2.2.7、grep</h5><p><strong>介绍：</strong><code>SHELL</code> 命令行下查看文件内容的工具</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop <span class="token function">grep</span> -v <span class="token string">"\n"</span> flag.txt
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="2-2-8、sed"><a href="#2-2-8、sed" class="headerlink" title="2.2.8、sed"></a>2.2.8、sed</h5><p><strong>介绍：</strong><code>SHELL</code> 命令行下处理文件内容的工具</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop <span class="token function">sed</span> -n 1,2p flag.txt
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="2-2-9、nl"><a href="#2-2-9、nl" class="headerlink" title="2.2.9、nl"></a>2.2.9、nl</h5><p><strong>介绍：</strong><code>SHELL</code> 命令行下输出文件内容并添加行号的工具</p>
+<p><strong>举例：</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop <span class="token function">nl</span> flag.txt
+     1  flag
+     2  flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="2-2-10、-vi-vim"><a href="#2-2-10、-vi-vim" class="headerlink" title="2.2.10、*vi/vim"></a>2.2.10、*vi/vim</h5><p><strong>介绍：</strong><code>SHELL</code> 命令行下编辑文件内容的工具，通常Linux默认安装了vi</p>
+<p><strong>举例：</strong> </p>
+<pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop <span class="token function">vi</span> flag.txt
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="3、某些特殊字符的绕过"><a href="#3、某些特殊字符的绕过" class="headerlink" title="3、某些特殊字符的绕过"></a>3、某些特殊字符的绕过</h3><h4 id="3-1、空格的绕过"><a href="#3-1、空格的绕过" class="headerlink" title="3.1、空格的绕过"></a>3.1、空格的绕过</h4><h5 id="3-1-1、-lt"><a href="#3-1-1、-lt" class="headerlink" title="3.1.1、&lt;"></a>3.1.1、<code>&lt;</code></h5><pre class="line-numbers language-bash"><code class="language-bash">➜  Desktop cat<span class="token operator">&lt;</span>flag.txt
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="3-1-2、-IFS"><a href="#3-1-2、-IFS" class="headerlink" title="3.1.2、$IFS"></a>3.1.2、<code>$IFS</code></h5><pre class="line-numbers language-bash"><code class="language-bash">root@VALECALIDA:/mnt/c/Users/valecalida/Desktop<span class="token comment" spellcheck="true"># cat${IFS}flag.txt</span>
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>Tips：</strong>这里需要注意，在 <code>zsh</code> 下 <code>$IFS</code> 是用不了的，只能在原SHELL环境下使用</p>
+<h5 id="3-1-3、-Command-Object"><a href="#3-1-3、-Command-Object" class="headerlink" title="3.1.3、{Command,Object}"></a>3.1.3、<code>{Command,Object}</code></h5><pre class="line-numbers language-bash"><code class="language-bash">root@VALECALIDA:/mnt/c/Users/valecalida/Desktop<span class="token comment" spellcheck="true"># {cat,flag.txt}</span>
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="3-2、-的绕过"><a href="#3-2、-的绕过" class="headerlink" title="3.2、/ 的绕过"></a>3.2、<code>/</code> 的绕过</h4><h5 id="3-2-1、环境变量绕过"><a href="#3-2-1、环境变量绕过" class="headerlink" title="3.2.1、环境变量绕过"></a>3.2.1、环境变量绕过</h5><p>环境变量中第一个字符永远都是 <code>/</code> ，因此可以利用这个来绕过</p>
+<pre class="line-numbers language-bash"><code class="language-bash">root@VALECALIDA:~<span class="token comment" spellcheck="true"># cat ${PATH:0:1}root${PATH:0:1}flag.txt</span>
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="3-2-2、-echo-tr-39-0-39-39-quot-1-39"><a href="#3-2-2、-echo-tr-39-0-39-39-quot-1-39" class="headerlink" title="3.2.2、$(echo . | tr &#39;!-0&#39; &#39;&quot;-1&#39;)"></a>3.2.2、<code>$(echo . | tr &#39;!-0&#39; &#39;&quot;-1&#39;)</code></h5><pre class="line-numbers language-bash"><code class="language-bash">root@VALECALIDA:~<span class="token comment" spellcheck="true"># cat $(echo . | tr '!-0' '"-1')root$(echo . | tr '!-0' '"-1')flag.txt</span>
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="3-2-3、-tr-39-0-39-39-quot-1-39-lt-lt-lt"><a href="#3-2-3、-tr-39-0-39-39-quot-1-39-lt-lt-lt" class="headerlink" title="3.2.3、$(tr &#39;!-0&#39; &#39;&quot;-1&#39; &lt;&lt;&lt; .)"></a>3.2.3、<code>$(tr &#39;!-0&#39; &#39;&quot;-1&#39; &lt;&lt;&lt; .)</code></h5><pre class="line-numbers language-bash"><code class="language-bash">root@VALECALIDA:~<span class="token comment" spellcheck="true"># cat $(tr '!-0' '"-1' &lt;&lt;&lt; .)root$(tr '!-0' '"-1' &lt;&lt;&lt; .)flag.txt</span>
+flag
+flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="三、从案例看-Command-Injection"><a href="#三、从案例看-Command-Injection" class="headerlink" title="三、从案例看 Command_Injection"></a>三、从案例看 <code>Command_Injection</code></h2><h3 id="1、DVWA"><a href="#1、DVWA" class="headerlink" title="1、DVWA"></a>1、DVWA</h3><h3 id="2、CTFHUB"><a href="#2、CTFHUB" class="headerlink" title="2、CTFHUB"></a>2、CTFHUB</h3><h3 id="3、Webug"><a href="#3、Webug" class="headerlink" title="3、Webug"></a>3、Webug</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3>
             </div>
             <hr/>
 
@@ -872,52 +1136,50 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/05/10/command-injection/">
+                <a href="/2020/05/11/vulnhub-seattle/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Command_Injection">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="VulnHub-Seattle">
                         
-                        <span class="card-title">Command_Injection</span>
+                        <span class="card-title">VulnHub-Seattle</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            关于命令注入攻击的一点个人学习记录，可能有自己理解错的地方，仅作学习记录...
+                            VulnHub靶机Seattle_V0.0.3的渗透测试记录,满满的水货
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-10
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Web-Security/" class="post-category">
-                                    Web Security
+                            <a href="/categories/Penetration-Test/" class="post-category">
+                                    Penetration_Test
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Web-Security/">
-                        <span class="chip bg-color">Web Security</span>
+                    <a href="/tags/Penetration-Test/">
+                        <span class="chip bg-color">Penetration_Test</span>
                     </a>
                     
-                    <a href="/tags/Command-Injection/">
-                        <span class="chip bg-color">Command_Injection</span>
+                    <a href="/tags/VulnHub/">
+                        <span class="chip bg-color">VulnHub</span>
                     </a>
                     
                 </div>
@@ -931,24 +1193,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/09/command-injectionon-symbol/">
+                <a href="/2020/05/08/sql-injection/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Command_Injection_Symbol">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="SQL_Injection">
                         
-                        <span class="card-title">Command_Injection_Symbol</span>
+                        <span class="card-title">SQL_Injection</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            命令注入中常见的管道符及查看文件指令的使用的一点学习记录，仅作参考...
+                            关于SQL注入的个人学习记录，可能有自己理解错的地方，仅作学习记录...
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-08
                             </span>
                         <span class="publish-author">
                             
@@ -969,8 +1231,8 @@
                         <span class="chip bg-color">Web Security</span>
                     </a>
                     
-                    <a href="/tags/Command-Injection/">
-                        <span class="chip bg-color">Command_Injection</span>
+                    <a href="/tags/SQl-Injection/">
+                        <span class="chip bg-color">SQl Injection</span>
                     </a>
                     
                 </div>
@@ -1119,7 +1381,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45.6k</span>&nbsp;字
+                class="white-color">46.2k</span>&nbsp;字
             
             
             

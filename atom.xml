@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-05-08T12:35:53.670Z</updated>
+  <updated>2020-05-10T13:54:47.140Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>VulnHub-Seattle</title>
+    <link href="https://valecasec.github.io/2020/05/11/vulnhub-seattle/"/>
+    <id>https://valecasec.github.io/2020/05/11/vulnhub-seattle/</id>
+    <published>2020-05-11T12:02:17.000Z</published>
+    <updated>2020-05-10T13:54:47.140Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;VulnHub-Seattle-V0-0-3&quot;&gt;&lt;a href=&quot;#VulnHub-Seattle-V0-0-3&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Penetration_Test" scheme="https://valecasec.github.io/categories/Penetration-Test/"/>
+    
+    
+      <category term="Penetration_Test" scheme="https://valecasec.github.io/tags/Penetration-Test/"/>
+    
+      <category term="VulnHub" scheme="https://valecasec.github.io/tags/VulnHub/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Command_Injection</title>
     <link href="https://valecasec.github.io/2020/05/10/command-injection/"/>
     <id>https://valecasec.github.io/2020/05/10/command-injection/</id>
     <published>2020-05-10T02:23:04.000Z</published>
-    <updated>2020-05-08T12:35:53.670Z</updated>
+    <updated>2020-05-10T14:19:51.989Z</updated>
     
     <summary type="html">
     
@@ -30,35 +59,6 @@
         
         
           &lt;h1 id=&quot;Command-Injection&quot;&gt;&lt;a href=&quot;#Command-Injection&quot; class=&quot;headerlink&quot; title=&quot;Command_Injection&quot;&gt;&lt;/a&gt;Command_Injection&lt;/h1&gt;&lt;h2
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Web Security" scheme="https://valecasec.github.io/categories/Web-Security/"/>
-    
-    
-      <category term="Web Security" scheme="https://valecasec.github.io/tags/Web-Security/"/>
-    
-      <category term="Command_Injection" scheme="https://valecasec.github.io/tags/Command-Injection/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Command_Injection_Symbol</title>
-    <link href="https://valecasec.github.io/2020/05/09/command-injectionon-symbol/"/>
-    <id>https://valecasec.github.io/2020/05/09/command-injectionon-symbol/</id>
-    <published>2020-05-09T02:33:32.000Z</published>
-    <updated>2020-05-09T10:49:52.070Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Command-Injection-Symbol&quot;&gt;&lt;a href=&quot;#Command-Injection-Symbol&quot; class=&quot;headerlink&quot;
         
       
     
