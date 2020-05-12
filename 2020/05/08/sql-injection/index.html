@@ -307,7 +307,7 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/05/12/YN2C9J.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -475,14 +475,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    7 分
                 </div>
                 
 
@@ -596,7 +596,286 @@ mysql> desc userinfo;
 +---------+-------------+------+-----+---------+----------------+
 6 rows in set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>如果只需要查询一个表的话，只需将 <code>table_schema</code> 修改为 <code>table_name</code> 即可</p>
-<h3 id="2、"><a href="#2、" class="headerlink" title="2、"></a>2、</h3><h2 id="三、常见的SQL注入类型浅析"><a href="#三、常见的SQL注入类型浅析" class="headerlink" title="三、常见的SQL注入类型浅析"></a>三、常见的SQL注入类型浅析</h2>
+<h3 id="2、常用的函数及运算符"><a href="#2、常用的函数及运算符" class="headerlink" title="2、常用的函数及运算符"></a>2、常用的函数及运算符</h3><h4 id="2-1、函数部分"><a href="#2-1、函数部分" class="headerlink" title="2.1、函数部分"></a>2.1、函数部分</h4><table>
+<thead>
+<tr>
+<th align="center">函数名称</th>
+<th align="center">函数功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">system_user()</td>
+<td align="center">查看系统用户名</td>
+</tr>
+<tr>
+<td align="center">user()</td>
+<td align="center">用户名</td>
+</tr>
+<tr>
+<td align="center">current_user()</td>
+<td align="center">当前用户名</td>
+</tr>
+<tr>
+<td align="center">session_user()</td>
+<td align="center">连接到数据库的用户名</td>
+</tr>
+<tr>
+<td align="center">database()</td>
+<td align="center">当前数据库名</td>
+</tr>
+<tr>
+<td align="center">version()</td>
+<td align="center">数据库版本</td>
+</tr>
+<tr>
+<td align="center">@@datadir</td>
+<td align="center">数据路径</td>
+</tr>
+<tr>
+<td align="center">@@basedir</td>
+<td align="center">数据库安装路径</td>
+</tr>
+<tr>
+<td align="center">@@version_compile_os</td>
+<td align="center">操作系统类型</td>
+</tr>
+<tr>
+<td align="center">count(*)</td>
+<td align="center">计算数量</td>
+</tr>
+<tr>
+<td align="center">concat()</td>
+<td align="center">指定分隔符连接两列名</td>
+</tr>
+<tr>
+<td align="center">concat_ws()</td>
+<td align="center">指定分隔符连接两列名</td>
+</tr>
+<tr>
+<td align="center">group_concat()</td>
+<td align="center">默认以逗号连接某列中所有数据</td>
+</tr>
+<tr>
+<td align="center">into outfile</td>
+<td align="center">往外写文件</td>
+</tr>
+<tr>
+<td align="center">load_file</td>
+<td align="center">读取文件</td>
+</tr>
+<tr>
+<td align="center">ascii()</td>
+<td align="center">获取字符的ASCII码值</td>
+</tr>
+<tr>
+<td align="center">ord()</td>
+<td align="center">获取字符串中第一个字符的ASCII码值</td>
+</tr>
+<tr>
+<td align="center">mid()</td>
+<td align="center">获取字符串中的一部分，共三个参数，需指定位置</td>
+</tr>
+<tr>
+<td align="center">substr()</td>
+<td align="center">获取字符串中的一部分，共三个参数，需指定位置</td>
+</tr>
+<tr>
+<td align="center">length()</td>
+<td align="center">获取字符串长度</td>
+</tr>
+<tr>
+<td align="center">left()</td>
+<td align="center">获取字符串最左边的N个字符，N人为指定</td>
+</tr>
+<tr>
+<td align="center">floor()</td>
+<td align="center">返回小于等于N的最大整数</td>
+</tr>
+<tr>
+<td align="center">rand()</td>
+<td align="center">返回0到1之间的一个随机数</td>
+</tr>
+<tr>
+<td align="center">sleep()</td>
+<td align="center">让此语句运行N秒</td>
+</tr>
+<tr>
+<td align="center">if()</td>
+<td align="center">if(1&gt;2,2,3)”1&gt;2”为表达式，如果表达式为真，输出第二个参数，否则输出第三个</td>
+</tr>
+<tr>
+<td align="center">char()</td>
+<td align="center">将数值返回为ASCII码值</td>
+</tr>
+<tr>
+<td align="center">strcmp()</td>
+<td align="center">strcmp(‘a’,’b)如果a&gt;b为真则返回1，相同返回0，为假返回-1</td>
+</tr>
+<tr>
+<td align="center">ifnull()</td>
+<td align="center">如果第一个值为null，返回第二个值，否则返回第一个值</td>
+</tr>
+<tr>
+<td align="center">exp()</td>
+<td align="center">返回e的N次方</td>
+</tr>
+</tbody></table>
+<h4 id="2-2、运算符部分"><a href="#2-2、运算符部分" class="headerlink" title="2.2、运算符部分"></a>2.2、运算符部分</h4><h5 id="2-2-1、算数运算符"><a href="#2-2-1、算数运算符" class="headerlink" title="2.2.1、算数运算符"></a>2.2.1、算数运算符</h5><table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+</td>
+<td align="center">加法运算</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">减法运算</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">乘法运算</td>
+</tr>
+<tr>
+<td align="center">/、DIV</td>
+<td align="center">除法运算</td>
+</tr>
+<tr>
+<td align="center">%、MOD</td>
+<td align="center">求余运算</td>
+</tr>
+</tbody></table>
+<h5 id="2-2-2、比较运算符"><a href="#2-2-2、比较运算符" class="headerlink" title="2.2.2、比较运算符"></a>2.2.2、比较运算符</h5><table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&gt;</td>
+<td align="center">大于</td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center">小于</td>
+</tr>
+<tr>
+<td align="center">=</td>
+<td align="center">等于</td>
+</tr>
+<tr>
+<td align="center">&gt;=</td>
+<td align="center">大于等于</td>
+</tr>
+<tr>
+<td align="center">\&lt;=</td>
+<td align="center">小于等于</td>
+</tr>
+<tr>
+<td align="center">!=或&lt;&gt;</td>
+<td align="center">不等于</td>
+</tr>
+<tr>
+<td align="center">IS NULL</td>
+<td align="center">为空</td>
+</tr>
+<tr>
+<td align="center">IS NOT NULL</td>
+<td align="center">不为空</td>
+</tr>
+<tr>
+<td align="center">BETWEEN AND</td>
+<td align="center">在…之间</td>
+</tr>
+<tr>
+<td align="center">IN</td>
+<td align="center">包含</td>
+</tr>
+<tr>
+<td align="center">NOT IN</td>
+<td align="center">不包含</td>
+</tr>
+<tr>
+<td align="center">LIKE</td>
+<td align="center">模式匹配</td>
+</tr>
+<tr>
+<td align="center">NOT LIKE</td>
+<td align="center">模式匹配</td>
+</tr>
+<tr>
+<td align="center">REGEXP</td>
+<td align="center">正则表达式</td>
+</tr>
+</tbody></table>
+<h5 id="2-2-3、逻辑运算符"><a href="#2-2-3、逻辑运算符" class="headerlink" title="2.2.3、逻辑运算符"></a>2.2.3、逻辑运算符</h5><table>
+<thead>
+<tr>
+<th align="center">符号</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&amp;&amp;或AND</td>
+<td align="center">与</td>
+</tr>
+<tr>
+<td align="center">!或NOT</td>
+<td align="center">非1</td>
+</tr>
+<tr>
+<td align="center">||或OR</td>
+<td align="center">或</td>
+</tr>
+<tr>
+<td align="center">XOR</td>
+<td align="center">异或</td>
+</tr>
+</tbody></table>
+<h3 id="3、从MySQL语句看SQL注入语句"><a href="#3、从MySQL语句看SQL注入语句" class="headerlink" title="3、从MySQL语句看SQL注入语句"></a>3、从MySQL语句看SQL注入语句</h3><h4 id="3-1、常见语句逻辑分析"><a href="#3-1、常见语句逻辑分析" class="headerlink" title="3.1、常见语句逻辑分析"></a>3.1、常见语句逻辑分析</h4><h5 id="3-1-1、逻辑运算符语句"><a href="#3-1-1、逻辑运算符语句" class="headerlink" title="3.1.1、逻辑运算符语句"></a>3.1.1、逻辑运算符语句</h5><pre class="line-numbers language-mysql"><code class="language-mysql">mysql> select id,name from userinfo where id=1;
++----+--------+
+| id | name   |
++----+--------+
+|  1 | valeca |
++----+--------+
+1 row in set (0.00 sec)
+mysql> select id,name from userinfo where id=1 and 1=1;
++----+--------+
+| id | name   |
++----+--------+
+|  1 | valeca |
++----+--------+
+1 row in set (0.00 sec)
+
+mysql> select id,name from userinfo where id=1 and 1=2;
+Empty set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>当使用语句 <code>select id,name from userinfo where id=1;</code> 时可以清楚的看到该语句执行成功了，当后面追加了 <code>and 1=1</code> 时，本身 <code>1=1</code> 就是真的，所以真与真得真，该语句可以执行成功且有结果；而当追加 <code>and 1=2</code> 时，本身 <code>1=2</code> 就是假的，那么真与假必定为假，所以没有得到输出结果。这里用一个图做直观的认知。</p>
+<img src="https://s1.ax1x.com/2020/05/12/YNOLid.png">
+
+<center>逻辑运算图——真</center>
+
+<img src="https://s1.ax1x.com/2020/05/12/YNObIH.png">
+
+<center>逻辑运算图——假</center>
+
+<h5 id="3-1-2、万能密码"><a href="#3-1-2、万能密码" class="headerlink" title="3.1.2、万能密码"></a>3.1.2、万能密码</h5><p>这里只分析一个 <code>&#39;or &#39;1&#39;=&#39;1</code> ，下面是自己画的一个理解图</p>
+<img src="https://s1.ax1x.com/2020/05/12/YNOHde.png">
+
+<center>详细讲解图</center>
+
+
+
+
+
+
+
+
+
+<h2 id="三、常见的SQL注入类型浅析"><a href="#三、常见的SQL注入类型浅析" class="headerlink" title="三、常见的SQL注入类型浅析"></a>三、常见的SQL注入类型浅析</h2>
             </div>
             <hr/>
 
@@ -977,8 +1256,7 @@ mysql> desc userinfo;
                 <a href="/2020/05/10/command-injection/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Command_Injection">
+                        <img src="https://s1.ax1x.com/2020/05/12/YNguyq.jpg" class="responsive-img" alt="Command_Injection">
                         
                         <span class="card-title">Command_Injection</span>
                     </div>
@@ -1215,7 +1493,7 @@ mysql> desc userinfo;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">47.9k</span>&nbsp;字
+                class="white-color">48.7k</span>&nbsp;字
             
             
             
