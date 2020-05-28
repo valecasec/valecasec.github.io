@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-05-10T13:54:47.140Z</updated>
+  <updated>2020-05-13T12:50:21.369Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>VulnHub-Seattle</title>
-    <link href="https://valecasec.github.io/2020/05/11/vulnhub-seattle/"/>
-    <id>https://valecasec.github.io/2020/05/11/vulnhub-seattle/</id>
-    <published>2020-05-11T12:02:17.000Z</published>
-    <updated>2020-05-10T13:54:47.140Z</updated>
+    <title>Emergency_Response</title>
+    <link href="https://valecasec.github.io/2020/05/13/emergency-response/"/>
+    <id>https://valecasec.github.io/2020/05/13/emergency-response/</id>
+    <published>2020-05-13T12:32:29.000Z</published>
+    <updated>2020-05-13T12:50:21.369Z</updated>
     
     <summary type="html">
     
@@ -29,19 +29,69 @@
       
         
         
-          &lt;h1 id=&quot;VulnHub-Seattle-V0-0-3&quot;&gt;&lt;a href=&quot;#VulnHub-Seattle-V0-0-3&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;Emergency-Response&quot;&gt;&lt;a href=&quot;#Emergency-Response&quot; class=&quot;headerlink&quot;
         
       
     
     </summary>
     
     
-      <category term="Penetration_Test" scheme="https://valecasec.github.io/categories/Penetration-Test/"/>
+      <category term="Emergency_Response" scheme="https://valecasec.github.io/categories/Emergency-Response/"/>
     
     
-      <category term="Penetration_Test" scheme="https://valecasec.github.io/tags/Penetration-Test/"/>
+      <category term="Emergency_Response" scheme="https://valecasec.github.io/tags/Emergency-Response/"/>
     
-      <category term="VulnHub" scheme="https://valecasec.github.io/tags/VulnHub/"/>
+      <category term="Security" scheme="https://valecasec.github.io/tags/Security/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux_Learning</title>
+    <link href="https://valecasec.github.io/2020/05/12/linux-learning/"/>
+    <id>https://valecasec.github.io/2020/05/12/linux-learning/</id>
+    <published>2020-05-12T04:19:00.000Z</published>
+    <updated>2020-05-13T12:51:23.922Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://valecasec.github.io/categories/Linux/"/>
+    
+    
+      <category term="Security" scheme="https://valecasec.github.io/tags/Security/"/>
+    
+      <category term="Linux" scheme="https://valecasec.github.io/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Windows_Learning</title>
+    <link href="https://valecasec.github.io/2020/05/11/windows-learning/"/>
+    <id>https://valecasec.github.io/2020/05/11/windows-learning/</id>
+    <published>2020-05-11T02:19:12.000Z</published>
+    <updated>2020-05-13T13:06:06.081Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Windows-Learning&quot;&gt;&lt;a href=&quot;#Windows-Learning&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Windows" scheme="https://valecasec.github.io/categories/Windows/"/>
+    
+    
+      <category term="Security" scheme="https://valecasec.github.io/tags/Security/"/>
+    
+      <category term="Windows" scheme="https://valecasec.github.io/tags/Windows/"/>
     
   </entry>
   
@@ -75,11 +125,40 @@
   </entry>
   
   <entry>
+    <title>VulnHub-Seattle</title>
+    <link href="https://valecasec.github.io/2020/05/09/vulnhub-seattle/"/>
+    <id>https://valecasec.github.io/2020/05/09/vulnhub-seattle/</id>
+    <published>2020-05-09T12:02:17.000Z</published>
+    <updated>2020-05-14T12:11:41.154Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;VulnHub-Seattle-V0-0-3&quot;&gt;&lt;a href=&quot;#VulnHub-Seattle-V0-0-3&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Penetration_Test" scheme="https://valecasec.github.io/categories/Penetration-Test/"/>
+    
+    
+      <category term="Penetration_Test" scheme="https://valecasec.github.io/tags/Penetration-Test/"/>
+    
+      <category term="VulnHub" scheme="https://valecasec.github.io/tags/VulnHub/"/>
+    
+  </entry>
+  
+  <entry>
     <title>SQL_Injection</title>
     <link href="https://valecasec.github.io/2020/05/08/sql-injection/"/>
     <id>https://valecasec.github.io/2020/05/08/sql-injection/</id>
     <published>2020-05-08T06:09:41.000Z</published>
-    <updated>2020-05-12T12:34:03.527Z</updated>
+    <updated>2020-05-22T12:47:34.002Z</updated>
     
     <summary type="html">
     
@@ -515,95 +594,6 @@
       <category term="Scapy" scheme="https://valecasec.github.io/tags/Scapy/"/>
     
       <category term="Ping" scheme="https://valecasec.github.io/tags/Ping/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>渗透测试—Typhoon_V1.02</title>
-    <link href="https://valecasec.github.io/2020/04/16/shen-tou-ce-shi-typhoon-v1.02/"/>
-    <id>https://valecasec.github.io/2020/04/16/shen-tou-ce-shi-typhoon-v1.02/</id>
-    <published>2020-04-16T07:50:25.000Z</published>
-    <updated>2020-04-17T02:46:46.314Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;渗透测试—Typhoon-V1-02&quot;&gt;&lt;a href=&quot;#渗透测试—Typhoon-V1-02&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Penetration_Test" scheme="https://valecasec.github.io/categories/Penetration-Test/"/>
-    
-    
-      <category term="Penetration_Test" scheme="https://valecasec.github.io/tags/Penetration-Test/"/>
-    
-      <category term="Metasploit" scheme="https://valecasec.github.io/tags/Metasploit/"/>
-    
-      <category term="Typhoon" scheme="https://valecasec.github.io/tags/Typhoon/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Crawl—VulnHub</title>
-    <link href="https://valecasec.github.io/2020/04/15/crawl-vulnhub/"/>
-    <id>https://valecasec.github.io/2020/04/15/crawl-vulnhub/</id>
-    <published>2020-04-15T05:32:58.000Z</published>
-    <updated>2020-05-07T05:48:19.997Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Crawl—VulnHub&quot;&gt;&lt;a href=&quot;#Crawl—VulnHub&quot; class=&quot;headerlink&quot; title=&quot;Crawl—VulnHub&quot;&gt;&lt;/a&gt;Crawl—VulnHub&lt;/h1&gt;&lt;h2 id=&quot;一、项目背景&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Spider" scheme="https://valecasec.github.io/categories/Spider/"/>
-    
-    
-      <category term="Python" scheme="https://valecasec.github.io/tags/Python/"/>
-    
-      <category term="Spider" scheme="https://valecasec.github.io/tags/Spider/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>应急响应—WannaMine4.0</title>
-    <link href="https://valecasec.github.io/2020/04/14/ying-ji-xiang-ying-wannamine4.0/"/>
-    <id>https://valecasec.github.io/2020/04/14/ying-ji-xiang-ying-wannamine4.0/</id>
-    <published>2020-04-14T05:19:13.000Z</published>
-    <updated>2020-04-16T16:31:21.603Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;应急响应—WannaMine4-0&quot;&gt;&lt;a href=&quot;#应急响应—WannaMine4-0&quot; class=&quot;headerlink&quot; title=&quot;应急响应—WannaMine4.0&quot;&gt;&lt;/a&gt;应急响应—WannaMine4.0&lt;/h1&gt;&lt;h2
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Emergency_Response" scheme="https://valecasec.github.io/categories/Emergency-Response/"/>
-    
-    
-      <category term="Emergency_Response" scheme="https://valecasec.github.io/tags/Emergency-Response/"/>
-    
-      <category term="WannaMine4.0" scheme="https://valecasec.github.io/tags/WannaMine4-0/"/>
     
   </entry>
   
