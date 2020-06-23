@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-05-13T12:50:21.369Z</updated>
+  <updated>2020-05-30T03:47:06.230Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sqli-labs</title>
+    <link href="https://valecasec.github.io/2020/05/30/sqli-labs/"/>
+    <id>https://valecasec.github.io/2020/05/30/sqli-labs/</id>
+    <published>2020-05-30T00:52:53.000Z</published>
+    <updated>2020-05-30T03:47:06.230Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;sqli-labs&quot;&gt;&lt;a href=&quot;#sqli-labs&quot; class=&quot;headerlink&quot; title=&quot;sqli-labs&quot;&gt;&lt;/a&gt;sqli-labs&lt;/h1&gt;&lt;h2 id=&quot;一、环境搭建&quot;&gt;&lt;a href=&quot;#一、环境搭建&quot;
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Emergency_Response</title>
@@ -71,7 +94,7 @@
     <link href="https://valecasec.github.io/2020/05/11/windows-learning/"/>
     <id>https://valecasec.github.io/2020/05/11/windows-learning/</id>
     <published>2020-05-11T02:19:12.000Z</published>
-    <updated>2020-05-13T13:06:06.081Z</updated>
+    <updated>2020-06-22T05:21:54.243Z</updated>
     
     <summary type="html">
     
@@ -79,7 +102,7 @@
       
         
         
-          &lt;h1 id=&quot;Windows-Learning&quot;&gt;&lt;a href=&quot;#Windows-Learning&quot; class=&quot;headerlink&quot;
+          &lt;h1 id=&quot;Windows-Learning&quot;&gt;&lt;a href=&quot;#Windows-Learning&quot; class=&quot;headerlink&quot; title=&quot;Windows_Learning&quot;&gt;&lt;/a&gt;Windows_Learning&lt;/h1&gt;&lt;h2
         
       
     
@@ -158,7 +181,7 @@
     <link href="https://valecasec.github.io/2020/05/08/sql-injection/"/>
     <id>https://valecasec.github.io/2020/05/08/sql-injection/</id>
     <published>2020-05-08T06:09:41.000Z</published>
-    <updated>2020-05-22T12:47:34.002Z</updated>
+    <updated>2020-05-30T03:00:21.466Z</updated>
     
     <summary type="html">
     
@@ -391,7 +414,7 @@
     <link href="https://valecasec.github.io/2020/04/23/shen-tou-ce-shi-dc3/"/>
     <id>https://valecasec.github.io/2020/04/23/shen-tou-ce-shi-dc3/</id>
     <published>2020-04-23T10:17:02.000Z</published>
-    <updated>2020-05-07T05:50:24.030Z</updated>
+    <updated>2020-06-22T11:44:12.997Z</updated>
     
     <summary type="html">
     
@@ -563,37 +586,6 @@
       <category term="Scapy" scheme="https://valecasec.github.io/tags/Scapy/"/>
     
       <category term="ARP" scheme="https://valecasec.github.io/tags/ARP/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scapy—Ping扫描</title>
-    <link href="https://valecasec.github.io/2020/04/17/scapy-ping-sao-miao/"/>
-    <id>https://valecasec.github.io/2020/04/17/scapy-ping-sao-miao/</id>
-    <published>2020-04-17T10:47:59.000Z</published>
-    <updated>2020-04-20T03:35:10.733Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Scapy—Ping扫描&quot;&gt;&lt;a href=&quot;#Scapy—Ping扫描&quot; class=&quot;headerlink&quot; title=&quot;Scapy—Ping扫描&quot;&gt;&lt;/a&gt;Scapy—Ping扫描&lt;/h1&gt;&lt;h2 id=&quot;一、项目背景&quot;&gt;&lt;a
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Scapy" scheme="https://valecasec.github.io/categories/Scapy/"/>
-    
-    
-      <category term="Python" scheme="https://valecasec.github.io/tags/Python/"/>
-    
-      <category term="Scapy" scheme="https://valecasec.github.io/tags/Scapy/"/>
-    
-      <category term="Ping" scheme="https://valecasec.github.io/tags/Ping/"/>
     
   </entry>
   

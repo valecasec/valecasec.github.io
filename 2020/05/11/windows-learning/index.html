@@ -475,14 +475,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1
+                    858
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -498,7 +498,54 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Windows-Learning"><a href="#Windows-Learning" class="headerlink" title="Windows_Learning"></a>Windows_Learning</h1>
+                <h1 id="Windows-Learning"><a href="#Windows-Learning" class="headerlink" title="Windows_Learning"></a>Windows_Learning</h1><h2 id="一、Windows命令行学习"><a href="#一、Windows命令行学习" class="headerlink" title="一、Windows命令行学习"></a>一、Windows命令行学习</h2><h3 id="1、Windows命令行的快速操作"><a href="#1、Windows命令行的快速操作" class="headerlink" title="1、Windows命令行的快速操作"></a>1、Windows命令行的快速操作</h3><ul>
+<li><p>Ctrl + <strong>→</strong> 和Ctrl +<strong>←</strong> ：跳到后一个/前一个单词</p>
+</li>
+<li><p>F1：逐个字符输入上一个命令</p>
+</li>
+<li><p>F2：当用户输入一个命令后，按F2功能键，然后输入命令中包含的一个字符，系统将自 动输入到用户输入字符的位置。例如先运行 <code>cd Desktop\test_valecalida</code>命令，然后 按下F2功能键，接着输入<code>v</code>,系统就会自动输入以下内容：<code>cd Desktop\test_</code> （即前一个命令中字符<code>v</code>之前的部分），注意，这里通常使用绝对路径</p>
+</li>
+<li><p>F7：显示所有历史记录，并且可以使用命令的首字母快速导航</p>
+</li>
+</ul>
+<h3 id="2、常用的CMD命令"><a href="#2、常用的CMD命令" class="headerlink" title="2、常用的CMD命令"></a>2、常用的CMD命令</h3><h4 id="2-1、本地与远程关机命令–shutdown"><a href="#2-1、本地与远程关机命令–shutdown" class="headerlink" title="2.1、本地与远程关机命令–shutdown"></a>2.1、本地与远程关机命令–shutdown</h4><h5 id="2-1-1、命令简介"><a href="#2-1-1、命令简介" class="headerlink" title="2.1.1、命令简介"></a>2.1.1、命令简介</h5><p>Windows10的关机是通过<code>shutdown.exe</code>程序来实现的，这个程序在<code>C:\Windows\System32</code>这个目录下，由于该目录已经添加到环境变量中，所以该程序是可以直接在命令行中使用的。</p>
+<h5 id="2-1-2、命令格式"><a href="#2-1-2、命令格式" class="headerlink" title="2.1.2、命令格式"></a>2.1.2、命令格式</h5><ul>
+<li>shutdown [ -i | -l | -s | -r | -a] [-f] [-m \\\computername] [-t xx] [-c “comment”]</li>
+</ul>
+<h5 id="2-1-3、命令参数说明"><a href="#2-1-3、命令参数说明" class="headerlink" title="2.1.3、命令参数说明"></a>2.1.3、命令参数说明</h5><ul>
+<li>-i：使用该参数将会显示图形界面，需要注意的是，这个参数必须放在第一位。</li>
+</ul>
+<img src="">
+
+<ul>
+<li>-l：注销计算机，该参数只能用于本地计算机，不能与<code>-m</code>参数一起使用</li>
+<li>-s：关闭计算机</li>
+<li>-r：重新启动计算机</li>
+<li>-a：放弃关闭计算机的操作</li>
+<li>-f：强行关闭正在运行的程序，以避免因某些程序无法退出而导致关机失败现象</li>
+<li>-m \\\computername：该参数用于控制远程计算机进行关机、重新启动及放弃操作。用户需要 先获取远程计算机的操作权限。此外，该参数不能与-1参数-起使用。（通常需要修改组策略）</li>
+<li>-t xx：设置倒计时xx秒</li>
+<li>-c “comment”：该参数用于设置关机对话框中的提示信息，但长度不能超过127个字符。</li>
+</ul>
+<h4 id="2-2、文件管理命令–dir"><a href="#2-2、文件管理命令–dir" class="headerlink" title="2.2、文件管理命令–dir"></a>2.2、文件管理命令–dir</h4><h5 id="2-2-1、命令简介"><a href="#2-2-1、命令简介" class="headerlink" title="2.2.1、命令简介"></a>2.2.1、命令简介</h5><p>Windows中查看文件与文件夹的命令有<code>dir</code> 与 <code>tree</code> ，但是后者使用频率不高且功能单一，这里主要描述 <code>dir</code></p>
+<h5 id="2-2-2、命令格式"><a href="#2-2-2、命令格式" class="headerlink" title="2.2.2、命令格式"></a>2.2.2、命令格式</h5><ul>
+<li>dir [drive:][path][filename] [/A[[:]attributes]] [/B] [/D] [/O[:]sortorder] [/P] [/Q] [[:]timefield] [/W] [/X] [/4]</li>
+</ul>
+<h5 id="2-2-3、命令参数说明"><a href="#2-2-3、命令参数说明" class="headerlink" title="2.2.3、命令参数说明"></a>2.2.3、命令参数说明</h5><ul>
+<li>[drive:][path][filename]：指定要查看的驱动器（盘符）、目录及文件，不带参数指当前目录</li>
+<li>/A:attributes：表示显示指定属性的文件。D：目录，R：只读文件，H：隐藏文件，A：准备存档的文件，S：系统文件。其中”-“表示非，”+”表示已生效。</li>
+<li>/B：简明扼要的显示文件及文件夹信息，不显示文件大小创建时间等额外信息</li>
+<li>/D：把文件及文件夹分栏列出</li>
+<li>/O：sortorder，按指定分类排列显示。N：名称，S：大小，E：扩展名，D：时间，使用”-“表示颠倒顺序</li>
+<li>/P：显示满屏后暂停，确认后显示下一屏</li>
+<li>/Q：文件的所有者</li>
+<li>/T:timefield：控制显示的时间字符域。C：创建时间，A：上次访问时间，W：上次写入的时间</li>
+<li>/W：表示使用宽列表格式</li>
+<li>/X：显示短名称</li>
+<li>/4：用四位数字显示年</li>
+</ul>
+<h4 id="2-3、修改文件夹及文件属性命令–attrib"><a href="#2-3、修改文件夹及文件属性命令–attrib" class="headerlink" title="2.3、修改文件夹及文件属性命令–attrib"></a>2.3、修改文件夹及文件属性命令–attrib</h4><h2 id="开启WSL"><a href="#开启WSL" class="headerlink" title="开启WSL"></a>开启WSL</h2><pre class="line-numbers language-powershell"><code class="language-powershell">Enable<span class="token operator">-</span>WindowsOptionalFeature <span class="token operator">-</span>Online <span class="token operator">-</span>FeatureName Microsoft<span class="token operator">-</span>Windows<span class="token operator">-</span>Subsystem<span class="token operator">-</span>Linux<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
             </div>
             <hr/>
 
@@ -1115,7 +1162,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">49.7k</span>&nbsp;字
+                class="white-color">51.2k</span>&nbsp;字
             
             
             
