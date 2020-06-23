@@ -475,14 +475,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    858
+                    3.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    12 分
                 </div>
                 
 
@@ -498,7 +498,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Windows-Learning"><a href="#Windows-Learning" class="headerlink" title="Windows_Learning"></a>Windows_Learning</h1><h2 id="一、Windows命令行学习"><a href="#一、Windows命令行学习" class="headerlink" title="一、Windows命令行学习"></a>一、Windows命令行学习</h2><h3 id="1、Windows命令行的快速操作"><a href="#1、Windows命令行的快速操作" class="headerlink" title="1、Windows命令行的快速操作"></a>1、Windows命令行的快速操作</h3><ul>
+                <h1 id="第一部分：Windows命令行学习"><a href="#第一部分：Windows命令行学习" class="headerlink" title="第一部分：Windows命令行学习"></a>第一部分：Windows命令行学习</h1><h2 id="一、系统管理命令"><a href="#一、系统管理命令" class="headerlink" title="一、系统管理命令"></a>一、系统管理命令</h2><h3 id="1、Windows命令行的快速操作"><a href="#1、Windows命令行的快速操作" class="headerlink" title="1、Windows命令行的快速操作"></a>1、Windows命令行的快速操作</h3><ul>
 <li><p>Ctrl + <strong>→</strong> 和Ctrl +<strong>←</strong> ：跳到后一个/前一个单词</p>
 </li>
 <li><p>F1：逐个字符输入上一个命令</p>
@@ -508,7 +508,7 @@
 <li><p>F7：显示所有历史记录，并且可以使用命令的首字母快速导航</p>
 </li>
 </ul>
-<h3 id="2、常用的CMD命令"><a href="#2、常用的CMD命令" class="headerlink" title="2、常用的CMD命令"></a>2、常用的CMD命令</h3><h4 id="2-1、本地与远程关机命令–shutdown"><a href="#2-1、本地与远程关机命令–shutdown" class="headerlink" title="2.1、本地与远程关机命令–shutdown"></a>2.1、本地与远程关机命令–shutdown</h4><h5 id="2-1-1、命令简介"><a href="#2-1-1、命令简介" class="headerlink" title="2.1.1、命令简介"></a>2.1.1、命令简介</h5><p>Windows10的关机是通过<code>shutdown.exe</code>程序来实现的，这个程序在<code>C:\Windows\System32</code>这个目录下，由于该目录已经添加到环境变量中，所以该程序是可以直接在命令行中使用的。</p>
+<h3 id="2、关机命令"><a href="#2、关机命令" class="headerlink" title="2、关机命令"></a>2、关机命令</h3><h4 id="2-1、本地与远程关机命令–shutdown"><a href="#2-1、本地与远程关机命令–shutdown" class="headerlink" title="2.1、本地与远程关机命令–shutdown"></a>2.1、本地与远程关机命令–shutdown</h4><h5 id="2-1-1、命令简介"><a href="#2-1-1、命令简介" class="headerlink" title="2.1.1、命令简介"></a>2.1.1、命令简介</h5><p>Windows10的关机是通过<code>shutdown.exe</code>程序来实现的，这个程序在<code>C:\Windows\System32</code>这个目录下，由于该目录已经添加到环境变量中，所以该程序是可以直接在命令行中使用的。</p>
 <h5 id="2-1-2、命令格式"><a href="#2-1-2、命令格式" class="headerlink" title="2.1.2、命令格式"></a>2.1.2、命令格式</h5><ul>
 <li>shutdown [ -i | -l | -s | -r | -a] [-f] [-m \\\computername] [-t xx] [-c “comment”]</li>
 </ul>
@@ -527,11 +527,11 @@
 <li>-t xx：设置倒计时xx秒</li>
 <li>-c “comment”：该参数用于设置关机对话框中的提示信息，但长度不能超过127个字符。</li>
 </ul>
-<h4 id="2-2、文件管理命令–dir"><a href="#2-2、文件管理命令–dir" class="headerlink" title="2.2、文件管理命令–dir"></a>2.2、文件管理命令–dir</h4><h5 id="2-2-1、命令简介"><a href="#2-2-1、命令简介" class="headerlink" title="2.2.1、命令简介"></a>2.2.1、命令简介</h5><p>Windows中查看文件与文件夹的命令有<code>dir</code> 与 <code>tree</code> ，但是后者使用频率不高且功能单一，这里主要描述 <code>dir</code></p>
-<h5 id="2-2-2、命令格式"><a href="#2-2-2、命令格式" class="headerlink" title="2.2.2、命令格式"></a>2.2.2、命令格式</h5><ul>
+<h3 id="3、文件管理命令"><a href="#3、文件管理命令" class="headerlink" title="3、文件管理命令"></a>3、文件管理命令</h3><h4 id="3-1、文件及文件夹查看命令–dir"><a href="#3-1、文件及文件夹查看命令–dir" class="headerlink" title="3.1、文件及文件夹查看命令–dir"></a>3.1、文件及文件夹查看命令–dir</h4><h5 id="3-2-1、命令简介"><a href="#3-2-1、命令简介" class="headerlink" title="3.2.1、命令简介"></a>3.2.1、命令简介</h5><p>Windows中查看文件与文件夹的命令有<code>dir</code> 与 <code>tree</code> ，但是后者使用频率不高且功能单一，这里主要描述 <code>dir</code></p>
+<h5 id="3-2-2、命令格式"><a href="#3-2-2、命令格式" class="headerlink" title="3.2.2、命令格式"></a>3.2.2、命令格式</h5><ul>
 <li>dir [drive:][path][filename] [/A[[:]attributes]] [/B] [/D] [/O[:]sortorder] [/P] [/Q] [[:]timefield] [/W] [/X] [/4]</li>
 </ul>
-<h5 id="2-2-3、命令参数说明"><a href="#2-2-3、命令参数说明" class="headerlink" title="2.2.3、命令参数说明"></a>2.2.3、命令参数说明</h5><ul>
+<h5 id="3-2-3、命令参数说明"><a href="#3-2-3、命令参数说明" class="headerlink" title="3.2.3、命令参数说明"></a>3.2.3、命令参数说明</h5><ul>
 <li>[drive:][path][filename]：指定要查看的驱动器（盘符）、目录及文件，不带参数指当前目录</li>
 <li>/A:attributes：表示显示指定属性的文件。D：目录，R：只读文件，H：隐藏文件，A：准备存档的文件，S：系统文件。其中”-“表示非，”+”表示已生效。</li>
 <li>/B：简明扼要的显示文件及文件夹信息，不显示文件大小创建时间等额外信息</li>
@@ -544,7 +544,182 @@
 <li>/X：显示短名称</li>
 <li>/4：用四位数字显示年</li>
 </ul>
-<h4 id="2-3、修改文件夹及文件属性命令–attrib"><a href="#2-3、修改文件夹及文件属性命令–attrib" class="headerlink" title="2.3、修改文件夹及文件属性命令–attrib"></a>2.3、修改文件夹及文件属性命令–attrib</h4><h2 id="开启WSL"><a href="#开启WSL" class="headerlink" title="开启WSL"></a>开启WSL</h2><pre class="line-numbers language-powershell"><code class="language-powershell">Enable<span class="token operator">-</span>WindowsOptionalFeature <span class="token operator">-</span>Online <span class="token operator">-</span>FeatureName Microsoft<span class="token operator">-</span>Windows<span class="token operator">-</span>Subsystem<span class="token operator">-</span>Linux<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="3-2、修改文件夹及文件属性命令–attrib"><a href="#3-2、修改文件夹及文件属性命令–attrib" class="headerlink" title="3.2、修改文件夹及文件属性命令–attrib"></a>3.2、修改文件夹及文件属性命令–attrib</h4><h5 id="3-2-1、命令简介-1"><a href="#3-2-1、命令简介-1" class="headerlink" title="3.2.1、命令简介"></a>3.2.1、命令简介</h5><p>attrib命令用于修改文件夹及文件的属性，文件属性主要有：存档、只读、隐藏和系统</p>
+<ul>
+<li>存档：用来标记文件的改动</li>
+<li>只读：只可读取文件内容，不能修改</li>
+<li>隐藏：通常无法直观的看到，需要使用特定的参数后才能看到</li>
+<li>系统：表示该文件或文件夹属于操作系统管控，这个属性在Windows中无法更改</li>
+</ul>
+<h5 id="3-2-2、命令格式-1"><a href="#3-2-2、命令格式-1" class="headerlink" title="3.2.2、命令格式"></a>3.2.2、命令格式</h5><ul>
+<li>attrib [+R | -R] [+A | -A] [+S | -S] [+H | -H] [[drive:] [path] filename] [/S] [/D]</li>
+</ul>
+<h5 id="3-2-3、命令参数说明-1"><a href="#3-2-3、命令参数说明-1" class="headerlink" title="3.2.3、命令参数说明"></a>3.2.3、命令参数说明</h5><ul>
+<li>+：设置属性</li>
+<li>-：取消属性</li>
+<li>R：与+或-组合，设置或取消只读属性</li>
+<li>A：与+或-组合，设置或取消存档属性</li>
+<li>S：与+或-组合，设置或取消系统文件属性</li>
+<li>H：与+或-组合，设置或取消隐藏文件属性</li>
+<li>[drive:] [path] [filename]：指定要设置的文件</li>
+<li>/S：处理当前文件夹啊及子文件夹中的匹配文件（也就是递归处理）</li>
+<li>/D：也处理文件夹，需要跟/S参数一起使用</li>
+</ul>
+<h4 id="3-3、文件复制命令–copy"><a href="#3-3、文件复制命令–copy" class="headerlink" title="3.3、文件复制命令–copy"></a>3.3、文件复制命令–copy</h4><h5 id="3-3-1、命令简介"><a href="#3-3-1、命令简介" class="headerlink" title="3.3.1、命令简介"></a>3.3.1、命令简介</h5><p>copy命令用于复制文件，但是不能复制子目录及子目录下的文件</p>
+<h5 id="3-3-2、命令格式"><a href="#3-3-2、命令格式" class="headerlink" title="3.3.2、命令格式"></a>3.3.2、命令格式</h5><ul>
+<li>copy [/D] [/V] [/N] [/Y | /-Y] [/A | /B] source [/A | /B] [+ source [/A | /B] [+…]] [destination[/A | /B] ]</li>
+</ul>
+<h5 id="3-3-3、命令参数说明"><a href="#3-3-3、命令参数说明" class="headerlink" title="3.3.3、命令参数说明"></a>3.3.3、命令参数说明</h5><ul>
+<li>/D：允许解密要创建的目标文件</li>
+<li>/V：验证新文件写入是否正确</li>
+<li>/N：复制带有非8dot3名称的文件名时，极可能使用短文件名</li>
+<li>/Y：不适用确认是否要覆盖现有目标的提示</li>
+<li>/-Y：使用确认是否要覆盖现有目标的提示</li>
+<li>/A：表示一个ASCII文本文件</li>
+<li>/B：表示一个二进制文件</li>
+<li>source：表示要复制的文件</li>
+<li>destination：为新文件指定目录和/或文件名</li>
+</ul>
+<h5 id="3-3-4、典型案例"><a href="#3-3-4、典型案例" class="headerlink" title="3.3.4、典型案例"></a>3.3.4、典型案例</h5><p>使用copy命令将图片和压缩包以16进制结合，其实也就是在图片后面追加一个压缩包</p>
+<pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\valecalida\Desktop><span class="token function">copy</span> <span class="token operator">/</span>b 2<span class="token punctuation">.</span>png <span class="token operator">+</span> <span class="token operator">/</span>b flag<span class="token punctuation">.</span>zip new<span class="token punctuation">.</span>png
+2<span class="token punctuation">.</span>png
+flag<span class="token punctuation">.</span>zip
+已复制         1 个文件。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果想获取到这个 <code>flag.zip</code> 里的信息，可以通过直接修改 <code>new.png</code> 后缀名为 <code>new.zip</code> ，这样就能获取到了，也可以通过16进制编辑器来将两个文件分离。</p>
+<h4 id="3-4、文件移动命令–move"><a href="#3-4、文件移动命令–move" class="headerlink" title="3.4、文件移动命令–move"></a>3.4、文件移动命令–move</h4><h5 id="3-4-1、命令简介"><a href="#3-4-1、命令简介" class="headerlink" title="3.4.1、命令简介"></a>3.4.1、命令简介</h5><p>move是将文件或文件夹移动到另外一个路径下去的Windows命令</p>
+<h5 id="3-4-2、命令格式"><a href="#3-4-2、命令格式" class="headerlink" title="3.4.2、命令格式"></a>3.4.2、命令格式</h5><p>要移动至少一个文件</p>
+<ul>
+<li>move [/Y |/-Y] [drive:] [path] filename destination</li>
+</ul>
+<p>要重命名一个目录</p>
+<ul>
+<li>move [/Y | /-Y]  [drive:] [path] dirname1 [drive:] [path] dirname2</li>
+</ul>
+<h5 id="3-4-3、命令参数说明"><a href="#3-4-3、命令参数说明" class="headerlink" title="3.4.3、命令参数说明"></a>3.4.3、命令参数说明</h5><ul>
+<li>[drive:] [path] filename：指定要移动的文件位置和名称</li>
+<li>destination：指定文件的新位置</li>
+<li>[drive:] [path] dirname1：指定要重命名的目录</li>
+<li>dirname2：指定目录的新名称</li>
+<li>/Y：这个参数用于取消确认改写一个现有目标文件的提示</li>
+<li>/-Y：这个参数用于对确认改写一个现有目标文件的提示</li>
+</ul>
+<h4 id="3-5、高级文件复制命令–xcopy"><a href="#3-5、高级文件复制命令–xcopy" class="headerlink" title="3.5、高级文件复制命令–xcopy"></a>3.5、高级文件复制命令–xcopy</h4><h5 id="3-5-1、命令简介"><a href="#3-5-1、命令简介" class="headerlink" title="3.5.1、命令简介"></a>3.5.1、命令简介</h5><p>xcopy是一个用于复制文件及目录外部命令，当系统存在这个程序文件时才可以使用</p>
+<h5 id="3-5-2、命令格式"><a href="#3-5-2、命令格式" class="headerlink" title="3.5.2、命令格式"></a>3.5.2、命令格式</h5><ul>
+<li>xcopy source [destination] [/A] [/M] [/D[:date]] [/P] [/S] [/E] [/V] [/W] [/C] [/I] [/Q] [/F] [/L] [/H] [/R] [/T] [/U] [/K] [/O] [/Z] [/EXECLUDE:file1[+file2] [+file3]…]</li>
+</ul>
+<h5 id="3-5-3、命令参数说明"><a href="#3-5-3、命令参数说明" class="headerlink" title="3.5.3、命令参数说明"></a>3.5.3、命令参数说明</h5><ul>
+<li>source：指定要复制的文件</li>
+<li>destination：指定新文件的位置和名称</li>
+<li>/A：只复制有存档属性的文档，并且不改变属性</li>
+<li>/M：只复制有存档属性的文档，并关闭存档属性</li>
+<li>/D:m-d-y：复制在指定日期或指定日期以后更改的文件，如果没有提供日期，只复制源时间比目标时间新的文件</li>
+<li>/P：创建每个目标文件前提示</li>
+<li>/S：复制目录和子目录，除了空的</li>
+<li>/E：复制目录和子目录，包括空的</li>
+<li>/V：验证每一个新文件</li>
+<li>/W：提示您在复制前按键</li>
+<li>/C：即使有错误，也继续复制</li>
+<li>/I：如果目标不存在，又在复制一个以上的文件，则鉴定目标是一个目录</li>
+<li>/Q：复制时显示完整的源和目标文件名</li>
+<li>/L：显示要复制的文件</li>
+<li>/H：复制隐藏的系统文件</li>
+<li>/R：覆盖只读文件</li>
+<li>/T：创建目录结构，但不复制文件。不包括空目录或子目录。/T /E包括空目录和子目录</li>
+<li>/U：只复制已经存在于目标中的文件</li>
+<li>/K：复制属性，一般的xcopy会重置只读属性</li>
+<li>/N：用生成的短名复制</li>
+<li>/O：复制文件所有权和ACL信息</li>
+<li>/Z：用重新启动模式复制网络文件</li>
+<li>/EXCLUDE:file1 [+file2] [+file3] …：在复制时排除不想要的文件或文件夹，使用这个参数时需要新建一个文本文件，写下要排除的字符串</li>
+</ul>
+<h4 id="3-6、重命名命令–rename"><a href="#3-6、重命名命令–rename" class="headerlink" title="3.6、重命名命令–rename"></a>3.6、重命名命令–rename</h4><h5 id="3-6-1、命令简介"><a href="#3-6-1、命令简介" class="headerlink" title="3.6.1、命令简介"></a>3.6.1、命令简介</h5><p>rename命令的功能时重新命令文件，通常可以简写为ren</p>
+<h5 id="3-6-2、命令格式"><a href="#3-6-2、命令格式" class="headerlink" title="3.6.2、命令格式"></a>3.6.2、命令格式</h5><ul>
+<li>rename [drive:] [path] filename1 filename2</li>
+<li>ren  [drive:] [path] filename1 filename2</li>
+</ul>
+<h5 id="3-6-3、命令参数说明"><a href="#3-6-3、命令参数说明" class="headerlink" title="3.6.3、命令参数说明"></a>3.6.3、命令参数说明</h5><ul>
+<li>[drive:] [path] filename1：要重命名的文件位置及名称</li>
+<li>filename2：新的名称</li>
+</ul>
+<h4 id="3-7、删除文件命令–del"><a href="#3-7、删除文件命令–del" class="headerlink" title="3.7、删除文件命令–del"></a>3.7、删除文件命令–del</h4><h5 id="3-7-1、命令简介"><a href="#3-7-1、命令简介" class="headerlink" title="3.7.1、命令简介"></a>3.7.1、命令简介</h5><p>del是用于删除多余文件的Windows命令</p>
+<h5 id="3-7-2、命令格式"><a href="#3-7-2、命令格式" class="headerlink" title="3.7.2、命令格式"></a>3.7.2、命令格式</h5><ul>
+<li>del [/P] [/F] [/S] [/Q] [/A[[:]attributes]] names</li>
+</ul>
+<h5 id="3-7-3、命令参数说明"><a href="#3-7-3、命令参数说明" class="headerlink" title="3.7.3、命令参数说明"></a>3.7.3、命令参数说明</h5><ul>
+<li>/P：删除每一个文件之前提示确认</li>
+<li>/F：强制删除只读文件</li>
+<li>/S：从所有子目录删除指定文件</li>
+<li>/Q：安静模式。删除全局通配符时，不要求确认</li>
+<li>/A:attrubutes：根据属性选择要删除的文件，属性包括RSHA－</li>
+<li>names:指定一个或数个文件或目录列表,允许使用通配符.如果制定了一个目录,目录中所有文件将会被删除</li>
+</ul>
+<h3 id="4、目录管理命令"><a href="#4、目录管理命令" class="headerlink" title="4、目录管理命令"></a>4、目录管理命令</h3><h4 id="4-1、目录切换命令–cd"><a href="#4-1、目录切换命令–cd" class="headerlink" title="4.1、目录切换命令–cd"></a>4.1、目录切换命令–cd</h4><h5 id="4-1-1、命令简介"><a href="#4-1-1、命令简介" class="headerlink" title="4.1.1、命令简介"></a>4.1.1、命令简介</h5><p>cd命令用于显示当前的目录命及切换当前目录</p>
+<h5 id="4-1-2、命令格式"><a href="#4-1-2、命令格式" class="headerlink" title="4.1.2、命令格式"></a>4.1.2、命令格式</h5><ul>
+<li>cd [/D] [drive:] [path]</li>
+<li>cd [..]</li>
+<li>cd [/]</li>
+</ul>
+<h5 id="4-1-3、命令参数"><a href="#4-1-3、命令参数" class="headerlink" title="4.1.3、命令参数"></a>4.1.3、命令参数</h5><ul>
+<li>/D：一个开关参数，使用该参数时可以直接使用带盘符的绝对路径</li>
+<li>[drive:] [path]：要设置的驱动器和目录</li>
+<li>..：返回上一层目录</li>
+<li>/：返回根目录</li>
+<li>不带参数的cd显示当前驱动器和目录</li>
+</ul>
+<h5 id="4-1-4、典型案例"><a href="#4-1-4、典型案例" class="headerlink" title="4.1.4、典型案例"></a>4.1.4、典型案例</h5><pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\valecalida\Desktop>cd <span class="token operator">/</span>d <span class="token string">"D:Program Files"</span>
+<span class="token comment" spellcheck="true">#如果不用/d这个参数的话就需要先选盘符再切换路径</span>
+D:\Program Files>C:
+
+C:\Users\valecalida\Desktop><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-2、创建目录命令–md"><a href="#4-2、创建目录命令–md" class="headerlink" title="4.2、创建目录命令–md"></a>4.2、创建目录命令–md</h4><h5 id="4-2-1、命令简介"><a href="#4-2-1、命令简介" class="headerlink" title="4.2.1、命令简介"></a>4.2.1、命令简介</h5><p>md(mkdir)命令用于创建目录。</p>
+<h5 id="4-2-2、命令格式"><a href="#4-2-2、命令格式" class="headerlink" title="4.2.2、命令格式"></a>4.2.2、命令格式</h5><ul>
+<li>md [drive:] path</li>
+<li>mkdir [drive:] path（大部分情况下这个是不能用的）</li>
+</ul>
+<h5 id="4-23、命令参数"><a href="#4-23、命令参数" class="headerlink" title="4.23、命令参数"></a>4.23、命令参数</h5><ul>
+<li>[drive:] path：新建目录的位置</li>
+</ul>
+<h4 id="4-3、删除目录命令–rd"><a href="#4-3、删除目录命令–rd" class="headerlink" title="4.3、删除目录命令–rd"></a>4.3、删除目录命令–rd</h4><h5 id="4-3-1、命令简介"><a href="#4-3-1、命令简介" class="headerlink" title="4.3.1、命令简介"></a>4.3.1、命令简介</h5><p>rd是Windows下用于删除目录的命令</p>
+<h5 id="4-3-2、命令格式"><a href="#4-3-2、命令格式" class="headerlink" title="4.3.2、命令格式"></a>4.3.2、命令格式</h5><ul>
+<li>rd [/S] [/Q] [drive:] path</li>
+<li>rmdir [/S] [/Q] [drive:] path（大部分情况下这个是不能用的）</li>
+</ul>
+<h5 id="4-3-3、命令参数"><a href="#4-3-3、命令参数" class="headerlink" title="4.3.3、命令参数"></a>4.3.3、命令参数</h5><ul>
+<li>/S：用于删除目录树，可以删除指定目录下的所有子目录和文件</li>
+<li>/Q：安静模式，带/S删除目录树时不要求确认</li>
+<li>[drive:] path：删除目录的位置</li>
+</ul>
+<h5 id="4-3-4、典型案例"><a href="#4-3-4、典型案例" class="headerlink" title="4.3.4、典型案例"></a>4.3.4、典型案例</h5><pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\valecalida\Desktop><span class="token function">rd</span> va
+目录不是空的。
+
+C:\Users\valecalida\Desktop><span class="token function">rd</span> <span class="token operator">/</span>s va
+va<span class="token punctuation">,</span> 是否确认<span class="token punctuation">(</span>Y<span class="token operator">/</span>N<span class="token punctuation">)</span>? y<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="4-4、将目录映射为驱动命令：subst"><a href="#4-4、将目录映射为驱动命令：subst" class="headerlink" title="4.4、将目录映射为驱动命令：subst"></a>4.4、将目录映射为驱动命令：subst</h4><h5 id="4-4-1、命令简介"><a href="#4-4-1、命令简介" class="headerlink" title="4.4.1、命令简介"></a>4.4.1、命令简介</h5><p>subst命令时将一个目录映射为虚拟的驱动器，用户可以像访问驱动器那样访问该目录</p>
+<h5 id="4-4-2、命令格式"><a href="#4-4-2、命令格式" class="headerlink" title="4.4.2、命令格式"></a>4.4.2、命令格式</h5><ul>
+<li>subst [drive1: [drive2:]path]]</li>
+<li>subst drive1 /D</li>
+</ul>
+<h5 id="4-4-3、命令参数"><a href="#4-4-3、命令参数" class="headerlink" title="4.4.3、命令参数"></a>4.4.3、命令参数</h5><ul>
+<li>drive1：指定要分配给虚拟驱动器的盘符</li>
+<li>[drive2:]path：指定要映射的目录</li>
+<li>/D：删除虚拟驱动器</li>
+</ul>
+<h5 id="4-4-4、典型案例"><a href="#4-4-4、典型案例" class="headerlink" title="4.4.4、典型案例"></a>4.4.4、典型案例</h5><p>这里需要注意，映射出来的虚拟驱动器是额外的盘符，也就是在根目录下，但是所占用空间是映射到的文件夹的可用空间</p>
+<pre class="line-numbers language-powershell"><code class="language-powershell">C:\Users\valecalida>md valecalida
+<span class="token comment" spellcheck="true">#先创建一个名为valecalida的文件夹</span>
+C:\Users\valecalida>subst m: C:\Users\valecalida\valecalida
+<span class="token comment" spellcheck="true">#将这个文件夹映射到m盘</span>
+C:\Users\valecalida>cd <span class="token operator">/</span>d m:
+<span class="token comment" spellcheck="true">#进入到m这个盘符查看</span>
+M:\><span class="token function">dir</span>
+ 驱动器 M 中的卷没有标签。
+ 卷的序列号是 381B<span class="token operator">-</span>9955
+ M:\ 的目录
+2020<span class="token operator">/</span>06<span class="token operator">/</span>23  14:31    &lt;<span class="token function">DIR</span>>          <span class="token punctuation">.</span>
+2020<span class="token operator">/</span>06<span class="token operator">/</span>23  14:31    &lt;<span class="token function">DIR</span>>          <span class="token punctuation">.</span><span class="token punctuation">.</span>
+               0 个文件              0 字节
+               2 个目录 21<span class="token punctuation">,</span>672<span class="token punctuation">,</span>689<span class="token punctuation">,</span>664 可用字节<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="5、磁盘管理命令"><a href="#5、磁盘管理命令" class="headerlink" title="5、磁盘管理命令"></a>5、磁盘管理命令</h3><h3 id="6、进程管理命令"><a href="#6、进程管理命令" class="headerlink" title="6、进程管理命令"></a>6、进程管理命令</h3><h3 id="7、服务管理命令"><a href="#7、服务管理命令" class="headerlink" title="7、服务管理命令"></a>7、服务管理命令</h3><h3 id="8、账户及组管理命令"><a href="#8、账户及组管理命令" class="headerlink" title="8、账户及组管理命令"></a>8、账户及组管理命令</h3><h2 id="开启WSL"><a href="#开启WSL" class="headerlink" title="开启WSL"></a>开启WSL</h2><pre class="line-numbers language-powershell"><code class="language-powershell">Enable<span class="token operator">-</span>WindowsOptionalFeature <span class="token operator">-</span>Online <span class="token operator">-</span>FeatureName Microsoft<span class="token operator">-</span>Windows<span class="token operator">-</span>Subsystem<span class="token operator">-</span>Linux<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
             </div>
             <hr/>
@@ -1162,7 +1337,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">51.2k</span>&nbsp;字
+                class="white-color">53.9k</span>&nbsp;字
             
             
             

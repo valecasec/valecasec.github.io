@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux_Learning, Python">
+    <meta name="keywords" content="远程关闭Windows7, Python">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux_Learning | valecalida&#39;s house</title>
+    <title>远程关闭Windows7 | valecalida&#39;s house</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -307,12 +307,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://s1.ax1x.com/2020/05/13/Ywiiw9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux_Learning</h1>
+                    <h1 class="description center-align post-title">远程关闭Windows7</h1>
                 </div>
             </div>
         </div>
@@ -437,12 +437,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Security/">
-                                <span class="chip bg-color">Security</span>
-                            </a>
-                        
-                            <a href="/tags/Linux/">
-                                <span class="chip bg-color">Linux</span>
+                            <a href="/tags/Windows/">
+                                <span class="chip bg-color">Windows</span>
                             </a>
                         
                     </div>
@@ -453,8 +449,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
+                            <a href="/categories/Windows/" class="post-category">
+                                Windows
                             </a>
                         
                     </div>
@@ -466,7 +462,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-12
+                    2020-06-23
                 </div>
                 
 
@@ -475,7 +471,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    460
                 </div>
                 
 
@@ -498,7 +494,43 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="远程关闭Windows-7"><a href="#远程关闭Windows-7" class="headerlink" title="远程关闭Windows 7"></a>远程关闭Windows 7</h1><h2 id="一、本文简介及主要攻克点"><a href="#一、本文简介及主要攻克点" class="headerlink" title="一、本文简介及主要攻克点"></a>一、本文简介及主要攻克点</h2><p>本文记录了在学习 <code>Windows</code> 命令行 <code>shutdown</code> 远程关闭 <code>Windows7</code> 主机的方法，需要注意的时，在<code>Windows Vista</code> 、<code>Windows 7</code> 、 <code>Windows 8</code> 中，远程连接时会删除管理员账户的凭据，就会造成 <code>拒绝访问(5)的情况</code> ，其实根本原因还是没有权限导致的。</p>
+<h2 id="二、远程关闭Windows-7操作流程"><a href="#二、远程关闭Windows-7操作流程" class="headerlink" title="二、远程关闭Windows 7操作流程"></a>二、远程关闭Windows 7操作流程</h2><h3 id="1、shutdown命令的常见使用参数"><a href="#1、shutdown命令的常见使用参数" class="headerlink" title="1、shutdown命令的常见使用参数"></a>1、shutdown命令的常见使用参数</h3><p><strong>命令参数：</strong></p>
+<ul>
+<li>shutdown [-i | -l | -s | -r | -a] [-f] [-m \\\\主机名(通常为IP地址)] [-t] [-c “comment”]</li>
+</ul>
+<p><strong>命令参数说明：</strong></p>
+<ul>
+<li>-i： 使用该参数会显示图形化界面，如果使用该参数，需要作为第一个参数</li>
+<li>-l：注销计算机，这个参数无法与 -m一起使用</li>
+<li>-s：关闭计算机</li>
+<li>-r：重启计算机</li>
+<li>-a：放弃关机或重启任务</li>
+<li>-f：强行关闭正在运行的程序，以防止因程序无法退出而导致的无法关机</li>
+<li>-m \\\\computername：该参数用于远程控制计算机关机重启或放弃操作，需要主机的关机权限</li>
+<li>-t xx：设置倒计时xx秒之后关闭计算机</li>
+<li>-c “comment”：用于设置关机对话框中的提示信息</li>
+</ul>
+<h3 id="2、给用户添加密码"><a href="#2、给用户添加密码" class="headerlink" title="2、给用户添加密码"></a>2、给用户添加密码</h3><p>我的电脑——&gt;控制面板——&gt;用户账户与家庭安全——&gt;更改Windows密码，为用户添加一个新密码，如果该用户已经有密码的话可以忽略</p>
+<img src="https://s1.ax1x.com/2020/06/23/NNx7UP.png">
+
+<h3 id="3、启用文件共享并通过Windows防火墙"><a href="#3、启用文件共享并通过Windows防火墙" class="headerlink" title="3、启用文件共享并通过Windows防火墙"></a>3、启用文件共享并通过Windows防火墙</h3><img src="https://s1.ax1x.com/2020/06/23/NNxTEt.png">
+
+<img src="https://s1.ax1x.com/2020/06/23/NNxIHI.png">
+
+<h3 id="4、修改组策略"><a href="#4、修改组策略" class="headerlink" title="4、修改组策略"></a>4、修改组策略</h3><p>修改组策略，全部添加 <code>John</code> 这个用户</p>
+<img src="https://s1.ax1x.com/2020/06/23/NNxL8S.png">
+
+<h3 id="5、修改注册表"><a href="#5、修改注册表" class="headerlink" title="5、修改注册表"></a>5、修改注册表</h3><p>HKEY_LOCAL_MACHINE - SOFTWARE - Microsoft - Windows - CurrentVersion - Policies - System，再这个文件夹新建一个Dword32位的值，命名为：<strong>LocalAccountTokenFilterPolicy</strong></p>
+<img src="https://s1.ax1x.com/2020/06/23/NNx5DA.png">
+
+<p>将<strong>LocalAccountTokenFilterPolicy</strong>这个值从0改为1</p>
+<img src="https://s1.ax1x.com/2020/06/23/NNxqC8.png">
+
+<h3 id="6、测试远程关机"><a href="#6、测试远程关机" class="headerlink" title="6、测试远程关机"></a>6、测试远程关机</h3><img src="https://s1.ax1x.com/2020/06/23/NUp5DJ.png">
+
+<p>发现可以正常关机</p>
+
             </div>
             <hr/>
 
@@ -523,7 +555,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://valecasec.github.io/2020/05/12/linux-learning/">https://valecasec.github.io/2020/05/12/linux-learning/</a>
+                    <a href="https://valecasec.github.io/2020/06/23/yuan-cheng-guan-bi-windows7/">https://valecasec.github.io/2020/06/23/yuan-cheng-guan-bi-windows7/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -561,12 +593,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Security/">
-                                    <span class="chip bg-color">Security</span>
-                                </a>
-                            
-                                <a href="/tags/Linux/">
-                                    <span class="chip bg-color">Linux</span>
+                                <a href="/tags/Windows/">
+                                    <span class="chip bg-color">Windows</span>
                                 </a>
                             
                         </div>
@@ -872,79 +900,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/05/13/emergency-response/">
+                <a href="/2020/06/23/yuan-cheng-guan-bi-windows7/">
                     <div class="card-image">
                         
-                        <img src="https://s1.ax1x.com/2020/05/13/YwiAF1.jpg" class="responsive-img" alt="Emergency_Response">
                         
-                        <span class="card-title">Emergency_Response</span>
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="远程关闭Windows7">
+                        
+                        <span class="card-title">远程关闭Windows7</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文将作为我在应急响应旅程上迈出的第一步,希望初学者一直在成长
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-13
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Emergency-Response/" class="post-category">
-                                    Emergency_Response
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Emergency-Response/">
-                        <span class="chip bg-color">Emergency_Response</span>
-                    </a>
-                    
-                    <a href="/tags/Security/">
-                        <span class="chip bg-color">Security</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/05/11/windows-learning/">
-                    <div class="card-image">
-                        
-                        <img src="https://s1.ax1x.com/2020/05/13/YwkqdH.jpg" class="responsive-img" alt="Windows_Learning">
-                        
-                        <span class="card-title">Windows_Learning</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            本文是我在学习Windows的一点记录过程,希望自己不断进步,加油!!!
+                            远程关闭Windows Vista、7、8时需要在注册表添加管理凭证,否则会造成...
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-23
                             </span>
                         <span class="publish-author">
                             
@@ -958,17 +936,53 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
-                    
-                    <a href="/tags/Security/">
-                        <span class="chip bg-color">Security</span>
-                    </a>
                     
                     <a href="/tags/Windows/">
                         <span class="chip bg-color">Windows</span>
                     </a>
                     
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/05/30/sqli-labs/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="sqli-labs">
+                        
+                        <span class="card-title">sqli-labs</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            sqli-labs一、环境搭建sqli-labs是一个SQL注入测试平台，这里不用太过复杂的配置，直接使用 docker 来搭建。
+1、查找docker环境ubuntu# docker search sqli-labs
+NAME      
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            valecalida
+                            
+                        </span>
+                    </div>
                 </div>
                 
             </div>

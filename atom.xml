@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://valecasec.github.io/"/>
-  <updated>2020-05-30T03:47:06.230Z</updated>
+  <updated>2020-06-23T09:20:04.836Z</updated>
   <id>https://valecasec.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>远程关闭Windows7</title>
+    <link href="https://valecasec.github.io/2020/06/23/yuan-cheng-guan-bi-windows7/"/>
+    <id>https://valecasec.github.io/2020/06/23/yuan-cheng-guan-bi-windows7/</id>
+    <published>2020-06-23T08:15:27.000Z</published>
+    <updated>2020-06-23T09:20:04.836Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;远程关闭Windows-7&quot;&gt;&lt;a href=&quot;#远程关闭Windows-7&quot; class=&quot;headerlink&quot; title=&quot;远程关闭Windows 7&quot;&gt;&lt;/a&gt;远程关闭Windows 7&lt;/h1&gt;&lt;h2 id=&quot;一、本文简介及主要攻克点&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Windows" scheme="https://valecasec.github.io/categories/Windows/"/>
+    
+    
+      <category term="Windows" scheme="https://valecasec.github.io/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
     <title>sqli-labs</title>
     <link href="https://valecasec.github.io/2020/05/30/sqli-labs/"/>
     <id>https://valecasec.github.io/2020/05/30/sqli-labs/</id>
     <published>2020-05-30T00:52:53.000Z</published>
-    <updated>2020-05-30T03:47:06.230Z</updated>
+    <updated>2020-06-23T02:49:14.085Z</updated>
     
     <summary type="html">
     
@@ -94,7 +121,7 @@
     <link href="https://valecasec.github.io/2020/05/11/windows-learning/"/>
     <id>https://valecasec.github.io/2020/05/11/windows-learning/</id>
     <published>2020-05-11T02:19:12.000Z</published>
-    <updated>2020-06-22T05:21:54.243Z</updated>
+    <updated>2020-06-23T06:41:35.967Z</updated>
     
     <summary type="html">
     
@@ -102,7 +129,7 @@
       
         
         
-          &lt;h1 id=&quot;Windows-Learning&quot;&gt;&lt;a href=&quot;#Windows-Learning&quot; class=&quot;headerlink&quot; title=&quot;Windows_Learning&quot;&gt;&lt;/a&gt;Windows_Learning&lt;/h1&gt;&lt;h2
+          &lt;h1 id=&quot;第一部分：Windows命令行学习&quot;&gt;&lt;a href=&quot;#第一部分：Windows命令行学习&quot; class=&quot;headerlink&quot; title=&quot;第一部分：Windows命令行学习&quot;&gt;&lt;/a&gt;第一部分：Windows命令行学习&lt;/h1&gt;&lt;h2
         
       
     
@@ -521,9 +548,9 @@
       <category term="Scapy" scheme="https://valecasec.github.io/categories/Scapy/"/>
     
     
-      <category term="Scapy" scheme="https://valecasec.github.io/tags/Scapy/"/>
-    
       <category term="ARP欺骗" scheme="https://valecasec.github.io/tags/ARP%E6%AC%BA%E9%AA%97/"/>
+    
+      <category term="Scapy" scheme="https://valecasec.github.io/tags/Scapy/"/>
     
   </entry>
   
@@ -555,37 +582,6 @@
       <category term="Metasploit" scheme="https://valecasec.github.io/tags/Metasploit/"/>
     
       <category term="SUID提权" scheme="https://valecasec.github.io/tags/SUID%E6%8F%90%E6%9D%83/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Scapy—ARP扫描</title>
-    <link href="https://valecasec.github.io/2020/04/18/scapy-arp-sao-miao/"/>
-    <id>https://valecasec.github.io/2020/04/18/scapy-arp-sao-miao/</id>
-    <published>2020-04-18T01:00:18.000Z</published>
-    <updated>2020-04-20T07:26:57.124Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h1 id=&quot;Scapy—ARP扫描&quot;&gt;&lt;a href=&quot;#Scapy—ARP扫描&quot; class=&quot;headerlink&quot; title=&quot;Scapy—ARP扫描&quot;&gt;&lt;/a&gt;Scapy—ARP扫描&lt;/h1&gt;&lt;h2 id=&quot;一、项目背景&quot;&gt;&lt;a href=&quot;#一、项目背景&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="Scapy" scheme="https://valecasec.github.io/categories/Scapy/"/>
-    
-    
-      <category term="Python" scheme="https://valecasec.github.io/tags/Python/"/>
-    
-      <category term="Scapy" scheme="https://valecasec.github.io/tags/Scapy/"/>
-    
-      <category term="ARP" scheme="https://valecasec.github.io/tags/ARP/"/>
     
   </entry>
   
